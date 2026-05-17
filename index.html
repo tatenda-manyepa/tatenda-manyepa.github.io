@@ -14,6 +14,7 @@
       background: #0b0f14;
       color: #f5f5f5;
       line-height: 1.7;
+      scroll-behavior: smooth;
     }
 
     .banner {
@@ -75,6 +76,7 @@
 
     .button:hover {
       background: #0a74ff;
+      transform: translateY(-3px);
     }
 
     .section {
@@ -89,7 +91,7 @@
 
     .section h2 {
       text-align: center;
-      font-size: 40px;
+      font-size: 42px;
       margin-bottom: 40px;
     }
 
@@ -127,11 +129,29 @@
       border-radius: 14px;
       padding: 24px;
       border: 1px solid #30363f;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-6px);
+      border-color: #4ea1ff;
+      background: #222a34;
     }
 
     .focus-card h3 {
       margin-top: 0;
       color: #ffffff;
+      font-size: 28px;
+    }
+
+    .focus-card span {
+      color: #4ea1ff;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
     }
 
     .certifications {
@@ -146,6 +166,32 @@
 
     .certifications li {
       margin-bottom: 18px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .metric-card {
+      background: #1c232c;
+      border-radius: 14px;
+      padding: 30px;
+      border: 1px solid #2f3741;
+    }
+
+    .metric-number {
+      font-size: 48px;
+      font-weight: bold;
+      color: #4ea1ff;
+    }
+
+    .metric-label {
+      margin-top: 10px;
+      color: #d4d4d4;
     }
 
     footer {
@@ -182,7 +228,10 @@
     </p>
 
     <div class="buttons">
-      <a href="https://github.com/tatenda-manyepa" class="button">GitHub Profile</a>
+
+      <a href="https://github.com/tatenda-manyepa" class="button">
+        GitHub Profile
+      </a>
 
       <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">
         Flagship Project
@@ -191,6 +240,7 @@
       <a href="https://linkedin.com/in/tatenda-manyepa" class="button">
         LinkedIn
       </a>
+
     </div>
 
   </section>
@@ -214,7 +264,7 @@
 
       <br><br>
 
-      This portfolio programme is designed to demonstrate systems thinking,
+      This portfolio programme demonstrates systems thinking,
       enterprise architecture methodology, migration planning,
       operational maturity, security-first design,
       and AI-enabled support transformation.
@@ -232,23 +282,75 @@
 
   <section class="section">
 
-    <h2>Recruiter Documents</h2>
+    <h2>AI-Enabled Transformation Workflow</h2>
 
-    <p style="text-align:center; max-width:800px; margin:auto; font-size:18px; color:#d4d4d4;">
-
-      Supporting documents for recruiters and hiring managers reviewing my cloud architecture,
-      enterprise systems transformation, and solutions architecture portfolio.
-
+    <p style="text-align:center; max-width:850px; margin:auto; font-size:18px; color:#d4d4d4;">
+      This portfolio is being developed as a living architecture programme,
+      demonstrating how AI can be embedded into operational workflows
+      to improve troubleshooting, incident response,
+      release management, and platform resilience.
     </p>
 
-    <div class="buttons">
+    <div class="focus-grid">
 
-      <a href="YOUR_CV_LINK_HERE" class="button">
-        📄 View CV
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/05-observability-support-layer">
+
+        <h3>1. Detect</h3>
+
+        <p>
+          Monitoring and observability identify system anomalies,
+          failed workflows, performance degradation,
+          or operational risk.
+        </p>
+
+        <span>View observability layer →</span>
+
       </a>
 
-      <a href="YOUR_COVER_LETTER_LINK_HERE" class="button">
-        📜 View Cover Letter
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/07-ai-operations-intelligence">
+
+        <h3>2. Analyse with AI</h3>
+
+        <p>
+          AI-assisted workflows correlate logs,
+          historic tickets, documentation,
+          and architecture context to suggest likely causes.
+        </p>
+
+        <span>View AI operations layer →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/runbooks">
+
+        <h3>3. Recommend Actions</h3>
+
+        <p>
+          Structured runbooks guide investigation steps,
+          escalation paths, rollback options,
+          and operational decisions.
+        </p>
+
+        <span>View runbooks →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/08-bug-detection-cicd">
+
+        <h3>4. Automate Fix Path</h3>
+
+        <p>
+          Bug detection and CI/CD pipelines support controlled hotfix deployment,
+          validation, approvals,
+          and rollback.
+        </p>
+
+        <span>View CI/CD layer →</span>
+
       </a>
 
     </div>
@@ -261,34 +363,194 @@
 
     <div class="focus-grid">
 
-      <div class="focus-card">
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/02-target-aws-architecture">
+
         <h3>AWS Cloud Modernisation</h3>
-        <p>Enterprise migration strategy, cloud-native transformation, scalability, and cost optimisation.</p>
-      </div>
 
-      <div class="focus-card">
+        <p>
+          Enterprise migration strategy,
+          cloud-native transformation,
+          scalability, and cost optimisation.
+        </p>
+
+        <span>View architecture section →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/07-ai-operations-intelligence">
+
         <h3>Operational Intelligence</h3>
-        <p>AI-assisted troubleshooting, observability, structured operational support, and incident intelligence.</p>
-      </div>
 
-      <div class="focus-card">
+        <p>
+          AI-assisted troubleshooting,
+          observability, structured operational support,
+          and incident intelligence.
+        </p>
+
+        <span>View operations intelligence →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/06-secure-operations-secrets">
+
         <h3>Security & Governance</h3>
-        <p>IAM, secrets management, operational governance, secure platform design, and enterprise controls.</p>
-      </div>
 
-      <div class="focus-card">
+        <p>
+          IAM, secrets management,
+          operational governance,
+          secure platform design,
+          and enterprise controls.
+        </p>
+
+        <span>View governance section →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/09-reliability-dr">
+
         <h3>Reliability Engineering</h3>
-        <p>Disaster recovery planning, resilience engineering, operational maturity, and platform stability.</p>
-      </div>
 
-      <div class="focus-card">
+        <p>
+          Disaster recovery planning,
+          resilience engineering,
+          operational maturity,
+          and platform stability.
+        </p>
+
+        <span>View resilience section →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/08-bug-detection-cicd">
+
         <h3>CI/CD & Automation</h3>
-        <p>Deployment automation, operational tooling, release pipelines, and automated remediation concepts.</p>
+
+        <p>
+          Deployment automation,
+          operational tooling,
+          release pipelines,
+          and automated remediation concepts.
+        </p>
+
+        <span>View CI/CD section →</span>
+
+      </a>
+
+      <a class="focus-card"
+         href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/00-business-context">
+
+        <h3>Enterprise Systems Thinking</h3>
+
+        <p>
+          Architecture strategy,
+          stakeholder alignment,
+          systems integration,
+          and operational transformation.
+        </p>
+
+        <span>View business context →</span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Transformation Roadmap</h2>
+
+    <div class="focus-grid">
+
+      <div class="focus-card">
+
+        <h3>Phase 1: Assess</h3>
+
+        <p>
+          Current-state analysis,
+          dependency mapping,
+          pain points,
+          risks,
+          and business drivers.
+        </p>
+
       </div>
 
       <div class="focus-card">
-        <h3>Enterprise Systems Thinking</h3>
-        <p>Architecture strategy, stakeholder alignment, systems integration, and operational transformation.</p>
+
+        <h3>Phase 2: Migrate</h3>
+
+        <p>
+          AWS landing zone,
+          migration waves,
+          testing strategy,
+          rollback planning,
+          and cutover approach.
+        </p>
+
+      </div>
+
+      <div class="focus-card">
+
+        <h3>Phase 3: Modernise</h3>
+
+        <p>
+          Refactoring,
+          observability,
+          resilience patterns,
+          platform automation,
+          and secure access governance.
+        </p>
+
+      </div>
+
+      <div class="focus-card">
+
+        <h3>Phase 4: Intelligent Operations</h3>
+
+        <p>
+          AI-assisted troubleshooting,
+          incident intelligence,
+          auto-ticketing,
+          bug detection,
+          and continuous improvement.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Architecture Programme Metrics</h2>
+
+    <div class="metrics">
+
+      <div class="metric-card">
+        <div class="metric-number">11+</div>
+        <div class="metric-label">Architecture Domains</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-number">AWS</div>
+        <div class="metric-label">Primary Cloud Platform</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-number">AI</div>
+        <div class="metric-label">Operational Intelligence Integration</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-number">24/7</div>
+        <div class="metric-label">Enterprise Operations Mindset</div>
       </div>
 
     </div>
@@ -300,10 +562,15 @@
     <h2>Certifications & Learning</h2>
 
     <ul>
+
       <li>AWS Solutions Architect Associate — In Progress</li>
+
       <li>IBM Systems & Solutions Architecture Professional Certificate</li>
+
       <li>AWS Cloud & Enterprise Architecture Portfolio Programme</li>
+
       <li>Cloud Migration & Operational Intelligence Architecture Projects</li>
+
     </ul>
 
   </section>
@@ -311,11 +578,21 @@
   <footer>
 
     <p>
+
       Connect on
-      <a href="https://linkedin.com/in/tatenda-manyepa">LinkedIn</a>
+
+      <a href="https://linkedin.com/in/tatenda-manyepa">
+        LinkedIn
+      </a>
+
       |
+
       GitHub:
-      <a href="https://github.com/tatenda-manyepa">tatenda-manyepa</a>
+
+      <a href="https://github.com/tatenda-manyepa">
+        tatenda-manyepa
+      </a>
+
     </p>
 
     <p>
