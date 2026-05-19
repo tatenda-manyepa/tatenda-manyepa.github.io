@@ -24,6 +24,8 @@
     .profile-wrapper {
       text-align: center;
       margin-top: -85px;
+      position: relative;
+      z-index: 2;
     }
 
     .profile-pic {
@@ -32,31 +34,45 @@
       border-radius: 50%;
       border: 4px solid white;
       object-fit: cover;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
     }
 
     .hero {
       text-align: center;
-      padding: 20px;
-      max-width: 1100px;
-      margin: auto;
+      max-width: 1180px;
+      margin: -45px auto 0;
+      padding: 120px 50px 70px;
+      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
     }
 
     .hero h1 {
-      font-size: 54px;
-      margin-bottom: 10px;
+      font-size: 46px;
+      margin: 0 0 20px;
       font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .hero h2 {
+      font-size: 58px;
+      line-height: 1.12;
+      margin: 0 0 22px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
     }
 
     .hero p {
       font-size: 20px;
       color: #d6d6d6;
-      max-width: 1000px;
+      max-width: 920px;
       margin: auto;
+      line-height: 1.8;
     }
 
     .buttons {
-      margin-top: 35px;
+      margin-top: 36px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -64,18 +80,21 @@
     }
 
     .button {
-      background: #005fcc;
+      background: linear-gradient(135deg, #0066d9, #0051b8);
       color: white;
-      padding: 14px 26px;
-      border-radius: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .button:hover {
-      background: #0a74ff;
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
       transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.38);
     }
 
     .section {
@@ -220,8 +239,21 @@
     }
 
     @media (max-width: 850px) {
+      .hero {
+        margin: -40px 16px 0;
+        padding: 100px 24px 55px;
+      }
+
       .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero h2 {
         font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
       }
 
       .section {
@@ -250,7 +282,7 @@
 
   <section class="hero">
     <h1>Tatenda Manyepa</h1>
-    <h1>Enterprise Cloud Architecture Portfolio</h1>
+    <h2>Enterprise Cloud Architecture Portfolio</h2>
 
     <p>
       Building enterprise-scale cloud and operational modernisation solutions focused on AWS architecture, AI operations intelligence, observability, security, resilience, and platform reliability.
