@@ -145,7 +145,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
       margin-top: 30px;
     }
@@ -155,6 +155,14 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin-top: 30px;
+    }
+
+    .bottom-left {
+      grid-column: 1 / 2;
+    }
+
+    .bottom-right {
+      grid-column: 3 / 4;
     }
 
     .card {
@@ -223,52 +231,6 @@
       color: #b7c8ff;
     }
 
-    .diagram-box {
-      background: #0f141b;
-      border: 1px dashed #3d4754;
-      border-radius: 16px;
-      padding: 30px;
-      margin-top: 30px;
-      text-align: center;
-      color: #d6d6d6;
-    }
-
-    .diagram-flow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .flow-node {
-      background: #1d2733;
-      border: 1px solid #3a4655;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-weight: 700;
-    }
-
-    .arrow {
-      color: #4ea1ff;
-      font-weight: bold;
-    }
-
-    .certifications {
-      text-align: center;
-    }
-
-    .certifications ul {
-      list-style: none;
-      padding: 0;
-      font-size: 18px;
-    }
-
-    .certifications li {
-      margin-bottom: 18px;
-    }
-
     footer {
       text-align: center;
       margin-top: 70px;
@@ -309,8 +271,14 @@
         font-size: 32px;
       }
 
+      .grid,
       .two-grid {
         grid-template-columns: 1fr;
+      }
+
+      .bottom-left,
+      .bottom-right {
+        grid-column: auto;
       }
     }
   </style>
@@ -434,44 +402,36 @@
     </p>
 
     <div class="grid">
+      <a class="card solution" href="current-state.html">
+        <h3>Application Layer</h3>
+        <p>Legacy application servers supporting fulfilment workflows, order processing and operational services.</p>
+        <span>Explore Architecture →</span>
+      </a>
 
-  <a class="card solution" href="current-state.html">
-    <h3>Application Layer</h3>
-    <p>
-      Legacy application servers supporting fulfilment workflows,
-      order processing and operational services.
-    </p>
-    <span>Explore Architecture →</span>
-  </a>
+      <a class="card solution" href="current-state.html">
+        <h3>Database Layer</h3>
+        <p>SQL clusters supporting inventory, orders, reporting and operational transactions.</p>
+        <span>Explore Architecture →</span>
+      </a>
 
-  <a class="card solution" href="current-state.html">
-    <h3>Database Layer</h3>
-    <p>
-      SQL clusters supporting inventory, orders,
-      reporting and operational transactions.
-    </p>
-    <span>Explore Architecture →</span>
-  </a>
+      <a class="card solution" href="current-state.html">
+        <h3>Messaging Layer</h3>
+        <p>RabbitMQ and integration services connecting operational systems and fulfilment processes.</p>
+        <span>Explore Architecture →</span>
+      </a>
 
-  <a class="card solution" href="current-state.html">
-    <h3>Messaging Layer</h3>
-    <p>
-      RabbitMQ and integration services connecting
-      operational systems and fulfilment processes.
-    </p>
-    <span>Explore Architecture →</span>
-  </a>
+      <a class="card solution bottom-left" href="current-state.html">
+        <h3>Operational Support</h3>
+        <p>Monitoring, tickets, investigations, escalation paths and support processes.</p>
+        <span>Explore Architecture →</span>
+      </a>
 
-  <a class="card solution" href="current-state.html">
-    <h3>Operational Support</h3>
-    <p>
-      Monitoring, tickets, investigations,
-      escalation paths and support processes.
-    </p>
-    <span>Explore Architecture →</span>
-  </a>
-
-</div>
+      <a class="card solution bottom-right" href="current-state.html">
+        <h3>Infrastructure Layer</h3>
+        <p>Physical servers, storage, networking, high availability processes and disaster recovery infrastructure.</p>
+        <span>Explore Architecture →</span>
+      </a>
+    </div>
 
     <br>
 
@@ -488,48 +448,37 @@
       observability, automation, disaster recovery, and AI-assisted operational intelligence.
     </p>
 
-    <div class="diagram-box">
-      <strong>Target State Flow</strong>
+    <div class="grid">
+      <a class="card decision" href="target-architecture.html">
+        <h3>AWS Network Foundation</h3>
+        <p>Route 53, VPCs, Load Balancers, network segmentation and resilience design.</p>
+        <span>Explore AWS Design →</span>
+      </a>
 
-      <div class="grid">
+      <a class="card decision" href="target-architecture.html">
+        <h3>Application Platform</h3>
+        <p>ECS, EC2, containerised workloads and scalable application services.</p>
+        <span>Explore AWS Design →</span>
+      </a>
 
-  <a class="card decision" href="target-architecture.html">
-    <h3>AWS Network Foundation</h3>
-    <p>
-      Route 53, VPCs, Load Balancers,
-      network segmentation and resilience design.
-    </p>
-    <span>Explore AWS Design →</span>
-  </a>
+      <a class="card decision" href="target-architecture.html">
+        <h3>Data & Recovery</h3>
+        <p>RDS, backups, disaster recovery, resilience and recovery strategies.</p>
+        <span>Explore AWS Design →</span>
+      </a>
 
-  <a class="card decision" href="target-architecture.html">
-    <h3>Application Platform</h3>
-    <p>
-      ECS, EC2, containerised workloads
-      and scalable application services.
-    </p>
-    <span>Explore AWS Design →</span>
-  </a>
+      <a class="card decision bottom-left" href="target-architecture.html">
+        <h3>AI Operations Layer</h3>
+        <p>Operational intelligence, observability, runbooks and AI-assisted troubleshooting.</p>
+        <span>Explore AWS Design →</span>
+      </a>
 
-  <a class="card decision" href="target-architecture.html">
-    <h3>Data & Recovery</h3>
-    <p>
-      RDS, backups, disaster recovery,
-      resilience and recovery strategies.
-    </p>
-    <span>Explore AWS Design →</span>
-  </a>
-
-  <a class="card decision" href="target-architecture.html">
-    <h3>AI Operations Layer</h3>
-    <p>
-      Operational intelligence, observability,
-      runbooks and AI-assisted troubleshooting.
-    </p>
-    <span>Explore AWS Design →</span>
-  </a>
-
-</div>
+      <a class="card decision bottom-right" href="target-architecture.html">
+        <h3>Observability & Security</h3>
+        <p>CloudWatch, Secrets Manager, monitoring, alerting, auditing, governance and operational visibility.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+    </div>
 
     <br>
 
@@ -551,39 +500,30 @@
         <div class="status completed">✅ Completed</div>
         <h3>Phase 1: Assess</h3>
         <p>Current-state analysis, dependency mapping, operational pain points, business drivers, risk identification, and transformation scope.</p>
-        <a href="assessment.html" class="button">
-View Documentation →
-</a>
+        <a href="assessment.html" class="button">View Documentation →</a>
       </div>
 
       <div class="card">
         <div class="status progress">🔄 In Progress</div>
         <h3>Phase 2: Migrate</h3>
         <p>AWS landing zone design, migration waves, testing strategy, rollback planning, validation approach, and cutover planning.</p>
-        <a href="View migration documentation.html" class="button">
-View Documentation →
-</a>
+        <a href="migration.html" class="button">View Documentation →</a>
       </div>
 
-     <div class="card">
-  <div class="status planned">⏳ Planned</div>
-  <h3>Phase 3: Modernise</h3>
-  <p>Refactoring, observability, resilience patterns, CI/CD automation, platform engineering, and secure access governance.</p>
-  <a href="modernisation.html" class="button">
-    View Documentation →
-  </a>
-</div>
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 3: Modernise</h3>
+        <p>Refactoring, observability, resilience patterns, CI/CD automation, platform engineering, and secure access governance.</p>
+        <a href="modernisation.html" class="button">View Documentation →</a>
+      </div>
 
-<div class="card">
-  <div class="status planned">⏳ Planned</div>
-  <h3>Phase 4: Intelligent Operations</h3>
-  <p>AI-assisted troubleshooting, incident intelligence, auto-ticketing, bug detection, operational knowledge retrieval, and continuous improvement.</p>
-  <a href="intelligent-operations.html" class="button">
-    View Documentation →
-  </a>
-</div>
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 4: Intelligent Operations</h3>
+        <p>AI-assisted troubleshooting, incident intelligence, auto-ticketing, bug detection, operational knowledge retrieval, and continuous improvement.</p>
+        <a href="intelligent-operations.html" class="button">View Documentation →</a>
+      </div>
     </div>
-    
   </section>
 
   <section class="section">
@@ -624,19 +564,17 @@ View Documentation →
       <a href="https://github.com/tatenda-manyepa">tatenda-manyepa</a>
     </p>
 
+    <p>Enterprise Solutions Architecture Portfolio</p>
+
     <p>
-Enterprise Solutions Architecture Portfolio
-</p>
+      AWS • Cloud Transformation • AI Operations Intelligence •
+      Observability • Security • Reliability Engineering
+    </p>
 
-<p>
-AWS • Cloud Transformation • AI Operations Intelligence •
-Observability • Security • Reliability Engineering
-</p>
-
-<p>
-Currently preparing for AWS Solutions Architect Associate while
-building enterprise-scale architecture case studies.
-</p>
+    <p>
+      Currently preparing for AWS Solutions Architect Associate while
+      building enterprise-scale architecture case studies.
+    </p>
   </footer>
 
 </body>
