@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Case Study | Enterprise Operational Systems Modernisation</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f14;
+      color: #f5f5f5;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 60px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 1180px;
+      margin: 40px auto 0;
+      padding: 70px 50px;
+      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 25px;
+      margin-top: 0;
+    }
+
+    p {
+      color: #d6d6d6;
+      font-size: 18px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #d4d4d4;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
+      transform: translateY(-3px);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0d5f39;
+      color: #8ef0b9;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1d232b;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #30363f;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #4ea1ff;
+    }
+
+    .problem {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .driver {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .success {
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .completed {
+      background: #123f2a;
+      color: #9ff0c2;
+    }
+
+    .progress {
+      background: #3b2f10;
+      color: #ffd36e;
+    }
+
+    .planned {
+      background: #283142;
+      color: #b7c8ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+      border-top: 1px solid #2b2f35;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #4ea1ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .hero, .section {
+        margin: 30px 16px;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .grid,
+      .two-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="badge">Architecture Case Study</div>
+
+    <h1>Enterprise Operational Systems Modernisation</h1>
+
+    <p class="subtitle">
+      AWS-first cloud transformation and operational modernisation programme for a fictional enterprise fulfilment platform.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="button">← Back to Portfolio</a>
+      <a href="current-state.html" class="button">Current-State Architecture</a>
+      <a href="target-architecture.html" class="button">Target AWS Architecture</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Executive Summary</h2>
+
+    <p>
+      Apex Operational Systems Ltd is a fictional enterprise operating a partially automated order fulfilment environment
+      supporting nationwide automotive parts distribution across the United Kingdom.
+    </p>
+
+    <p>
+      The operational platform consists of interconnected applications, databases, messaging services, fulfilment systems,
+      reporting capabilities, and robotic fulfilment technologies. These systems collectively support inventory management,
+      order processing, fulfilment execution, shipping preparation, and operational reporting.
+    </p>
+
+    <p>
+      While the current environment supports day-to-day operations, several technical and operational challenges increase
+      business risk, limit scalability, and impact overall service resilience. Key concerns include recurring service outages,
+      manual failover processes, infrastructure capacity constraints, database performance limitations, messaging reliability
+      issues, limited observability, and an immature disaster recovery posture.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Business Drivers</h2>
+
+    <p>
+      The transformation programme is driven by the need to improve resilience, reduce manual operational effort,
+      strengthen disaster recovery, improve monitoring, and prepare the platform for AI-assisted operational intelligence.
+    </p>
+
+    <div class="grid">
+      <div class="card driver">
+        <h3>Improve Operational Resilience</h3>
+        <p>Reduce recurring outages and improve service continuity across fulfilment, inventory, and order workflows.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Improve Disaster Recovery</h3>
+        <p>Introduce clearer recovery objectives, validated backups, recovery runbooks, and reduced business continuity risk.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Improve Observability</h3>
+        <p>Move from reactive support to proactive monitoring, alerting, operational dashboards, and faster root cause analysis.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Reduce Manual Operations</h3>
+        <p>Reduce manual failover, service recovery, health checks, and repetitive incident investigation effort.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Enable Scalability</h3>
+        <p>Support operational growth, peak demand, and more flexible infrastructure scaling.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Enable AI Operations</h3>
+        <p>Create the foundation for AI-assisted troubleshooting, knowledge retrieval, RCA support, and intelligent incident response.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Current Challenges</h2>
+
+    <div class="grid">
+      <div class="card problem">
+        <h3>Service Outages</h3>
+        <p>Recurring outages impact inventory allocation, order processing, fulfilment execution, and operational throughput.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Manual Failover</h3>
+        <p>Recovery activities depend heavily on support personnel performing manual recovery and failover actions.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Database Performance</h3>
+        <p>Long-running queries and inefficient processing can affect application responsiveness and fulfilment throughput.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Monitoring Gaps</h3>
+        <p>Limited monitoring capability means issues are often identified after service degradation or failure.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Messaging Reliability</h3>
+        <p>Delayed or blocked message processing can disrupt workflows and increase operational support effort.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Disaster Recovery Risk</h3>
+        <p>Disaster recovery maturity is limited, with recovery activities largely reactive and not consistently tested.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Transformation Objectives</h2>
+
+    <div class="grid">
+      <div class="card success">
+        <h3>Resilient Platform</h3>
+        <p>Design a more reliable operational platform with improved availability and reduced outage impact.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Cloud Modernisation</h3>
+        <p>Move from legacy on-premises infrastructure toward an AWS-first cloud operating model.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Operational Visibility</h3>
+        <p>Introduce centralised monitoring, dashboards, alerts, logging, and operational intelligence.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Security & Governance</h3>
+        <p>Strengthen access control, secrets management, auditability, operational governance, and compliance readiness.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Automation & CI/CD</h3>
+        <p>Improve change management, validation, release safety, rollback capability, and controlled hotfix deployment.</p>
+      </div>
+
+      <div class="card success">
+        <h3>AI-Assisted Operations</h3>
+        <p>Enable guided troubleshooting, knowledge retrieval, ticket intelligence, RCA support, and incident response acceleration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Programme Scope</h2>
+
+    <div class="grid">
+      <a class="card driver" href="current-state.html">
+        <h3>Current-State Assessment</h3>
+        <p>Understand the existing platform, dependencies, pain points, risks, and operational maturity gaps.</p>
+        <span>View current state →</span>
+      </a>
+
+      <a class="card driver" href="target-architecture.html">
+        <h3>AWS Target Architecture</h3>
+        <p>Design the future AWS-first platform architecture covering resilience, security, observability, and scalability.</p>
+        <span>View target architecture →</span>
+      </a>
+
+      <a class="card driver" href="migration.html">
+        <h3>Migration Strategy</h3>
+        <p>Plan migration waves, rollback, validation, testing, cutover, and operational transition.</p>
+        <span>View migration strategy →</span>
+      </a>
+
+      <a class="card driver" href="modernisation.html">
+        <h3>Modernisation</h3>
+        <p>Introduce refactoring, automation, CI/CD, observability, secure access, and platform engineering practices.</p>
+        <span>View modernisation →</span>
+      </a>
+
+      <a class="card driver" href="intelligent-operations.html">
+        <h3>AI Operations Intelligence</h3>
+        <p>Introduce AI-assisted troubleshooting, knowledge retrieval, RCA support, operational insight, and auto-ticketing concepts.</p>
+        <span>View AI operations →</span>
+      </a>
+
+      <a class="card driver" href="assessment.html">
+        <h3>Architecture Documentation</h3>
+        <p>Maintain detailed documentation, diagrams, Architecture Decision Records, risks, and delivery outputs.</p>
+        <span>View documentation →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Success Criteria</h2>
+
+    <div class="grid">
+      <div class="card success">
+        <h3>Reduced Outage Impact</h3>
+        <p>Improve resilience and reduce the operational impact of platform failures.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Faster Recovery</h3>
+        <p>Improve recovery capability through backup validation, runbooks, and failover planning.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Proactive Monitoring</h3>
+        <p>Move from reactive investigation to proactive operational alerting and visibility.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Improved Scalability</h3>
+        <p>Support future growth and peak operational periods with more flexible platform capacity.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Reduced Manual Effort</h3>
+        <p>Automate repetitive operational processes and reduce dependency on individual knowledge holders.</p>
+      </div>
+
+      <div class="card success">
+        <h3>AI-Ready Operations</h3>
+        <p>Create the foundation for intelligent support workflows, guided investigation, and knowledge-based troubleshooting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Programme Roadmap</h2>
+
+    <div class="two-grid">
+      <div class="card">
+        <div class="status completed">✅ Completed</div>
+        <h3>Phase 1: Assess</h3>
+        <p>Business context, current-state assessment, risk identification, transformation drivers, and operational pain points.</p>
+      </div>
+
+      <div class="card">
+        <div class="status progress">🔄 In Progress</div>
+        <h3>Phase 2: Migrate</h3>
+        <p>AWS target-state design, migration strategy, migration waves, testing, validation, rollback, and cutover approach.</p>
+      </div>
+
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 3: Modernise</h3>
+        <p>Refactoring, observability, security, CI/CD, release controls, platform engineering, and automation.</p>
+      </div>
+
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 4: Intelligent Operations</h3>
+        <p>AI-assisted support, auto-ticketing, guided troubleshooting, RCA support, and continuous operational improvement.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="index.html">Back to Portfolio</a>
+      |
+      <a href="target-architecture.html">Target Architecture</a>
+      |
+      <a href="current-state.html">Current State</a>
+    </p>
+
+    <p>
+      Enterprise Cloud Architecture • AWS • Operational Modernisation • AI Operations Intelligence
+    </p>
+  </footer>
+
+</body>
+</html>
