@@ -66,13 +66,12 @@
     .hero p {
       font-size: 20px;
       color: #d6d6d6;
-      max-width: 920px;
+      max-width: 940px;
       margin: auto;
-      line-height: 1.8;
     }
 
     .buttons {
-      margin-top: 36px;
+      margin-top: 30px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -89,6 +88,7 @@
       transition: all 0.3s ease;
       box-shadow: 0 10px 25px rgba(0,0,0,0.28);
       border: 1px solid rgba(255,255,255,0.08);
+      display: inline-block;
     }
 
     .button:hover {
@@ -98,7 +98,7 @@
     }
 
     .section {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 60px auto;
       padding: 50px;
       background: linear-gradient(145deg, #171c22, #11161c);
@@ -110,7 +110,15 @@
     .section h2 {
       text-align: center;
       font-size: 42px;
-      margin-bottom: 40px;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+      color: #d4d4d4;
+      font-size: 18px;
     }
 
     .badge {
@@ -135,21 +143,21 @@
       color: #dddddd;
     }
 
-    .focus-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
       margin-top: 30px;
     }
 
-    .roadmap-grid {
+    .two-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin-top: 30px;
     }
 
-    .focus-card {
+    .card {
       background: #1d232b;
       border-radius: 14px;
       padding: 24px;
@@ -160,23 +168,35 @@
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
 
-    .focus-card:hover {
+    .card:hover {
       transform: translateY(-6px);
       border-color: #4ea1ff;
       background: #222a34;
     }
 
-    .focus-card h3 {
+    .card h3 {
       margin-top: 0;
       color: #ffffff;
-      font-size: 28px;
+      font-size: 25px;
     }
 
-    .focus-card span {
+    .card span {
       color: #4ea1ff;
       font-weight: bold;
       display: inline-block;
       margin-top: 15px;
+    }
+
+    .problem {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .solution {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .decision {
+      border-left: 4px solid #8ef0b9;
     }
 
     .status {
@@ -203,12 +223,36 @@
       color: #b7c8ff;
     }
 
-    .recruiter-text {
+    .diagram-box {
+      background: #0f141b;
+      border: 1px dashed #3d4754;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 30px;
       text-align: center;
-      max-width: 850px;
-      margin: auto;
-      font-size: 18px;
-      color: #d4d4d4;
+      color: #d6d6d6;
+    }
+
+    .diagram-flow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .flow-node {
+      background: #1d2733;
+      border: 1px solid #3a4655;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-weight: 700;
+    }
+
+    .arrow {
+      color: #4ea1ff;
+      font-weight: bold;
     }
 
     .certifications {
@@ -265,7 +309,7 @@
         font-size: 32px;
       }
 
-      .roadmap-grid {
+      .two-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -285,142 +329,263 @@
     <h2>Enterprise Solutions Architecture Portfolio</h2>
 
     <p>
-      Building enterprise-scale cloud and operational modernisation solutions focused on AWS architecture, AI operations intelligence, observability, security, resilience, and platform reliability.
+      An interactive architecture case study portfolio demonstrating enterprise cloud modernisation,
+      AWS target-state design, operational intelligence, observability, security, resilience,
+      and AI-assisted support transformation.
     </p>
 
     <div class="buttons">
-      <a href="https://github.com/tatenda-manyepa" class="button">GitHub Profile</a>
-      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">Flagship Project</a>
-      <a href="https://linkedin.com/in/tatenda-manyepa" class="button">LinkedIn</a>
+      <a href="YOUR_CV_LINK_HERE" class="button">📄 View CV</a>
+      <a href="YOUR_COVER_LETTER_LINK_HERE" class="button">📜 View Cover Letter</a>
+    </div>
+
+    <div class="buttons" style="margin-top:20px;">
+      <a href="#case-study" class="button">🏗️ View Case Study</a>
+      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">💻 GitHub Repository</a>
+      <a href="https://linkedin.com/in/tatenda-manyepa" class="button">🔗 LinkedIn</a>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Flagship Architecture Programme</h2>
+  <section class="section" id="case-study">
+    <h2>Interactive Architecture Case Study</h2>
 
-    <div class="badge">In Active Development</div>
+    <p class="section-intro">
+      This case study presents a phased enterprise transformation from a legacy operational environment
+      into a secure, observable, AWS-first platform with AI-assisted operational intelligence.
+    </p>
+
+    <div class="badge">Living Portfolio • In Active Development</div>
 
     <div class="project-title">
       Enterprise Operational Systems Modernisation
     </div>
 
     <p class="project-description">
-      An AWS-first cloud transformation and intelligent operations platform focused on modernising
-      legacy enterprise operational systems through scalable cloud architecture, observability,
-      AI-assisted operations, secure access governance, reliability engineering,
-      and automated deployment practices.
+      Apex Operational Systems Ltd is a fictional enterprise operating a legacy fulfilment platform supporting
+      high-volume order processing, robotic fulfilment operations, inventory allocation, reporting, monitoring,
+      messaging, and customer-facing operational support.
 
       <br><br>
 
-      This portfolio programme demonstrates systems thinking,
-      enterprise architecture methodology, migration planning,
-      operational maturity, security-first design,
-      and AI-enabled support transformation.
+      The transformation focuses on improving resilience, observability, security, scalability, disaster recovery,
+      support efficiency, and AI-assisted incident investigation through an AWS-first modernisation approach.
     </p>
 
-    <br><br>
+    <br>
 
     <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">
-      View GitHub Repository →
+      View Full Evidence Repository →
     </a>
   </section>
 
   <section class="section">
-    <h2>Recruiter Toolkit</h2>
+    <h2>1. Business Problem</h2>
 
-    <p class="recruiter-text">
-      Supporting documents for recruiters and hiring managers reviewing my cloud architecture,
-      enterprise systems transformation, and solutions architecture portfolio.
+    <p class="section-intro">
+      The organisation is experiencing recurring operational instability within its fulfilment platform, including
+      high-severity outages impacting robotic fulfilment operations, inventory allocation, and order processing workflows.
+      These incidents have resulted in operational disruption, delayed customer deliveries, increased pressure on support
+      teams, and reduced confidence in platform resilience.
+      <br><br>
+      The current technology landscape is heavily dependent on legacy on-premises infrastructure with limited scalability,
+      manually managed high availability processes, and minimal operational observability. Support teams also operate
+      across siloed structures, creating inconsistent troubleshooting approaches and heavy reliance on individual technical knowledge.
     </p>
 
-    <div class="buttons">
-      <a href="YOUR_CV_LINK_HERE" class="button">📄 View CV</a>
-      <a href="YOUR_COVER_LETTER_LINK_HERE" class="button">📜 View Cover Letter</a>
-      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">View Case Study</a>
+    <div class="grid">
+      <div class="card problem">
+        <h3>Operational Stability Issues</h3>
+        <p>Recurring high-severity outages disrupt robotic movement, stock allocation, and order picking processes across fulfilment operations.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Limited High Availability & DR</h3>
+        <p>Manual standby infrastructure and limited automated failover capability increase recovery times and create single points of failure.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Reactive Support Model</h3>
+        <p>Issues are typically identified after service degradation or failure, with limited proactive alerting and slow root cause analysis.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Siloed Teams & Knowledge Gaps</h3>
+        <p>Development, testing, and support operate independently, creating poor cross-team visibility and inconsistent troubleshooting processes.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>On-Premises Infrastructure Constraints</h3>
+        <p>Database timeouts, network instability, maintenance overhead, and limited horizontal scalability affect peak operational periods.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Deployment & Change Risk</h3>
+        <p>Hotfixes and changes require stronger CI/CD controls, validation, rollback planning, and post-release monitoring.</p>
+      </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Architecture Focus Areas</h2>
+    <h2>2. Current-State Architecture</h2>
 
-    <div class="focus-grid">
-      <a class="focus-card" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/02-target-aws-architecture">
-        <h3>AWS Cloud Modernisation</h3>
-        <p>Enterprise migration strategy, cloud-native transformation, scalability, and cost optimisation.</p>
-        <span>View architecture section →</span>
-      </a>
+    <p class="section-intro">
+      The current state models a representative legacy enterprise operational environment with clustered databases,
+      application servers, messaging, reporting, monitoring, manual failover processes, and reactive support workflows.
+    </p>
 
-      <a class="focus-card" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/07-ai-operations-intelligence">
-        <h3>Operational Intelligence</h3>
-        <p>AI-assisted troubleshooting, observability, structured operational support, and incident intelligence.</p>
-        <span>View operations intelligence →</span>
-      </a>
+    <div class="diagram-box">
+      <strong>Current State Flow</strong>
 
-      <a class="focus-card" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/06-secure-operations-secrets">
-        <h3>Security & Governance</h3>
-        <p>IAM, secrets management, operational governance, secure platform design, and enterprise controls.</p>
-        <span>View governance section →</span>
-      </a>
+      <div class="diagram-flow">
+        <div class="flow-node">Operations Users</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Legacy Application Servers</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">SQL Cluster</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Reporting</div>
+      </div>
 
-      <a class="focus-card" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/09-reliability-dr">
-        <h3>Reliability Engineering</h3>
-        <p>Disaster recovery planning, resilience engineering, operational maturity, and platform stability.</p>
-        <span>View resilience section →</span>
-      </a>
+      <div class="diagram-flow">
+        <div class="flow-node">RabbitMQ</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Elastic / Kibana</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Fragmented Monitoring</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Manual Tickets</div>
+      </div>
 
-      <a class="focus-card" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/08-bug-detection-cicd">
-        <h3>CI/CD & Automation</h3>
-        <p>Deployment automation, operational tooling, release pipelines, and automated remediation concepts.</p>
-        <span>View CI/CD section →</span>
-      </a>
-
-      <a class="focus-card" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/00-business-context">
-        <h3>Enterprise Systems Thinking</h3>
-        <p>Architecture strategy, stakeholder alignment, systems integration, and operational transformation.</p>
-        <span>View business context →</span>
-      </a>
+      <p>
+        Stage 2 will replace this summary view with a full interactive architecture page where each component includes
+        hover explanations, risks, dependencies, and modernisation opportunities.
+      </p>
     </div>
+
+    <br>
+
+    <a class="button" href="current-state.html">
+      View Current-State Architecture →
+    </a>
   </section>
 
   <section class="section">
-    <h2>Enterprise Transformation Roadmap</h2>
+    <h2>3. Target AWS Architecture</h2>
 
-    <div class="roadmap-grid">
-      <div class="focus-card">
+    <p class="section-intro">
+      The target state introduces an AWS-first architecture designed around security, resilience,
+      observability, automation, disaster recovery, and AI-assisted operational intelligence.
+    </p>
+
+    <div class="diagram-box">
+      <strong>Target State Flow</strong>
+
+      <div class="diagram-flow">
+        <div class="flow-node">Route 53</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Load Balancer</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">ECS / EC2</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">RDS SQL Server</div>
+      </div>
+
+      <div class="diagram-flow">
+        <div class="flow-node">CloudWatch</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Secrets Manager</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">SQS / SNS</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">AWS Backup</div>
+      </div>
+
+      <div class="diagram-flow">
+        <div class="flow-node">AI Operations Layer</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Runbooks</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Incident Response</div>
+      </div>
+
+      <p>
+        Stage 2 will replace this summary view with a full interactive AWS target architecture page where each AWS service
+        explains why it was selected, the business value, and the trade-offs considered.
+      </p>
+    </div>
+
+    <br>
+
+    <a class="button" href="target-architecture.html">
+      View Target Architecture →
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>4. Transformation Roadmap</h2>
+
+    <p class="section-intro">
+      The project is delivered as a phased enterprise transformation roadmap. Each phase will link to a detailed page
+      containing documentation, diagrams, risks, decisions, and delivery outputs.
+    </p>
+
+    <div class="two-grid">
+      <div class="card">
         <div class="status completed">✅ Completed</div>
         <h3>Phase 1: Assess</h3>
-        <p>
-          Current-state analysis, dependency mapping, operational pain points,
-          business drivers, risk identification, and transformation scope.
-        </p>
+        <p>Current-state analysis, dependency mapping, operational pain points, business drivers, risk identification, and transformation scope.</p>
+        <span>View assessment documentation →</span>
       </div>
 
-      <div class="focus-card">
+      <div class="card">
         <div class="status progress">🔄 In Progress</div>
         <h3>Phase 2: Migrate</h3>
-        <p>
-          AWS landing zone design, migration waves, testing strategy,
-          rollback planning, validation approach, and cutover planning.
-        </p>
+        <p>AWS landing zone design, migration waves, testing strategy, rollback planning, validation approach, and cutover planning.</p>
+        <span>View migration documentation →</span>
       </div>
 
-      <div class="focus-card">
+      <div class="card">
         <div class="status planned">⏳ Planned</div>
         <h3>Phase 3: Modernise</h3>
-        <p>
-          Refactoring, observability, resilience patterns, CI/CD automation,
-          platform engineering, and secure access governance.
-        </p>
+        <p>Refactoring, observability, resilience patterns, CI/CD automation, platform engineering, and secure access governance.</p>
+        <span>View modernisation documentation →</span>
       </div>
 
-      <div class="focus-card">
+      <div class="card">
         <div class="status planned">⏳ Planned</div>
         <h3>Phase 4: Intelligent Operations</h3>
-        <p>
-          AI-assisted troubleshooting, incident intelligence, auto-ticketing,
-          bug detection, operational knowledge retrieval, and continuous improvement.
-        </p>
+        <p>AI-assisted troubleshooting, incident intelligence, auto-ticketing, bug detection, operational knowledge retrieval, and continuous improvement.</p>
+        <span>View AI operations documentation →</span>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>5. Architecture Decisions</h2>
+
+    <p class="section-intro">
+      Architecture Decision Records show reasoning, trade-offs, constraints, and design justification.
+      This demonstrates how decisions are made rather than only showing the final design.
+    </p>
+
+    <div class="grid">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/adr">
+        <h3>AWS-First Strategy</h3>
+        <p>Chosen to align with managed services, scalability, resilience patterns, security controls, and enterprise cloud adoption.</p>
+        <span>View ADRs →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/05-observability-support-layer">
+        <h3>Observability by Design</h3>
+        <p>Monitoring, logging, alerting, and operational intelligence are introduced as core architecture concerns, not afterthoughts.</p>
+        <span>View observability layer →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/07-ai-operations-intelligence">
+        <h3>AI-Assisted Operations</h3>
+        <p>AI is positioned as a support accelerator for investigation, knowledge retrieval, root cause analysis, and guided troubleshooting.</p>
+        <span>View AI layer →</span>
+      </a>
     </div>
   </section>
 
