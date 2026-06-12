@@ -433,34 +433,45 @@
       application servers, messaging, reporting, monitoring, manual failover processes, and reactive support workflows.
     </p>
 
-    <div class="diagram-box">
-      <strong>Current State Flow</strong>
+    <div class="grid">
 
-      <div class="diagram-flow">
-        <div class="flow-node">Operations Users</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Legacy Application Servers</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">SQL Cluster</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Reporting</div>
-      </div>
+  <a class="card solution" href="current-state.html">
+    <h3>Application Layer</h3>
+    <p>
+      Legacy application servers supporting fulfilment workflows,
+      order processing and operational services.
+    </p>
+    <span>Explore Architecture →</span>
+  </a>
 
-      <div class="diagram-flow">
-        <div class="flow-node">RabbitMQ</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Elastic / Kibana</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Fragmented Monitoring</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Manual Tickets</div>
-      </div>
+  <a class="card solution" href="current-state.html">
+    <h3>Database Layer</h3>
+    <p>
+      SQL clusters supporting inventory, orders,
+      reporting and operational transactions.
+    </p>
+    <span>Explore Architecture →</span>
+  </a>
 
-      <p>
-        Stage 2 will replace this summary view with a full interactive architecture page where each component includes
-        hover explanations, risks, dependencies, and modernisation opportunities.
-      </p>
-    </div>
+  <a class="card solution" href="current-state.html">
+    <h3>Messaging Layer</h3>
+    <p>
+      RabbitMQ and integration services connecting
+      operational systems and fulfilment processes.
+    </p>
+    <span>Explore Architecture →</span>
+  </a>
+
+  <a class="card solution" href="current-state.html">
+    <h3>Operational Support</h3>
+    <p>
+      Monitoring, tickets, investigations,
+      escalation paths and support processes.
+    </p>
+    <span>Explore Architecture →</span>
+  </a>
+
+</div>
 
     <br>
 
@@ -480,39 +491,45 @@
     <div class="diagram-box">
       <strong>Target State Flow</strong>
 
-      <div class="diagram-flow">
-        <div class="flow-node">Route 53</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Load Balancer</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">ECS / EC2</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">RDS SQL Server</div>
-      </div>
+      <div class="grid">
 
-      <div class="diagram-flow">
-        <div class="flow-node">CloudWatch</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Secrets Manager</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">SQS / SNS</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">AWS Backup</div>
-      </div>
+  <a class="card decision" href="target-architecture.html">
+    <h3>AWS Network Foundation</h3>
+    <p>
+      Route 53, VPCs, Load Balancers,
+      network segmentation and resilience design.
+    </p>
+    <span>Explore AWS Design →</span>
+  </a>
 
-      <div class="diagram-flow">
-        <div class="flow-node">AI Operations Layer</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Runbooks</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Incident Response</div>
-      </div>
+  <a class="card decision" href="target-architecture.html">
+    <h3>Application Platform</h3>
+    <p>
+      ECS, EC2, containerised workloads
+      and scalable application services.
+    </p>
+    <span>Explore AWS Design →</span>
+  </a>
 
-      <p>
-        Stage 2 will replace this summary view with a full interactive AWS target architecture page where each AWS service
-        explains why it was selected, the business value, and the trade-offs considered.
-      </p>
-    </div>
+  <a class="card decision" href="target-architecture.html">
+    <h3>Data & Recovery</h3>
+    <p>
+      RDS, backups, disaster recovery,
+      resilience and recovery strategies.
+    </p>
+    <span>Explore AWS Design →</span>
+  </a>
+
+  <a class="card decision" href="target-architecture.html">
+    <h3>AI Operations Layer</h3>
+    <p>
+      Operational intelligence, observability,
+      runbooks and AI-assisted troubleshooting.
+    </p>
+    <span>Explore AWS Design →</span>
+  </a>
+
+</div>
 
     <br>
 
@@ -534,30 +551,39 @@
         <div class="status completed">✅ Completed</div>
         <h3>Phase 1: Assess</h3>
         <p>Current-state analysis, dependency mapping, operational pain points, business drivers, risk identification, and transformation scope.</p>
-        <span>View assessment documentation →</span>
+        <a href="assessment.html" class="button">
+View Documentation →
+</a>
       </div>
 
       <div class="card">
         <div class="status progress">🔄 In Progress</div>
         <h3>Phase 2: Migrate</h3>
         <p>AWS landing zone design, migration waves, testing strategy, rollback planning, validation approach, and cutover planning.</p>
-        <span>View migration documentation →</span>
+        <a href="View migration documentation.html" class="button">
+View Documentation →
+</a>
       </div>
 
       <div class="card">
         <div class="status planned">⏳ Planned</div>
         <h3>Phase 3: Modernise</h3>
         <p>Refactoring, observability, resilience patterns, CI/CD automation, platform engineering, and secure access governance.</p>
-        <span>View modernisation documentation →</span>
+        <a href="View modernisation documentation.html" class="button">
+View Documentation →
+</a>
       </div>
 
       <div class="card">
         <div class="status planned">⏳ Planned</div>
         <h3>Phase 4: Intelligent Operations</h3>
-        <p>AI-assisted troubleshooting, incident intelligence, auto-ticketing, bug detection, operational knowledge retrieval, and continuous improvement.</p>
-        <span>View AI operations documentation →</span>
+        <p>AI-assisted troubleshooting, incident intelligence, auto-ticketing, bug detection, operational knowledge retrieval, and continuous improvement.</p
+        <a href="View AI operations documentation.html" class="button">
+View Documentation →
+</a>
       </div>
     </div>
+    
   </section>
 
   <section class="section">
@@ -589,17 +615,6 @@
     </div>
   </section>
 
-  <section class="section certifications">
-    <h2>Certifications & Learning</h2>
-
-    <ul>
-      <li>AWS Solutions Architect Associate — In Progress</li>
-      <li>IBM Systems & Solutions Architecture Professional Certificate</li>
-      <li>AWS Cloud & Enterprise Architecture Portfolio Programme</li>
-      <li>Cloud Migration & Operational Intelligence Architecture Projects</li>
-    </ul>
-  </section>
-
   <footer>
     <p>
       Connect on
@@ -610,8 +625,18 @@
     </p>
 
     <p>
-      Enterprise Cloud Architecture • AWS • AI Operations Intelligence • Security • Reliability Engineering
-    </p>
+Enterprise Solutions Architecture Portfolio
+</p>
+
+<p>
+AWS • Cloud Transformation • AI Operations Intelligence •
+Observability • Security • Reliability Engineering
+</p>
+
+<p>
+Currently preparing for AWS Solutions Architect Associate while
+building enterprise-scale architecture case studies.
+</p>
   </footer>
 
 </body>
