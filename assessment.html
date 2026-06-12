@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Assessment Phase | Enterprise Operational Systems Modernisation</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f14;
+      color: #f5f5f5;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 1180px;
+      margin: 40px auto 0;
+      padding: 70px 50px;
+      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p {
+      color: #d6d6d6;
+      font-size: 18px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #d4d4d4;
+      max-width: 940px;
+      margin: auto;
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 60px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+      color: #d4d4d4;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
+      transform: translateY(-3px);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #123f2a;
+      color: #9ff0c2;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1d232b;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #30363f;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .completed {
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .risk {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .driver {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .impact {
+      border-left: 4px solid #ffd36e;
+    }
+
+    .timeline {
+      border-left: 3px solid #4ea1ff;
+      padding-left: 28px;
+      margin-top: 35px;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background: #4ea1ff;
+      border-radius: 50%;
+      position: absolute;
+      left: -36px;
+      top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+      border-top: 1px solid #2b2f35;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #4ea1ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .hero, .section {
+        margin: 30px 16px;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .grid,
+      .two-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="badge">Phase 1: Completed</div>
+
+    <h1>Assessment Phase</h1>
+
+    <p class="subtitle">
+      Current-state discovery, business context analysis, operational risk assessment,
+      dependency mapping, transformation drivers and architectural problem definition.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="button">← Back to Portfolio</a>
+      <a href="case-study.html" class="button">View Case Study</a>
+      <a href="current-state.html" class="button">Current-State Architecture</a>
+      <a href="target-architecture.html" class="button">Target Architecture</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Purpose of the Assessment Phase</h2>
+
+    <p class="section-intro">
+      The assessment phase establishes why the transformation is required, what risks exist in the current environment,
+      which systems and operational processes are affected, and what outcomes the target architecture must achieve.
+    </p>
+
+    <div class="grid">
+      <div class="card completed">
+        <h3>Business Context</h3>
+        <p>Understand the organisation, operational model, business drivers, customer impact and transformation objectives.</p>
+      </div>
+
+      <div class="card completed">
+        <h3>Current-State Review</h3>
+        <p>Assess infrastructure, applications, databases, messaging, reporting, monitoring and support processes.</p>
+      </div>
+
+      <div class="card completed">
+        <h3>Risk Identification</h3>
+        <p>Identify service outages, manual recovery, observability gaps, integration failures and DR weaknesses.</p>
+      </div>
+
+      <div class="card completed">
+        <h3>Dependency Mapping</h3>
+        <p>Map relationships between fulfilment applications, databases, messaging, robotics, reporting and printing services.</p>
+      </div>
+
+      <div class="card completed">
+        <h3>Operational Maturity</h3>
+        <p>Evaluate support model, knowledge management, manual processes and troubleshooting consistency.</p>
+      </div>
+
+      <div class="card completed">
+        <h3>Transformation Scope</h3>
+        <p>Define the programme scope for cloud migration, observability, security, resilience and AI-assisted operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Assessment Findings</h2>
+
+    <p class="section-intro">
+      The current environment supports day-to-day operations but exhibits several limitations that increase operational risk,
+      reduce resilience and limit scalability.
+    </p>
+
+    <div class="grid">
+      <div class="card risk">
+        <h3>Recurring Service Outages</h3>
+        <p>Operational outages affect inventory allocation, order processing and fulfilment execution.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Manual Failover</h3>
+        <p>Failover and recovery rely heavily on manual support intervention and specialist knowledge.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Infrastructure Constraints</h3>
+        <p>Storage capacity, maintenance overhead and limited scalability create operational pressure.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Database Performance</h3>
+        <p>Long-running queries and inefficient processing affect application responsiveness and throughput.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Messaging Reliability</h3>
+        <p>Delayed or blocked message processing disrupts workflow execution and system communication.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Immature DR Posture</h3>
+        <p>Disaster recovery capability is limited, reactive and not consistently validated through formal testing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Business Impact</h2>
+
+    <div class="grid">
+      <div class="card impact">
+        <h3>Delayed Customer Deliveries</h3>
+        <p>Service disruption impacts order fulfilment and customer delivery timelines.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Reduced Throughput</h3>
+        <p>Operational bottlenecks reduce fulfilment efficiency and platform productivity.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Increased Support Pressure</h3>
+        <p>Reactive support increases workload, stress and dependency on individual engineers.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Higher Operational Cost</h3>
+        <p>Downtime, emergency maintenance and manual intervention increase operating cost.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Business Continuity Risk</h3>
+        <p>Weak DR capability increases the risk of extended service interruption during major incidents.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Reduced Confidence</h3>
+        <p>Recurring instability reduces stakeholder confidence in platform reliability and scalability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Transformation Drivers</h2>
+
+    <div class="grid">
+      <div class="card driver">
+        <h3>Improve Resilience</h3>
+        <p>Reduce recurring outages and improve availability across fulfilment operations.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Strengthen DR</h3>
+        <p>Define recovery objectives, improve backup governance and validate recovery procedures.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Improve Observability</h3>
+        <p>Introduce centralised monitoring, dashboards, alerts and operational visibility.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Enable Scalability</h3>
+        <p>Support future business growth and peak operational periods through cloud scalability.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Reduce Manual Effort</h3>
+        <p>Automate repetitive support activities, recovery steps and operational checks.</p>
+      </div>
+
+      <div class="card driver">
+        <h3>Enable AI Operations</h3>
+        <p>Prepare the platform for AI-assisted troubleshooting, knowledge retrieval and guided incident response.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Assessment Methodology</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>1. Business Context Review</h3>
+        <p>Understand operational environment, fulfilment processes, user impact, business drivers and transformation objectives.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>2. Current-State Discovery</h3>
+        <p>Review application landscape, infrastructure, databases, messaging, reporting, printing and robotic fulfilment dependencies.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>3. Pain Point Analysis</h3>
+        <p>Identify recurring incidents, service instability, bottlenecks, manual processes and operational maturity gaps.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>4. Risk Assessment</h3>
+        <p>Assess business and technical impact of service outages, manual failover, storage constraints, database limitations and weak DR.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>5. Transformation Scope Definition</h3>
+        <p>Define the target areas for migration, resilience, observability, automation, governance and AI-assisted operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Assessment Outputs</h2>
+
+    <div class="two-grid">
+      <a href="case-study.html" class="card completed">
+        <h3>Business Case Study</h3>
+        <p>Executive business context, drivers, objectives, scope and success criteria.</p>
+      </a>
+
+      <a href="current-state.html" class="card completed">
+        <h3>Current-State Architecture</h3>
+        <p>Interactive current-state platform view showing dependencies, risks and modernisation opportunities.</p>
+      </a>
+
+      <a href="target-architecture.html" class="card driver">
+        <h3>Target Architecture Input</h3>
+        <p>Assessment findings directly inform the AWS-first target-state architecture and migration priorities.</p>
+      </a>
+
+      <a href="migration.html" class="card driver">
+        <h3>Migration Strategy Input</h3>
+        <p>Current-state risks and dependencies guide migration waves, rollback plans, validation and cutover planning.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="index.html">Back to Portfolio</a>
+      |
+      <a href="case-study.html">Case Study</a>
+      |
+      <a href="current-state.html">Current State</a>
+      |
+      <a href="target-architecture.html">Target Architecture</a>
+    </p>
+
+    <p>
+      Assessment Phase • Current-State Discovery • Risk Identification • Transformation Drivers
+    </p>
+  </footer>
+
+</body>
+</html>
