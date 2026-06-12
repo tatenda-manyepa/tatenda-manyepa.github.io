@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>AI Operations Intelligence | Enterprise Operational Systems Modernisation</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f14;
+      color: #f5f5f5;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 1180px;
+      margin: 40px auto 0;
+      padding: 70px 50px;
+      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p {
+      color: #d6d6d6;
+      font-size: 18px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #d4d4d4;
+      max-width: 940px;
+      margin: auto;
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 60px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+      color: #d4d4d4;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
+      transform: translateY(-3px);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #283142;
+      color: #b7c8ff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1d232b;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #30363f;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .ai {
+      border-left: 4px solid #b7c8ff;
+    }
+
+    .automation {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .success {
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .risk {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .workflow {
+      background: #0f141b;
+      border: 1px solid #30363f;
+      border-radius: 18px;
+      padding: 35px;
+      margin-top: 35px;
+      text-align: center;
+    }
+
+    .flow-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .flow-node {
+      background: #1d2733;
+      border: 1px solid #3a4655;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-weight: 700;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .arrow {
+      color: #4ea1ff;
+      font-weight: bold;
+    }
+
+    .demo-box {
+      background: #111820;
+      border: 1px solid #2e3947;
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 30px;
+    }
+
+    .demo-input {
+      background: #0b0f14;
+      border: 1px solid #3d4754;
+      border-radius: 14px;
+      padding: 22px;
+      color: #d6d6d6;
+      margin-top: 20px;
+    }
+
+    .demo-output {
+      background: #122033;
+      border: 1px solid #4ea1ff;
+      border-radius: 14px;
+      padding: 22px;
+      color: #d6d6d6;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+      border-top: 1px solid #2b2f35;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #4ea1ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .hero, .section {
+        margin: 30px 16px;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .grid,
+      .two-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="badge">Phase 4: Planned</div>
+
+    <h1>AI Operations Intelligence</h1>
+
+    <p class="subtitle">
+      AI-assisted operational intelligence layer designed to improve troubleshooting, incident response,
+      knowledge retrieval, root cause analysis, auto-ticketing and continuous reliability improvement.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="button">← Back to Portfolio</a>
+      <a href="case-study.html" class="button">View Case Study</a>
+      <a href="target-architecture.html" class="button">Target Architecture</a>
+      <a href="modernisation.html" class="button">Modernisation</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI Operations Objective</h2>
+
+    <p class="section-intro">
+      The AI operations layer is designed to move the organisation from reactive support toward intelligent,
+      assisted operations. The aim is not to replace support teams, but to help engineers investigate incidents faster,
+      reuse knowledge more effectively, identify recurring issues, and respond with more consistent operational guidance.
+    </p>
+
+    <div class="grid">
+      <div class="card ai">
+        <h3>Reduce Investigation Time</h3>
+        <p>Use AI to summarise symptoms, logs, historic tickets and documentation so engineers can understand incidents faster.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Improve Knowledge Retrieval</h3>
+        <p>Retrieve relevant runbooks, known issues, architecture decisions and previous incident patterns during live support.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Standardise Troubleshooting</h3>
+        <p>Guide engineers through consistent investigation steps, escalation paths, rollback options and validation checks.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Detect Recurring Issues</h3>
+        <p>Identify repeated incident patterns across services, queues, databases, fulfilment workflows and operational tickets.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Accelerate RCA</h3>
+        <p>Support post-incident analysis by correlating symptoms, timeline, affected systems, likely causes and improvement actions.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Improve Operational Maturity</h3>
+        <p>Turn incidents into structured learning, runbook updates, automation opportunities and architecture improvements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI-Enabled Support Workflow</h2>
+
+    <p class="section-intro">
+      This workflow shows how observability, incident data, operational documentation and AI assistance can work together
+      to support faster and more consistent incident response.
+    </p>
+
+    <div class="workflow">
+      <h3>Operational Intelligence Flow</h3>
+
+      <div class="flow-row">
+        <div class="flow-node">CloudWatch Alert</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Ticket Created</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">AI Context Retrieval</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-node">Logs & Metrics</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Runbooks</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Historic Incidents</div>
+        <div class="arrow">+</div>
+        <div class="flow-node">Architecture Docs</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-node">Suggested Root Cause</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Recommended Actions</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Engineer Validation</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="arrow">↓</div>
+      </div>
+
+      <div class="flow-row">
+        <div class="flow-node">Resolution</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">RCA Summary</div>
+        <div class="arrow">→</div>
+        <div class="flow-node">Continuous Improvement</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI Operations Capabilities</h2>
+
+    <div class="grid">
+      <div class="card automation">
+        <h3>Incident Summarisation</h3>
+        <p>Summarise symptoms, affected services, timeline, impact and current state from logs, alerts and ticket information.</p>
+      </div>
+
+      <div class="card automation">
+        <h3>Runbook Recommendation</h3>
+        <p>Recommend relevant troubleshooting steps based on service, error pattern, alert type or previous incidents.</p>
+      </div>
+
+      <div class="card automation">
+        <h3>Log Pattern Analysis</h3>
+        <p>Identify repeated errors, timeout patterns, queue delays, database issues and integration failures.</p>
+      </div>
+
+      <div class="card automation">
+        <h3>Knowledge Search</h3>
+        <p>Search operational documentation, architecture decisions, known bugs, previous fixes and support notes.</p>
+      </div>
+
+      <div class="card automation">
+        <h3>Auto-Ticket Enrichment</h3>
+        <p>Generate ticket summaries, affected components, priority suggestions, probable causes and suggested next actions.</p>
+      </div>
+
+      <div class="card automation">
+        <h3>RCA Assistance</h3>
+        <p>Help structure post-incident reviews by summarising causes, contributing factors, mitigations and follow-up actions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI Incident Insight Demo</h2>
+
+    <p class="section-intro">
+      This simulated demo shows how an AI operations assistant could convert an operational alert into structured investigation guidance.
+    </p>
+
+    <div class="demo-box">
+      <h3>Sample Operational Event</h3>
+
+      <div class="demo-input">
+        <strong>Alert:</strong> Fulfilment workflow delay detected.<br>
+        <strong>Symptoms:</strong> Increased queue depth, delayed inventory allocation, slow order picking confirmation.<br>
+        <strong>Affected Area:</strong> Order fulfilment platform and messaging layer.
+      </div>
+
+      <div class="demo-output">
+        <strong>AI-Assisted Insight:</strong>
+        <p>
+          The alert may indicate delayed message processing between the fulfilment platform and downstream operational services.
+          Suggested investigation steps include checking queue depth, reviewing consumer service health, validating database response times,
+          and confirming whether recent deployments or integration failures correlate with the alert window.
+        </p>
+
+        <strong>Recommended Actions:</strong>
+        <p>
+          1. Check CloudWatch metrics for queue depth and consumer errors.<br>
+          2. Review application logs for timeout or retry patterns.<br>
+          3. Validate database performance and long-running queries.<br>
+          4. Check recent deployment activity.<br>
+          5. Follow messaging service recovery runbook if queue processing remains delayed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Knowledge Sources</h2>
+
+    <p class="section-intro">
+      The AI operations layer becomes more useful when it can retrieve trusted operational context rather than relying on generic responses.
+    </p>
+
+    <div class="grid">
+      <div class="card ai">
+        <h3>Architecture Documentation</h3>
+        <p>Target architecture, current-state assessment, migration strategy, diagrams and architecture decision records.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Operational Runbooks</h3>
+        <p>Standard troubleshooting steps, escalation paths, recovery procedures and validation checks.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Historic Tickets</h3>
+        <p>Previous incidents, known issues, recurring problems, fixes, customer impact and resolution notes.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Logs & Metrics</h3>
+        <p>Application logs, infrastructure metrics, queue behaviour, database performance and service health signals.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Known Bugs</h3>
+        <p>Known product defects, release notes, bug work items, affected versions and workaround guidance.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Support Knowledge Base</h3>
+        <p>Operational notes, investigation patterns, internal documentation, troubleshooting decisions and lessons learned.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Architecture Design Considerations</h2>
+
+    <div class="grid">
+      <div class="card risk">
+        <h3>Human-in-the-Loop</h3>
+        <p>AI provides recommendations, but engineers remain responsible for validation, decision-making and production changes.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Data Privacy</h3>
+        <p>Operational data, logs, tickets and customer information require careful access control, masking and governance.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Trustworthy Sources</h3>
+        <p>Responses should be grounded in approved runbooks, architecture documents and operational knowledge sources.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Explainability</h3>
+        <p>AI recommendations should show why a suggestion was made and which sources informed the response.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Change Control</h3>
+        <p>AI should not directly deploy fixes without approval gates, validation checks and rollback controls.</p>
+      </div>
+
+      <div class="card risk">
+        <h3>Continuous Review</h3>
+        <p>AI outputs, runbooks, incident summaries and recommendations should be reviewed and improved over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Future Technical Implementation</h2>
+
+    <p class="section-intro">
+      The initial portfolio version demonstrates the architecture and workflow concept. A future implementation could use a RAG-based design
+      connected to documentation, tickets, logs and operational runbooks.
+    </p>
+
+    <div class="grid">
+      <div class="card success">
+        <h3>Document Ingestion</h3>
+        <p>Ingest architecture docs, runbooks, support notes and known issue records into a searchable knowledge base.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Vector Search</h3>
+        <p>Use embeddings and vector search to retrieve relevant operational context based on incident symptoms.</p>
+      </div>
+
+      <div class="card success">
+        <h3>RAG Assistant</h3>
+        <p>Generate grounded answers using retrieved knowledge, service context, runbooks and architecture decisions.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Observability Integration</h3>
+        <p>Connect alerts, logs and metrics so incident context can be summarised automatically.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Ticketing Integration</h3>
+        <p>Integrate with tools such as Freshdesk, Jira or ServiceNow to enrich tickets and support workflows.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Feedback Loop</h3>
+        <p>Capture engineer feedback to improve runbooks, AI responses, knowledge quality and operational maturity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Expected Outcomes</h2>
+
+    <div class="grid">
+      <div class="card success">
+        <h3>Faster Incident Response</h3>
+        <p>Engineers can understand symptoms and likely causes faster using AI-supported context retrieval.</p>
+      </div>
+
+      <div class="card success">
+        <h3>More Consistent Troubleshooting</h3>
+        <p>Teams follow more consistent investigation steps rather than relying only on individual experience.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Improved Knowledge Reuse</h3>
+        <p>Past incidents, known issues and runbooks become easier to find and reuse during live support.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Improved RCA Quality</h3>
+        <p>Post-incident reviews become more structured, evidence-based and connected to improvement actions.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Reduced Support Pressure</h3>
+        <p>AI-assisted guidance helps reduce repeated investigation effort and improves team confidence.</p>
+      </div>
+
+      <div class="card success">
+        <h3>Continuous Improvement</h3>
+        <p>Recurring issues feed back into architecture improvements, automation opportunities and operational maturity.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="index.html">Back to Portfolio</a>
+      |
+      <a href="case-study.html">Case Study</a>
+      |
+      <a href="target-architecture.html">Target Architecture</a>
+      |
+      <a href="modernisation.html">Modernisation</a>
+    </p>
+
+    <p>
+      AI Operations Intelligence • RAG Concepts • Incident Intelligence • Knowledge Retrieval • Operational Automation
+    </p>
+  </footer>
+
+</body>
+</html>
