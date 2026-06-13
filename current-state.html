@@ -13,18 +13,21 @@
       background: #0b0f14;
       color: #f5f5f5;
       line-height: 1.7;
-      scroll-behavior: smooth;
+    }
+
+    .hero, .section {
+      max-width: 1180px;
+      margin: 50px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
     }
 
     .hero {
       text-align: center;
-      max-width: 1180px;
-      margin: 40px auto 0;
-      padding: 70px 50px;
-      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+      margin-top: 40px;
     }
 
     h1 {
@@ -48,29 +51,23 @@
       font-size: 18px;
     }
 
-    .subtitle {
-      font-size: 22px;
-      color: #d4d4d4;
-      max-width: 920px;
-      margin: auto;
-    }
-
-    .section {
-      max-width: 1120px;
-      margin: 60px auto;
-      padding: 50px;
-      background: linear-gradient(145deg, #171c22, #11161c);
-      border: 1px solid #2a2f36;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.25);
-    }
-
-    .section-intro {
+    .subtitle, .section-intro {
       text-align: center;
       max-width: 900px;
-      margin: 0 auto 36px;
+      margin: 0 auto 35px;
       color: #d4d4d4;
-      font-size: 18px;
+      font-size: 19px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #3b2f10;
+      color: #ffd36e;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
     }
 
     .buttons {
@@ -88,9 +85,8 @@
       border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
-      transition: all 0.3s ease;
       display: inline-block;
-      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
     }
 
     .button:hover {
@@ -98,15 +94,19 @@
       transform: translateY(-3px);
     }
 
-    .badge {
-      display: inline-block;
-      background: #3b2f10;
-      color: #ffd36e;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 25px;
+    .diagram-wrapper {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 25px;
+      overflow-x: auto;
+      margin-top: 35px;
+    }
+
+    .architecture-diagram {
+      width: 100%;
+      min-width: 900px;
+      height: auto;
+      display: block;
     }
 
     .grid {
@@ -128,22 +128,15 @@
       border-radius: 14px;
       padding: 24px;
       border: 1px solid #30363f;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
       border-color: #4ea1ff;
-      background: #222a34;
     }
 
-    .component {
-      border-left: 4px solid #4ea1ff;
-    }
-
-    .risk {
+    .pain {
       border-left: 4px solid #ff6b6b;
     }
 
@@ -155,71 +148,7 @@
       border-left: 4px solid #8ef0b9;
     }
 
-    .architecture-map {
-      background: #0f141b;
-      border: 1px solid #30363f;
-      border-radius: 18px;
-      padding: 35px;
-      margin-top: 35px;
-      text-align: center;
-    }
-
-    .layer {
-      margin: 18px auto;
-      max-width: 920px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .node {
-      background: #1d2733;
-      border: 1px solid #3a4655;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-weight: 700;
-      color: #ffffff;
-      position: relative;
-      cursor: default;
-    }
-
-    .node:hover {
-      border-color: #4ea1ff;
-      background: #253244;
-    }
-
-    .node::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: 115%;
-      transform: translateX(-50%);
-      background: #111820;
-      color: #e5e7eb;
-      border: 1px solid #4ea1ff;
-      border-radius: 10px;
-      padding: 10px;
-      width: 240px;
-      font-size: 13px;
-      line-height: 1.4;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      z-index: 10;
-    }
-
-    .node:hover::after {
-      opacity: 1;
-    }
-
-    .arrow {
-      color: #4ea1ff;
-      font-weight: bold;
-      align-self: center;
-    }
-
-    .callout {
+    .note {
       background: #111820;
       border: 1px solid #2e3947;
       border-radius: 16px;
@@ -258,10 +187,6 @@
       .two-grid {
         grid-template-columns: 1fr;
       }
-
-      .node::after {
-        width: 200px;
-      }
     }
   </style>
 </head>
@@ -271,11 +196,11 @@
   <section class="hero">
     <div class="badge">Current-State Architecture</div>
 
-    <h1>Legacy Operational Platform Assessment</h1>
+    <h1>Legacy Fulfilment Platform Assessment</h1>
 
     <p class="subtitle">
-      Interactive current-state view of Apex Operational Systems Ltd’s legacy fulfilment platform,
-      highlighting infrastructure dependencies, operational risks, support gaps, and modernisation opportunities.
+      Current-state architecture for a legacy enterprise fulfilment environment with tightly coupled systems,
+      manual recovery processes, limited observability, and reactive operational support.
     </p>
 
     <div class="buttons">
@@ -286,279 +211,160 @@
   </section>
 
   <section class="section">
-    <h2>Current Environment Overview</h2>
+    <h2>Architecture Overview</h2>
 
     <p class="section-intro">
-      The organisation operates a predominantly on-premises fulfilment environment made up of virtualised application servers,
-      Microsoft SQL Server databases, messaging services, fulfilment management systems, reporting, print services,
-      and robotic fulfilment technologies. These systems collectively support inventory allocation, order processing,
-      fulfilment execution, shipping preparation, and operational reporting.
+      This diagram shows the current operational platform flow from external customer systems through the fulfilment platform,
+      database, messaging layer, robot control system, robotic fleet, reporting, log search, and manual support model.
     </p>
 
-    <div class="architecture-map">
-      <h3>Interactive Current-State Architecture Map</h3>
-      <p>Hover over each component to understand its role and current limitation.</p>
+    <div class="diagram-wrapper">
+      <img
+        src="assets/diagrams/Current-State-Master.svg"
+        alt="Current-State Fulfilment Platform Architecture"
+        class="architecture-diagram">
+    </div>
 
-      <div class="layer">
-        <div class="node" data-tooltip="Operations teams and fulfilment users rely on the platform to process orders, allocate inventory, monitor workflows and maintain service continuity.">
-          Operations Users
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="Legacy fulfilment applications support order processing, inventory services, robotic fulfilment coordination and operational workflows.">
-          Order Fulfilment Platform
-        </div>
-
-        <div class="node" data-tooltip="Inventory services manage stock allocation and availability. Failures can delay order picking and fulfilment throughput.">
-          Inventory Services
-        </div>
-
-        <div class="node" data-tooltip="Robotic fulfilment systems support automated movement and fulfilment execution. Outages directly impact operational throughput.">
-          Robotic Fulfilment Systems
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="Microsoft SQL Server supports operational workloads including orders, inventory, fulfilment events and reporting data. Performance issues can affect throughput.">
-          SQL Server Database
-        </div>
-
-        <div class="node" data-tooltip="RabbitMQ-style messaging supports communication between operational systems. Blocked or delayed messages can disrupt workflows.">
-          Messaging Services
-        </div>
-
-        <div class="node" data-tooltip="Reporting services provide operational and management visibility but depend on upstream application and database availability.">
-          Reporting Services
-        </div>
-
-        <div class="node" data-tooltip="Print services generate labels and shipping documentation. Failures can delay dispatch and fulfilment completion.">
-          Print Services
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="The platform is hosted on traditional on-premises infrastructure with limited elasticity and high maintenance overhead.">
-          On-Prem Infrastructure
-        </div>
-
-        <div class="node" data-tooltip="Monitoring is fragmented and mainly reactive, limiting proactive incident detection and root cause analysis.">
-          Fragmented Monitoring
-        </div>
-
-        <div class="node" data-tooltip="Failover and recovery processes rely heavily on manual support intervention, increasing recovery time and risk.">
-          Manual Recovery
-        </div>
-      </div>
+    <div class="note">
+      <p>
+        The diagram is intentionally modelled as a current-state view rather than an ideal architecture. It highlights
+        the operational reality: critical fulfilment workflows depend on tightly coupled systems, manual recovery,
+        fragmented investigation paths, and site-reported incidents.
+      </p>
     </div>
   </section>
 
   <section class="section">
-    <h2>Core Platform Components</h2>
-
-    <div class="grid">
-      <div class="card component">
-        <h3>Application Services</h3>
-        <p>Order fulfilment applications and operational services supporting fulfilment workflows and user activity.</p>
-      </div>
-
-      <div class="card component">
-        <h3>Database Services</h3>
-        <p>Microsoft SQL Server environment supporting operational workloads, transactions, reporting and fulfilment data.</p>
-      </div>
-
-      <div class="card component">
-        <h3>Messaging Services</h3>
-        <p>Message queue infrastructure supporting system communication between fulfilment applications and dependent services.</p>
-      </div>
-
-      <div class="card component">
-        <h3>Robotic Fulfilment Systems</h3>
-        <p>Automated inventory movement and fulfilment execution systems supporting operational throughput.</p>
-      </div>
-
-      <div class="card component">
-        <h3>Print Services</h3>
-        <p>Operational label and shipping documentation generation required for dispatch and fulfilment completion.</p>
-      </div>
-
-      <div class="card component">
-        <h3>Reporting Services</h3>
-        <p>Operational and management reporting used to understand fulfilment performance and operational activity.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Key Integration Dependencies</h2>
+    <h2>Current Operational Pain Points</h2>
 
     <p class="section-intro">
-      The current platform relies on several critical integration points. Any disruption to these dependencies can directly impact fulfilment operations.
+      The current environment creates business and operational risk because failures are often detected after service impact
+      and require manual support intervention.
     </p>
 
     <div class="grid">
-      <div class="card impact">
-        <h3>Fulfilment Platform ↔ Database</h3>
-        <p>Database connectivity issues can delay order processing, inventory updates and fulfilment execution.</p>
+      <div class="card pain">
+        <h3>SQL Database Timeouts</h3>
+        <p>Long-running queries and database timeouts affect reporting, order processing, fulfilment throughput, and investigation speed.</p>
       </div>
 
-      <div class="card impact">
-        <h3>Fulfilment Platform ↔ Messaging</h3>
-        <p>Messaging delays or blocked queues can disrupt workflow coordination and system communication.</p>
+      <div class="card pain">
+        <h3>Allocation Lock Exceptions</h3>
+        <p>Stock allocation issues can interrupt fulfilment workflows and delay order processing.</p>
       </div>
 
-      <div class="card impact">
-        <h3>Fulfilment Platform ↔ Robotics</h3>
-        <p>Communication failures with robotic fulfilment systems can stop automated movement and picking workflows.</p>
+      <div class="card pain">
+        <h3>RabbitMQ Queue Backlogs</h3>
+        <p>Delayed or blocked message processing can slow application-to-application communication and downstream robotic instructions.</p>
       </div>
 
-      <div class="card impact">
-        <h3>Inventory ↔ Reporting</h3>
-        <p>Reporting depends on accurate inventory and fulfilment data to support operational decision-making.</p>
+      <div class="card pain">
+        <h3>Drive Capacity Issues</h3>
+        <p>Storage pressure causes server slowness, degraded application performance, and emergency operational intervention.</p>
       </div>
 
-      <div class="card impact">
-        <h3>Applications ↔ Print Services</h3>
-        <p>Printing failures can delay labelling, dispatch preparation and fulfilment completion.</p>
+      <div class="card pain">
+        <h3>Robot Task Idling</h3>
+        <p>Network instability or delayed control-system communication can cause robotic tasks to idle and reduce fulfilment throughput.</p>
       </div>
 
-      <div class="card impact">
-        <h3>Support ↔ Knowledge Sources</h3>
-        <p>Support teams depend on individual knowledge, historic incidents and fragmented documentation during investigation.</p>
+      <div class="card pain">
+        <h3>No Proactive Monitoring</h3>
+        <p>Support teams are often notified by site users after degradation or failure, rather than through proactive alerting.</p>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <h2>Infrastructure & Operational Risks</h2>
+      <div class="card pain">
+        <h3>Manual Patching</h3>
+        <p>Patching and service restarts rely on manual coordination, increasing downtime risk and operational dependency.</p>
+      </div>
 
-    <div class="grid">
-      <div class="card risk">
+      <div class="card pain">
         <h3>Manual Failover</h3>
-        <p>Recovery activities depend heavily on support personnel, increasing recovery time and the risk of human error.</p>
+        <p>Recovery processes are manually driven and depend heavily on support team availability and individual knowledge.</p>
       </div>
 
-      <div class="card risk">
-        <h3>Storage Capacity Pressure</h3>
-        <p>Application and database storage volumes periodically approach capacity limits, increasing instability and operational risk.</p>
-      </div>
-
-      <div class="card risk">
-        <h3>Database Performance Limitations</h3>
-        <p>Long-running queries and inefficient processing can reduce application responsiveness and fulfilment throughput.</p>
-      </div>
-
-      <div class="card risk">
-        <h3>Service Recovery Issues</h3>
-        <p>Following patching and maintenance, critical services do not always restart successfully without manual intervention.</p>
-      </div>
-
-      <div class="card risk">
-        <h3>Integration Communication Failures</h3>
-        <p>Failures between applications, databases, messaging services and robotic systems can disrupt fulfilment operations.</p>
-      </div>
-
-      <div class="card risk">
-        <h3>Immature DR Capability</h3>
-        <p>Disaster recovery is reactive, with limited recovery automation, unclear objectives and limited formal testing.</p>
+      <div class="card pain">
+        <h3>No Clear CI/CD for Hotfixes</h3>
+        <p>Hotfixes lack a standard automated release path, creating risk around validation, rollback, and production change control.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Support & Operational Maturity</h2>
+    <h2>Business Impact</h2>
+
+    <div class="grid">
+      <div class="card impact">
+        <h3>Delayed Customer Deliveries</h3>
+        <p>Fulfilment disruption can delay order picking, shipping preparation, and customer delivery timelines.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Reduced Operational Throughput</h3>
+        <p>Database, messaging, robotic control, and network issues can reduce the volume of orders processed.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Increased Downtime Cost</h3>
+        <p>Manual recovery and unclear failover processes extend service disruption during high-severity incidents.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>High Support Burden</h3>
+        <p>Support teams spend significant time investigating recurring issues rather than improving platform resilience.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Slow Incident Resolution</h3>
+        <p>Limited observability, fragmented logs, and knowledge silos slow down root cause analysis.</p>
+      </div>
+
+      <div class="card impact">
+        <h3>Operational Risk During Peak Periods</h3>
+        <p>Scalability constraints, database bottlenecks, and manual processes increase risk during high-volume periods.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Why Transformation Is Required</h2>
+
+    <p class="section-intro">
+      The current architecture supports fulfilment operations, but its resilience and operational maturity are limited by
+      legacy infrastructure, manual recovery processes, reactive support, and limited monitoring.
+    </p>
 
     <div class="two-grid">
-      <div class="card risk">
-        <h3>Reactive Support Model</h3>
-        <p>
-          Operational issues are typically identified after services have already degraded or failed.
-          Support teams spend significant effort reacting to incidents rather than proactively preventing them.
-        </p>
+      <div class="card opportunity">
+        <h3>Move from Reactive to Proactive Operations</h3>
+        <p>Introduce centralised monitoring, alerting, dashboards, log correlation, and operational intelligence.</p>
       </div>
 
-      <div class="card risk">
-        <h3>Knowledge Management Challenges</h3>
-        <p>
-          Operational knowledge is heavily dependent on individual team members and institutional experience,
-          creating inconsistent troubleshooting and knowledge transfer difficulties.
-        </p>
+      <div class="card opportunity">
+        <h3>Improve Resilience & Recovery</h3>
+        <p>Reduce manual failover dependency with better backup, recovery, availability, and disaster recovery design.</p>
       </div>
 
-      <div class="card risk">
-        <h3>Manual Operational Processes</h3>
-        <p>
-          Activities such as failover, service recovery, health checks and investigation are heavily manual
-          and depend on support intervention.
-        </p>
+      <div class="card opportunity">
+        <h3>Modernise Infrastructure</h3>
+        <p>Move toward scalable cloud infrastructure with improved capacity management and reduced server maintenance overhead.</p>
       </div>
 
-      <div class="card risk">
-        <h3>Limited Observability</h3>
-        <p>
-          Current monitoring supports reactive investigation rather than proactive operational management,
-          predictive detection or centralised visibility.
-        </p>
+      <div class="card opportunity">
+        <h3>Enable AI-Assisted Support</h3>
+        <p>Use AI to retrieve knowledge, correlate incidents, summarise logs, suggest runbooks, and support faster investigations.</p>
       </div>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>Transformation Opportunities</h2>
-
-    <p class="section-intro">
-      The current-state assessment identifies clear opportunities for cloud modernisation, improved operational maturity,
-      stronger resilience, better observability and AI-assisted support transformation.
-    </p>
-
-    <div class="grid">
-      <div class="card opportunity">
-        <h3>Cloud Migration</h3>
-        <p>Migrate core workloads to an AWS-first architecture with improved scalability, resilience and operational flexibility.</p>
-      </div>
-
-      <div class="card opportunity">
-        <h3>Observability Platform</h3>
-        <p>Introduce centralised monitoring, logging, dashboards, alerting and operational intelligence.</p>
-      </div>
-
-      <div class="card opportunity">
-        <h3>DR & Resilience</h3>
-        <p>Define RTO/RPO targets, automate backups, validate recovery and introduce documented recovery runbooks.</p>
-      </div>
-
-      <div class="card opportunity">
-        <h3>Automation & CI/CD</h3>
-        <p>Improve release safety, validation, rollback and hotfix deployment through controlled automation.</p>
-      </div>
-
-      <div class="card opportunity">
-        <h3>Security & Access Governance</h3>
-        <p>Improve IAM, secrets management, auditability, privileged access control and operational accountability.</p>
-      </div>
-
-      <div class="card opportunity">
-        <h3>AI-Assisted Operations</h3>
-        <p>Use AI to support troubleshooting, knowledge retrieval, incident correlation and root cause analysis.</p>
-      </div>
+    <div class="buttons">
+      <a href="target-architecture.html" class="button">View AWS Target Architecture →</a>
+      <a href="case-study.html" class="button">Back to Case Study</a>
     </div>
   </section>
 
   <footer>
     <p>
-      <a href="index.html">Back to Portfolio</a>
+      <a href="index.html">Portfolio</a>
       |
       <a href="case-study.html">Case Study</a>
       |
