@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Tatenda Manyepa | Cloud & AI Solutions Architect Portfolio</title>
+  <title>Tatenda Manyepa | Enterprise Solutions Architecture Portfolio</title>
 
   <style>
     body {
@@ -13,65 +13,65 @@
       background: #0b0f14;
       color: #f5f5f5;
       line-height: 1.7;
+      scroll-behavior: smooth;
     }
 
-    .hero, .section {
-      max-width: 1180px;
-      margin: 50px auto;
-      padding: 50px;
-      background: linear-gradient(145deg, #171c22, #11161c);
-      border: 1px solid #2a2f36;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    .banner {
+      background: url('Baner.jpeg') center/cover no-repeat;
+      height: 260px;
+    }
+
+    .profile-wrapper {
+      text-align: center;
+      margin-top: -85px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
     }
 
     .hero {
       text-align: center;
-      margin-top: 40px;
+      max-width: 1180px;
+      margin: -45px auto 0;
+      padding: 120px 50px 70px;
+      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
     }
 
-    h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
+    .hero h1 {
+      font-size: 46px;
+      margin: 0 0 20px;
+      font-weight: 700;
+      letter-spacing: -1px;
     }
 
-    h2 {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 20px;
+    .hero h2 {
+      font-size: 58px;
+      line-height: 1.12;
+      margin: 0 0 22px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
     }
 
-    h3 {
-      font-size: 24px;
-      margin-top: 0;
-    }
-
-    p {
+    .hero p {
+      font-size: 20px;
       color: #d6d6d6;
-      font-size: 18px;
-    }
-
-    .subtitle, .section-intro {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto 35px;
-      color: #d4d4d4;
-      font-size: 19px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #0f2f3b;
-      color: #6ee7ff;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 25px;
+      max-width: 940px;
+      margin: auto;
     }
 
     .buttons {
-      margin-top: 35px;
+      margin-top: 30px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -85,13 +85,62 @@
       border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
-      display: inline-block;
       transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: inline-block;
     }
 
     .button:hover {
       background: linear-gradient(135deg, #0a74ff, #0060d6);
       transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.38);
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 60px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+      color: #d4d4d4;
+      font-size: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0d5f39;
+      color: #8ef0b9;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .project-title {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .project-description {
+      font-size: 19px;
+      color: #dddddd;
     }
 
     .grid {
@@ -101,42 +150,93 @@
       margin-top: 30px;
     }
 
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .bottom-left {
+      grid-column: 1 / 2;
+    }
+
+    .bottom-right {
+      grid-column: 3 / 4;
+    }
+
     .card {
       background: #1d232b;
       border-radius: 14px;
       padding: 24px;
       border: 1px solid #30363f;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
       border-color: #4ea1ff;
+      background: #222a34;
     }
 
-    .card a {
+    .card h3 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 25px;
+    }
+
+    .card span {
       color: #4ea1ff;
-      text-decoration: none;
       font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .problem {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .solution {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .decision {
+      border-left: 4px solid #8ef0b9;
     }
 
     .status {
       display: inline-block;
-      margin-top: 10px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: #12351f;
-      color: #8ef0b9;
       font-size: 13px;
       font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .completed {
+      background: #123f2a;
+      color: #9ff0c2;
+    }
+
+    .progress {
+      background: #3b2f10;
+      color: #ffd36e;
+    }
+
+    .planned {
+      background: #283142;
+      color: #b7c8ff;
     }
 
     footer {
       text-align: center;
+      margin-top: 70px;
       padding: 40px;
       color: #9ca3af;
       border-top: 1px solid #2b2f35;
-      margin-top: 60px;
     }
 
     footer a {
@@ -145,21 +245,40 @@
     }
 
     @media (max-width: 850px) {
-      .hero, .section {
-        margin: 30px 16px;
+      .hero {
+        margin: -40px 16px 0;
+        padding: 100px 24px 55px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero h2 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section {
+        margin: 35px 16px;
         padding: 30px;
       }
 
-      h1 {
-        font-size: 36px;
+      .section h2 {
+        font-size: 32px;
       }
 
-      h2 {
-        font-size: 30px;
-      }
-
-      .grid {
+      .grid,
+      .two-grid {
         grid-template-columns: 1fr;
+      }
+
+      .bottom-left,
+      .bottom-right {
+        grid-column: auto;
       }
     }
   </style>
@@ -167,132 +286,294 @@
 
 <body>
 
+  <div class="banner"></div>
+
+  <div class="profile-wrapper">
+    <img src="profile.jpeg" class="profile-pic" alt="Tatenda Manyepa">
+  </div>
+
   <section class="hero">
-    <div class="badge">Cloud • AI • Solutions Architecture Portfolio</div>
-
     <h1>Tatenda Manyepa</h1>
+    <h2>Enterprise Solutions Architecture Portfolio</h2>
 
-    <p class="subtitle">
-      Cloud and AI Solutions Architect portfolio focused on enterprise modernisation,
-      AWS architecture, operational resilience, intelligent automation, and AI-assisted support.
+    <p>
+      An interactive architecture case study portfolio demonstrating enterprise cloud modernisation,
+      AWS target-state design, operational intelligence, observability, security, resilience,
+      and AI-assisted support transformation.
     </p>
 
     <div class="buttons">
-      <a href="case-study.html" class="button">View Main Case Study</a>
-      <a href="current-state.html" class="button">Current-State Architecture</a>
-      <a href="target-architecture.html" class="button">Target AWS Architecture</a>
+      <a href="YOUR_CV_LINK_HERE" class="button">📄 View CV</a>
+      <a href="YOUR_COVER_LETTER_LINK_HERE" class="button">📜 View Cover Letter</a>
+    </div>
+
+    <div class="buttons" style="margin-top:20px;">
+      <a href="#case-study" class="button">🏗️ View Case Study</a>
+      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">💻 GitHub Repository</a>
+      <a href="https://linkedin.com/in/tatenda-manyepa" class="button">🔗 LinkedIn</a>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Featured Architecture Project</h2>
+  <section class="section" id="case-study">
+    <h2>Interactive Architecture Case Study</h2>
 
     <p class="section-intro">
-      Enterprise Operational Systems Modernisation is a portfolio case study showing how a legacy fulfilment platform
-      can be assessed, modernised, migrated to AWS, and improved with observability, resilience, automation, and AI support.
+      This case study presents a phased enterprise transformation from a legacy operational environment
+      into a secure, observable, AWS-first platform with AI-assisted operational intelligence.
+    </p>
+
+    <div class="badge">Living Portfolio • In Active Development</div>
+
+    <div class="project-title">
+      Enterprise Operational Systems Modernisation
+    </div>
+
+    <p class="project-description">
+      Apex Operational Systems Ltd is a fictional enterprise operating a legacy fulfilment platform supporting
+      high-volume order processing, robotic fulfilment operations, inventory allocation, reporting, monitoring,
+      messaging, and customer-facing operational support.
+
+      <br><br>
+
+      The transformation focuses on improving resilience, observability, security, scalability, disaster recovery,
+      support efficiency, and AI-assisted incident investigation through an AWS-first modernisation approach.
+    </p>
+
+    <br>
+
+    <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">
+      View Full Evidence Repository →
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>1. Business Problem</h2>
+
+    <p class="section-intro">
+      The organisation is experiencing recurring operational instability within its fulfilment platform, including
+      high-severity outages impacting robotic fulfilment operations, inventory allocation, and order processing workflows.
+      These incidents have resulted in operational disruption, delayed customer deliveries, increased pressure on support
+      teams, and reduced confidence in platform resilience.
+      <br><br>
+      The current technology landscape is heavily dependent on legacy on-premises infrastructure with limited scalability,
+      manually managed high availability processes, and minimal operational observability. Support teams also operate
+      across siloed structures, creating inconsistent troubleshooting approaches and heavy reliance on individual technical knowledge.
     </p>
 
     <div class="grid">
-      <div class="card">
-        <h3>Business Context Assessment</h3>
-        <p>
-          Defines the fictional organisation, operational environment, business drivers, pain points, and transformation goals.
-        </p>
-        <a href="assessment.html">Open Assessment →</a>
-        <br>
-        <span class="status">Completed</span>
+      <div class="card problem">
+        <h3>Operational Stability Issues</h3>
+        <p>Recurring high-severity outages disrupt robotic movement, stock allocation, and order picking processes across fulfilment operations.</p>
       </div>
 
-      <div class="card">
-        <h3>Architecture Case Study</h3>
-        <p>
-          Executive case study covering the modernisation journey from legacy fulfilment operations to AWS-first architecture.
-        </p>
-        <a href="case-study.html">Open Case Study →</a>
-        <br>
-        <span class="status">In Progress</span>
+      <div class="card problem">
+        <h3>Limited High Availability & DR</h3>
+        <p>Manual standby infrastructure and limited automated failover capability increase recovery times and create single points of failure.</p>
       </div>
 
-      <div class="card">
-        <h3>Current-State Architecture</h3>
-        <p>
-          Shows the existing legacy platform, operational risks, monitoring gaps, manual recovery processes, and pain points.
-        </p>
-        <a href="current-state.html">Open Current State →</a>
-        <br>
-        <span class="status">Completed</span>
+      <div class="card problem">
+        <h3>Reactive Support Model</h3>
+        <p>Issues are typically identified after service degradation or failure, with limited proactive alerting and slow root cause analysis.</p>
       </div>
 
-      <div class="card">
-        <h3>Target AWS Architecture</h3>
-        <p>
-          Designs the future AWS-based platform using secure, scalable, resilient, and observable cloud architecture patterns.
-        </p>
-        <a href="target-architecture.html">Open Target Architecture →</a>
-        <br>
-        <span class="status">In Progress</span>
+      <div class="card problem">
+        <h3>Siloed Teams & Knowledge Gaps</h3>
+        <p>Development, testing, and support operate independently, creating poor cross-team visibility and inconsistent troubleshooting processes.</p>
       </div>
 
-      <div class="card">
-        <h3>Migration Strategy</h3>
-        <p>
-          Outlines how the organisation can safely move from legacy infrastructure to cloud-based architecture.
-        </p>
-        <a href="migration.html">Open Migration Strategy →</a>
-        <br>
-        <span class="status">In Progress</span>
+      <div class="card problem">
+        <h3>On-Premises Infrastructure Constraints</h3>
+        <p>Database timeouts, network instability, maintenance overhead, and limited horizontal scalability affect peak operational periods.</p>
       </div>
 
-      <div class="card">
-        <h3>Intelligent Operations</h3>
-        <p>
-          Explores AI-assisted support, knowledge retrieval, log analysis, incident summarisation, and operational intelligence.
-        </p>
-        <a href="intelligent-operations.html">Open Intelligent Ops →</a>
-        <br>
-        <span class="status">Planned</span>
+      <div class="card problem">
+        <h3>Deployment & Change Risk</h3>
+        <p>Hotfixes and changes require stronger CI/CD controls, validation, rollback planning, and post-release monitoring.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Portfolio Focus Areas</h2>
+    <h2>2. Current-State Architecture</h2>
+
+    <p class="section-intro">
+      The current state models a representative legacy enterprise operational environment with clustered databases,
+      application servers, messaging, reporting, monitoring, manual failover processes, and reactive support workflows.
+    </p>
 
     <div class="grid">
+      <a class="card solution" href="current-state.html">
+        <h3>Application Layer</h3>
+        <p>Legacy application servers supporting fulfilment workflows, order processing and operational services.</p>
+        <span>Explore Architecture →</span>
+      </a>
+
+      <a class="card solution" href="current-state.html">
+        <h3>Database Layer</h3>
+        <p>SQL clusters supporting inventory, orders, reporting and operational transactions.</p>
+        <span>Explore Architecture →</span>
+      </a>
+
+      <a class="card solution" href="current-state.html">
+        <h3>Messaging Layer</h3>
+        <p>RabbitMQ and integration services connecting operational systems and fulfilment processes.</p>
+        <span>Explore Architecture →</span>
+      </a>
+
+      <a class="card solution bottom-left" href="current-state.html">
+        <h3>Operational Support</h3>
+        <p>Monitoring, tickets, investigations, escalation paths and support processes.</p>
+        <span>Explore Architecture →</span>
+      </a>
+
+      <a class="card solution bottom-right" href="current-state.html">
+        <h3>Infrastructure Layer</h3>
+        <p>Physical servers, storage, networking, high availability processes and disaster recovery infrastructure.</p>
+        <span>Explore Architecture →</span>
+      </a>
+    </div>
+
+    <br>
+
+    <a class="button" href="current-state.html">
+      View Current-State Architecture →
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>3. Target AWS Architecture</h2>
+
+    <p class="section-intro">
+      The target state introduces an AWS-first architecture designed around security, resilience,
+      observability, automation, disaster recovery, and AI-assisted operational intelligence.
+    </p>
+
+    <div class="grid">
+      <a class="card decision" href="target-architecture.html">
+        <h3>AWS Network Foundation</h3>
+        <p>Route 53, VPCs, Load Balancers, network segmentation and resilience design.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+
+      <a class="card decision" href="target-architecture.html">
+        <h3>Application Platform</h3>
+        <p>ECS, EC2, containerised workloads and scalable application services.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+
+      <a class="card decision" href="target-architecture.html">
+        <h3>Data & Recovery</h3>
+        <p>RDS, backups, disaster recovery, resilience and recovery strategies.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+
+      <a class="card decision bottom-left" href="target-architecture.html">
+        <h3>AI Operations Layer</h3>
+        <p>Operational intelligence, observability, runbooks and AI-assisted troubleshooting.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+
+      <a class="card decision bottom-right" href="target-architecture.html">
+        <h3>Observability & Security</h3>
+        <p>CloudWatch, Secrets Manager, monitoring, alerting, auditing, governance and operational visibility.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+    </div>
+
+    <br>
+
+    <a class="button" href="target-architecture.html">
+      View Target Architecture →
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>4. Transformation Roadmap</h2>
+
+    <p class="section-intro">
+      The project is delivered as a phased enterprise transformation roadmap. Each phase will link to a detailed page
+      containing documentation, diagrams, risks, decisions, and delivery outputs.
+    </p>
+
+    <div class="two-grid">
       <div class="card">
-        <h3>AWS Cloud Architecture</h3>
-        <p>
-          VPC design, compute, databases, messaging, monitoring, security, resilience, and migration planning.
-        </p>
+        <div class="status completed">✅ Completed</div>
+        <h3>Phase 1: Assess</h3>
+        <p>Current-state analysis, dependency mapping, operational pain points, business drivers, risk identification, and transformation scope.</p>
+        <a href="assessment.html" class="button">View Documentation →</a>
       </div>
 
       <div class="card">
-        <h3>Enterprise Modernisation</h3>
-        <p>
-          Moving from fragile legacy systems to scalable, secure, reliable, and operationally mature platforms.
-        </p>
+        <div class="status progress">🔄 In Progress</div>
+        <h3>Phase 2: Migrate</h3>
+        <p>AWS landing zone design, migration waves, testing strategy, rollback planning, validation approach, and cutover planning.</p>
+        <a href="migration.html" class="button">View Documentation →</a>
       </div>
 
       <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 3: Modernise</h3>
+        <p>Refactoring, observability, resilience patterns, CI/CD automation, platform engineering, and secure access governance.</p>
+        <a href="modernisation.html" class="button">View Documentation →</a>
+      </div>
+
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 4: Intelligent Operations</h3>
+        <p>AI-assisted troubleshooting, incident intelligence, auto-ticketing, bug detection, operational knowledge retrieval, and continuous improvement.</p>
+        <a href="intelligent-operations.html" class="button">View Documentation →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>5. Architecture Decisions</h2>
+
+    <p class="section-intro">
+      Architecture Decision Records show reasoning, trade-offs, constraints, and design justification.
+      This demonstrates how decisions are made rather than only showing the final design.
+    </p>
+
+    <div class="grid">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/adr">
+        <h3>AWS-First Strategy</h3>
+        <p>Chosen to align with managed services, scalability, resilience patterns, security controls, and enterprise cloud adoption.</p>
+        <span>View ADRs →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/05-observability-support-layer">
+        <h3>Observability by Design</h3>
+        <p>Monitoring, logging, alerting, and operational intelligence are introduced as core architecture concerns, not afterthoughts.</p>
+        <span>View observability layer →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/07-ai-operations-intelligence">
         <h3>AI-Assisted Operations</h3>
-        <p>
-          Using AI to improve support workflows, reduce investigation time, and turn operational knowledge into reusable guidance.
-        </p>
-      </div>
+        <p>AI is positioned as a support accelerator for investigation, knowledge retrieval, root cause analysis, and guided troubleshooting.</p>
+        <span>View AI layer →</span>
+      </a>
     </div>
   </section>
 
   <footer>
     <p>
-      <a href="case-study.html">Case Study</a>
+      Connect on
+      <a href="https://linkedin.com/in/tatenda-manyepa">LinkedIn</a>
       |
-      <a href="current-state.html">Current State</a>
-      |
-      <a href="target-architecture.html">Target Architecture</a>
+      GitHub:
+      <a href="https://github.com/tatenda-manyepa">tatenda-manyepa</a>
+    </p>
+
+    <p>Enterprise Solutions Architecture Portfolio</p>
+
+    <p>
+      AWS • Cloud Transformation • AI Operations Intelligence •
+      Observability • Security • Reliability Engineering
     </p>
 
     <p>
-      Tatenda Manyepa • Cloud & AI Solutions Architect Portfolio
+      Currently preparing for AWS Solutions Architect Associate while
+      building enterprise-scale architecture case studies.
     </p>
   </footer>
 
