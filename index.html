@@ -157,14 +157,6 @@
       margin-top: 30px;
     }
 
-    .bottom-left {
-      grid-column: 1 / 2;
-    }
-
-    .bottom-right {
-      grid-column: 3 / 4;
-    }
-
     .card {
       background: #1d232b;
       border-radius: 14px;
@@ -275,11 +267,6 @@
       .two-grid {
         grid-template-columns: 1fr;
       }
-
-      .bottom-left,
-      .bottom-right {
-        grid-column: auto;
-      }
     }
   </style>
 </head>
@@ -308,7 +295,7 @@
     </div>
 
     <div class="buttons" style="margin-top:20px;">
-      <a href="#case-study" class="button">🏗️ View Case Study</a>
+      <a href="case-study.html" class="button">🏗️ View Case Study</a>
       <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">💻 GitHub Repository</a>
       <a href="https://linkedin.com/in/tatenda-manyepa" class="button">🔗 LinkedIn</a>
     </div>
@@ -341,8 +328,8 @@
 
     <br>
 
-    <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">
-      View Full Evidence Repository →
+    <a href="case-study.html" class="button">
+      Open Case Study →
     </a>
   </section>
 
@@ -420,15 +407,21 @@
         <span>Explore Architecture →</span>
       </a>
 
-      <a class="card solution bottom-left" href="current-state.html">
+      <a class="card solution" href="current-state.html">
         <h3>Operational Support</h3>
         <p>Monitoring, tickets, investigations, escalation paths and support processes.</p>
         <span>Explore Architecture →</span>
       </a>
 
-      <a class="card solution bottom-right" href="current-state.html">
+      <a class="card solution" href="current-state.html">
         <h3>Infrastructure Layer</h3>
         <p>Physical servers, storage, networking, high availability processes and disaster recovery infrastructure.</p>
+        <span>Explore Architecture →</span>
+      </a>
+
+      <a class="card solution" href="current-state.html">
+        <h3>Release & Change Management</h3>
+        <p>Manual patching, service restarts, hotfix handling, release risk and change validation processes.</p>
         <span>Explore Architecture →</span>
       </a>
     </div>
@@ -467,15 +460,21 @@
         <span>Explore AWS Design →</span>
       </a>
 
-      <a class="card decision bottom-left" href="target-architecture.html">
+      <a class="card decision" href="target-architecture.html">
+        <h3>Observability & Security</h3>
+        <p>CloudWatch, Secrets Manager, monitoring, alerting, auditing, governance and operational visibility.</p>
+        <span>Explore AWS Design →</span>
+      </a>
+
+      <a class="card decision" href="target-architecture.html">
         <h3>AI Operations Layer</h3>
         <p>Operational intelligence, observability, runbooks and AI-assisted troubleshooting.</p>
         <span>Explore AWS Design →</span>
       </a>
 
-      <a class="card decision bottom-right" href="target-architecture.html">
-        <h3>Observability & Security</h3>
-        <p>CloudWatch, Secrets Manager, monitoring, alerting, auditing, governance and operational visibility.</p>
+      <a class="card decision" href="target-architecture.html">
+        <h3>Governance, FinOps & Compliance</h3>
+        <p>Cost control, tagging, IAM governance, auditability, policy enforcement and architecture accountability.</p>
         <span>Explore AWS Design →</span>
       </a>
     </div>
