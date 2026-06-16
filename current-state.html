@@ -109,7 +109,8 @@
       display: block;
     }
 
-    .grid {
+    .grid,
+    .pain-points-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
@@ -123,21 +124,38 @@
       margin-top: 30px;
     }
 
-    .card {
+    .card,
+    .pain-card {
       background: #1d232b;
       border-radius: 14px;
       padding: 24px;
       border: 1px solid #30363f;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .card:hover {
+    .card:hover,
+    .pain-card:hover {
       transform: translateY(-6px);
       border-color: #4ea1ff;
     }
 
-    .pain {
-      border-left: 4px solid #ff6b6b;
+    .pain-card {
+      border-left: 5px solid #ff5c5c;
+    }
+
+    .pain-card:hover {
+      border-color: #ff5c5c;
+      box-shadow: 0 10px 25px rgba(255,92,92,0.15);
+    }
+
+    .pain-card h3 {
+      color: #ffffff;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .pain-card strong {
+      color: #ffd36e;
     }
 
     .impact {
@@ -184,6 +202,7 @@
       }
 
       .grid,
+      .pain-points-grid,
       .two-grid {
         grid-template-columns: 1fr;
       }
@@ -204,10 +223,10 @@
     </p>
 
     <div class="buttons">
-  <a href="https://tatenda-manyepa.github.io/" class="button">← Back to Portfolio</a>
-  <a href="case-study.html" class="button">View Case Study</a>
-  <a href="target-architecture.html" class="button">Target AWS Architecture</a>
-</div>
+      <a href="https://tatenda-manyepa.github.io/" class="button">← Back to Portfolio</a>
+      <a href="case-study.html" class="button">View Case Study</a>
+      <a href="target-architecture.html" class="button">Target AWS Architecture</a>
+    </div>
   </section>
 
   <section class="section">
@@ -215,7 +234,7 @@
 
     <p class="section-intro">
       This diagram shows the current operational platform flow from external customer systems through the fulfilment platform,
-      database, messaging layer, robot control system, robotic fleet, reporting, log search, and manual support model.
+      database, RabbitMQ messaging, robot control system, robotic fleet, reporting services, application logging, and a manual support model.
     </p>
 
     <div class="diagram-wrapper">
@@ -238,55 +257,71 @@
     <h2>Current Operational Pain Points</h2>
 
     <p class="section-intro">
-      The current environment creates business and operational risk because failures are often detected after service impact
-      and require manual support intervention.
+      These pain points map directly to the architecture layers affected by current operational instability.
     </p>
 
-    <div class="grid">
-      <div class="card pain">
-        <h3>SQL Database Timeouts</h3>
-        <p>Long-running queries and database timeouts affect reporting, order processing, fulfilment throughput, and investigation speed.</p>
+    <div class="pain-points-grid">
+
+      <div class="pain-card">
+        <h3>🔴 SQL Database Timeouts</h3>
+        <p><strong>Affected Layer:</strong> SQL Operational Database</p>
+        <p>Reporting failures, slow transactions and operational delays.</p>
       </div>
 
-      <div class="card pain">
-        <h3>Allocation Lock Exceptions</h3>
-        <p>Stock allocation issues can interrupt fulfilment workflows and delay order processing.</p>
+      <div class="pain-card">
+        <h3>🔴 RabbitMQ Queue Backlogs</h3>
+        <p><strong>Affected Layer:</strong> Messaging Layer</p>
+        <p>Delayed communication between fulfilment services and robotics.</p>
       </div>
 
-      <div class="card pain">
-        <h3>RabbitMQ Queue Backlogs</h3>
-        <p>Delayed or blocked message processing can slow application-to-application communication and downstream robotic instructions.</p>
+      <div class="pain-card">
+        <h3>🔴 Allocation Lock Exceptions</h3>
+        <p><strong>Affected Layer:</strong> Order Fulfilment Platform</p>
+        <p>Order processing interruptions and fulfilment delays.</p>
       </div>
 
-      <div class="card pain">
-        <h3>Drive Capacity Issues</h3>
-        <p>Storage pressure causes server slowness, degraded application performance, and emergency operational intervention.</p>
+      <div class="pain-card">
+        <h3>🔴 Drive Capacity Issues</h3>
+        <p><strong>Affected Layer:</strong> Platform & Database Infrastructure</p>
+        <p>Server degradation, service instability and emergency operational intervention.</p>
       </div>
 
-      <div class="card pain">
-        <h3>Robot Task Idling</h3>
-        <p>Network instability or delayed control-system communication can cause robotic tasks to idle and reduce fulfilment throughput.</p>
+      <div class="pain-card">
+        <h3>🔴 Robot Task Idling</h3>
+        <p><strong>Affected Layer:</strong> Robot Control System</p>
+        <p>Network and application communication failures impacting fulfilment throughput.</p>
       </div>
 
-      <div class="card pain">
-        <h3>No Proactive Monitoring</h3>
-        <p>Support teams are often notified by site users after degradation or failure, rather than through proactive alerting.</p>
+      <div class="pain-card">
+        <h3>🔴 No Proactive Monitoring</h3>
+        <p><strong>Affected Layer:</strong> Operational Support Model</p>
+        <p>Issues are identified by site personnel after failure occurs.</p>
       </div>
 
-      <div class="card pain">
-        <h3>Manual Patching</h3>
-        <p>Patching and service restarts rely on manual coordination, increasing downtime risk and operational dependency.</p>
+      <div class="pain-card">
+        <h3>🔴 Manual Failover & Recovery</h3>
+        <p><strong>Affected Layer:</strong> Operational Support Model</p>
+        <p>Recovery activities rely heavily on manual intervention and individual knowledge.</p>
       </div>
 
-      <div class="card pain">
-        <h3>Manual Failover</h3>
-        <p>Recovery processes are manually driven and depend heavily on support team availability and individual knowledge.</p>
+      <div class="pain-card">
+        <h3>🔴 Manual Hotfixes</h3>
+        <p><strong>Affected Layer:</strong> Release & Change Management</p>
+        <p>Production fixes are manually coordinated, increasing validation and rollback risk.</p>
       </div>
 
-      <div class="card pain">
-        <h3>No Clear CI/CD for Hotfixes</h3>
-        <p>Hotfixes lack a standard automated release path, creating risk around validation, rollback, and production change control.</p>
+      <div class="pain-card">
+        <h3>🔴 No CI/CD Release Pipeline</h3>
+        <p><strong>Affected Layer:</strong> Release & Change Management</p>
+        <p>Hotfix deployment, validation and rollback activities are not handled through a clear automated pipeline.</p>
       </div>
+
+      <div class="pain-card">
+        <h3>🔴 Fragmented Operational Visibility</h3>
+        <p><strong>Affected Layer:</strong> Entire Platform</p>
+        <p>Logs, messaging, database activity and robotic events are investigated through separate tools with no unified operational view.</p>
+      </div>
+
     </div>
   </section>
 
@@ -362,14 +397,15 @@
     </div>
   </section>
 
- <footer>
-  <p>
-    <a href="https://tatenda-manyepa.github.io/">Portfolio</a>
-    |
-    <a href="case-study.html">Case Study</a>
-    |
-    <a href="target-architecture.html">Target Architecture</a>
-  </p>
+  <footer>
+    <p>
+      <a href="https://tatenda-manyepa.github.io/">Portfolio</a>
+      |
+      <a href="case-study.html">Case Study</a>
+      |
+      <a href="target-architecture.html">Target Architecture</a>
+    </p>
+
     <p>
       Current-State Architecture • Operational Assessment • Cloud Transformation Foundation
     </p>
