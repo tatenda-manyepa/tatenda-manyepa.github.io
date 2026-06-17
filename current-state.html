@@ -110,7 +110,7 @@
     }
 
     .grid,
-    .pain-points-grid {
+    .risk-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
@@ -125,7 +125,7 @@
     }
 
     .card,
-    .pain-card {
+    .risk-card {
       background: #1d232b;
       border-radius: 14px;
       padding: 24px;
@@ -134,27 +134,27 @@
     }
 
     .card:hover,
-    .pain-card:hover {
+    .risk-card:hover {
       transform: translateY(-6px);
       border-color: #4ea1ff;
     }
 
-    .pain-card {
+    .risk-card {
       border-left: 5px solid #ff5c5c;
     }
 
-    .pain-card:hover {
+    .risk-card:hover {
       border-color: #ff5c5c;
       box-shadow: 0 10px 25px rgba(255,92,92,0.15);
     }
 
-    .pain-card h3 {
+    .risk-card h3 {
       color: #ffffff;
       font-size: 22px;
       margin-bottom: 12px;
     }
 
-    .pain-card strong {
+    .risk-card strong {
       color: #ffd36e;
     }
 
@@ -202,7 +202,7 @@
       }
 
       .grid,
-      .pain-points-grid,
+      .risk-grid,
       .two-grid {
         grid-template-columns: 1fr;
       }
@@ -234,92 +234,88 @@
 
     <p class="section-intro">
       This diagram shows the current operational platform flow from external customer systems through the fulfilment platform,
-      database, RabbitMQ messaging, robot control system, robotic fleet, reporting services, application logging, and a manual support model.
+      database, RabbitMQ messaging, robot control system, robotic fleet, reporting services, application logging, and manual support model.
     </p>
 
     <div class="diagram-wrapper">
       <img
-        src="assets/diagrams/Current-State-Master.svg"
+        src="assets/diagrams/current-state-architecture.svg"
         alt="Current-State Fulfilment Platform Architecture"
-        class="architecture-diagram">
+        class="architecture-diagram"
+        loading="lazy">
     </div>
 
     <div class="note">
       <p>
         The diagram is intentionally modelled as a current-state view rather than an ideal architecture. It highlights
-        the operational reality: critical fulfilment workflows depend on tightly coupled systems, manual recovery,
+        the operational reality: fulfilment workflows depend on tightly coupled systems, manual recovery,
         fragmented investigation paths, and site-reported incidents.
       </p>
     </div>
   </section>
 
   <section class="section">
-    <h2>Current Operational Pain Points</h2>
+    <h2>Key Current-State Risks</h2>
 
     <p class="section-intro">
-      These pain points map directly to the architecture layers affected by current operational instability.
+      These risks explain why the platform requires modernisation. They map directly to the affected architecture layers
+      and form the basis for the AWS target-state design.
     </p>
 
-    <div class="pain-points-grid">
+    <div class="risk-grid">
 
-      <div class="pain-card">
-        <h3>🔴 SQL Database Timeouts</h3>
+      <div class="risk-card">
+        <h3>🔴 SQL Performance Bottlenecks</h3>
         <p><strong>Affected Layer:</strong> SQL Operational Database</p>
-        <p>Reporting failures, slow transactions and operational delays.</p>
+        <p>Long-running queries, timeouts and reporting failures impact operational visibility and fulfilment processes.</p>
       </div>
 
-      <div class="pain-card">
-        <h3>🔴 RabbitMQ Queue Backlogs</h3>
-        <p><strong>Affected Layer:</strong> Messaging Layer</p>
-        <p>Delayed communication between fulfilment services and robotics.</p>
-      </div>
-
-      <div class="pain-card">
+      <div class="risk-card">
         <h3>🔴 Allocation Lock Exceptions</h3>
         <p><strong>Affected Layer:</strong> Order Fulfilment Platform</p>
-        <p>Order processing interruptions and fulfilment delays.</p>
+        <p>Database locking can interrupt stock allocation and order processing workflows.</p>
       </div>
 
-      <div class="pain-card">
-        <h3>🔴 Drive Capacity Issues</h3>
-        <p><strong>Affected Layer:</strong> Platform & Database Infrastructure</p>
-        <p>Server degradation, service instability and emergency operational intervention.</p>
+      <div class="risk-card">
+        <h3>🔴 Messaging Queue Backlogs</h3>
+        <p><strong>Affected Layer:</strong> RabbitMQ Messaging Layer</p>
+        <p>Delayed processing within the messaging layer can impact robotic fulfilment and system-to-system communication.</p>
       </div>
 
-      <div class="pain-card">
+      <div class="risk-card">
+        <h3>🔴 Drive Capacity Exhaustion</h3>
+        <p><strong>Affected Layer:</strong> Database & Log Storage</p>
+        <p>Database and log storage growth contribute to performance degradation and service instability.</p>
+      </div>
+
+      <div class="risk-card">
         <h3>🔴 Robot Task Idling</h3>
         <p><strong>Affected Layer:</strong> Robot Control System</p>
-        <p>Network and application communication failures impacting fulfilment throughput.</p>
+        <p>Network and application communication issues can leave robotic tasks incomplete or waiting indefinitely.</p>
       </div>
 
-      <div class="pain-card">
+      <div class="risk-card">
         <h3>🔴 No Proactive Monitoring</h3>
         <p><strong>Affected Layer:</strong> Operational Support Model</p>
-        <p>Issues are identified by site personnel after failure occurs.</p>
+        <p>Operational failures are often identified by site personnel rather than automated alerting and observability tooling.</p>
       </div>
 
-      <div class="pain-card">
+      <div class="risk-card">
         <h3>🔴 Manual Failover & Recovery</h3>
-        <p><strong>Affected Layer:</strong> Operational Support Model</p>
-        <p>Recovery activities rely heavily on manual intervention and individual knowledge.</p>
+        <p><strong>Affected Layer:</strong> Availability & Recovery</p>
+        <p>Recovery activities rely heavily on support intervention and individual operational knowledge.</p>
       </div>
 
-      <div class="pain-card">
-        <h3>🔴 Manual Hotfixes</h3>
+      <div class="risk-card">
+        <h3>🔴 Manual Patching & Hotfix Deployment</h3>
         <p><strong>Affected Layer:</strong> Release & Change Management</p>
-        <p>Production fixes are manually coordinated, increasing validation and rollback risk.</p>
+        <p>Production changes require manual coordination, increasing deployment risk and recovery times.</p>
       </div>
 
-      <div class="pain-card">
+      <div class="risk-card">
         <h3>🔴 No CI/CD Release Pipeline</h3>
-        <p><strong>Affected Layer:</strong> Release & Change Management</p>
-        <p>Hotfix deployment, validation and rollback activities are not handled through a clear automated pipeline.</p>
-      </div>
-
-      <div class="pain-card">
-        <h3>🔴 Fragmented Operational Visibility</h3>
-        <p><strong>Affected Layer:</strong> Entire Platform</p>
-        <p>Logs, messaging, database activity and robotic events are investigated through separate tools with no unified operational view.</p>
+        <p><strong>Affected Layer:</strong> Software Delivery</p>
+        <p>Software deployment, validation and rollback processes are not automated or standardised.</p>
       </div>
 
     </div>
@@ -327,6 +323,10 @@
 
   <section class="section">
     <h2>Business Impact</h2>
+
+    <p class="section-intro">
+      The risks above create measurable business impact across fulfilment operations, customer delivery, support workload and platform reliability.
+    </p>
 
     <div class="grid">
       <div class="card impact">
@@ -346,17 +346,17 @@
 
       <div class="card impact">
         <h3>High Support Burden</h3>
-        <p>Support teams spend significant time investigating recurring issues rather than improving platform resilience.</p>
+        <p>Support teams spend significant time investigating recurring issues instead of improving platform resilience.</p>
       </div>
 
       <div class="card impact">
         <h3>Slow Incident Resolution</h3>
-        <p>Limited observability, fragmented logs, and knowledge silos slow down root cause analysis.</p>
+        <p>Fragmented logs, limited alerting and knowledge silos slow down root cause analysis.</p>
       </div>
 
       <div class="card impact">
         <h3>Operational Risk During Peak Periods</h3>
-        <p>Scalability constraints, database bottlenecks, and manual processes increase risk during high-volume periods.</p>
+        <p>Scalability constraints, database bottlenecks and manual processes increase risk during high-volume periods.</p>
       </div>
     </div>
   </section>
@@ -366,7 +366,7 @@
 
     <p class="section-intro">
       The current architecture supports fulfilment operations, but its resilience and operational maturity are limited by
-      legacy infrastructure, manual recovery processes, reactive support, and limited monitoring.
+      legacy infrastructure, manual recovery processes, reactive support, and limited observability.
     </p>
 
     <div class="two-grid">
