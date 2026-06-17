@@ -89,6 +89,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.28);
       border: 1px solid rgba(255,255,255,0.08);
       display: inline-block;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -166,6 +167,7 @@
       text-decoration: none;
       color: inherit;
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -223,6 +225,91 @@
       color: #b7c8ff;
     }
 
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      max-width: 920px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: linear-gradient(145deg, #1d232b, #11161c);
+      border: 1px solid #4ea1ff;
+      border-radius: 22px;
+      padding: 42px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        transform: scale(0.96) translateY(15px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: transparent;
+      color: #ffffff;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .modal-card h2 {
+      text-align: left;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .modal-card h3 {
+      color: #4ea1ff;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .modal-card p,
+    .modal-card li {
+      color: #d6d6d6;
+      font-size: 17px;
+    }
+
+    .modal-card ul,
+    .modal-card ol {
+      padding-left: 22px;
+    }
+
+    .modal-tag {
+      display: inline-block;
+      background: #10263f;
+      color: #8ecbff;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
     footer {
       text-align: center;
       margin-top: 70px;
@@ -266,6 +353,10 @@
       .grid,
       .two-grid {
         grid-template-columns: 1fr;
+      }
+
+      .modal-card {
+        padding: 30px;
       }
     }
   </style>
@@ -317,11 +408,9 @@
 
     <p class="project-description">
       Apex Operational Systems Ltd is a fictional enterprise operating a legacy fulfilment platform supporting
-      high-volume order processing, robotic fulfilment operations, inventory allocation, reporting, monitoring,
+      high-volume order processing, robotic fulfilment operations, inventory allocation, reporting, manual/reactive monitoring,
       messaging, and customer-facing operational support.
-
       <br><br>
-
       The transformation focuses on improving resilience, observability, security, scalability, disaster recovery,
       support efficiency, and AI-assisted incident investigation through an AWS-first modernisation approach.
     </p>
@@ -385,51 +474,51 @@
 
     <p class="section-intro">
       The current state models a representative legacy enterprise operational environment with clustered databases,
-      application servers, messaging, reporting, monitoring, manual failover processes, and reactive support workflows.
+      application servers, RabbitMQ messaging, reporting, application logging, manual failover processes, and reactive support workflows.
     </p>
 
     <div class="grid">
-      <a class="card solution" href="current-state.html">
+      <div class="card solution" onclick="openLayer('application')">
         <h3>Application Layer</h3>
-        <p>Legacy application servers supporting fulfilment workflows, order processing and operational services.</p>
-        <span>Explore Architecture →</span>
-      </a>
+        <p>Legacy application services supporting fulfilment workflows, order processing and operational coordination.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card solution" href="current-state.html">
+      <div class="card solution" onclick="openLayer('database')">
         <h3>Database Layer</h3>
-        <p>SQL clusters supporting inventory, orders, reporting and operational transactions.</p>
-        <span>Explore Architecture →</span>
-      </a>
+        <p>SQL databases supporting inventory, orders, reporting and operational transactions.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card solution" href="current-state.html">
+      <div class="card solution" onclick="openLayer('messaging')">
         <h3>Messaging Layer</h3>
-        <p>RabbitMQ and integration services connecting operational systems and fulfilment processes.</p>
-        <span>Explore Architecture →</span>
-      </a>
+        <p>RabbitMQ and integration services connecting fulfilment services and robotic systems.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card solution" href="current-state.html">
+      <div class="card solution" onclick="openLayer('support')">
         <h3>Operational Support</h3>
-        <p>Monitoring, tickets, investigations, escalation paths and support processes.</p>
-        <span>Explore Architecture →</span>
-      </a>
+        <p>Manual monitoring, incident investigation, escalation paths and recovery processes.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card solution" href="current-state.html">
+      <div class="card solution" onclick="openLayer('infrastructure')">
         <h3>Infrastructure Layer</h3>
-        <p>Physical servers, storage, networking, high availability processes and disaster recovery infrastructure.</p>
-        <span>Explore Architecture →</span>
-      </a>
+        <p>Physical servers, storage, networking, availability processes and disaster recovery infrastructure.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card solution" href="current-state.html">
+      <div class="card solution" onclick="openLayer('release')">
         <h3>Release & Change Management</h3>
         <p>Manual patching, service restarts, hotfix handling, release risk and change validation processes.</p>
-        <span>Explore Architecture →</span>
-      </a>
+        <span>Explore Details →</span>
+      </div>
     </div>
 
     <br>
 
     <a class="button" href="current-state.html">
-      View Current-State Architecture →
+      View Full Current-State Architecture →
     </a>
   </section>
 
@@ -554,6 +643,13 @@
     </div>
   </section>
 
+  <div class="modal-overlay" id="layerModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeLayer()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
   <footer>
     <p>
       Connect on
@@ -575,6 +671,272 @@
       building enterprise-scale architecture case studies.
     </p>
   </footer>
+
+  <script>
+    const layerDetails = {
+      application: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Application Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Core business services responsible for order intake, fulfilment processing, stock allocation, workflow orchestration and robotic fulfilment coordination.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>External Customer / Host System</li>
+          <li>Order Fulfilment Platform</li>
+          <li>Host Message Processing</li>
+          <li>Task Management Logic</li>
+          <li>Stock Allocation Logic</li>
+          <li>Workflow Orchestration</li>
+          <li>Robot Control Integration</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Customer order requests are received from external systems.</li>
+          <li>The fulfilment platform validates and processes requests.</li>
+          <li>Tasks are generated and inventory is allocated.</li>
+          <li>Work instructions are published to the messaging layer.</li>
+          <li>Robotic systems execute fulfilment activities.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Allocation lock exceptions</li>
+          <li>🔴 Application service outages</li>
+          <li>🔴 Manual service recovery activities</li>
+          <li>🔴 Delayed application-to-application communication</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ Containerised application services</li>
+          <li>→ Amazon ECS / EKS target platform</li>
+          <li>→ Automated scaling and health checks</li>
+          <li>→ Improved deployment and rollback patterns</li>
+        </ul>
+      `,
+
+      database: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Database Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Stores operational data required for fulfilment processing, inventory allocation, order state, robot movements, reporting and support investigations.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>SQL Operational Database</li>
+          <li>Reporting Services</li>
+          <li>Orders, stock, tasks and movement data</li>
+          <li>Operational transactions and fulfilment state</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Application services read and write fulfilment data.</li>
+          <li>Stock allocation and task management depend on database state.</li>
+          <li>Reporting services query operational data.</li>
+          <li>Support teams investigate incidents using database records.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 SQL performance bottlenecks</li>
+          <li>🔴 Reporting failures</li>
+          <li>🔴 Drive capacity exhaustion</li>
+          <li>🔴 Locking issues affecting allocation workflows</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ Amazon RDS SQL Server / managed database platform</li>
+          <li>→ Multi-AZ resilience</li>
+          <li>→ Automated backups and recovery</li>
+          <li>→ Performance Insights and proactive database monitoring</li>
+        </ul>
+      `,
+
+      messaging: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Messaging Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Provides asynchronous communication between fulfilment services, downstream operational systems and robotic control components.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>RabbitMQ Messaging Service</li>
+          <li>Task and movement message queues</li>
+          <li>Application-to-application integration flows</li>
+          <li>Robot control message delivery</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>The fulfilment platform publishes operational events and robot task messages.</li>
+          <li>RabbitMQ routes messages between services.</li>
+          <li>Robot control systems consume movement instructions.</li>
+          <li>Delayed or stuck queues affect downstream fulfilment execution.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Queue backlogs</li>
+          <li>🔴 Delayed processing</li>
+          <li>🔴 Limited proactive queue visibility</li>
+          <li>🔴 Robotic fulfilment delays when messages are not processed</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ Amazon MQ / SQS / EventBridge evaluation</li>
+          <li>→ Dead-letter queues</li>
+          <li>→ Queue depth monitoring and alerting</li>
+          <li>→ More resilient event-driven communication</li>
+        </ul>
+      `,
+
+      support: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Operational Support</h2>
+
+        <h3>Purpose</h3>
+        <p>Supports incident response, troubleshooting, service recovery, ticket investigation and operational continuity when fulfilment systems degrade or fail.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Technical Support Team</li>
+          <li>Manual monitoring</li>
+          <li>Incident tickets and escalations</li>
+          <li>Log search and database investigation</li>
+          <li>Manual recovery processes</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Site users usually report degradation or failure.</li>
+          <li>Support teams investigate logs, database records and queue status.</li>
+          <li>Service restarts, recovery steps or escalations are performed manually.</li>
+          <li>Knowledge often depends on individual experience.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 No proactive monitoring</li>
+          <li>🔴 Slow root cause analysis</li>
+          <li>🔴 Fragmented operational visibility</li>
+          <li>🔴 High dependency on individual knowledge holders</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ CloudWatch dashboards and alarms</li>
+          <li>→ Centralised log analytics</li>
+          <li>→ Operational runbooks</li>
+          <li>→ AI-assisted incident investigation</li>
+        </ul>
+      `,
+
+      infrastructure: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Infrastructure Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Provides the underlying compute, storage, networking and availability foundation for the fulfilment platform and operational systems.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Physical / virtual servers</li>
+          <li>Local or managed storage</li>
+          <li>Network connectivity between systems</li>
+          <li>Manual high availability and failover processes</li>
+          <li>Backup and recovery dependencies</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Application and database services run on fixed infrastructure.</li>
+          <li>Storage and compute capacity must be manually managed.</li>
+          <li>Network issues can impact application and robotic communication.</li>
+          <li>Recovery activities depend on manual operational intervention.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Drive capacity exhaustion</li>
+          <li>🔴 Limited scalability</li>
+          <li>🔴 Single points of failure</li>
+          <li>🔴 Manual disaster recovery processes</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ AWS VPC and multi-AZ architecture</li>
+          <li>→ Auto scaling compute capacity</li>
+          <li>→ Managed storage and backup policies</li>
+          <li>→ Improved disaster recovery posture</li>
+        </ul>
+      `,
+
+      release: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Release & Change Management</h2>
+
+        <h3>Purpose</h3>
+        <p>Controls how patches, hotfixes, service restarts and production changes are handled across the operational platform.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Manual patching process</li>
+          <li>Service restart coordination</li>
+          <li>Hotfix deployment handling</li>
+          <li>Manual validation and rollback steps</li>
+          <li>Change approval and release communication</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Changes are planned and coordinated manually.</li>
+          <li>Services may need restart or recovery after patching.</li>
+          <li>Validation relies on support checks and user confirmation.</li>
+          <li>Rollback processes are not fully automated or standardised.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Manual hotfixes</li>
+          <li>🔴 No clear CI/CD release pipeline</li>
+          <li>🔴 Increased deployment risk</li>
+          <li>🔴 Slower recovery after failed changes</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ CI/CD pipeline with controlled promotion</li>
+          <li>→ Automated testing and validation</li>
+          <li>→ Blue/green or rolling deployments</li>
+          <li>→ Defined rollback strategy</li>
+        </ul>
+      `
+    };
+
+    function openLayer(layer) {
+      document.getElementById("modalContent").innerHTML = layerDetails[layer];
+      document.getElementById("layerModal").classList.add("active");
+    }
+
+    function closeLayer() {
+      document.getElementById("layerModal").classList.remove("active");
+    }
+
+    document.getElementById("layerModal").addEventListener("click", function(event) {
+      if (event.target === this) {
+        closeLayer();
+      }
+    });
+  </script>
 
 </body>
 </html>
