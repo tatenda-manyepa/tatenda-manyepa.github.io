@@ -234,12 +234,12 @@
 
     <p class="section-intro">
       This diagram shows the current operational platform flow from external customer systems through the fulfilment platform,
-      database, RabbitMQ messaging, robot control system, robotic fleet, reporting services, application logging, and manual support model.
+      database, messaging, robot control system, robotic fleet, reporting services, application logging, and manual support model.
     </p>
 
     <div class="diagram-wrapper">
       <img
-        src="assets/diagrams/current-state-architecture.svg"
+        src="assets/diagrams/current-state-architecture.svg?v=2"
         alt="Current-State Fulfilment Platform Architecture"
         class="architecture-diagram"
         loading="lazy">
@@ -249,7 +249,7 @@
       <p>
         The diagram is intentionally modelled as a current-state view rather than an ideal architecture. It highlights
         the operational reality: fulfilment workflows depend on tightly coupled systems, manual recovery,
-        fragmented investigation paths, and site-reported incidents.
+        fragmented investigation paths, primary/standby infrastructure, and site-reported incidents.
       </p>
     </div>
   </section>
@@ -278,7 +278,7 @@
 
       <div class="risk-card">
         <h3>🔴 Messaging Queue Backlogs</h3>
-        <p><strong>Affected Layer:</strong> RabbitMQ Messaging Layer</p>
+        <p><strong>Affected Layer:</strong> Messaging Layer</p>
         <p>Delayed processing within the messaging layer can impact robotic fulfilment and system-to-system communication.</p>
       </div>
 
