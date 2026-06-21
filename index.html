@@ -488,84 +488,39 @@
     <h2>How I Solve Business Problems</h2>
 
     <p class="section-intro">
-      Technology should solve business challenges, not simply introduce new tools. My approach focuses on understanding operational pain points, identifying root causes, and designing practical solutions that improve reliability, efficiency, security, and customer outcomes.
+      I connect operational pain points to practical technology decisions. The homepage keeps this concise;
+      the detailed problem-to-solution mapping is available on a separate page.
     </p>
 
-    <div class="problem-table-wrapper">
-      <table class="problem-table">
-        <thead>
-          <tr>
-            <th>Business Problem</th>
-            <th>Operational Impact</th>
-            <th>Solution Approach</th>
-            <th>Business Benefit</th>
-          </tr>
-        </thead>
+    <div class="grid">
+      <a class="card problem" href="business-problems.html">
+        <h3>Reduce Downtime</h3>
+        <p>Manual failover and reactive recovery are addressed through Multi-AZ design, managed services and recovery planning.</p>
+        <span>View Business Mapping →</span>
+      </a>
 
-        <tbody>
-          <tr>
-            <td><strong>Manual failover processes</strong></td>
-            <td>Extended service outages and recovery times</td>
-            <td>Automated failover and recovery mechanisms</td>
-            <td>Reduced downtime and improved service availability</td>
-          </tr>
+      <a class="card solution" href="business-problems.html">
+        <h3>Improve Troubleshooting</h3>
+        <p>Limited monitoring and fragmented investigations are improved using CloudWatch, OpenSearch and AI-assisted support.</p>
+        <span>View Business Mapping →</span>
+      </a>
 
-          <tr>
-            <td><strong>Limited monitoring and alerting</strong></td>
-            <td>Slow incident detection and response</td>
-            <td>Centralised observability and proactive monitoring</td>
-            <td>Faster incident resolution and improved operational visibility</td>
-          </tr>
-
-          <tr>
-            <td><strong>Knowledge silos across support teams</strong></td>
-            <td>Longer investigations and inconsistent troubleshooting</td>
-            <td>AI-powered knowledge platform and operational intelligence</td>
-            <td>Reduced MTTR and improved support efficiency</td>
-          </tr>
-
-          <tr>
-            <td><strong>Database performance bottlenecks</strong></td>
-            <td>Slow transactions and reporting failures</td>
-            <td>Scalable cloud database architecture and optimisation</td>
-            <td>Improved performance and operational stability</td>
-          </tr>
-
-          <tr>
-            <td><strong>Messaging queue backlogs</strong></td>
-            <td>Delayed fulfilment and robotic operations</td>
-            <td>Resilient event-driven messaging architecture</td>
-            <td>Increased throughput and operational reliability</td>
-          </tr>
-
-          <tr>
-            <td><strong>Manual patching and deployments</strong></td>
-            <td>Increased operational risk and service disruption</td>
-            <td>CI/CD pipelines and automated deployment processes</td>
-            <td>Faster, safer releases with reduced risk</td>
-          </tr>
-
-          <tr>
-            <td><strong>Reactive operational support</strong></td>
-            <td>Operational teams spend time firefighting</td>
-            <td>Predictive monitoring and automated remediation</td>
-            <td>Increased productivity and reduced support effort</td>
-          </tr>
-        </tbody>
-      </table>
+      <a class="card decision" href="business-problems.html">
+        <h3>Modernise Operations</h3>
+        <p>Legacy platform constraints are translated into AWS architecture, automation, resilience and intelligent operations.</p>
+        <span>View Business Mapping →</span>
+      </a>
     </div>
-
-    <h3 class="focus-heading">Core Areas of Focus</h3>
 
     <div class="focus-grid">
       <div class="focus-pill">Enterprise Architecture</div>
       <div class="focus-pill">Cloud Modernisation</div>
       <div class="focus-pill">AWS Solutions Design</div>
       <div class="focus-pill">Operational Resilience</div>
-      <div class="focus-pill">Observability & Monitoring</div>
-      <div class="focus-pill">AI-Powered Operations</div>
+      <div class="focus-pill">Observability</div>
+      <div class="focus-pill">AI Operations</div>
       <div class="focus-pill">Automation & DevOps</div>
-      <div class="focus-pill">Technical Strategy & Solution Design</div>
+      <div class="focus-pill">Solution Design</div>
     </div>
   </section>
 
@@ -762,7 +717,60 @@
   </section>
 
   <section class="section">
-    <h2>5. Architecture Decisions</h2>
+    <h2>5. AWS Build Progress</h2>
+
+    <p class="section-intro">
+      This section tracks implementation evidence for the AWS target architecture. It separates the design work
+      from the hands-on build so recruiters can see both architecture thinking and practical delivery.
+    </p>
+
+    <div class="grid">
+      <a class="card decision" href="aws-build-progress.html">
+        <div class="status progress">🔄 In Progress</div>
+        <h3>AWS Foundation</h3>
+        <p>VPC, public/private subnets, route tables, NAT gateways, security groups, IAM and governance baseline.</p>
+        <span>View Build Progress →</span>
+      </a>
+
+      <a class="card decision" href="aws-build-progress.html">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Application Platform</h3>
+        <p>Application Load Balancer, ECS Fargate services, container registry, deployment approach and scaling validation.</p>
+        <span>View Build Progress →</span>
+      </a>
+
+      <a class="card decision" href="aws-build-progress.html">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Data & Messaging</h3>
+        <p>RDS SQL Server, Amazon MQ, backups, reporting replica, DLQ handling and operational validation.</p>
+        <span>View Build Progress →</span>
+      </a>
+
+      <a class="card decision" href="aws-build-progress.html">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Observability</h3>
+        <p>CloudWatch logs, alarms, dashboards, OpenSearch and SNS notification testing.</p>
+        <span>View Build Progress →</span>
+      </a>
+
+      <a class="card decision" href="aws-build-progress.html">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Security Controls</h3>
+        <p>Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub and AWS Config implementation evidence.</p>
+        <span>View Build Progress →</span>
+      </a>
+
+      <a class="card decision" href="aws-build-progress.html">
+        <div class="status planned">⏳ Planned</div>
+        <h3>AI Operations</h3>
+        <p>S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch vector index and AI operations assistant prototype.</p>
+        <span>View Build Progress →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>6. Architecture Decisions</h2>
 
     <p class="section-intro">
       Architecture Decision Records show reasoning, trade-offs, constraints, and design justification.
