@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Phase 2: Migrate | Apex Operational Systems</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f14;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    .hero, .section {
+      max-width: 1180px;
+      margin: 50px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p, li {
+      color: #d6d6d6;
+      font-size: 18px;
+    }
+
+    .subtitle, .section-intro {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 35px;
+      color: #d4d4d4;
+      font-size: 19px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #3b2f10;
+      color: #ffd36e;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
+      transform: translateY(-3px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1d232b;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #30363f;
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .wave {
+      border-left-color: #8ef0b9;
+    }
+
+    .risk {
+      border-left-color: #ff6b6b;
+    }
+
+    .decision {
+      border-left-color: #ffd36e;
+    }
+
+    .ai {
+      border-left-color: #b7c8ff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #111820;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 16px;
+      border: 1px solid #30363f;
+      text-align: left;
+      color: #d6d6d6;
+      font-size: 16px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #1d232b;
+      color: #ffffff;
+    }
+
+    .callout {
+      background: #111820;
+      border: 1px solid #2e3947;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+      border-top: 1px solid #2b2f35;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #4ea1ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .hero, .section {
+        margin: 30px 16px;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .grid, .two-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="badge">Phase 2: Migrate</div>
+
+    <h1>AWS Migration Strategy</h1>
+
+    <p class="subtitle">
+      A phased migration approach for moving Apex Operational Systems from a legacy fulfilment platform
+      to a resilient AWS target-state architecture with reduced operational risk and controlled cutover.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="button">← Back to Portfolio</a>
+      <a href="case-study.html" class="button">View Case Study</a>
+      <a href="target-architecture.html" class="button">Target Architecture</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Migration Objective</h2>
+
+    <p class="section-intro">
+      The migration approach focuses on moving the fulfilment platform to AWS without increasing operational risk.
+      The strategy prioritises resilience, observability, rollback capability, security and business continuity.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Business Continuity</h3>
+        <p>Protect fulfilment operations during migration by using phased waves, validation checkpoints and rollback planning.</p>
+      </div>
+
+      <div class="card">
+        <h3>Risk Reduction</h3>
+        <p>Move high-risk components gradually, starting with observability, backup and supporting services before core workload migration.</p>
+      </div>
+
+      <div class="card">
+        <h3>Modernisation Foundation</h3>
+        <p>Prepare the platform for containerisation, managed databases, managed messaging and AI-assisted operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Migration Principles</h2>
+
+    <div class="grid">
+      <div class="card decision">
+        <h3>Phased Migration</h3>
+        <p>Use migration waves instead of a single big-bang cutover to reduce delivery and operational risk.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Rollback First</h3>
+        <p>Each migration stage should have a defined rollback path before production cutover is approved.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Observe Before Migrating</h3>
+        <p>Monitoring, logging and alerting should be introduced early so migration decisions are based on operational evidence.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Security by Design</h3>
+        <p>IAM, encryption, secrets management, audit logging and governance controls are built into the migration foundation.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Managed Services First</h3>
+        <p>Prefer AWS managed services where they reduce patching, failover, backup and operational support overhead.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Business Validation</h3>
+        <p>Every migrated component must be validated against fulfilment workflows, reporting, robot task flow and support procedures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Landing Zone Approach</h2>
+
+    <p class="section-intro">
+      Before migrating workloads, the AWS foundation must provide secure networking, access control,
+      logging, monitoring and governance.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Network Foundation</h3>
+        <p>VPC, public/private subnets, routing, NAT gateways, security groups and controlled ingress through Application Load Balancer.</p>
+      </div>
+
+      <div class="card">
+        <h3>Identity & Access</h3>
+        <p>IAM roles, least privilege permissions, MFA, service roles and controlled access to production resources.</p>
+      </div>
+
+      <div class="card">
+        <h3>Security Baseline</h3>
+        <p>KMS encryption, Secrets Manager, CloudTrail, GuardDuty, Security Hub and AWS Config for governance visibility.</p>
+      </div>
+
+      <div class="card">
+        <h3>Operational Baseline</h3>
+        <p>CloudWatch Logs, alarms, dashboards, SNS notifications and OpenSearch for searchable operational data.</p>
+      </div>
+
+      <div class="card">
+        <h3>Backup Baseline</h3>
+        <p>AWS Backup policies for database and knowledge artefacts, with restore testing before production cutover.</p>
+      </div>
+
+      <div class="card">
+        <h3>Automation Baseline</h3>
+        <p>Systems Manager runbooks and patch management to reduce manual recovery and operational intervention.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Migration Waves</h2>
+
+    <p class="section-intro">
+      Migration is delivered in controlled waves so that operational visibility, recovery capability and platform stability improve before core workload cutover.
+    </p>
+
+    <div class="grid">
+      <div class="card wave">
+        <h3>Wave 1: Foundation & Observability</h3>
+        <p>Set up VPC, IAM, CloudTrail, CloudWatch, OpenSearch, SNS, dashboards, backup policies and security baseline.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Wave 2: Messaging & Integration</h3>
+        <p>Introduce Amazon MQ, EventBridge and Dead Letter Queue patterns to improve messaging reliability and failure handling.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Wave 3: Application Services</h3>
+        <p>Containerise fulfilment services onto ECS Fargate across multiple Availability Zones behind an Application Load Balancer.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Wave 4: Data Migration</h3>
+        <p>Migrate SQL workloads to Amazon RDS for SQL Server Multi-AZ, introduce reporting replica and validate backup/restore.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Wave 5: Operational Cutover</h3>
+        <p>Complete production cutover using test evidence, support readiness, rollback procedures and business sign-off.</p>
+      </div>
+
+      <div class="card wave ai">
+        <h3>Wave 6: AI Operations Enablement</h3>
+        <p>Load runbooks, tickets, known issues and architecture documents into the AI Operations Knowledge Base.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Cutover Strategy</h2>
+
+    <div class="two-grid">
+      <div class="card">
+        <h3>Before Cutover</h3>
+        <ul>
+          <li>Confirm backups and restore testing.</li>
+          <li>Validate ECS services, RDS, MQ and monitoring.</li>
+          <li>Complete performance and integration testing.</li>
+          <li>Prepare rollback plan and support rota.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>During Cutover</h3>
+        <ul>
+          <li>Freeze non-essential changes.</li>
+          <li>Redirect traffic through Route 53 and ALB.</li>
+          <li>Monitor CloudWatch dashboards and alerts.</li>
+          <li>Validate fulfilment, messaging and robot task flow.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>After Cutover</h3>
+        <ul>
+          <li>Monitor queue depth, database performance and application logs.</li>
+          <li>Confirm reporting and operational visibility.</li>
+          <li>Review incidents and update runbooks.</li>
+          <li>Capture lessons learned for future waves.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Rollback Conditions</h3>
+        <ul>
+          <li>Critical fulfilment workflow failure.</li>
+          <li>Unresolved database performance issue.</li>
+          <li>Messaging backlog exceeding agreed threshold.</li>
+          <li>Robot task execution failure impacting operations.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Migration Risks & Mitigations</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Risk</th>
+          <th>Impact</th>
+          <th>Mitigation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Production downtime during cutover</td>
+          <td>Fulfilment disruption and delayed orders</td>
+          <td>Phased cutover, rollback plan, test windows and business validation checkpoints.</td>
+        </tr>
+        <tr>
+          <td>SQL performance degradation</td>
+          <td>Slow transactions, reporting delays and operational instability</td>
+          <td>Performance testing, RDS sizing, reporting replica and CloudWatch monitoring.</td>
+        </tr>
+        <tr>
+          <td>Messaging backlog during migration</td>
+          <td>Delayed robot tasks and system-to-system communication issues</td>
+          <td>Amazon MQ validation, queue depth alarms, DLQ handling and controlled traffic ramp-up.</td>
+        </tr>
+        <tr>
+          <td>Knowledge gap across support teams</td>
+          <td>Longer incident investigations and inconsistent recovery</td>
+          <td>Runbooks, AI Operations Knowledge Base, support readiness sessions and post-cutover hypercare.</td>
+        </tr>
+        <tr>
+          <td>Security misconfiguration</td>
+          <td>Unauthorized access, audit gaps or compliance concerns</td>
+          <td>IAM least privilege, CloudTrail, GuardDuty, Security Hub, AWS Config and pre-cutover review.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>Success Criteria</h2>
+
+    <div class="grid">
+      <div class="card wave">
+        <h3>Platform Availability</h3>
+        <p>Core fulfilment services remain available across AZ failure scenarios and recover within agreed operational targets.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Operational Visibility</h3>
+        <p>Support teams can view logs, alarms, dashboards, queue depth and database performance from centralised tools.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Reduced Manual Recovery</h3>
+        <p>Runbooks, automation and managed services reduce dependency on manual restart, failover and recovery activities.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Validated Data Migration</h3>
+        <p>Operational database, reporting replica and backup/restore processes are validated before production cutover.</p>
+      </div>
+
+      <div class="card wave">
+        <h3>Improved Messaging Resilience</h3>
+        <p>Amazon MQ and DLQ handling reduce risk from queue backlogs and failed operational messages.</p>
+      </div>
+
+      <div class="card wave ai">
+        <h3>AI-Assisted Support Ready</h3>
+        <p>Known issues, runbooks and support documents are available through the AI Operations Knowledge Base.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>
+        The migration strategy is designed to show how an architect moves from assessment to execution:
+        understand the current state, define the target state, prepare the landing zone, migrate in waves,
+        validate business outcomes and continuously improve operations.
+      </p>
+    </div>
+
+    <div class="buttons">
+      <a href="target-architecture.html" class="button">← Target Architecture</a>
+      <a href="phase-3-modernise.html" class="button">Next: Modernise →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="index.html">Back to Portfolio</a>
+      |
+      <a href="case-study.html">Case Study</a>
+      |
+      <a href="target-architecture.html">Target Architecture</a>
+    </p>
+
+    <p>
+      Phase 2: Migrate • Landing Zone • Migration Waves • Cutover Strategy • Risk Management
+    </p>
+  </footer>
+
+</body>
+</html>
