@@ -16,15 +16,19 @@
       scroll-behavior: smooth;
     }
 
+    .hero, .section {
+      max-width: 1180px;
+      margin: 50px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
     .hero {
       text-align: center;
-      max-width: 1180px;
-      margin: 40px auto 0;
-      padding: 70px 50px;
-      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+      margin-top: 40px;
     }
 
     h1 {
@@ -48,29 +52,23 @@
       font-size: 18px;
     }
 
-    .subtitle {
-      font-size: 22px;
-      color: #d4d4d4;
-      max-width: 940px;
-      margin: auto;
-    }
-
-    .section {
-      max-width: 1120px;
-      margin: 60px auto;
-      padding: 50px;
-      background: linear-gradient(145deg, #171c22, #11161c);
-      border: 1px solid #2a2f36;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.25);
-    }
-
-    .section-intro {
+    .subtitle, .section-intro {
       text-align: center;
-      max-width: 900px;
-      margin: 0 auto 36px;
+      max-width: 920px;
+      margin: 0 auto 35px;
       color: #d4d4d4;
-      font-size: 18px;
+      font-size: 19px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0d5f39;
+      color: #8ef0b9;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
     }
 
     .buttons {
@@ -98,15 +96,19 @@
       transform: translateY(-3px);
     }
 
-    .badge {
-      display: inline-block;
-      background: #0d5f39;
-      color: #8ef0b9;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 25px;
+    .diagram-wrapper {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      overflow-x: auto;
+      margin-top: 35px;
+    }
+
+    .architecture-diagram {
+      width: 100%;
+      min-width: 980px;
+      height: auto;
+      display: block;
     }
 
     .grid {
@@ -139,89 +141,11 @@
       background: #222a34;
     }
 
-    .network {
-      border-left: 4px solid #4ea1ff;
-    }
-
-    .platform {
-      border-left: 4px solid #8ef0b9;
-    }
-
-    .security {
-      border-left: 4px solid #ffd36e;
-    }
-
-    .ai {
-      border-left: 4px solid #b7c8ff;
-    }
-
-    .risk {
-      border-left: 4px solid #ff6b6b;
-    }
-
-    .architecture-map {
-      background: #0f141b;
-      border: 1px solid #30363f;
-      border-radius: 18px;
-      padding: 35px;
-      margin-top: 35px;
-      text-align: center;
-    }
-
-    .layer {
-      margin: 18px auto;
-      max-width: 980px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .node {
-      background: #1d2733;
-      border: 1px solid #3a4655;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-weight: 700;
-      color: #ffffff;
-      position: relative;
-      cursor: default;
-    }
-
-    .node:hover {
-      border-color: #4ea1ff;
-      background: #253244;
-    }
-
-    .node::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: 115%;
-      transform: translateX(-50%);
-      background: #111820;
-      color: #e5e7eb;
-      border: 1px solid #4ea1ff;
-      border-radius: 10px;
-      padding: 10px;
-      width: 260px;
-      font-size: 13px;
-      line-height: 1.4;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-      z-index: 10;
-    }
-
-    .node:hover::after {
-      opacity: 1;
-    }
-
-    .arrow {
-      color: #4ea1ff;
-      font-weight: bold;
-      align-self: center;
-    }
+    .network { border-left: 4px solid #4ea1ff; }
+    .platform { border-left: 4px solid #8ef0b9; }
+    .security { border-left: 4px solid #ffd36e; }
+    .ai { border-left: 4px solid #b7c8ff; }
+    .risk { border-left: 4px solid #ff6b6b; }
 
     .callout {
       background: #111820;
@@ -262,10 +186,6 @@
       .two-grid {
         grid-template-columns: 1fr;
       }
-
-      .node::after {
-        width: 210px;
-      }
     }
   </style>
 </head>
@@ -275,17 +195,42 @@
   <section class="hero">
     <div class="badge">Target AWS Architecture</div>
 
-    <h1>AWS-First Operational Platform</h1>
+    <h1>AWS-First Intelligent Operations Platform</h1>
 
     <p class="subtitle">
       Target-state architecture for modernising a legacy fulfilment platform into a resilient,
-      observable, secure, scalable, and AI-assisted operational environment on AWS.
+      observable, secure, automated and AI-assisted operating model on AWS.
     </p>
 
     <div class="buttons">
       <a href="index.html" class="button">← Back to Portfolio</a>
       <a href="case-study.html" class="button">View Case Study</a>
       <a href="current-state.html" class="button">Current-State Architecture</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Target Architecture Diagram</h2>
+
+    <p class="section-intro">
+      The target state replaces legacy application servers, unmanaged operational dependencies and reactive support processes
+      with managed AWS services, Multi-AZ resilience, centralised observability, automated operations and AI-assisted support.
+    </p>
+
+    <div class="diagram-wrapper">
+      <img
+        src="assets/diagrams/target-state-architecture.svg?v=1"
+        alt="Target-State AWS Architecture for Intelligent Fulfilment Operations Platform"
+        class="architecture-diagram"
+        loading="lazy">
+    </div>
+
+    <div class="callout">
+      <p>
+        This design is not a simple lift-and-shift migration. It modernises the operating model by moving from
+        server-based application hosting, manual monitoring and reactive troubleshooting to containerised services,
+        managed data platforms, proactive observability, automation and AI-assisted operations.
+      </p>
     </div>
   </section>
 
@@ -298,150 +243,35 @@
       and create the foundation for AI-assisted troubleshooting and incident response.
     </p>
 
-    <div class="architecture-map">
-      <h3>Interactive Target-State Architecture Map</h3>
-      <p>Hover over each AWS service or architecture component to understand why it exists.</p>
-
-      <div class="layer">
-        <div class="node" data-tooltip="Route 53 provides managed DNS routing and supports resilient traffic direction into the AWS-hosted platform.">
-          Route 53
-        </div>
-        <div class="arrow">→</div>
-        <div class="node" data-tooltip="AWS WAF helps protect public-facing endpoints from common web exploits and supports security at the edge.">
-          AWS WAF
-        </div>
-        <div class="arrow">→</div>
-        <div class="node" data-tooltip="Application Load Balancer distributes traffic across application workloads and supports availability across multiple Availability Zones.">
-          Application Load Balancer
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="VPC provides the isolated network foundation for public and private subnets, routing, security groups and segmentation.">
-          VPC
-        </div>
-        <div class="node" data-tooltip="Public subnets host controlled ingress components such as load balancers while application and database workloads remain private.">
-          Public Subnets
-        </div>
-        <div class="node" data-tooltip="Private subnets host application workloads and databases away from direct internet exposure.">
-          Private Subnets
-        </div>
-        <div class="node" data-tooltip="Security groups control permitted traffic between application, database, monitoring and operational components.">
-          Security Groups
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="ECS provides a managed container platform for modernised application workloads and supports controlled scaling.">
-          Amazon ECS
-        </div>
-        <div class="node" data-tooltip="EC2 supports workloads that may need virtual machine compatibility during migration or phased modernisation.">
-          Amazon EC2
-        </div>
-        <div class="node" data-tooltip="Auto Scaling improves resilience and capacity management by adjusting compute resources according to demand.">
-          Auto Scaling
-        </div>
-        <div class="node" data-tooltip="SQS decouples services and improves workflow resilience by buffering work between components.">
-          Amazon SQS
-        </div>
-        <div class="node" data-tooltip="SNS supports event notifications, alerting and integration between operational services.">
-          Amazon SNS
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="Amazon RDS for SQL Server provides managed database hosting, backups, Multi-AZ options and reduced operational overhead.">
-          RDS SQL Server
-        </div>
-        <div class="node" data-tooltip="Amazon S3 stores documents, logs, backups, exports and operational artefacts with durable object storage.">
-          Amazon S3
-        </div>
-        <div class="node" data-tooltip="AWS Backup centralises backup policy management and supports recovery governance across supported services.">
-          AWS Backup
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="CloudWatch provides metrics, logs, alarms and dashboards for proactive observability and operational monitoring.">
-          CloudWatch
-        </div>
-        <div class="node" data-tooltip="CloudTrail records AWS API activity and supports auditability, compliance and security investigations.">
-          CloudTrail
-        </div>
-        <div class="node" data-tooltip="Secrets Manager stores and rotates sensitive credentials, reducing shared password and manual secrets risk.">
-          Secrets Manager
-        </div>
-        <div class="node" data-tooltip="IAM provides identity and access control using roles, least privilege, MFA and controlled permissions.">
-          IAM
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="layer">
-        <div class="node" data-tooltip="The AI Operations layer uses logs, incidents, runbooks and documentation to support guided troubleshooting and root cause investigation.">
-          AI Operations Layer
-        </div>
-        <div class="node" data-tooltip="Runbooks provide standardised recovery and investigation procedures for support teams.">
-          Operational Runbooks
-        </div>
-        <div class="node" data-tooltip="Incident workflows enable alerting, ticket creation, escalation and structured operational response.">
-          Incident Response Workflow
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Target Architecture Layers</h2>
-
     <div class="grid">
       <div class="card network">
-        <h3>Network Foundation</h3>
-        <p>VPC, public/private subnets, routing, security groups, load balancing and network segmentation.</p>
+        <h3>AWS Network Foundation</h3>
+        <p>Route 53, VPC, public/private subnets, Application Load Balancer, NAT gateways and Multi-AZ network segmentation.</p>
       </div>
 
       <div class="card platform">
         <h3>Application Platform</h3>
-        <p>ECS, EC2 and Auto Scaling support phased migration, containerised services and scalable application hosting.</p>
+        <p>ECS Fargate replaces legacy APP-1 / APP-2 servers with containerised services running across multiple Availability Zones.</p>
       </div>
 
       <div class="card platform">
-        <h3>Data Platform</h3>
-        <p>RDS SQL Server, S3 and AWS Backup provide managed data hosting, durable storage and recovery governance.</p>
+        <h3>Data & Recovery</h3>
+        <p>Amazon RDS for SQL Server, reporting replica and AWS Backup improve database availability, recovery and reporting separation.</p>
       </div>
 
-      <div class="card security">
-        <h3>Security & Access</h3>
-        <p>IAM, Secrets Manager, WAF, CloudTrail and least-privilege controls improve access governance and auditability.</p>
+      <div class="card platform">
+        <h3>Messaging & Integration</h3>
+        <p>Amazon MQ, EventBridge and Dead Letter Queue improve asynchronous communication, failure handling and operational event routing.</p>
       </div>
 
       <div class="card network">
-        <h3>Observability Layer</h3>
-        <p>CloudWatch metrics, logs, alarms and dashboards provide proactive monitoring and faster root cause analysis.</p>
+        <h3>Observability & Operations</h3>
+        <p>CloudWatch, OpenSearch, SNS and Systems Manager provide logging, alerting, dashboards, automation and patch management.</p>
       </div>
 
       <div class="card ai">
         <h3>AI Operations Intelligence</h3>
-        <p>AI-assisted troubleshooting uses operational data, historic tickets, logs and runbooks to guide investigations.</p>
+        <p>Amazon Bedrock Knowledge Base, S3 and OpenSearch vector indexing support AI-assisted troubleshooting and support guidance.</p>
       </div>
     </div>
   </section>
@@ -450,53 +280,53 @@
     <h2>Key AWS Service Decisions</h2>
 
     <p class="section-intro">
-      Each AWS service is selected to address a specific operational or architectural concern from the current environment.
+      Each AWS service is selected to address a specific operational or architectural weakness from the current environment.
     </p>
 
     <div class="grid">
       <div class="card network">
-        <h3>Amazon VPC</h3>
-        <p>Provides network isolation, subnet design, segmentation and controlled communication between application and data layers.</p>
-      </div>
-
-      <div class="card network">
-        <h3>Application Load Balancer</h3>
-        <p>Improves availability by distributing traffic across application workloads and supporting multi-AZ resilience patterns.</p>
+        <h3>Route 53 & Application Load Balancer</h3>
+        <p>Provide controlled traffic entry, health-checked routing and distribution across ECS services in multiple Availability Zones.</p>
       </div>
 
       <div class="card platform">
-        <h3>Amazon ECS</h3>
-        <p>Supports modernised container workloads and allows services to scale more flexibly as the platform evolves.</p>
-      </div>
-
-      <div class="card platform">
-        <h3>Amazon EC2</h3>
-        <p>Supports transitional workloads that may need virtual machine compatibility during migration from on-premises systems.</p>
+        <h3>Amazon ECS Fargate</h3>
+        <p>Removes application server management overhead while supporting containerised fulfilment services, scaling and resilience.</p>
       </div>
 
       <div class="card platform">
         <h3>Amazon RDS SQL Server</h3>
-        <p>Reduces database operational overhead while supporting managed backups, patching options and Multi-AZ availability.</p>
+        <p>Provides managed SQL Server hosting, Multi-AZ failover, backup integration and improved database operational control.</p>
       </div>
 
       <div class="card platform">
-        <h3>SQS & SNS</h3>
-        <p>Decouple operational workflows, buffer work between services and support event-driven alerting and integration patterns.</p>
-      </div>
-
-      <div class="card security">
-        <h3>AWS Secrets Manager</h3>
-        <p>Reduces shared credential risk by centralising secrets, supporting rotation and improving operational access governance.</p>
-      </div>
-
-      <div class="card security">
-        <h3>AWS CloudTrail</h3>
-        <p>Provides audit visibility into API activity and supports investigation, compliance and governance requirements.</p>
+        <h3>Amazon MQ</h3>
+        <p>Modernises RabbitMQ-style messaging with managed broker capability, high availability and reduced operational overhead.</p>
       </div>
 
       <div class="card network">
-        <h3>Amazon CloudWatch</h3>
-        <p>Enables metrics, logs, alarms and dashboards to support proactive monitoring and operational intelligence.</p>
+        <h3>CloudWatch & OpenSearch</h3>
+        <p>Centralise logs, metrics, dashboards and searchable operational data to improve investigation and incident response.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Amazon Bedrock Knowledge Base</h3>
+        <p>Uses runbooks, tickets, known issues and architecture documentation to support AI-assisted troubleshooting and knowledge retrieval.</p>
+      </div>
+
+      <div class="card security">
+        <h3>Secrets Manager & KMS</h3>
+        <p>Reduce shared credential risk, improve secrets handling and encrypt sensitive configuration and operational data.</p>
+      </div>
+
+      <div class="card security">
+        <h3>CloudTrail, GuardDuty & Security Hub</h3>
+        <p>Improve auditability, threat detection and security posture visibility across the AWS environment.</p>
+      </div>
+
+      <div class="card security">
+        <h3>AWS Config</h3>
+        <p>Supports configuration tracking, governance, compliance visibility and architecture accountability.</p>
       </div>
     </div>
   </section>
@@ -506,33 +336,33 @@
 
     <div class="grid">
       <div class="card risk">
-        <h3>Recurring Outages</h3>
-        <p>Multi-AZ design, load balancing, auto scaling and improved observability reduce service impact and improve availability.</p>
+        <h3>SQL Performance Bottlenecks</h3>
+        <p>RDS SQL Server Multi-AZ, reporting replica and performance monitoring reduce operational database pressure.</p>
       </div>
 
       <div class="card risk">
-        <h3>Manual Failover</h3>
-        <p>Managed services, documented runbooks, backup policy and recovery design reduce reliance on manual intervention.</p>
+        <h3>Messaging Queue Backlogs</h3>
+        <p>Amazon MQ, EventBridge and Dead Letter Queue improve message resilience, failure handling and integration visibility.</p>
       </div>
 
       <div class="card risk">
-        <h3>Monitoring Gaps</h3>
-        <p>CloudWatch dashboards, alarms, logs and operational alerts improve visibility and support earlier detection.</p>
+        <h3>Manual Failover & Recovery</h3>
+        <p>Multi-AZ managed services, AWS Backup and Systems Manager runbooks reduce reliance on manual recovery processes.</p>
       </div>
 
       <div class="card risk">
-        <h3>Credential Risk</h3>
-        <p>Secrets Manager, IAM roles and least privilege reduce shared password risk and improve auditability.</p>
+        <h3>No Proactive Monitoring</h3>
+        <p>CloudWatch alarms, dashboards, logs, SNS notifications and OpenSearch improve detection and investigation speed.</p>
       </div>
 
       <div class="card risk">
-        <h3>Messaging Reliability</h3>
-        <p>SQS and SNS provide decoupled messaging patterns that improve resilience and reduce workflow disruption.</p>
+        <h3>Manual Patching</h3>
+        <p>Systems Manager Patch Manager supports controlled patching and operational automation across managed workloads.</p>
       </div>
 
       <div class="card risk">
-        <h3>DR Weakness</h3>
-        <p>AWS Backup, Multi-AZ services, tested runbooks and defined recovery objectives strengthen business continuity.</p>
+        <h3>Knowledge Silos</h3>
+        <p>Bedrock Knowledge Base and S3 Knowledge Store turn runbooks, known issues and incidents into reusable operational intelligence.</p>
       </div>
     </div>
   </section>
@@ -542,77 +372,118 @@
 
     <div class="two-grid">
       <div class="card security">
-        <h3>ECS vs EKS</h3>
+        <h3>ECS Fargate vs EKS</h3>
         <p>
-          ECS is selected initially to reduce operational complexity while still supporting containerised workloads.
-          EKS may be considered later if Kubernetes portability, multi-cloud patterns or advanced orchestration become stronger requirements.
+          ECS Fargate is selected to reduce operational complexity while still supporting containerised workloads,
+          scaling and resilience. EKS may be considered later if Kubernetes portability or advanced orchestration becomes a stronger requirement.
         </p>
       </div>
 
       <div class="card security">
-        <h3>EC2 Transitional Workloads</h3>
+        <h3>Amazon MQ vs Fully Refactored Eventing</h3>
         <p>
-          EC2 remains part of the target architecture to support workloads that cannot immediately be containerised.
-          This allows phased migration without forcing unnecessary refactoring too early.
+          Amazon MQ provides a realistic migration path from RabbitMQ-style messaging. EventBridge and DLQ patterns can then
+          support gradual evolution toward more event-driven operations.
         </p>
       </div>
 
       <div class="card security">
         <h3>Managed Database Approach</h3>
         <p>
-          RDS SQL Server reduces operational overhead but requires careful licensing, performance sizing,
+          RDS SQL Server reduces operational overhead but still requires sizing, licensing review, performance monitoring,
           backup policy and migration planning.
         </p>
       </div>
 
       <div class="card security">
-        <h3>AWS-First, Not AWS-Only</h3>
+        <h3>One Region, Multi-AZ First</h3>
         <p>
-          The target is AWS-first for portfolio focus and implementation clarity, while still considering future hybrid,
-          multi-cloud resilience, portability and backup strategies where appropriate.
+          The initial target uses eu-west-2 with multiple Availability Zones for practical resilience. Cross-region disaster recovery
+          can be added later if RTO/RPO requirements justify the additional cost and complexity.
         </p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Future AI Operations Layer</h2>
+    <h2>AI Operations Capability</h2>
 
     <p class="section-intro">
       The AI operations layer is designed to extend observability and support workflows by helping engineers investigate issues faster,
-      correlate incidents, retrieve documentation and follow structured runbooks.
+      retrieve operational knowledge and follow structured remediation guidance.
     </p>
 
     <div class="grid">
       <div class="card ai">
         <h3>Knowledge Retrieval</h3>
-        <p>Search operational documentation, known issues, past incidents, architecture notes and support runbooks.</p>
+        <p>Search runbooks, tickets, known issues, SOPs, architecture documents and support notes from the S3 Knowledge Store.</p>
       </div>
 
       <div class="card ai">
-        <h3>Log & Incident Analysis</h3>
-        <p>Use AI to summarise logs, correlate alerts and identify likely root causes or affected services.</p>
+        <h3>Operational Context</h3>
+        <p>Use OpenSearch and vector indexing to connect logs, historic incidents and known patterns to troubleshooting workflows.</p>
       </div>
 
       <div class="card ai">
         <h3>Guided Troubleshooting</h3>
-        <p>Suggest investigation steps, escalation paths, rollback options and validation checks based on operational context.</p>
+        <p>AI Operations Assistant suggests likely causes, investigation steps, escalation paths and validation checks.</p>
       </div>
 
       <div class="card ai">
-        <h3>Auto-Ticketing</h3>
-        <p>Convert alerts or detected issues into structured tickets with impact summary, affected systems and recommended actions.</p>
+        <h3>Continuous Learning</h3>
+        <p>Support teams can update operational knowledge after incidents, improving future recommendations and reducing repeated investigations.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Reduced MTTR</h3>
+        <p>AI-assisted support reduces time spent searching documents, tickets and logs during high-pressure operational incidents.</p>
       </div>
 
       <div class="card ai">
         <h3>Architecture Q&A</h3>
-        <p>Allow users to ask why services were chosen, how risks are mitigated and what trade-offs were considered.</p>
+        <p>Users can ask why services were selected, how risks are mitigated and what trade-offs were considered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Expected Business Outcomes</h2>
+
+    <div class="grid">
+      <div class="card platform">
+        <h3>Improved Availability</h3>
+        <p>Multi-AZ design and managed services reduce the impact of infrastructure and service failures.</p>
       </div>
 
-      <div class="card ai">
-        <h3>Continuous Improvement</h3>
-        <p>Use recurring incidents and operational trends to improve architecture, runbooks and platform reliability.</p>
+      <div class="card platform">
+        <h3>Reduced Operational Overhead</h3>
+        <p>Fargate, RDS, Amazon MQ and Systems Manager reduce manual server management and recovery workload.</p>
       </div>
+
+      <div class="card platform">
+        <h3>Faster Incident Response</h3>
+        <p>CloudWatch, OpenSearch, SNS and AI-assisted troubleshooting improve detection, triage and remediation.</p>
+      </div>
+
+      <div class="card platform">
+        <h3>Stronger Security Posture</h3>
+        <p>IAM, KMS, Secrets Manager, CloudTrail, GuardDuty, Security Hub and AWS Config improve control and auditability.</p>
+      </div>
+
+      <div class="card platform">
+        <h3>Better Release Readiness</h3>
+        <p>Containerised services create a stronger foundation for future CI/CD, automated deployment and safer rollback patterns.</p>
+      </div>
+
+      <div class="card platform">
+        <h3>AI-Assisted Operations</h3>
+        <p>Operational knowledge becomes searchable, reusable and available to engineers during live investigations.</p>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a href="current-state.html" class="button">← Current-State Architecture</a>
+      <a href="case-study.html" class="button">Back to Case Study</a>
     </div>
   </section>
 
