@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Phase 3: Modernise | Apex Operational Systems</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f14;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    .hero, .section {
+      max-width: 1180px;
+      margin: 50px auto;
+      padding: 50px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p, li {
+      color: #d6d6d6;
+      font-size: 18px;
+    }
+
+    .subtitle, .section-intro {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 35px;
+      color: #d4d4d4;
+      font-size: 19px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #102f3b;
+      color: #7dd3fc;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
+      transform: translateY(-3px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1d232b;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #30363f;
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .modernise { border-left-color: #8ef0b9; }
+    .ops { border-left-color: #ffd36e; }
+    .security { border-left-color: #ff6b6b; }
+    .ai { border-left-color: #b7c8ff; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #111820;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 16px;
+      border: 1px solid #30363f;
+      text-align: left;
+      color: #d6d6d6;
+      font-size: 16px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #1d232b;
+      color: #ffffff;
+    }
+
+    .callout {
+      background: #111820;
+      border: 1px solid #2e3947;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+      border-top: 1px solid #2b2f35;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #4ea1ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .hero, .section {
+        margin: 30px 16px;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .grid, .two-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="badge">Phase 3: Modernise</div>
+
+    <h1>Application & Operations Modernisation</h1>
+
+    <p class="subtitle">
+      Modernising the fulfilment platform beyond migration by improving application architecture,
+      observability, release capability, resilience, security and operational support maturity.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="button">← Back to Portfolio</a>
+      <a href="phase-2-migrate.html" class="button">← Phase 2: Migrate</a>
+      <a href="target-architecture.html" class="button">Target Architecture</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Modernisation Objective</h2>
+
+    <p class="section-intro">
+      Phase 3 focuses on improving how the platform is built, deployed, monitored, recovered and operated.
+      The goal is not only to host workloads on AWS, but to reduce operational fragility and create a more scalable,
+      resilient and supportable architecture.
+    </p>
+
+    <div class="grid">
+      <div class="card modernise">
+        <h3>Application Modernisation</h3>
+        <p>Move from legacy application servers to containerised services running on ECS Fargate across multiple Availability Zones.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Operational Modernisation</h3>
+        <p>Introduce centralised logging, dashboards, alarms, runbooks and automated operational workflows.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Delivery Modernisation</h3>
+        <p>Prepare the platform for CI/CD, controlled releases, automated validation and safer rollback patterns.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Current to Modernised State</h2>
+
+    <p class="section-intro">
+      The modernisation phase maps legacy platform components to managed AWS services and improved operational patterns.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Current State</th>
+          <th>Modernised Target</th>
+          <th>Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>APP-1 / APP-2 application server pair</td>
+          <td>ECS Fargate application services across AZ A and AZ B</td>
+          <td>Reduces server management overhead and improves scaling, availability and deployment flexibility.</td>
+        </tr>
+        <tr>
+          <td>SQL Server cluster supporting operational and reporting workloads</td>
+          <td>Amazon RDS SQL Server Multi-AZ with reporting replica</td>
+          <td>Improves availability and separates reporting load from core operational transactions.</td>
+        </tr>
+        <tr>
+          <td>RabbitMQ messaging broker</td>
+          <td>Amazon MQ with Dead Letter Queue and EventBridge integration</td>
+          <td>Improves messaging resilience, failure handling and operational event routing.</td>
+        </tr>
+        <tr>
+          <td>Fragmented log search and manual investigations</td>
+          <td>CloudWatch Logs, OpenSearch Service and AI Operations Assistant</td>
+          <td>Improves incident investigation, knowledge retrieval and support efficiency.</td>
+        </tr>
+        <tr>
+          <td>Manual patching and recovery</td>
+          <td>Systems Manager Runbooks and Patch Manager</td>
+          <td>Reduces manual intervention and improves repeatability of operational processes.</td>
+        </tr>
+        <tr>
+          <td>Shared passwords and inconsistent secrets handling</td>
+          <td>Secrets Manager, KMS and IAM least privilege</td>
+          <td>Improves access governance, auditability and security posture.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>Application Platform Modernisation</h2>
+
+    <p class="section-intro">
+      The application platform is decomposed into containerised services aligned to fulfilment responsibilities.
+    </p>
+
+    <div class="grid">
+      <div class="card modernise">
+        <h3>Host Message Service</h3>
+        <p>Handles external fulfilment messages and integration requests from upstream business systems.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Order Fulfilment Service</h3>
+        <p>Coordinates fulfilment workflow execution, order state and operational task progression.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Stock Allocation Service</h3>
+        <p>Manages stock allocation logic while reducing coupling with wider fulfilment workflows.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Task Management Service</h3>
+        <p>Controls operational task creation, assignment and progression through fulfilment processes.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Workflow Service</h3>
+        <p>Manages orchestration logic, workflow progression and fulfilment process coordination.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Robot Integration Service</h3>
+        <p>Provides a controlled integration boundary between fulfilment services and the robot control system.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>
+        ECS Fargate was selected because it supports containerisation without requiring the team to manage EC2 cluster capacity.
+        This reduces operational overhead while still providing resilience, scaling and a clear path toward CI/CD-enabled deployments.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Observability Modernisation</h2>
+
+    <p class="section-intro">
+      Observability is introduced as a core architecture capability rather than an afterthought.
+      This directly addresses the current state problem of reactive support and limited proactive monitoring.
+    </p>
+
+    <div class="grid">
+      <div class="card ops">
+        <h3>CloudWatch Logs</h3>
+        <p>Centralises application, platform and operational logs from ECS services, RDS, messaging and support workflows.</p>
+      </div>
+
+      <div class="card ops">
+        <h3>CloudWatch Alarms</h3>
+        <p>Triggers alerts for queue depth, service health, database performance, error rates and availability signals.</p>
+      </div>
+
+      <div class="card ops">
+        <h3>CloudWatch Dashboards</h3>
+        <p>Provides operational teams with a single view of service health, incident indicators and platform performance.</p>
+      </div>
+
+      <div class="card ops">
+        <h3>OpenSearch Service</h3>
+        <p>Enables searchable operational logs and investigation across application events, errors and incident patterns.</p>
+      </div>
+
+      <div class="card ops">
+        <h3>SNS Notifications</h3>
+        <p>Routes alerts to support teams so incidents are detected earlier and response is more structured.</p>
+      </div>
+
+      <div class="card ops">
+        <h3>Systems Manager Runbooks</h3>
+        <p>Provides repeatable operational actions for investigation, recovery, patching and support procedures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Resilience & Recovery Modernisation</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Multi-AZ Application Services</h3>
+        <p>ECS services run across private application subnets in multiple Availability Zones to reduce single-AZ failure risk.</p>
+      </div>
+
+      <div class="card">
+        <h3>Managed Database Failover</h3>
+        <p>RDS SQL Server Multi-AZ reduces reliance on manual SQL failover and improves database availability.</p>
+      </div>
+
+      <div class="card">
+        <h3>Reporting Separation</h3>
+        <p>Reporting replica separates read-heavy reporting workloads from operational transaction processing.</p>
+      </div>
+
+      <div class="card">
+        <h3>Managed Messaging Resilience</h3>
+        <p>Amazon MQ, DLQ handling and operational alerts reduce the impact of queue backlogs and failed messages.</p>
+      </div>
+
+      <div class="card">
+        <h3>Backup & Restore Testing</h3>
+        <p>AWS Backup creates a governed backup approach with restore testing built into operational readiness.</p>
+      </div>
+
+      <div class="card">
+        <h3>Operational Runbooks</h3>
+        <p>Repeatable recovery procedures reduce dependency on individual knowledge and manual intervention.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Release & DevOps Modernisation</h2>
+
+    <p class="section-intro">
+      The modernised platform creates the foundation for controlled CI/CD, safer deployments and standardised release governance.
+    </p>
+
+    <div class="two-grid">
+      <div class="card modernise">
+        <h3>Container Image Build</h3>
+        <p>Application services can be packaged as container images and stored in a container registry such as Amazon ECR.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Automated Deployment</h3>
+        <p>GitHub Actions or AWS CodePipeline can deploy validated container versions to ECS Fargate services.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Controlled Rollback</h3>
+        <p>Release strategy can support rollback to previous task definitions if validation or production checks fail.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Environment Promotion</h3>
+        <p>Changes can move through development, test, staging and production with consistent checks and approvals.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>
+        The current state has manual hotfix and patching risk. The modernised target introduces a clearer path toward
+        automated release pipelines, validation gates and safer rollback while keeping the initial design realistic for a phased transformation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Security Modernisation</h2>
+
+    <div class="grid">
+      <div class="card security">
+        <h3>IAM Least Privilege</h3>
+        <p>Access is controlled using roles, scoped permissions and separation of operational responsibilities.</p>
+      </div>
+
+      <div class="card security">
+        <h3>Secrets Manager</h3>
+        <p>Application and database credentials are stored securely instead of being shared or manually managed.</p>
+      </div>
+
+      <div class="card security">
+        <h3>KMS Encryption</h3>
+        <p>Encryption keys protect sensitive data, backups, secrets and operational artefacts.</p>
+      </div>
+
+      <div class="card security">
+        <h3>CloudTrail</h3>
+        <p>API activity is captured for auditing, investigation and accountability.</p>
+      </div>
+
+      <div class="card security">
+        <h3>GuardDuty & Security Hub</h3>
+        <p>Threat detection and security posture findings are centralised for operational review.</p>
+      </div>
+
+      <div class="card security">
+        <h3>AWS Config</h3>
+        <p>Configuration changes and compliance posture are tracked across the AWS environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Modernisation Outcomes</h2>
+
+    <div class="grid">
+      <div class="card modernise">
+        <h3>Reduced Server Dependency</h3>
+        <p>Legacy application servers are replaced with managed container execution through ECS Fargate.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Improved Operational Visibility</h3>
+        <p>Support teams gain logs, alarms, dashboards, search and runbooks for structured investigation.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Improved Resilience</h3>
+        <p>Multi-AZ deployment, managed database failover, backup governance and messaging resilience reduce outage impact.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Safer Change Delivery</h3>
+        <p>Containerised services create a foundation for CI/CD, validation and controlled rollback.</p>
+      </div>
+
+      <div class="card modernise">
+        <h3>Stronger Security Posture</h3>
+        <p>Secrets, access, encryption, audit logging and compliance controls are built into the platform design.</p>
+      </div>
+
+      <div class="card ai">
+        <h3>Prepared for AI Operations</h3>
+        <p>Logs, runbooks, known issues and support knowledge are structured for the AI Operations layer.</p>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a href="phase-2-migrate.html" class="button">← Phase 2: Migrate</a>
+      <a href="phase-4-intelligent-operations.html" class="button">Next: Intelligent Operations →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <a href="index.html">Back to Portfolio</a>
+      |
+      <a href="case-study.html">Case Study</a>
+      |
+      <a href="target-architecture.html">Target Architecture</a>
+    </p>
+
+    <p>
+      Phase 3: Modernise • ECS Fargate • Observability • Resilience • Security • DevOps Foundation
+    </p>
+  </footer>
+
+</body>
+</html>
