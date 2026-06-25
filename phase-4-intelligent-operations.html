@@ -7,6 +7,47 @@
   <title>AI Operations Intelligence | Enterprise Operational Systems Modernisation</title>
 
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .workflow-diagram-wrapper {
+      margin-top: 40px;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .workflow-diagram {
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 18px;
+      border: 1px solid #2e3947;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      background: #0b0f14;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .note-box {
+      background: #101822;
+      border: 1px solid #2e3947;
+      border-left: 4px solid #8ef0b9;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    .note-box strong {
+      color: #ffffff;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -265,7 +306,7 @@
       <a href="index.html" class="button">← Back to Portfolio</a>
       <a href="case-study.html" class="button">View Case Study</a>
       <a href="target-architecture.html" class="button">Target Architecture</a>
-      <a href="modernisation.html" class="button">Modernisation</a>
+      <a href="phase-3-modernise.html" class="button">Modernisation</a>
     </div>
   </section>
 
@@ -312,60 +353,86 @@
   </section>
 
   <section class="section">
-    <h2>AI-Enabled Support Workflow</h2>
+    <h2>AI-Assisted Incident Investigation Workflow</h2>
 
     <p class="section-intro">
-      This workflow shows how observability, incident data, operational documentation and AI assistance can work together
-      to support faster and more consistent incident response.
+      This workflow demonstrates how operational telemetry, historical support knowledge,
+      engineering documentation and AI-assisted reasoning work together to support engineers
+      throughout an incident investigation. Rather than replacing engineers, AI accelerates
+      investigation, suggests investigation steps, retrieves system context, assists with
+      Root Cause Analysis (RCA), and helps improve organisational knowledge after every incident.
     </p>
 
-    <div class="workflow">
-      <h3>Operational Intelligence Flow</h3>
+    <div class="workflow-diagram-wrapper">
+      <img
+        src="assets/diagrams/ai_assisted_incident_investigation_workflow.svg"
+        alt="AI-Assisted Incident Investigation Workflow"
+        class="workflow-diagram">
+    </div>
 
-      <div class="flow-row">
-        <div class="flow-node">CloudWatch Alert</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Ticket Created</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">AI Context Retrieval</div>
+    <div class="note-box">
+      <p>
+        <strong>Human-in-the-loop principle:</strong>
+        AI supports the investigation by retrieving evidence, identifying similar incidents,
+        explaining system context, suggesting investigation paths and helping draft RCA outputs.
+        Engineers remain responsible for validating evidence, making operational decisions,
+        applying fixes, escalating where required and approving customer-facing updates.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Workflow Explained</h2>
+
+    <div class="grid">
+      <div class="card automation">
+        <h3>1. Incident Detection</h3>
+        <p>
+          Incidents may originate from CloudWatch alarms, automated monitoring, or customer-reported
+          support tickets. Each event enters a shared investigation workflow so alerts and user-reported
+          issues can be handled consistently.
+        </p>
       </div>
 
-      <div class="flow-row">
-        <div class="arrow">↓</div>
+      <div class="card automation">
+        <h3>2. Operational Intelligence</h3>
+        <p>
+          The Operational Intelligence Service retrieves relevant evidence from CloudWatch metrics and logs,
+          OpenSearch, historical tickets, system documentation, runbooks, release notes, hot fixes,
+          rollback history and project changes.
+        </p>
       </div>
 
-      <div class="flow-row">
-        <div class="flow-node">Logs & Metrics</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Runbooks</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Historic Incidents</div>
-        <div class="arrow">+</div>
-        <div class="flow-node">Architecture Docs</div>
+      <div class="card automation">
+        <h3>3. AI-Assisted Investigation</h3>
+        <p>
+          AI suggests investigation steps, explains application workflows, retrieves relevant documentation,
+          identifies similar incidents and recommends next actions based on trusted operational knowledge.
+        </p>
       </div>
 
-      <div class="flow-row">
-        <div class="arrow">↓</div>
+      <div class="card automation">
+        <h3>4. Engineer Validation</h3>
+        <p>
+          The support engineer performs the investigation using AI guidance, validates evidence,
+          checks system behaviour and decides whether to resolve, rollback, escalate or continue investigating.
+        </p>
       </div>
 
-      <div class="flow-row">
-        <div class="flow-node">Suggested Root Cause</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Recommended Actions</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Engineer Validation</div>
+      <div class="card automation">
+        <h3>5. AI-Assisted RCA</h3>
+        <p>
+          After the ticket investigation, AI helps draft the RCA by summarising the timeline, symptoms,
+          impact, root cause, contributing factors, resolution steps and prevention actions for engineer review.
+        </p>
       </div>
 
-      <div class="flow-row">
-        <div class="arrow">↓</div>
-      </div>
-
-      <div class="flow-row">
-        <div class="flow-node">Resolution</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">RCA Summary</div>
-        <div class="arrow">→</div>
-        <div class="flow-node">Continuous Improvement</div>
+      <div class="card automation">
+        <h3>6. Validated Learning Loop</h3>
+        <p>
+          Approved RCAs, updated runbooks, known issues, release notes and architecture changes are written
+          back into the operational knowledge base so future investigations become faster and more accurate.
+        </p>
       </div>
     </div>
   </section>
@@ -407,10 +474,10 @@
   </section>
 
   <section class="section">
-    <h2>AI Incident Insight Demo</h2>
+    <h2>Example AI-Assisted Investigation</h2>
 
     <p class="section-intro">
-      This simulated demo shows how an AI operations assistant could convert an operational alert into structured investigation guidance.
+      This simulated example shows how an AI operations assistant could convert an operational alert into structured investigation guidance, evidence checks and next actions.
     </p>
 
     <div class="demo-box">
@@ -471,13 +538,13 @@
       </div>
 
       <div class="card ai">
-        <h3>Known Bugs</h3>
-        <p>Known product defects, release notes, bug work items, affected versions and workaround guidance.</p>
+        <h3>Engineering Change Knowledge</h3>
+        <p>Azure DevOps release notes, hot fixes, rollback history, project changes, known bugs and affected versions.</p>
       </div>
 
       <div class="card ai">
         <h3>Support Knowledge Base</h3>
-        <p>Operational notes, investigation patterns, internal documentation, troubleshooting decisions and lessons learned.</p>
+        <p>Operational notes, investigation patterns, ticket outcomes, troubleshooting decisions, RCA summaries and lessons learned.</p>
       </div>
     </div>
   </section>
@@ -603,7 +670,7 @@
       |
       <a href="target-architecture.html">Target Architecture</a>
       |
-      <a href="modernisation.html">Modernisation</a>
+      <a href="phase-3-modernise.html">Modernisation</a>
     </p>
 
     <p>
