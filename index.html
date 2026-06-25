@@ -296,7 +296,20 @@
 
     .modal-card ul,
     .modal-card ol {
-      padding-left: 22px;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .modal-card ul {
+      list-style: none;
+    }
+
+    .modal-card ol {
+      list-style-position: inside;
+    }
+
+    .modal-card ul li {
+      margin-bottom: 6px;
     }
 
     .modal-tag {
@@ -371,6 +384,119 @@
       font-size: 14px;
     }
 
+
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .flip-card {
+      min-height: 360px;
+      perspective: 1200px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      transition: transform 0.65s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-radius: 14px;
+      padding: 24px;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .flip-card-front:hover,
+    .flip-card-back:hover {
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .flip-card-front.problem,
+    .flip-card-back.problem {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .flip-card-front.solution,
+    .flip-card-back.solution {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .flip-card-front.decision,
+    .flip-card-back.decision {
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .flip-card-front.ai-card,
+    .flip-card-back.ai-card {
+      border-left: 4px solid #b7c8ff;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card h3 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 23px;
+    }
+
+    .flip-card p,
+    .flip-card li {
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .flip-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 12px 0;
+    }
+
+    .flip-card li {
+      margin-bottom: 7px;
+    }
+
+    .flip-card li::before {
+      content: "→ ";
+      color: #4ea1ff;
+      font-weight: bold;
+    }
+
+    .step-number {
+      color: #8ecbff;
+      background: #10263f;
+      border: 1px solid #254866;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+
     footer {
       text-align: center;
       margin-top: 70px;
@@ -412,8 +538,14 @@
       }
 
       .grid,
-      .two-grid {
+      .two-grid,
+      .flip-grid {
         grid-template-columns: 1fr;
+      }
+
+      .flip-card,
+      .flip-card-inner {
+        min-height: 410px;
       }
 
       .modal-card {
@@ -482,34 +614,107 @@
       View Full Case Study Details →
     </a>
   </section>
-
-
   <section class="section">
-    <h2>How I Solve Business Problems</h2>
+    <h2>How I Approach Business Problems</h2>
 
     <p class="section-intro">
-      I connect operational pain points to practical technology decisions. The homepage keeps this concise;
-      the detailed problem-to-solution mapping is available on a separate page.
+      I use a repeatable architecture approach that starts with business outcomes, then moves through current-state analysis,
+      future-state design, delivery planning and continuous improvement. Click each card to see the method.
     </p>
 
-    <div class="grid">
-      <a class="card problem" href="business-problems.html">
-        <h3>Reduce Downtime</h3>
-        <p>Manual failover and reactive recovery are addressed through Multi-AZ design, managed services and recovery planning.</p>
-        <span>View Business Mapping →</span>
-      </a>
+    <div class="flip-grid">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front problem">
+            <span class="step-number">01</span>
+            <h3>Understand the Business Problem</h3>
+            <p>“Technology should support business outcomes, not drive them.”</p>
+            <span>Click to learn more →</span>
+          </div>
 
-      <a class="card solution" href="business-problems.html">
-        <h3>Improve Troubleshooting</h3>
-        <p>Limited monitoring and fragmented investigations are improved using CloudWatch, OpenSearch and AI-assisted support.</p>
-        <span>View Business Mapping →</span>
-      </a>
+          <div class="flip-card-back problem">
+            <h3>Discovery & Business Analysis</h3>
+            <ul>
+              <li>Identify pain points</li>
+              <li>Understand business impact</li>
+              <li>Define success measures</li>
+              <li>Map stakeholders</li>
+              <li>Capture constraints and priorities</li>
+            </ul>
+            <p><strong>Example:</strong> Downtime, slow investigations, manual recovery processes.</p>
+          </div>
+        </div>
+      </div>
 
-      <a class="card decision" href="business-problems.html">
-        <h3>Modernise Operations</h3>
-        <p>Legacy platform constraints are translated into AWS architecture, automation, resilience and intelligent operations.</p>
-        <span>View Business Mapping →</span>
-      </a>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front solution">
+            <span class="step-number">02</span>
+            <h3>Analyse the Current State</h3>
+            <p>“Understand today's reality before designing tomorrow's solution.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back solution">
+            <h3>Current State Assessment</h3>
+            <ul>
+              <li>Processes</li>
+              <li>Systems</li>
+              <li>Dependencies</li>
+              <li>Risks</li>
+              <li>Technical debt</li>
+              <li>Operational constraints</li>
+            </ul>
+            <p><strong>Deliverables:</strong> Business Context Assessment, Current State Assessment, Risk Assessment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front decision">
+            <span class="step-number">03</span>
+            <h3>Design the Future State</h3>
+            <p>“Translate business requirements into scalable architecture.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back decision">
+            <h3>Target Architecture Design</h3>
+            <ul>
+              <li>Cloud Strategy</li>
+              <li>Security Architecture</li>
+              <li>Reliability & Resilience</li>
+              <li>Scalability</li>
+              <li>Operational Model</li>
+            </ul>
+            <p><strong>Deliverables:</strong> Target Architecture, Migration Strategy, Architecture Decision Records.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front ai-card">
+            <span class="step-number">04</span>
+            <h3>Deliver & Improve</h3>
+            <p>“Technology transformation is not complete at deployment.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back ai-card">
+            <h3>Operational Excellence</h3>
+            <ul>
+              <li>Migration Planning</li>
+              <li>Automation</li>
+              <li>Monitoring</li>
+              <li>AI-Assisted Operations</li>
+              <li>Continuous Improvement</li>
+            </ul>
+            <p><strong>Deliverables:</strong> Transformation Roadmap, Runbooks, Operational Dashboards, Support Model.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="focus-grid">
