@@ -444,6 +444,65 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .flip-card-front::before,
+    .flip-card-back::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.72;
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      transition: transform 0.45s ease, opacity 0.45s ease;
+    }
+
+    .flip-card-front::after,
+    .flip-card-back::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.91) 0%, rgba(8, 13, 22, 0.72) 45%, rgba(8, 13, 22, 0.48) 100%),
+        radial-gradient(circle at top left, rgba(78, 161, 255, 0.18), transparent 42%);
+      z-index: -1;
+    }
+
+    .flip-card-front:hover::before,
+    .flip-card-back:hover::before {
+      transform: scale(1.06);
+      opacity: 0.88;
+    }
+
+    .flip-card:nth-child(1) .flip-card-front::before,
+    .flip-card:nth-child(1) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(255, 107, 107, 0.28), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg opacity='0.55' stroke='%236aa9ff' stroke-width='1' fill='none'%3E%3Cpath d='M60 130h220v95H60zM325 95h210v78H325zM590 115h230v110H590zM180 300h260v95H180zM515 300h260v95H515z'/%3E%3Cpath d='M280 177h45M535 134h55M440 348h75M170 225v75M705 225v75'/%3E%3C/g%3E%3Cg opacity='0.45' fill='%238ecbff'%3E%3Ccircle cx='120' cy='175' r='20'/%3E%3Ccircle cx='385' cy='135' r='18'/%3E%3Ccircle cx='655' cy='170' r='22'/%3E%3Ccircle cx='270' cy='345' r='18'/%3E%3Ccircle cx='640' cy='345' r='20'/%3E%3C/g%3E%3Cg opacity='0.24' fill='%23ffffff'%3E%3Crect x='95' y='155' width='150' height='8' rx='4'/%3E%3Crect x='95' y='180' width='120' height='8' rx='4'/%3E%3Crect x='355' y='125' width='145' height='8' rx='4'/%3E%3Crect x='620' y='150' width='155' height='8' rx='4'/%3E%3Crect x='215' y='335' width='170' height='8' rx='4'/%3E%3Crect x='550' y='335' width='170' height='8' rx='4'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card:nth-child(2) .flip-card-front::before,
+    .flip-card:nth-child(2) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(78, 161, 255, 0.3), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg stroke='%234ea1ff' stroke-width='1' opacity='0.28'%3E%3Cpath d='M0 80h900M0 160h900M0 240h900M0 320h900M0 400h900M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520M720 0v520M810 0v520'/%3E%3C/g%3E%3Cg opacity='0.65' stroke='%238ecbff' stroke-width='2' fill='none'%3E%3Crect x='95' y='95' width='135' height='65' rx='8'/%3E%3Crect x='95' y='190' width='135' height='65' rx='8'/%3E%3Crect x='95' y='285' width='135' height='65' rx='8'/%3E%3Crect x='390' y='175' width='150' height='90' rx='12'/%3E%3Crect x='655' y='105' width='160' height='250' rx='12'/%3E%3Cpath d='M230 128h160M230 223h160M230 318h260M540 220h115'/%3E%3Cpath d='M685 300l40-50 38 28 35-85'/%3E%3C/g%3E%3Cg opacity='0.5' fill='%234ea1ff'%3E%3Ccircle cx='390' cy='128' r='5'/%3E%3Ccircle cx='390' cy='223' r='5'/%3E%3Ccircle cx='490' cy='318' r='5'/%3E%3Ccircle cx='540' cy='220' r='5'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card:nth-child(3) .flip-card-front::before,
+    .flip-card:nth-child(3) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(142, 240, 185, 0.28), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg opacity='0.22' stroke='%238ef0b9' stroke-width='1'%3E%3Cpath d='M0 60h900M0 120h900M0 180h900M0 240h900M0 300h900M0 360h900M0 420h900M75 0v520M150 0v520M225 0v520M300 0v520M375 0v520M450 0v520M525 0v520M600 0v520M675 0v520M750 0v520M825 0v520'/%3E%3C/g%3E%3Cg opacity='0.7' stroke='%238ecbff' stroke-width='2' fill='none'%3E%3Cpath d='M180 160c25-80 165-82 195 0 70 0 105 45 105 95H90c0-55 35-95 90-95z'/%3E%3Crect x='145' y='285' width='110' height='70' rx='10'/%3E%3Crect x='300' y='285' width='110' height='70' rx='10'/%3E%3Crect x='455' y='285' width='110' height='70' rx='10'/%3E%3Crect x='610' y='285' width='110' height='70' rx='10'/%3E%3Cpath d='M280 255v30M355 255v30M510 255v30M665 255v30M255 320h45M410 320h45M565 320h45'/%3E%3Crect x='150' y='390' width='570' height='65' rx='12'/%3E%3C/g%3E%3Cg opacity='0.55' fill='%238ef0b9'%3E%3Ccircle cx='200' cy='320' r='8'/%3E%3Ccircle cx='355' cy='320' r='8'/%3E%3Ccircle cx='510' cy='320' r='8'/%3E%3Ccircle cx='665' cy='320' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card:nth-child(4) .flip-card-front::before,
+    .flip-card:nth-child(4) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(183, 200, 255, 0.28), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg opacity='0.58' stroke='%23b7c8ff' stroke-width='2' fill='none'%3E%3Crect x='70' y='80' width='220' height='130' rx='12'/%3E%3Crect x='330' y='80' width='220' height='130' rx='12'/%3E%3Crect x='590' y='80' width='220' height='130' rx='12'/%3E%3Crect x='70' y='250' width='350' height='160' rx='12'/%3E%3Crect x='465' y='250' width='345' height='160' rx='12'/%3E%3Cpath d='M100 170l40-30 35 20 40-55 45 35M360 170l35-50 35 35 45-60 45 85M620 170h165M620 140h130M620 110h95M110 365l45-45 35 25 55-70 75 85M505 360c45-80 120-80 165-10 22-35 70-45 105-10'/%3E%3C/g%3E%3Cg opacity='0.42' fill='%238ef0b9'%3E%3Ccircle cx='120' cy='305' r='16'/%3E%3Ccircle cx='390' cy='115' r='14'/%3E%3Ccircle cx='680' cy='320' r='18'/%3E%3C/g%3E%3Cg opacity='0.35' fill='%23ff6b6b'%3E%3Ccircle cx='760' cy='120' r='14'/%3E%3Ccircle cx='530' cy='315' r='12'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     .flip-card-front:hover,
@@ -451,6 +510,48 @@
       border-color: #4ea1ff;
       background: #222a34;
     }
+
+    .flip-card-front h3,
+    .flip-card-back h3,
+    .flip-card-front p,
+    .flip-card-back p,
+    .flip-card-front span,
+    .flip-card-back li {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+    }
+
+    .flip-card-front {
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.38);
+    }
+
+    .flip-card-front.problem::after,
+    .flip-card-back.problem::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(80, 20, 28, 0.45) 100%),
+        radial-gradient(circle at top left, rgba(255, 107, 107, 0.20), transparent 42%);
+    }
+
+    .flip-card-front.solution::after,
+    .flip-card-back.solution::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(16, 64, 116, 0.45) 100%),
+        radial-gradient(circle at top left, rgba(78, 161, 255, 0.22), transparent 42%);
+    }
+
+    .flip-card-front.decision::after,
+    .flip-card-back.decision::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(21, 90, 58, 0.42) 100%),
+        radial-gradient(circle at top left, rgba(142, 240, 185, 0.20), transparent 42%);
+    }
+
+    .flip-card-front.ai-card::after,
+    .flip-card-back.ai-card::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(70, 60, 125, 0.42) 100%),
+        radial-gradient(circle at top left, rgba(183, 200, 255, 0.22), transparent 42%);
+    }
+
 
     .flip-card-front.problem,
     .flip-card-back.problem {
@@ -511,6 +612,14 @@
       line-height: 1.6;
     }
 
+
+    .flip-card-front .step-number {
+      box-shadow: 0 0 22px rgba(78, 161, 255, 0.22);
+    }
+
+    .flip-card-front span:last-child {
+      margin-top: 18px;
+    }
 
     .step-number {
       color: #8ecbff;
