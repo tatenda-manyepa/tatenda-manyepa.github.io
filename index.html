@@ -506,6 +506,128 @@
       margin-bottom: 18px;
     }
 
+
+    .adr-accordion {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .adr-item {
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-left: 4px solid #8ef0b9;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .adr-item:hover {
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .adr-header {
+      width: 100%;
+      background: transparent;
+      color: #ffffff;
+      border: none;
+      padding: 24px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: inherit;
+    }
+
+    .adr-header-content h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    .adr-header-content p {
+      margin: 0;
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .adr-toggle {
+      color: #4ea1ff;
+      font-size: 28px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .adr-item.active .adr-toggle {
+      transform: rotate(45deg);
+    }
+
+    .adr-content {
+      display: none;
+      padding: 0 24px 26px;
+      border-top: 1px solid #30363f;
+    }
+
+    .adr-item.active .adr-content {
+      display: block;
+    }
+
+    .adr-content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .adr-block {
+      background: #111820;
+      border: 1px solid #2e3947;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .adr-block h4 {
+      margin: 0 0 10px;
+      color: #8ecbff;
+      font-size: 18px;
+    }
+
+    .adr-block p,
+    .adr-block li {
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .adr-block ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .adr-block li {
+      margin-bottom: 7px;
+    }
+
+    .adr-block li::before {
+      content: "→ ";
+      color: #4ea1ff;
+      font-weight: bold;
+    }
+
+    .adr-tradeoff {
+      border-left: 4px solid #ffd36e;
+    }
+
+    .adr-decision {
+      border-left: 4px solid #8ef0b9;
+    }
+
+
     footer {
       text-align: center;
       margin-top: 70px;
@@ -555,6 +677,19 @@
       .flip-card,
       .flip-card-inner {
         min-height: 500px;
+      }
+
+
+      .adr-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .adr-header {
+        align-items: flex-start;
+      }
+
+      .adr-header-content h3 {
+        font-size: 21px;
       }
 
       .modal-card {
@@ -973,31 +1108,255 @@
   </section>
 
   <section class="section">
-    <h2>6. Architecture Decisions</h2>
+    <h2>6. Architecture Decision Records</h2>
 
     <p class="section-intro">
-      Architecture Decision Records show reasoning, trade-offs, constraints, and design justification.
-      This demonstrates how decisions are made rather than only showing the final design.
+      Architecture is about making informed trade-offs. These decision records explain the key choices behind the target-state architecture,
+      including the options considered, selected approach, benefits and trade-offs.
     </p>
 
-    <div class="grid">
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/adr">
-        <h3>AWS-First Strategy</h3>
-        <p>Chosen to align with managed services, scalability, resilience patterns, security controls, and enterprise cloud adoption.</p>
-        <span>View ADRs →</span>
-      </a>
+    <div class="adr-accordion">
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/05-observability-support-layer">
-        <h3>Observability by Design</h3>
-        <p>Monitoring, logging, alerting, and operational intelligence are introduced as core architecture concerns, not afterthoughts.</p>
-        <span>View observability layer →</span>
-      </a>
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-001: AWS-First Strategy</h3>
+            <p>Why AWS managed services were selected as the primary modernisation direction.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/07-ai-operations-intelligence">
-        <h3>AI-Assisted Operations</h3>
-        <p>AI is positioned as a support accelerator for investigation, knowledge retrieval, root cause analysis, and guided troubleshooting.</p>
-        <span>View AI layer →</span>
-      </a>
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>The current fulfilment platform relies on manually managed infrastructure, reactive recovery and significant maintenance overhead.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Remain on-premise</li>
+                <li>Hybrid cloud</li>
+                <li>AWS-first architecture</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Adopt an AWS-first architecture using managed services where practical, while maintaining secure integration with operational technology systems.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Reduced operational overhead</li>
+                <li>Improved scalability and resilience</li>
+                <li>Better automation and observability</li>
+                <li>Faster recovery patterns</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>AWS reduces infrastructure ownership but introduces ongoing cloud operating costs, AWS skills requirements and some provider dependency. This is mitigated through governance, cost controls, containerisation and clear architecture decision records.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-002: Observability by Design</h3>
+            <p>Why monitoring, logging and alerting are treated as core platform capabilities.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>Operational issues are often detected after business impact has already occurred, with investigations spread across logs, databases and support knowledge.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Basic monitoring only</li>
+                <li>Third-party monitoring platform</li>
+                <li>AWS-native observability stack</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Embed observability into the target architecture using CloudWatch, OpenSearch, SNS alerts, dashboards and Systems Manager runbooks.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Faster incident detection</li>
+                <li>Improved root cause analysis</li>
+                <li>Reduced MTTR</li>
+                <li>Centralised operational visibility</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>Centralised observability increases log volume, storage costs and alert management effort. To control this, the design requires retention policies, dashboard ownership, alert tuning and continuous operational review.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-003: Containerisation with ECS Fargate</h3>
+            <p>Why ECS Fargate was selected to replace legacy APP-1 / APP-2 servers.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>The current platform depends on traditional application servers that require patching, manual deployment, capacity planning and operational recovery.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Continue with traditional servers</li>
+                <li>Self-managed containers on EC2</li>
+                <li>ECS Fargate managed container platform</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Use ECS Fargate for containerised application services across multiple Availability Zones.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>No EC2 server management</li>
+                <li>Improved scaling and deployment consistency</li>
+                <li>Foundation for CI/CD and rollback</li>
+                <li>Reduced operational burden</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>Some legacy services may require refactoring before containerisation. Teams also need to learn container operations, task definitions, service scaling and deployment patterns. This is accepted because it reduces long-term server management risk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-004: Multi-AZ Resilience</h3>
+            <p>Why the target architecture uses multiple Availability Zones instead of single-AZ hosting.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>The current state contains single points of failure and relies heavily on manual failover and individual operational knowledge.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Single Availability Zone</li>
+                <li>Traditional active/passive server failover</li>
+                <li>Multi-AZ AWS architecture</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Deploy critical application, database and messaging components across multiple Availability Zones.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Reduced single points of failure</li>
+                <li>Improved availability</li>
+                <li>Better business continuity</li>
+                <li>Reduced manual recovery dependency</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>Multi-AZ design increases cost and requires resilience testing. Applications must be designed and validated for failover scenarios. This cost is justified because fulfilment downtime has direct operational and customer impact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-005: AI-Assisted Operations</h3>
+            <p>Why AI is used to support investigations, knowledge retrieval and operational consistency.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>Support engineers spend significant time searching tickets, runbooks, documentation and logs during incidents. Knowledge is often siloed with experienced engineers.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Traditional documentation only</li>
+                <li>Centralised knowledge search</li>
+                <li>AI-assisted operations assistant</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Use an AI Operations Intelligence layer with S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch Vector Index and an AI Operations Assistant.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Faster troubleshooting</li>
+                <li>Improved knowledge retention</li>
+                <li>Consistent investigation guidance</li>
+                <li>Reduced dependency on individual experts</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>AI guidance depends on the quality of the knowledge base and must be validated by engineers before operational action. The platform also requires governance, review cycles and maintenance of source documentation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1401,6 +1760,12 @@
         </ul>
       `
     };
+
+
+    function toggleAdr(button) {
+      const item = button.closest(".adr-item");
+      item.classList.toggle("active");
+    }
 
     function openLayer(layer) {
       document.getElementById("modalContent").innerHTML = layerDetails[layer];
