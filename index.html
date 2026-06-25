@@ -716,17 +716,6 @@
         </div>
       </div>
     </div>
-
-    <div class="focus-grid">
-      <div class="focus-pill">Enterprise Architecture</div>
-      <div class="focus-pill">Cloud Modernisation</div>
-      <div class="focus-pill">AWS Solutions Design</div>
-      <div class="focus-pill">Operational Resilience</div>
-      <div class="focus-pill">Observability</div>
-      <div class="focus-pill">AI Operations</div>
-      <div class="focus-pill">Automation & DevOps</div>
-      <div class="focus-pill">Solution Design</div>
-    </div>
   </section>
 
   <section class="section">
@@ -838,41 +827,41 @@
     </p>
 
     <div class="grid">
-      <a class="card decision" href="target-architecture.html">
+      <div class="card decision" onclick="openLayer('targetNetwork')">
         <h3>AWS Network Foundation</h3>
-        <p>Route 53, VPCs, Load Balancers, network segmentation and resilience design.</p>
-        <span>Explore AWS Design →</span>
-      </a>
+        <p>Route 53, VPC, public/private subnets, NAT gateways, load balancing, segmentation and resilience design.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card decision" href="target-architecture.html">
+      <div class="card decision" onclick="openLayer('targetApplication')">
         <h3>Application Platform</h3>
-        <p>ECS, EC2, containerised workloads and scalable application services.</p>
-        <span>Explore AWS Design →</span>
-      </a>
+        <p>ECS Fargate application services replace legacy APP-1 / APP-2 application servers.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card decision" href="target-architecture.html">
+      <div class="card decision" onclick="openLayer('targetData')">
         <h3>Data & Recovery</h3>
-        <p>RDS, backups, disaster recovery, resilience and recovery strategies.</p>
-        <span>Explore AWS Design →</span>
-      </a>
+        <p>RDS SQL Server Multi-AZ, reporting replica, AWS Backup and recovery validation.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card decision" href="target-architecture.html">
+      <div class="card decision" onclick="openLayer('targetObservability')">
         <h3>Observability & Security</h3>
-        <p>CloudWatch, Secrets Manager, monitoring, alerting, auditing, governance and operational visibility.</p>
-        <span>Explore AWS Design →</span>
-      </a>
+        <p>CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS and audit controls.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card decision" href="target-architecture.html">
+      <div class="card decision" onclick="openLayer('targetAI')">
         <h3>AI Operations Layer</h3>
-        <p>Operational intelligence, observability, runbooks and AI-assisted troubleshooting.</p>
-        <span>Explore AWS Design →</span>
-      </a>
+        <p>Bedrock Knowledge Base, S3 Knowledge Store, OpenSearch Vector Index and AI-assisted troubleshooting.</p>
+        <span>Explore Details →</span>
+      </div>
 
-      <a class="card decision" href="target-architecture.html">
+      <div class="card decision" onclick="openLayer('targetGovernance')">
         <h3>Governance, FinOps & Compliance</h3>
         <p>Cost control, tagging, IAM governance, auditability, policy enforcement and architecture accountability.</p>
-        <span>Explore AWS Design →</span>
-      </a>
+        <span>Explore Details →</span>
+      </div>
     </div>
 
     <br>
@@ -1034,6 +1023,128 @@
 
   <script>
     const layerDetails = {
+      targetNetwork: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>AWS Network Foundation</h2>
+
+        <h3>Purpose</h3>
+        <p>Provides the secure AWS landing network for the modernised fulfilment platform, controlling how traffic enters and how services communicate across Availability Zones.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Route 53 for DNS and traffic entry</li>
+          <li>Application Load Balancer spanning public subnets</li>
+          <li>VPC with public, private application and private data subnets</li>
+          <li>NAT gateways for controlled outbound access</li>
+          <li>Security groups and network segmentation</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>This design separates public entry points from private workloads, improves availability across AZs and creates a controlled foundation for secure cloud operations.</p>
+      `,
+
+      targetApplication: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Application Platform</h2>
+
+        <h3>Purpose</h3>
+        <p>Modernises the legacy APP-1 / APP-2 application server pair into containerised ECS Fargate services across private application subnets.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Host Message Service</li>
+          <li>Order Fulfilment Service</li>
+          <li>Stock Allocation Service</li>
+          <li>Task Management Service</li>
+          <li>Workflow Service</li>
+          <li>Robot Integration Service</li>
+          <li>Reporting API</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>ECS Fargate reduces server management overhead, supports auto-scaling, improves resilience and creates a stronger foundation for CI/CD and controlled rollback.</p>
+      `,
+
+      targetData: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Data & Recovery</h2>
+
+        <h3>Purpose</h3>
+        <p>Improves database resilience, reporting separation, backup governance and recovery capability for operational fulfilment data.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Amazon RDS for SQL Server Multi-AZ</li>
+          <li>Primary and standby database architecture</li>
+          <li>Reporting replica for read-heavy workloads</li>
+          <li>AWS Backup for governed recovery</li>
+          <li>Backup and restore validation</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>The target design reduces manual failover risk, protects operational data and separates reporting demand from core transaction processing.</p>
+      `,
+
+      targetObservability: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Observability & Security</h2>
+
+        <h3>Purpose</h3>
+        <p>Moves the platform away from reactive support by introducing monitoring, logging, alerting, search, automation and security controls as core architecture capabilities.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>CloudWatch Logs, Alarms and Dashboards</li>
+          <li>OpenSearch Service for searchable operational logs</li>
+          <li>SNS notifications for support alerts</li>
+          <li>Systems Manager Runbooks and Patch Manager</li>
+          <li>Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub and AWS Config</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>Support teams gain earlier detection, faster investigation, standardised recovery and stronger governance across the AWS platform.</p>
+      `,
+
+      targetAI: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>AI Operations Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Uses operational knowledge and searchable log context to help support teams investigate incidents faster and reduce repeated troubleshooting effort.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>S3 Knowledge Store for runbooks, SOPs, known issues and architecture docs</li>
+          <li>Amazon Bedrock Knowledge Base for retrieval-augmented support guidance</li>
+          <li>OpenSearch Vector Index for knowledge and operational context</li>
+          <li>AI Operations Assistant for guided troubleshooting</li>
+          <li>Support feedback loop for continuous improvement</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>This layer turns support knowledge into reusable operational intelligence, helping reduce MTTR and improve consistency across investigations.</p>
+      `,
+
+      targetGovernance: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Governance, FinOps & Compliance</h2>
+
+        <h3>Purpose</h3>
+        <p>Ensures the cloud platform remains controlled, auditable, cost-aware and aligned to architecture decisions as it evolves.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>IAM governance and least privilege</li>
+          <li>Tagging and cost allocation strategy</li>
+          <li>CloudTrail and AWS Config for auditability</li>
+          <li>Security Hub and GuardDuty for posture visibility</li>
+          <li>Architecture Decision Records for design accountability</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>Governance makes the design operationally safe, explainable and maintainable rather than simply technically possible.</p>
+      `,
+
       application: `
         <span class="modal-tag">Current-State Layer</span>
         <h2>Application Layer</h2>
