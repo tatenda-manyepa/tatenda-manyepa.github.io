@@ -169,6 +169,26 @@
       }
     }
 
+
+    .portfolio-grid {
+      align-items: stretch;
+    }
+
+    .portfolio-grid .card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portfolio-grid .card p {
+      flex-grow: 1;
+    }
+
+    .portfolio-grid .card span {
+      margin-top: 22px;
+    }
+
     .two-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -913,10 +933,10 @@
   </section>
 
   <section class="section" id="case-study">
-    <h2>Architecture Case Study</h2>
+    <h2>Architecture Portfolio</h2>
 
     <p class="section-intro">
-      This case study presents a phased enterprise transformation from a legacy operational environment
+      This portfolio presents a phased enterprise transformation from a legacy operational environment
       into a secure, observable, AWS-first platform with AI-assisted operational intelligence.
     </p>
 
@@ -935,11 +955,45 @@
       support efficiency, and AI-assisted incident investigation through an AWS-first modernisation approach.
     </p>
 
-    <br>
+    <div class="grid portfolio-grid">
 
-    <a href="case-study.html" class="button">
-      View Full Case Study Details →
-    </a>
+      <a class="card solution" href="current-state.html">
+        <h3>Current-State Assessment</h3>
+        <p>Understand the existing platform, dependencies, pain points, risks and operational maturity gaps.</p>
+        <span>Explore Current State →</span>
+      </a>
+
+      <a class="card decision" href="target-architecture.html">
+        <h3>AWS Target Architecture</h3>
+        <p>Design the future AWS-first platform covering resilience, security, observability, scalability and AI operations.</p>
+        <span>Explore Target Architecture →</span>
+      </a>
+
+      <a class="card solution" href="phase-2-migrate.html">
+        <h3>Migration Strategy</h3>
+        <p>Plan migration waves, rollback, validation, testing, cutover and operational transition.</p>
+        <span>Explore Migration Strategy →</span>
+      </a>
+
+      <a class="card solution" href="phase-3-modernise.html">
+        <h3>Modernisation</h3>
+        <p>Introduce refactoring, automation, CI/CD, observability, secure access and platform engineering practices.</p>
+        <span>Explore Modernisation →</span>
+      </a>
+
+      <a class="card decision" href="phase-4-intelligent-operations.html">
+        <h3>AI Operations Intelligence</h3>
+        <p>Introduce AI-assisted troubleshooting, knowledge retrieval, operational insight, RCA support and intelligent automation.</p>
+        <span>Explore AI Operations →</span>
+      </a>
+
+      <a class="card decision" href="architecture-decision-records.html">
+        <h3>Architecture Decision Records</h3>
+        <p>Review the major design decisions, trade-offs and architectural reasoning behind the AWS solution.</p>
+        <span>Explore Decision Records →</span>
+      </a>
+
+    </div>
   </section>
   <section class="section">
     <h2>How I Approach Business Problems</h2>
@@ -1199,7 +1253,7 @@
   </section>
 
   <section class="section">
-    <h2>4. Transformation Roadmap</h2>
+    <h2>4. Enterprise Transformation Roadmap</h2>
 
     <p class="section-intro">
       The project is delivered as a phased enterprise transformation roadmap. Each phase links to a detailed page
@@ -1211,28 +1265,28 @@
         <div class="status completed">✅ Completed</div>
         <h3>Phase 1: Assess</h3>
         <p>Current-state analysis, dependency mapping, operational pain points, business drivers, risk identification, and transformation scope.</p>
-        <a href="current-state.html" class="button">View Documentation →</a>
+        <a href="current-state.html" class="button">Explore Phase →</a>
       </div>
 
       <div class="card">
         <div class="status completed">✅ Completed</div>
         <h3>Phase 2: Migrate</h3>
         <p>AWS landing zone design, migration waves, testing strategy, rollback planning, validation approach, and cutover planning.</p>
-        <a href="phase-2-migrate.html" class="button">View Documentation →</a>
+        <a href="phase-2-migrate.html" class="button">Explore Phase →</a>
       </div>
 
       <div class="card">
         <div class="status completed">✅ Completed</div>
         <h3>Phase 3: Modernise</h3>
         <p>Refactoring, observability, resilience patterns, CI/CD automation, platform engineering, and secure access governance.</p>
-        <a href="phase-3-modernise.html" class="button">View Documentation →</a>
+        <a href="phase-3-modernise.html" class="button">Explore Phase →</a>
       </div>
 
       <div class="card">
         <div class="status completed">✅ Completed</div>
         <h3>Phase 4: Intelligent Operations</h3>
         <p>AI-assisted troubleshooting, incident intelligence, operational knowledge retrieval, support guidance, and continuous improvement.</p>
-        <a href="phase-4-intelligent-operations.html" class="button">View Documentation →</a>
+        <a href="phase-4-intelligent-operations.html" class="button">Explore Phase →</a>
       </div>
     </div>
   </section>
@@ -1290,7 +1344,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="architecture-decisions">
     <h2>6. Architecture Decision Records</h2>
 
     <p class="section-intro">
