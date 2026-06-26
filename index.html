@@ -82,19 +82,22 @@
     }
 
     .hero-status {
+      display: flex;
+      justify-content: flex-start;
+      margin: 28px 0 35px;
+    }
+
+    .hero-status span {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 22px;
-      padding: 9px 16px;
-      border: 1px solid #254866;
+      padding: 12px 22px;
       border-radius: 999px;
-      background: rgba(16, 38, 63, 0.72);
-      color: #8ecbff;
-      font-size: 14px;
-      font-weight: 700;
+      border: 1px solid #3d7edb;
+      background: rgba(18,35,63,0.45);
+      color: #8fc2ff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 0 20px rgba(45,120,255,0.12);
     }
 
     .buttons {
@@ -970,7 +973,7 @@
       align-items: flex-start;
     }
 
-    .architect-message-row.user { justify-content: flex-end; }
+    .architect-message-row.user { justify-content: flex-start; }
 
     .architect-message {
       max-width: 100%;
@@ -1233,6 +1236,17 @@
 
     @media (max-width: 520px) {
 
+      .hero-status {
+        justify-content: center;
+        margin: 24px 0 30px;
+      }
+
+      .hero-status span {
+        font-size: 14px;
+        padding: 10px 18px;
+      }
+
+
       footer h2 {
         font-size: 22px;
       }
@@ -1317,7 +1331,7 @@
     </p>
 
     <div class="hero-status">
-      Portfolio Status: Active Development
+      <span>Portfolio Status: Active Development</span>
     </div>
 
     <div class="buttons">
