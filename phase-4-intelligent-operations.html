@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>AI Operations Intelligence | Enterprise Operational Systems Modernisation</title>
+  <title>Operational Intelligence Platform | Enterprise Operational Systems Modernisation</title>
 
   <style>
 
@@ -47,6 +47,39 @@
     .note-box strong {
       color: #ffffff;
     }
+
+    .mini-label {
+      display: inline-block;
+      color: #8ecbff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .timeline-step {
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-left: 4px solid #4ea1ff;
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+
+    .timeline-step h3 {
+      margin-bottom: 8px;
+    }
+
+    .timeline-step p {
+      margin: 0;
+    }
+
 
     body {
       margin: 0;
@@ -196,38 +229,9 @@
       border-left: 4px solid #ff6b6b;
     }
 
-    .workflow {
-      background: #0f141b;
-      border: 1px solid #30363f;
-      border-radius: 18px;
-      padding: 35px;
-      margin-top: 35px;
-      text-align: center;
-    }
 
-    .flow-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
 
-    .flow-node {
-      background: #1d2733;
-      border: 1px solid #3a4655;
-      border-radius: 12px;
-      padding: 14px 18px;
-      font-weight: 700;
-      color: #ffffff;
-      position: relative;
-    }
 
-    .arrow {
-      color: #4ea1ff;
-      font-weight: bold;
-    }
 
     .demo-box {
       background: #111820;
@@ -295,11 +299,11 @@
   <section class="hero">
     <div class="badge">Phase 4: Planned</div>
 
-    <h1>AI Operations Intelligence</h1>
+    <h1>Operational Intelligence Platform</h1>
 
     <p class="subtitle">
-      AI-assisted operational intelligence layer designed to improve troubleshooting, incident response,
-      knowledge retrieval, root cause analysis, auto-ticketing and continuous reliability improvement.
+      AI-assisted support platform designed to help engineers investigate incidents, retrieve trusted knowledge,
+      understand system context, produce RCA outputs and continuously improve operational support.
     </p>
 
     <div class="buttons">
@@ -311,43 +315,43 @@
   </section>
 
   <section class="section">
-    <h2>AI Operations Objective</h2>
+    <h2>Design Goals</h2>
 
     <p class="section-intro">
-      The AI operations layer is designed to move the organisation from reactive support toward intelligent,
-      assisted operations. The aim is not to replace support teams, but to help engineers investigate incidents faster,
-      reuse knowledge more effectively, identify recurring issues, and respond with more consistent operational guidance.
+      The platform is designed to move support from reactive, experience-dependent troubleshooting
+      toward structured, AI-assisted investigation. The goal is to help engineers find evidence faster,
+      understand system behaviour, reuse operational knowledge and produce better post-incident learning.
     </p>
 
     <div class="grid">
       <div class="card ai">
-        <h3>Reduce Investigation Time</h3>
-        <p>Use AI to summarise symptoms, logs, historic tickets and documentation so engineers can understand incidents faster.</p>
+        <h3>Accelerate Investigations</h3>
+        <p>Bring together alerts, logs, tickets, documentation and release context so engineers can understand incidents faster.</p>
       </div>
 
       <div class="card ai">
-        <h3>Improve Knowledge Retrieval</h3>
-        <p>Retrieve relevant runbooks, known issues, architecture decisions and previous incident patterns during live support.</p>
+        <h3>Improve System Understanding</h3>
+        <p>Use AI to explain application workflows, dependencies, known issues and operational behaviour during investigations.</p>
       </div>
 
       <div class="card ai">
-        <h3>Standardise Troubleshooting</h3>
-        <p>Guide engineers through consistent investigation steps, escalation paths, rollback options and validation checks.</p>
+        <h3>Guide Consistent Troubleshooting</h3>
+        <p>Suggest structured investigation steps, validation checks, escalation routes and rollback considerations.</p>
       </div>
 
       <div class="card ai">
-        <h3>Detect Recurring Issues</h3>
-        <p>Identify repeated incident patterns across services, queues, databases, fulfilment workflows and operational tickets.</p>
+        <h3>Support RCA Creation</h3>
+        <p>Help engineers draft evidence-based RCA summaries after ticket investigation, including timeline, cause and prevention actions.</p>
       </div>
 
       <div class="card ai">
-        <h3>Accelerate RCA</h3>
-        <p>Support post-incident analysis by correlating symptoms, timeline, affected systems, likely causes and improvement actions.</p>
+        <h3>Capture Operational Learning</h3>
+        <p>Turn resolved incidents, approved RCAs and updated runbooks into reusable knowledge for future support activity.</p>
       </div>
 
       <div class="card ai">
-        <h3>Improve Operational Maturity</h3>
-        <p>Turn incidents into structured learning, runbook updates, automation opportunities and architecture improvements.</p>
+        <h3>Maintain Human Accountability</h3>
+        <p>Keep engineers responsible for validation, production actions, customer updates and final RCA approval.</p>
       </div>
     </div>
   </section>
@@ -437,125 +441,95 @@
     </div>
   </section>
 
-  <section class="section">
-    <h2>AI Operations Capabilities</h2>
-
-    <div class="grid">
-      <div class="card automation">
-        <h3>Incident Summarisation</h3>
-        <p>Summarise symptoms, affected services, timeline, impact and current state from logs, alerts and ticket information.</p>
-      </div>
-
-      <div class="card automation">
-        <h3>Runbook Recommendation</h3>
-        <p>Recommend relevant troubleshooting steps based on service, error pattern, alert type or previous incidents.</p>
-      </div>
-
-      <div class="card automation">
-        <h3>Log Pattern Analysis</h3>
-        <p>Identify repeated errors, timeout patterns, queue delays, database issues and integration failures.</p>
-      </div>
-
-      <div class="card automation">
-        <h3>Knowledge Search</h3>
-        <p>Search operational documentation, architecture decisions, known bugs, previous fixes and support notes.</p>
-      </div>
-
-      <div class="card automation">
-        <h3>Auto-Ticket Enrichment</h3>
-        <p>Generate ticket summaries, affected components, priority suggestions, probable causes and suggested next actions.</p>
-      </div>
-
-      <div class="card automation">
-        <h3>RCA Assistance</h3>
-        <p>Help structure post-incident reviews by summarising causes, contributing factors, mitigations and follow-up actions.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="section">
-    <h2>Example AI-Assisted Investigation</h2>
+    <h2>Example Incident Walkthrough</h2>
 
     <p class="section-intro">
-      This simulated example shows how an AI operations assistant could convert an operational alert into structured investigation guidance, evidence checks and next actions.
+      This example shows how the platform supports a real investigation without replacing the engineer's judgement.
     </p>
 
-    <div class="demo-box">
-      <h3>Sample Operational Event</h3>
-
-      <div class="demo-input">
-        <strong>Alert:</strong> Fulfilment workflow delay detected.<br>
-        <strong>Symptoms:</strong> Increased queue depth, delayed inventory allocation, slow order picking confirmation.<br>
-        <strong>Affected Area:</strong> Order fulfilment platform and messaging layer.
+    <div class="timeline">
+      <div class="timeline-step">
+        <span class="mini-label">Incident</span>
+        <h3>Fulfilment Workflow Delay</h3>
+        <p>A customer reports delayed order processing while CloudWatch detects increasing message queue depth and delayed inventory allocation confirmations.</p>
       </div>
 
-      <div class="demo-output">
-        <strong>AI-Assisted Insight:</strong>
-        <p>
-          The alert may indicate delayed message processing between the fulfilment platform and downstream operational services.
-          Suggested investigation steps include checking queue depth, reviewing consumer service health, validating database response times,
-          and confirming whether recent deployments or integration failures correlate with the alert window.
-        </p>
+      <div class="timeline-step">
+        <span class="mini-label">AI Retrieval</span>
+        <h3>Operational Context Gathered</h3>
+        <p>The platform retrieves CloudWatch metrics, OpenSearch logs, similar historic tickets, the messaging runbook, architecture documentation and recent release notes.</p>
+      </div>
 
-        <strong>Recommended Actions:</strong>
-        <p>
-          1. Check CloudWatch metrics for queue depth and consumer errors.<br>
-          2. Review application logs for timeout or retry patterns.<br>
-          3. Validate database performance and long-running queries.<br>
-          4. Check recent deployment activity.<br>
-          5. Follow messaging service recovery runbook if queue processing remains delayed.
-        </p>
+      <div class="timeline-step">
+        <span class="mini-label">AI Guidance</span>
+        <h3>Suggested Investigation Path</h3>
+        <p>AI suggests checking queue consumers, retry patterns, database latency, recent deployment activity and known hot fixes linked to messaging delays.</p>
+      </div>
+
+      <div class="timeline-step">
+        <span class="mini-label">Engineer Validation</span>
+        <h3>Evidence Confirmed</h3>
+        <p>The engineer validates logs and metrics, confirms the affected component, determines whether rollback or escalation is required and updates the ticket with findings.</p>
+      </div>
+
+      <div class="timeline-step">
+        <span class="mini-label">RCA</span>
+        <h3>AI-Assisted RCA Draft</h3>
+        <p>After investigation, AI drafts an RCA summary covering timeline, symptoms, customer impact, root cause, contributing factors, resolution and prevention actions for engineer review.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Knowledge Sources</h2>
+    <h2>Enterprise Knowledge Platform</h2>
 
     <p class="section-intro">
-      The AI operations layer becomes more useful when it can retrieve trusted operational context rather than relying on generic responses.
+      The AI assistant is only useful when it is grounded in trusted operational, engineering and support knowledge.
+      These sources form the Retrieval-Augmented Generation (RAG) foundation for investigation guidance.
     </p>
 
     <div class="grid">
       <div class="card ai">
-        <h3>Architecture Documentation</h3>
-        <p>Target architecture, current-state assessment, migration strategy, diagrams and architecture decision records.</p>
+        <h3>Operational Data</h3>
+        <p>CloudWatch metrics, application logs, infrastructure health, queue behaviour, database performance and service events.</p>
       </div>
 
       <div class="card ai">
-        <h3>Operational Runbooks</h3>
-        <p>Standard troubleshooting steps, escalation paths, recovery procedures and validation checks.</p>
+        <h3>Engineering Knowledge</h3>
+        <p>Architecture documentation, ADRs, system diagrams, runbooks, SOPs, support procedures and recovery guidance.</p>
       </div>
 
       <div class="card ai">
-        <h3>Historic Tickets</h3>
-        <p>Previous incidents, known issues, recurring problems, fixes, customer impact and resolution notes.</p>
+        <h3>Delivery Knowledge</h3>
+        <p>Azure DevOps release notes, deployment history, software changes, hot fixes, rollback history and known product defects.</p>
       </div>
 
       <div class="card ai">
-        <h3>Logs & Metrics</h3>
-        <p>Application logs, infrastructure metrics, queue behaviour, database performance and service health signals.</p>
+        <h3>Operational History</h3>
+        <p>Historic tickets, customer impact notes, previous fixes, recurring incident patterns, RCA summaries and lessons learned.</p>
       </div>
 
       <div class="card ai">
-        <h3>Engineering Change Knowledge</h3>
-        <p>Azure DevOps release notes, hot fixes, rollback history, project changes, known bugs and affected versions.</p>
+        <h3>Search & Retrieval</h3>
+        <p>OpenSearch and vector retrieval help surface relevant evidence, similar incidents and documentation during investigations.</p>
       </div>
 
       <div class="card ai">
-        <h3>Support Knowledge Base</h3>
-        <p>Operational notes, investigation patterns, ticket outcomes, troubleshooting decisions, RCA summaries and lessons learned.</p>
+        <h3>Validated Updates</h3>
+        <p>Only approved RCA outputs, runbook updates and engineer-reviewed knowledge are fed back into the platform.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Architecture Design Considerations</h2>
+    <h2>AI Governance Principles</h2>
 
     <div class="grid">
       <div class="card risk">
         <h3>Human-in-the-Loop</h3>
-        <p>AI provides recommendations, but engineers remain responsible for validation, decision-making and production changes.</p>
+        <p>AI suggests actions and evidence, but engineers remain responsible for validation, decisions and production changes.</p>
       </div>
 
       <div class="card risk">
@@ -586,78 +560,78 @@
   </section>
 
   <section class="section">
-    <h2>Future Technical Implementation</h2>
+    <h2>Future AWS Implementation Roadmap</h2>
 
     <p class="section-intro">
-      The initial portfolio version demonstrates the architecture and workflow concept. A future implementation could use a RAG-based design
-      connected to documentation, tickets, logs and operational runbooks.
+      The current portfolio page presents the target design and workflow. The implementation can be delivered incrementally
+      so each phase produces visible evidence in GitHub and AWS.
     </p>
 
     <div class="grid">
       <div class="card success">
-        <h3>Document Ingestion</h3>
-        <p>Ingest architecture docs, runbooks, support notes and known issue records into a searchable knowledge base.</p>
+        <h3>Phase 1: Knowledge Ingestion</h3>
+        <p>Ingest architecture docs, runbooks, support notes, release notes, known issues and RCA examples into an S3-backed knowledge store.</p>
       </div>
 
       <div class="card success">
-        <h3>Vector Search</h3>
-        <p>Use embeddings and vector search to retrieve relevant operational context based on incident symptoms.</p>
+        <h3>Phase 2: RAG Retrieval</h3>
+        <p>Use embeddings, OpenSearch vector search and Bedrock Knowledge Base patterns to retrieve relevant operational context.</p>
       </div>
 
       <div class="card success">
-        <h3>RAG Assistant</h3>
-        <p>Generate grounded answers using retrieved knowledge, service context, runbooks and architecture decisions.</p>
+        <h3>Phase 3: Operational Integrations</h3>
+        <p>Connect CloudWatch, EventBridge and ticketing workflows so alerts and customer tickets can trigger structured investigation context.</p>
       </div>
 
       <div class="card success">
-        <h3>Observability Integration</h3>
-        <p>Connect alerts, logs and metrics so incident context can be summarised automatically.</p>
+        <h3>Phase 4: AI Copilot</h3>
+        <p>Build an engineer-facing assistant that suggests investigation steps, explains system context and drafts RCA outputs.</p>
       </div>
 
       <div class="card success">
-        <h3>Ticketing Integration</h3>
-        <p>Integrate with tools such as Freshdesk, Jira or ServiceNow to enrich tickets and support workflows.</p>
+        <h3>Phase 5: Feedback Controls</h3>
+        <p>Capture engineer validation, rejected suggestions and approved RCA learning before updating the operational knowledge base.</p>
       </div>
 
       <div class="card success">
-        <h3>Feedback Loop</h3>
-        <p>Capture engineer feedback to improve runbooks, AI responses, knowledge quality and operational maturity.</p>
+        <h3>Phase 6: Reporting & Improvement</h3>
+        <p>Track recurring issues, RCA themes, knowledge gaps, support pressure and opportunities for automation or architecture change.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Expected Outcomes</h2>
+    <h2>Business Benefits</h2>
 
     <div class="grid">
       <div class="card success">
-        <h3>Faster Incident Response</h3>
-        <p>Engineers can understand symptoms and likely causes faster using AI-supported context retrieval.</p>
+        <h3>Lower MTTR</h3>
+        <p>Engineers can move from symptom discovery to evidence-based investigation faster, reducing incident resolution time.</p>
       </div>
 
       <div class="card success">
-        <h3>More Consistent Troubleshooting</h3>
-        <p>Teams follow more consistent investigation steps rather than relying only on individual experience.</p>
+        <h3>Reduced Knowledge Silos</h3>
+        <p>Support knowledge, release history, runbooks and RCA learning become searchable rather than locked in individual experience.</p>
       </div>
 
       <div class="card success">
-        <h3>Improved Knowledge Reuse</h3>
-        <p>Past incidents, known issues and runbooks become easier to find and reuse during live support.</p>
+        <h3>Fewer Avoidable Escalations</h3>
+        <p>First-line and second-line teams can access better context before escalating to specialist engineering teams.</p>
       </div>
 
       <div class="card success">
-        <h3>Improved RCA Quality</h3>
-        <p>Post-incident reviews become more structured, evidence-based and connected to improvement actions.</p>
+        <h3>Better RCA Quality</h3>
+        <p>Post-incident reviews become more structured, evidence-based and connected to prevention actions.</p>
       </div>
 
       <div class="card success">
-        <h3>Reduced Support Pressure</h3>
-        <p>AI-assisted guidance helps reduce repeated investigation effort and improves team confidence.</p>
+        <h3>Improved Change Awareness</h3>
+        <p>Release notes, hot fixes and rollback history help engineers connect incidents to recent system changes faster.</p>
       </div>
 
       <div class="card success">
-        <h3>Continuous Improvement</h3>
-        <p>Recurring issues feed back into architecture improvements, automation opportunities and operational maturity.</p>
+        <h3>Continuous Operational Learning</h3>
+        <p>Every validated incident improves the support knowledge base and informs future automation, runbooks and architecture decisions.</p>
       </div>
     </div>
   </section>
@@ -674,7 +648,7 @@
     </p>
 
     <p>
-      AI Operations Intelligence • RAG Concepts • Incident Intelligence • Knowledge Retrieval • Operational Automation
+      Designed as part of the Enterprise Operational Systems Modernisation Programme.<br>AWS • Bedrock • OpenSearch • CloudWatch • EventBridge • Step Functions • RAG Architecture
     </p>
   </footer>
 
