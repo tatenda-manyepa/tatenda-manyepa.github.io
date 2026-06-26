@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Tatenda Manyepa | Enterprise Technology Solutions Portfolio</title>
+  <title>Tatenda Manyepa | Enterprise Architecture Portfolio</title>
 
   <style>
     * {
@@ -79,6 +79,22 @@
       color: #d6d6d6;
       max-width: 940px;
       margin: auto;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 22px;
+      padding: 9px 16px;
+      border: 1px solid #254866;
+      border-radius: 999px;
+      background: rgba(16, 38, 63, 0.72);
+      color: #8ecbff;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .buttons {
@@ -1293,87 +1309,26 @@
 
   <section class="hero">
     <h1>Tatenda Manyepa</h1>
-    <h2>Enterprise Technology Solutions Portfolio</h2>
+    <h2>Enterprise Architecture Portfolio</h2>
 
     <p>
-      An architecture case study portfolio demonstrating enterprise cloud modernisation,
-      AWS target-state design, operational intelligence, observability, security, resilience,
-      and AI-assisted support transformation.
+      Enterprise architecture case study demonstrating how a legacy operational platform can be transformed
+      into a secure, resilient, observable AWS-first solution using modern cloud architecture and AI-assisted operations.
     </p>
 
+    <div class="hero-status">
+      Portfolio Status: Active Development
+    </div>
+
     <div class="buttons">
-      <a href="YOUR_CV_LINK_HERE" class="button">📄 View CV</a>
-      <a href="YOUR_COVER_LETTER_LINK_HERE" class="button">📜 View Cover Letter</a>
+      <a href="YOUR_CV_LINK_HERE" class="button">📄 Architect CV</a>
+      <a href="YOUR_COVER_LETTER_LINK_HERE" class="button">📜 Cover Letter</a>
     </div>
 
     <div class="buttons" style="margin-top:20px;">
-      <a href="case-study.html" class="button">🏗️ View Full Case Study Details</a>
+      <a href="case-study.html" class="button">🏗️ Explore Case Study</a>
       <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button">💻 GitHub Repository</a>
       <a href="https://linkedin.com/in/tatenda-manyepa" class="button">🔗 LinkedIn</a>
-    </div>
-  </section>
-
-  <section class="section" id="case-study">
-    <h2>Architecture Portfolio</h2>
-
-    <p class="section-intro">
-      This portfolio presents a phased enterprise transformation from a legacy operational environment
-      into a secure, observable, AWS-first platform with AI-assisted operational intelligence.
-    </p>
-
-    <div class="badge">Living Portfolio • In Active Development</div>
-
-    <div class="project-title">
-      Enterprise Operational Systems Modernisation
-    </div>
-
-    <p class="project-description">
-      Apex Operational Systems Ltd is a fictional enterprise operating a legacy fulfilment platform supporting
-      high-volume order processing, robotic fulfilment operations, inventory allocation, reporting, manual/reactive monitoring,
-      messaging, and customer-facing operational support.
-      <br><br>
-      The transformation focuses on improving resilience, observability, security, scalability, disaster recovery,
-      support efficiency, and AI-assisted incident investigation through an AWS-first modernisation approach.
-    </p>
-
-    <div class="grid portfolio-grid">
-
-      <a class="card solution" href="current-state.html">
-        <h3>Current-State Assessment</h3>
-        <p>Understand the existing platform, dependencies, pain points, risks and operational maturity gaps.</p>
-        <span>Explore Current State →</span>
-      </a>
-
-      <a class="card decision" href="target-architecture.html">
-        <h3>AWS Target Architecture</h3>
-        <p>Design the future AWS-first platform covering resilience, security, observability, scalability and AI operations.</p>
-        <span>Explore Target Architecture →</span>
-      </a>
-
-      <a class="card solution" href="phase-2-migrate.html">
-        <h3>Migration Strategy</h3>
-        <p>Plan migration waves, rollback, validation, testing, cutover and operational transition.</p>
-        <span>Explore Migration Strategy →</span>
-      </a>
-
-      <a class="card solution" href="phase-3-modernise.html">
-        <h3>Modernisation</h3>
-        <p>Introduce refactoring, automation, CI/CD, observability, secure access and platform engineering practices.</p>
-        <span>Explore Modernisation →</span>
-      </a>
-
-      <a class="card decision" href="phase-4-intelligent-operations.html">
-        <h3>AI Operations Intelligence</h3>
-        <p>Introduce AI-assisted troubleshooting, knowledge retrieval, operational insight, RCA support and intelligent automation.</p>
-        <span>Explore AI Operations →</span>
-      </a>
-
-      <a class="card decision" href="architecture-decision-records.html">
-        <h3>Architecture Decision Records</h3>
-        <p>Review the major design decisions, trade-offs and architectural reasoning behind the AWS solution.</p>
-        <span>Explore Decision Records →</span>
-      </a>
-
     </div>
   </section>
 
@@ -1485,14 +1440,12 @@
     <h2>1. Business Problem</h2>
 
     <p class="section-intro">
-      The organisation is experiencing recurring operational instability within its fulfilment platform, including
-      high-severity outages impacting robotic fulfilment operations, inventory allocation, and order processing workflows.
-      These incidents have resulted in operational disruption, delayed customer deliveries, increased pressure on support
-      teams, and reduced confidence in platform resilience.
+      Apex Operational Systems Ltd is experiencing recurring instability across a legacy fulfilment platform.
+      Outages affect robotic fulfilment, inventory allocation and order processing, increasing operational disruption,
+      customer delivery risk and pressure on support teams.
       <br><br>
-      The current technology landscape is heavily dependent on legacy on-premises infrastructure with limited scalability,
-      manually managed high availability processes, and minimal operational observability. Support teams also operate
-      across siloed structures, creating inconsistent troubleshooting approaches and heavy reliance on individual technical knowledge.
+      The current environment relies on on-premises infrastructure, manual recovery, limited observability and siloed knowledge.
+      The target solution focuses on resilience, faster investigation, safer change delivery and AI-assisted operational support.
     </p>
 
     <div class="grid">
@@ -1615,7 +1568,7 @@
       </div>
 
       <div class="card decision" onclick="openLayer('targetAI')">
-        <h3>AI Operations Layer</h3>
+        <h3>AI-Assisted Operations Layer</h3>
         <p>Bedrock Knowledge Base, S3 Knowledge Store, OpenSearch Vector Index and AI-assisted troubleshooting.</p>
         <span>Explore Details →</span>
       </div>
@@ -1686,42 +1639,42 @@
         <div class="status progress">🔄 In Progress</div>
         <h3>AWS Foundation</h3>
         <p>VPC, public/private subnets, route tables, NAT gateways, security groups, IAM and governance baseline.</p>
-        <span>View AWS Foundation →</span>
+        <span>View Build Evidence →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/02-application-platform" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Application Platform</h3>
         <p>Application Load Balancer, ECS Fargate services, container registry, deployment approach and scaling validation.</p>
-        <span>View Application Platform →</span>
+        <span>View Build Evidence →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/03-data-and-messaging" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Data & Messaging</h3>
         <p>RDS SQL Server, Amazon MQ, backups, reporting replica, DLQ handling and operational validation.</p>
-        <span>View Data & Messaging →</span>
+        <span>View Build Evidence →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/04-observability" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Observability</h3>
         <p>CloudWatch logs, alarms, dashboards, OpenSearch and SNS notification testing.</p>
-        <span>View Observability →</span>
+        <span>View Build Evidence →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/05-security-controls" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Security Controls</h3>
         <p>Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub and AWS Config implementation evidence.</p>
-        <span>View Security Controls →</span>
+        <span>View Build Evidence →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/06-ai-operations" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>AI Operations</h3>
         <p>S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch vector index and AI operations assistant prototype.</p>
-        <span>View AI Operations →</span>
+        <span>View Build Evidence →</span>
       </a>
     </div>
   </section>
@@ -1955,7 +1908,7 @@
 
             <div class="adr-block adr-decision">
               <h4>Decision</h4>
-              <p>Use an AI Operations Intelligence layer with S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch Vector Index and an AI Operations Assistant.</p>
+              <p>Use an AI-Assisted Operations layer with S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch Vector Index and an AI-Assisted Operations Assistant.</p>
             </div>
 
             <div class="adr-block">
@@ -2121,7 +2074,7 @@
 
       return bestMatch || {
         answer: "I can answer questions about my architecture portfolio, including the business problem, AWS-first strategy, ECS Fargate, resilience, observability, AI Operations, MTTR, trade-offs and future implementation steps. Try asking: “How does the AI Operations platform work?”",
-        related: [["Architecture Portfolio", "#case-study"], ["AI Operations", "phase-4-intelligent-operations.html"]]
+        related: [["Business Problem", "#"], ["AI Operations", "phase-4-intelligent-operations.html"]]
       };
     }
 
@@ -2244,7 +2197,7 @@
 
       targetAI: `
         <span class="modal-tag">Target-State Layer</span>
-        <h2>AI Operations Layer</h2>
+        <h2>AI-Assisted Operations Layer</h2>
 
         <h3>Purpose</h3>
         <p>Uses operational knowledge and searchable log context to help support teams investigate incidents faster and reduce repeated troubleshooting effort.</p>
@@ -2254,7 +2207,7 @@
           <li>S3 Knowledge Store for runbooks, SOPs, known issues and architecture docs</li>
           <li>Amazon Bedrock Knowledge Base for retrieval-augmented support guidance</li>
           <li>OpenSearch Vector Index for knowledge and operational context</li>
-          <li>AI Operations Assistant for guided troubleshooting</li>
+          <li>AI-Assisted Operations Assistant for guided troubleshooting</li>
           <li>Support feedback loop for continuous improvement</li>
         </ul>
 
