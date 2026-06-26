@@ -189,6 +189,97 @@
       margin-top: 22px;
     }
 
+
+    .ask-architect {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(300px, 1.1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .ask-question-panel,
+    .ask-answer-panel {
+      background: #111820;
+      border: 1px solid #2e3947;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .ask-question-panel h3,
+    .ask-answer-panel h3 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 24px;
+    }
+
+    .ask-question {
+      width: 100%;
+      display: block;
+      background: #1d232b;
+      color: #ffffff;
+      border: 1px solid #30363f;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .ask-question:hover,
+    .ask-question.active {
+      transform: translateY(-2px);
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .chat-window {
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .chat-bubble {
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid #30363f;
+    }
+
+    .chat-bubble.user {
+      background: #10263f;
+      border-color: #254866;
+      align-self: flex-end;
+      max-width: 88%;
+    }
+
+    .chat-bubble.architect {
+      background: #1d232b;
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .chat-bubble strong {
+      color: #ffffff;
+    }
+
+    .chat-bubble p {
+      color: #d6d6d6;
+      font-size: 16px;
+      margin: 8px 0 0;
+    }
+
+    .chat-note {
+      margin-top: 18px;
+      color: #9ca3af;
+      font-size: 14px;
+      text-align: center;
+    }
+
+
     .two-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -820,7 +911,8 @@
 
       .grid,
       .two-grid,
-      .flip-grid {
+      .flip-grid,
+      .ask-architect {
         grid-template-columns: 1fr;
       }
 
@@ -995,6 +1087,56 @@
 
     </div>
   </section>
+  <section class="section" id="ask-the-architect">
+    <h2>Ask the Architect</h2>
+
+    <p class="section-intro">
+      A guided portfolio assistant that answers common recruiter questions about the architecture,
+      design decisions, trade-offs and implementation approach behind this case study.
+    </p>
+
+    <div class="ask-architect">
+      <div class="ask-question-panel">
+        <h3>Choose a question</h3>
+
+        <button class="ask-question active" onclick="askArchitect('problem', this)">What business problem does this project solve?</button>
+        <button class="ask-question" onclick="askArchitect('aws', this)">Why did you choose an AWS-first architecture?</button>
+        <button class="ask-question" onclick="askArchitect('fargate', this)">Why use ECS Fargate instead of EC2?</button>
+        <button class="ask-question" onclick="askArchitect('resilience', this)">How does the target architecture improve resilience?</button>
+        <button class="ask-question" onclick="askArchitect('observability', this)">How does observability reduce support effort?</button>
+        <button class="ask-question" onclick="askArchitect('aiops', this)">How does the AI Operations platform work?</button>
+        <button class="ask-question" onclick="askArchitect('tradeoffs', this)">What trade-offs did you consider?</button>
+        <button class="ask-question" onclick="askArchitect('mttr', this)">How does this reduce MTTR?</button>
+        <button class="ask-question" onclick="askArchitect('services', this)">What AWS services are involved?</button>
+        <button class="ask-question" onclick="askArchitect('next', this)">What would you build next?</button>
+      </div>
+
+      <div class="ask-answer-panel">
+        <h3>Architect response</h3>
+
+        <div class="chat-window">
+          <div class="chat-bubble user" id="architectQuestion">
+            <strong>Recruiter question</strong>
+            <p>What business problem does this project solve?</p>
+          </div>
+
+          <div class="chat-bubble architect" id="architectAnswer">
+            <strong>Answer</strong>
+            <p>
+              This project addresses recurring operational instability in a legacy fulfilment platform.
+              The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints.
+              The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation.
+            </p>
+          </div>
+        </div>
+
+        <p class="chat-note">
+          Guided response model for portfolio review. A future version could connect to a live RAG knowledge base.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <h2>How I Approach Business Problems</h2>
 
@@ -1627,6 +1769,63 @@
   </footer>
 
   <script>
+
+    const architectAnswers = {
+      problem: {
+        question: "What business problem does this project solve?",
+        answer: "This project addresses recurring operational instability in a legacy fulfilment platform. The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints. The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation."
+      },
+      aws: {
+        question: "Why did you choose an AWS-first architecture?",
+        answer: "AWS-first was selected because managed services reduce operational overhead, improve scalability and provide stronger resilience patterns than the current manually managed environment. The design uses AWS services for networking, compute, data, observability, security, backup and AI operations while still recognising trade-offs such as cost control, skills development and provider dependency."
+      },
+      fargate: {
+        question: "Why use ECS Fargate instead of EC2?",
+        answer: "ECS Fargate removes the need to manage EC2 servers for the application layer. That supports the project goal of reducing patching, manual recovery and server maintenance. It also provides a cleaner path for containerised services, scaling, deployment consistency and future CI/CD patterns. The trade-off is that services may need refactoring and the team must understand container operations."
+      },
+      resilience: {
+        question: "How does the target architecture improve resilience?",
+        answer: "The target design distributes services across multiple Availability Zones, places application workloads in private subnets, uses managed database failover with RDS Multi-AZ, introduces backup governance and separates reporting from core transactional workloads. This reduces single points of failure and lowers dependency on manual recovery."
+      },
+      observability: {
+        question: "How does observability reduce support effort?",
+        answer: "The current support model is reactive and depends heavily on manual log searches and individual knowledge. The target architecture introduces CloudWatch logs, alarms, dashboards, OpenSearch, SNS notifications and Systems Manager runbooks. This gives support teams earlier detection, searchable evidence, standardised recovery steps and faster root cause analysis."
+      },
+      aiops: {
+        question: "How does the AI Operations platform work?",
+        answer: "The AI Operations platform uses trusted operational knowledge rather than generic responses. It retrieves context from logs, historic tickets, runbooks, architecture documentation, release notes, hot fixes and RCA outputs. Amazon Bedrock and a knowledge base pattern are used to suggest investigation steps, explain system behaviour, identify similar incidents and assist engineers with RCA drafting. Engineers remain responsible for validation and operational decisions."
+      },
+      tradeoffs: {
+        question: "What trade-offs did you consider?",
+        answer: "The main trade-offs were managed services versus control, resilience versus cost, containerisation effort versus long-term operational simplicity, and AI assistance versus governance risk. The design accepts some additional cost and learning curve in exchange for better availability, faster support, stronger observability and a more scalable operating model."
+      },
+      mttr: {
+        question: "How does this reduce MTTR?",
+        answer: "MTTR is reduced by detecting issues earlier, centralising logs, providing searchable operational evidence, recommending runbooks, surfacing similar historical incidents and helping engineers understand recent releases or hot fixes. The AI-assisted workflow also helps create better RCA outputs, which improves future investigations."
+      },
+      services: {
+        question: "What AWS services are involved?",
+        answer: "The target architecture uses Route 53, VPC, public and private subnets, NAT gateways, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, AWS Backup, CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config, S3 and Amazon Bedrock Knowledge Bases."
+      },
+      next: {
+        question: "What would you build next?",
+        answer: "The next step is to implement the AWS build evidence in GitHub. I would start with the network foundation, then add ECS Fargate application services, RDS and messaging, observability, security controls and finally the AI Operations prototype using S3, Bedrock Knowledge Bases and OpenSearch. This keeps the portfolio aligned with practical implementation evidence."
+      }
+    };
+
+    function askArchitect(key, button) {
+      const selected = architectAnswers[key];
+      if (!selected) return;
+
+      document.getElementById("architectQuestion").innerHTML = `<strong>Recruiter question</strong><p>${selected.question}</p>`;
+      document.getElementById("architectAnswer").innerHTML = `<strong>Answer</strong><p>${selected.answer}</p>`;
+
+      document.querySelectorAll(".ask-question").forEach(item => item.classList.remove("active"));
+      if (button) {
+        button.classList.add("active");
+      }
+    }
+
     const layerDetails = {
       targetNetwork: `
         <span class="modal-tag">Target-State Layer</span>
