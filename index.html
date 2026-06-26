@@ -190,94 +190,6 @@
     }
 
 
-    .ask-architect {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: minmax(260px, 0.9fr) minmax(300px, 1.1fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .ask-question-panel,
-    .ask-answer-panel {
-      background: #111820;
-      border: 1px solid #2e3947;
-      border-radius: 18px;
-      padding: 24px;
-    }
-
-    .ask-question-panel h3,
-    .ask-answer-panel h3 {
-      margin-top: 0;
-      color: #ffffff;
-      font-size: 24px;
-    }
-
-    .ask-question {
-      width: 100%;
-      display: block;
-      background: #1d232b;
-      color: #ffffff;
-      border: 1px solid #30363f;
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-bottom: 12px;
-      text-align: left;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 700;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .ask-question:hover,
-    .ask-question.active {
-      transform: translateY(-2px);
-      border-color: #4ea1ff;
-      background: #222a34;
-    }
-
-    .chat-window {
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .chat-bubble {
-      border-radius: 16px;
-      padding: 18px;
-      border: 1px solid #30363f;
-    }
-
-    .chat-bubble.user {
-      background: #10263f;
-      border-color: #254866;
-      align-self: flex-end;
-      max-width: 88%;
-    }
-
-    .chat-bubble.architect {
-      background: #1d232b;
-      border-left: 4px solid #8ef0b9;
-    }
-
-    .chat-bubble strong {
-      color: #ffffff;
-    }
-
-    .chat-bubble p {
-      color: #d6d6d6;
-      font-size: 16px;
-      margin: 8px 0 0;
-    }
-
-    .chat-note {
-      margin-top: 18px;
-      color: #9ca3af;
-      font-size: 14px;
-      text-align: center;
-    }
 
 
     .two-grid {
@@ -866,6 +778,270 @@
     }
 
 
+
+    .architect-chat-launcher {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 1000;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 2px solid #4ea1ff;
+      background: radial-gradient(circle at 30% 20%, #1e7bff, #07111f 68%);
+      box-shadow: 0 0 28px rgba(78,161,255,0.65), 0 18px 45px rgba(0,0,0,0.5);
+      color: #ffffff;
+      font-size: 34px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .architect-chat-launcher:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 0 36px rgba(78,161,255,0.85), 0 22px 55px rgba(0,0,0,0.6);
+    }
+
+    .architect-chat-widget {
+      position: fixed;
+      right: 28px;
+      bottom: 124px;
+      z-index: 1000;
+      width: min(430px, calc(100vw - 32px));
+      max-height: min(720px, calc(100vh - 150px));
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(13,20,31,0.98), rgba(7,11,18,0.98));
+      border: 1px solid #4ea1ff;
+      border-radius: 20px;
+      box-shadow: 0 0 34px rgba(78,161,255,0.35), 0 26px 80px rgba(0,0,0,0.72);
+    }
+
+    .architect-chat-widget.active {
+      display: flex;
+    }
+
+    .architect-chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #2e3947;
+      background: rgba(14,22,35,0.95);
+    }
+
+    .architect-chat-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .robot-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #111820;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 31px;
+      box-shadow: 0 0 18px rgba(78,161,255,0.25);
+      flex-shrink: 0;
+    }
+
+    .architect-chat-title h3 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .architect-online {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #8ef0b9;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .architect-online::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.7);
+    }
+
+    .architect-chat-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .architect-icon-button {
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      font-size: 22px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .architect-icon-button:hover { opacity: 1; }
+
+    .architect-chat-body {
+      padding: 18px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .architect-message-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .architect-message-row.user { justify-content: flex-end; }
+
+    .architect-message {
+      max-width: 100%;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 15px;
+      line-height: 1.55;
+      border: 1px solid #30363f;
+    }
+
+    .architect-message.bot {
+      background: #1d232b;
+      border-color: #303a48;
+    }
+
+    .architect-message.user {
+      max-width: 82%;
+      background: linear-gradient(135deg, #0b72f0, #0051c8);
+      border-color: rgba(255,255,255,0.12);
+      color: #ffffff;
+    }
+
+    .architect-message p {
+      margin: 0 0 10px;
+      color: #dfe7f3;
+    }
+
+    .architect-message p:last-child { margin-bottom: 0; }
+
+    .architect-message a {
+      color: #4ea1ff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .architect-related {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #30363f;
+      color: #b9c3d3;
+      font-size: 14px;
+    }
+
+    .architect-chat-input {
+      padding: 14px;
+      border-top: 1px solid #2e3947;
+      background: rgba(14,22,35,0.95);
+    }
+
+    .architect-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-radius: 999px;
+      padding: 8px 8px 8px 16px;
+    }
+
+    .architect-input-row input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .architect-input-row input::placeholder { color: #9ca3af; }
+
+    .architect-send {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #0a74ff, #0051c8);
+      color: #ffffff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .architect-chat-footnote {
+      text-align: center;
+      color: #9ca3af;
+      font-size: 12px;
+      margin: 10px 6px 0;
+      line-height: 1.45;
+    }
+
+    .architect-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .architect-suggestion {
+      border: 1px solid #254866;
+      background: #10263f;
+      color: #8ecbff;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    @media (max-width: 620px) {
+      .architect-chat-launcher {
+        right: 18px;
+        bottom: 18px;
+        width: 64px;
+        height: 64px;
+        font-size: 28px;
+      }
+
+      .architect-chat-widget {
+        right: 12px;
+        left: 12px;
+        bottom: 94px;
+        width: auto;
+        max-height: calc(100vh - 115px);
+      }
+
+      .architect-message { max-width: 100%; }
+      .architect-message.user { max-width: 88%; }
+    }
+
+
     footer {
       text-align: center;
       margin-top: 70px;
@@ -911,8 +1087,7 @@
 
       .grid,
       .two-grid,
-      .flip-grid,
-      .ask-architect {
+      .flip-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1085,55 +1260,6 @@
         <span>Explore Decision Records →</span>
       </a>
 
-    </div>
-  </section>
-  <section class="section" id="ask-the-architect">
-    <h2>Ask the Architect</h2>
-
-    <p class="section-intro">
-      A guided portfolio assistant that answers common recruiter questions about the architecture,
-      design decisions, trade-offs and implementation approach behind this case study.
-    </p>
-
-    <div class="ask-architect">
-      <div class="ask-question-panel">
-        <h3>Choose a question</h3>
-
-        <button class="ask-question active" onclick="askArchitect('problem', this)">What business problem does this project solve?</button>
-        <button class="ask-question" onclick="askArchitect('aws', this)">Why did you choose an AWS-first architecture?</button>
-        <button class="ask-question" onclick="askArchitect('fargate', this)">Why use ECS Fargate instead of EC2?</button>
-        <button class="ask-question" onclick="askArchitect('resilience', this)">How does the target architecture improve resilience?</button>
-        <button class="ask-question" onclick="askArchitect('observability', this)">How does observability reduce support effort?</button>
-        <button class="ask-question" onclick="askArchitect('aiops', this)">How does the AI Operations platform work?</button>
-        <button class="ask-question" onclick="askArchitect('tradeoffs', this)">What trade-offs did you consider?</button>
-        <button class="ask-question" onclick="askArchitect('mttr', this)">How does this reduce MTTR?</button>
-        <button class="ask-question" onclick="askArchitect('services', this)">What AWS services are involved?</button>
-        <button class="ask-question" onclick="askArchitect('next', this)">What would you build next?</button>
-      </div>
-
-      <div class="ask-answer-panel">
-        <h3>Architect response</h3>
-
-        <div class="chat-window">
-          <div class="chat-bubble user" id="architectQuestion">
-            <strong>Recruiter question</strong>
-            <p>What business problem does this project solve?</p>
-          </div>
-
-          <div class="chat-bubble architect" id="architectAnswer">
-            <strong>Answer</strong>
-            <p>
-              This project addresses recurring operational instability in a legacy fulfilment platform.
-              The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints.
-              The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation.
-            </p>
-          </div>
-        </div>
-
-        <p class="chat-note">
-          Guided response model for portfolio review. A future version could connect to a live RAG knowledge base.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -1739,6 +1865,54 @@
     </div>
   </section>
 
+
+  <div class="architect-chat-widget" id="architectChatWidget" aria-live="polite">
+    <div class="architect-chat-header">
+      <div class="architect-chat-title">
+        <div class="robot-avatar">🤖</div>
+        <div>
+          <h3>Ask the Architect</h3>
+          <div class="architect-online">Online</div>
+        </div>
+      </div>
+
+      <div class="architect-chat-actions">
+        <button class="architect-icon-button" onclick="resetArchitectChat()" title="Reset chat">↻</button>
+        <button class="architect-icon-button" onclick="toggleArchitectChat()" title="Close chat">×</button>
+      </div>
+    </div>
+
+    <div class="architect-chat-body" id="architectChatBody">
+      <div class="architect-message-row">
+        <div class="architect-message bot">
+          <p><strong>Hi, I'm Tatenda, the architect behind this project.</strong></p>
+          <p>
+            Ask me anything about the architecture, design decisions, AWS services
+            or trade-offs in this portfolio and I'll explain the reasoning behind my approach.
+          </p>
+          <div class="architect-suggestions">
+            <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
+            <button class="architect-suggestion" onclick="quickAsk('Why ECS Fargate?')">Why ECS Fargate?</button>
+            <button class="architect-suggestion" onclick="quickAsk('How does this reduce MTTR?')">Reduce MTTR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="architect-chat-input">
+      <div class="architect-input-row">
+        <input id="architectInput" type="text" placeholder="Type your question..." onkeydown="if(event.key === 'Enter'){sendArchitectMessage()}">
+        <button class="architect-send" onclick="sendArchitectMessage()" title="Send">➤</button>
+      </div>
+      <p class="architect-chat-footnote">
+        Guided assistant for portfolio review. Future version will use RAG with Amazon Bedrock.
+      </p>
+    </div>
+  </div>
+
+  <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask the Architect">🤖</button>
+
+
   <div class="modal-overlay" id="layerModal">
     <div class="modal-card">
       <button class="modal-close" onclick="closeLayer()">×</button>
@@ -1770,61 +1944,100 @@
 
   <script>
 
-    const architectAnswers = {
-      problem: {
-        question: "What business problem does this project solve?",
-        answer: "This project addresses recurring operational instability in a legacy fulfilment platform. The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints. The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation."
-      },
-      aws: {
-        question: "Why did you choose an AWS-first architecture?",
-        answer: "AWS-first was selected because managed services reduce operational overhead, improve scalability and provide stronger resilience patterns than the current manually managed environment. The design uses AWS services for networking, compute, data, observability, security, backup and AI operations while still recognising trade-offs such as cost control, skills development and provider dependency."
-      },
-      fargate: {
-        question: "Why use ECS Fargate instead of EC2?",
-        answer: "ECS Fargate removes the need to manage EC2 servers for the application layer. That supports the project goal of reducing patching, manual recovery and server maintenance. It also provides a cleaner path for containerised services, scaling, deployment consistency and future CI/CD patterns. The trade-off is that services may need refactoring and the team must understand container operations."
-      },
-      resilience: {
-        question: "How does the target architecture improve resilience?",
-        answer: "The target design distributes services across multiple Availability Zones, places application workloads in private subnets, uses managed database failover with RDS Multi-AZ, introduces backup governance and separates reporting from core transactional workloads. This reduces single points of failure and lowers dependency on manual recovery."
-      },
-      observability: {
-        question: "How does observability reduce support effort?",
-        answer: "The current support model is reactive and depends heavily on manual log searches and individual knowledge. The target architecture introduces CloudWatch logs, alarms, dashboards, OpenSearch, SNS notifications and Systems Manager runbooks. This gives support teams earlier detection, searchable evidence, standardised recovery steps and faster root cause analysis."
-      },
-      aiops: {
-        question: "How does the AI Operations platform work?",
-        answer: "The AI Operations platform uses trusted operational knowledge rather than generic responses. It retrieves context from logs, historic tickets, runbooks, architecture documentation, release notes, hot fixes and RCA outputs. Amazon Bedrock and a knowledge base pattern are used to suggest investigation steps, explain system behaviour, identify similar incidents and assist engineers with RCA drafting. Engineers remain responsible for validation and operational decisions."
-      },
-      tradeoffs: {
-        question: "What trade-offs did you consider?",
-        answer: "The main trade-offs were managed services versus control, resilience versus cost, containerisation effort versus long-term operational simplicity, and AI assistance versus governance risk. The design accepts some additional cost and learning curve in exchange for better availability, faster support, stronger observability and a more scalable operating model."
-      },
-      mttr: {
-        question: "How does this reduce MTTR?",
-        answer: "MTTR is reduced by detecting issues earlier, centralising logs, providing searchable operational evidence, recommending runbooks, surfacing similar historical incidents and helping engineers understand recent releases or hot fixes. The AI-assisted workflow also helps create better RCA outputs, which improves future investigations."
-      },
-      services: {
-        question: "What AWS services are involved?",
-        answer: "The target architecture uses Route 53, VPC, public and private subnets, NAT gateways, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, AWS Backup, CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config, S3 and Amazon Bedrock Knowledge Bases."
-      },
-      next: {
-        question: "What would you build next?",
-        answer: "The next step is to implement the AWS build evidence in GitHub. I would start with the network foundation, then add ECS Fargate application services, RDS and messaging, observability, security controls and finally the AI Operations prototype using S3, Bedrock Knowledge Bases and OpenSearch. This keeps the portfolio aligned with practical implementation evidence."
-      }
-    };
 
-    function askArchitect(key, button) {
-      const selected = architectAnswers[key];
-      if (!selected) return;
 
-      document.getElementById("architectQuestion").innerHTML = `<strong>Recruiter question</strong><p>${selected.question}</p>`;
-      document.getElementById("architectAnswer").innerHTML = `<strong>Answer</strong><p>${selected.answer}</p>`;
+    const architectAnswers = [
+      { keywords: ["business", "problem", "solve", "why project"], answer: "This project addresses recurring operational instability in a legacy fulfilment platform. The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints. The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation.", related: [["Current State", "current-state.html"], ["Target Architecture", "target-architecture.html"]] },
+      { keywords: ["aws", "aws-first", "cloud first", "why aws"], answer: "AWS-first was selected because managed services reduce operational overhead, improve scalability and provide stronger resilience patterns than the current manually managed environment. The design uses AWS services for networking, compute, data, observability, security, backup and AI operations while recognising trade-offs such as cost control, skills development and provider dependency.", related: [["ADR-001", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]] },
+      { keywords: ["fargate", "ecs", "ec2", "container"], answer: "ECS Fargate removes the need to manage EC2 servers for the application layer while providing container orchestration, automatic scaling and simplified deployments. For this project, reducing operational overhead was more important than having OS-level control. The trade-off is less host-level customisation and some refactoring effort.", related: [["ADR-003", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"], ["Modernisation", "phase-3-modernise.html"]] },
+      { keywords: ["resilience", "availability", "multi-az", "failover", "dr", "disaster"], answer: "The target design improves resilience by distributing services across Availability Zones, placing workloads in private subnets, using RDS Multi-AZ, introducing backup governance and separating reporting from core transactional workloads. This reduces single points of failure and lowers dependency on manual recovery.", related: [["ADR-004", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]] },
+      { keywords: ["observability", "monitoring", "logs", "cloudwatch", "opensearch", "support effort"], answer: "Observability reduces support effort by giving engineers earlier detection, searchable evidence and standardised recovery paths. CloudWatch, OpenSearch, SNS and Systems Manager help move the support model away from manual log hunting and reactive troubleshooting.", related: [["ADR-002", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]] },
+      { keywords: ["ai", "aiops", "operations", "rag", "bedrock", "knowledge", "assistant", "rca"], answer: "The AI Operations platform retrieves trusted context from logs, historic tickets, runbooks, architecture documentation, release notes, hot fixes and RCA outputs. Amazon Bedrock and a knowledge base pattern are used to suggest investigation steps, explain system behaviour, identify similar incidents and assist with RCA drafting. Engineers remain responsible for validation and operational decisions.", related: [["AI Operations", "phase-4-intelligent-operations.html"], ["ADR-005", "architecture-decision-records.html"]] },
+      { keywords: ["trade", "trade-off", "tradeoff", "consider", "risk"], answer: "The main trade-offs were managed services versus control, resilience versus cost, containerisation effort versus long-term operational simplicity, and AI assistance versus governance risk. The design accepts additional cost and learning curve in exchange for better availability, faster support and a more scalable operating model.", related: [["Decision Records", "architecture-decision-records.html"]] },
+      { keywords: ["mttr", "resolution", "faster", "incident response", "root cause"], answer: "MTTR is reduced by detecting issues earlier, centralising logs, surfacing similar incidents, recommending runbooks and helping engineers understand recent releases or hot fixes. The AI-assisted workflow also improves RCA quality, which strengthens future investigations.", related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]] },
+      { keywords: ["services", "aws services", "tools", "what aws"], answer: "The target architecture uses Route 53, VPC, public and private subnets, NAT gateways, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, AWS Backup, CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config, S3 and Amazon Bedrock Knowledge Bases.", related: [["Target Architecture", "target-architecture.html"], ["AWS Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build"]] },
+      { keywords: ["next", "build next", "roadmap", "future", "implementation"], answer: "The next step is to continue the AWS build evidence in GitHub: network foundation first, then ECS Fargate application services, RDS and messaging, observability, security controls and finally the AI Operations prototype using S3, Bedrock Knowledge Bases and OpenSearch.", related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build"], ["AI Operations", "phase-4-intelligent-operations.html"]] }
+    ];
 
-      document.querySelectorAll(".ask-question").forEach(item => item.classList.remove("active"));
-      if (button) {
-        button.classList.add("active");
-      }
+    function toggleArchitectChat() {
+      document.getElementById("architectChatWidget").classList.toggle("active");
     }
+
+    function resetArchitectChat() {
+      document.getElementById("architectChatBody").innerHTML = `
+      <div class="architect-message-row">
+        <div class="architect-message bot">
+          <p><strong>Hi, I'm Tatenda, the architect behind this project.</strong></p>
+          <p>
+            Ask me anything about the architecture, design decisions, AWS services
+            or trade-offs in this portfolio and I'll explain the reasoning behind my approach.
+          </p>
+          <div class="architect-suggestions">
+            <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
+            <button class="architect-suggestion" onclick="quickAsk('Why ECS Fargate?')">Why ECS Fargate?</button>
+            <button class="architect-suggestion" onclick="quickAsk('How does this reduce MTTR?')">Reduce MTTR</button>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function quickAsk(question) {
+      document.getElementById("architectInput").value = question;
+      sendArchitectMessage();
+    }
+
+    function findArchitectAnswer(question) {
+      const lowerQuestion = question.toLowerCase();
+      let bestMatch = null;
+      let bestScore = 0;
+
+      architectAnswers.forEach(item => {
+        const score = item.keywords.reduce((total, keyword) => total + (lowerQuestion.includes(keyword.toLowerCase()) ? 1 : 0), 0);
+        if (score > bestScore) {
+          bestScore = score;
+          bestMatch = item;
+        }
+      });
+
+      return bestMatch || {
+        answer: "I can answer questions about my architecture portfolio, including the business problem, AWS-first strategy, ECS Fargate, resilience, observability, AI Operations, MTTR, trade-offs and future implementation steps. Try asking: “How does the AI Operations platform work?”",
+        related: [["Architecture Portfolio", "#case-study"], ["AI Operations", "phase-4-intelligent-operations.html"]]
+      };
+    }
+
+    function appendArchitectMessage(type, content, related = []) {
+      const chatBody = document.getElementById("architectChatBody");
+      const row = document.createElement("div");
+      row.className = `architect-message-row ${type === "user" ? "user" : ""}`;
+
+      const bubble = document.createElement("div");
+      bubble.className = `architect-message ${type === "user" ? "user" : "bot"}`;
+      bubble.innerHTML = content;
+
+      if (type === "bot" && related && related.length) {
+        const relatedHtml = related.map(([label, href]) => `<a href="${href}">${label}</a>`).join(" • ");
+        bubble.innerHTML += `<div class="architect-related">🔗 Related: ${relatedHtml}</div>`;
+      }
+
+      row.appendChild(bubble);
+      chatBody.appendChild(row);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function sendArchitectMessage() {
+      const input = document.getElementById("architectInput");
+      const question = input.value.trim();
+      if (!question) return;
+
+      appendArchitectMessage("user", `<p>${question}</p>`);
+      input.value = "";
+
+      const response = findArchitectAnswer(question);
+      setTimeout(() => {
+        appendArchitectMessage("bot", `<p>${response.answer}</p>`, response.related);
+      }, 350);
+    }
+
 
     const layerDetails = {
       targetNetwork: `
