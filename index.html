@@ -779,6 +779,51 @@
 
 
 
+
+    .architect-launch-label {
+      position: fixed;
+      right: 116px;
+      bottom: 42px;
+      z-index: 1000;
+      background: linear-gradient(145deg, rgba(16,38,63,0.98), rgba(13,20,31,0.98));
+      color: #ffffff;
+      border: 1px solid #4ea1ff;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+      box-shadow: 0 0 22px rgba(78,161,255,0.28), 0 12px 34px rgba(0,0,0,0.45);
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .architect-launch-label::after {
+      content: "";
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      background: rgba(13,20,31,0.98);
+      border-right: 1px solid #4ea1ff;
+      border-top: 1px solid #4ea1ff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .architect-launch-label:hover {
+      transform: translateY(-3px);
+      border-color: #8ecbff;
+    }
+
+    .architect-chat-widget.active ~ .architect-launch-label {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+    }
+
+
     .architect-chat-launcher {
       position: fixed;
       right: 28px;
@@ -1021,6 +1066,14 @@
     }
 
     @media (max-width: 620px) {
+
+      .architect-launch-label {
+        right: 92px;
+        bottom: 29px;
+        font-size: 13px;
+        padding: 8px 13px;
+      }
+
       .architect-chat-launcher {
         right: 18px;
         bottom: 18px;
@@ -1045,14 +1098,62 @@
     footer {
       text-align: center;
       margin-top: 70px;
-      padding: 40px;
-      color: #9ca3af;
+      padding: 46px 24px;
+      color: #b9c3d3;
       border-top: 1px solid #2b2f35;
+      background: linear-gradient(180deg, rgba(13,20,31,0.96), rgba(7,11,18,0.98));
     }
 
-    footer a {
+    footer h2 {
+      margin: 0 0 14px;
+      color: #ffffff;
+      font-size: 26px;
+      letter-spacing: -0.4px;
+    }
+
+    .footer-summary {
+      max-width: 820px;
+      margin: 0 auto 22px;
+      color: #d6d6d6;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .footer-divider {
+      width: 120px;
+      height: 1px;
+      background: #2e3947;
+      margin: 22px auto;
+    }
+
+    .footer-tags {
+      color: #8ecbff;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .footer-links a {
       color: #4ea1ff;
       text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-credit {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
     }
 
     @media (max-width: 850px) {
@@ -1115,6 +1216,19 @@
     }
 
     @media (max-width: 520px) {
+
+      footer h2 {
+        font-size: 22px;
+      }
+
+      .footer-summary {
+        font-size: 15px;
+      }
+
+      .footer-links {
+        gap: 10px;
+      }
+
       .banner {
         height: 190px;
       }
@@ -1910,6 +2024,7 @@
     </div>
   </div>
 
+  <button class="architect-launch-label" onclick="toggleArchitectChat()" title="Ask the Architect">Ask the Architect</button>
   <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask the Architect">🤖</button>
 
 
@@ -1921,24 +2036,29 @@
   </div>
 
   <footer>
-    <p>
-      Connect on
+    <h2>Enterprise Architecture Portfolio</h2>
+
+    <p class="footer-summary">
+      A practical enterprise case study demonstrating cloud transformation,
+      operational resilience, AI-assisted support and modern architecture practices.
+    </p>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-tags">
+      Cloud Architecture • AWS • AI Operations • Observability • Security • Reliability Engineering
+    </p>
+
+    <div class="footer-links">
       <a href="https://linkedin.com/in/tatenda-manyepa">LinkedIn</a>
-      |
-      GitHub:
-      <a href="https://github.com/tatenda-manyepa">tatenda-manyepa</a>
-    </p>
+      <span>•</span>
+      <a href="https://github.com/tatenda-manyepa">GitHub Profile</a>
+      <span>•</span>
+      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation">Architecture Repository</a>
+    </div>
 
-    <p>Enterprise Technology Solutions Portfolio</p>
-
-    <p>
-      AWS • Cloud Transformation • AI Operations Intelligence •
-      Observability • Security • Reliability Engineering
-    </p>
-
-    <p>
-      Currently preparing for AWS Solutions Architect Associate while
-      building enterprise-scale architecture case studies.
+    <p class="footer-credit">
+      Designed &amp; Developed by Tatenda Manyepa • Portfolio v1.0 • 2026
     </p>
   </footer>
 
