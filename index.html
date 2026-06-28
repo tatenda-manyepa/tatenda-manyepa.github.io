@@ -1657,42 +1657,42 @@
     </p>
 
     <div class="grid">
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/01-aws-foundation" target="_blank">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure" target="_blank">
         <div class="status completed">✅ Completed</div>
         <h3>AWS Foundation & Core Services</h3>
-        <p>VPC, public/private subnets, route tables, NAT gateways, security groups, IAM and governance baseline.</p>
+        <p>VPC, public/private subnets, route tables, Internet Gateway, NAT Gateway, security groups, IAM foundation and core AWS networking implementation.</p>
         <span>View Build Evidence →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/02-application-platform" target="_blank">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/02-application-platform" target="_blank">
         <div class="status progress">🔄 In Progress</div>
         <h3>Application Platform</h3>
-        <p>Application Load Balancer, ECS Fargate services, container registry, deployment approach and scaling validation.</p>
+        <p>Application Load Balancer, ECS Fargate services, Amazon ECR, service discovery, auto scaling and deployment validation.</p>
         <span>View Build Evidence →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/03-data-and-messaging" target="_blank">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Data & Messaging</h3>
         <p>RDS SQL Server, Amazon MQ, backups, reporting replica, DLQ handling and operational validation.</p>
         <span>View Build Evidence →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/04-observability" target="_blank">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/04-observability" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Observability</h3>
         <p>CloudWatch logs, alarms, dashboards, OpenSearch and SNS notification testing.</p>
         <span>View Build Evidence →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/05-security-controls" target="_blank">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/05-security-controls" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>Security Controls</h3>
         <p>Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub and AWS Config implementation evidence.</p>
         <span>View Build Evidence →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build/06-ai-operations" target="_blank">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/06-ai-operations" target="_blank">
         <div class="status planned">⏳ Planned</div>
         <h3>AI Operations</h3>
         <p>S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch vector index and AI operations assistant prototype.</p>
@@ -1980,6 +1980,7 @@
             or trade-offs in this portfolio and I'll explain the reasoning behind my approach.
           </p>
           <div class="architect-suggestions">
+            <button class="architect-suggestion" onclick="quickAsk('What have you built so far?')">Build progress</button>
             <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
             <button class="architect-suggestion" onclick="quickAsk('Why ECS Fargate?')">Why ECS Fargate?</button>
             <button class="architect-suggestion" onclick="quickAsk('How does this reduce MTTR?')">Reduce MTTR</button>
@@ -2042,16 +2043,95 @@
 
 
     const architectAnswers = [
-      { keywords: ["business", "problem", "solve", "why project"], answer: "This project addresses recurring operational instability in a legacy fulfilment platform. The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints. The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation.", related: [["Current State", "current-state.html"], ["Target Architecture", "target-architecture.html"]] },
-      { keywords: ["aws", "aws-first", "cloud first", "why aws"], answer: "AWS-first was selected because managed services reduce operational overhead, improve scalability and provide stronger resilience patterns than the current manually managed environment. The design uses AWS services for networking, compute, data, observability, security, backup and AI operations while recognising trade-offs such as cost control, skills development and provider dependency.", related: [["ADR-001", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]] },
-      { keywords: ["fargate", "ecs", "ec2", "container"], answer: "ECS Fargate removes the need to manage EC2 servers for the application layer while providing container orchestration, automatic scaling and simplified deployments. For this project, reducing operational overhead was more important than having OS-level control. The trade-off is less host-level customisation and some refactoring effort.", related: [["ADR-003", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"], ["Modernisation", "phase-3-modernise.html"]] },
-      { keywords: ["resilience", "availability", "multi-az", "failover", "dr", "disaster"], answer: "The target design improves resilience by distributing services across Availability Zones, placing workloads in private subnets, using RDS Multi-AZ, introducing backup governance and separating reporting from core transactional workloads. This reduces single points of failure and lowers dependency on manual recovery.", related: [["ADR-004", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]] },
-      { keywords: ["observability", "monitoring", "logs", "cloudwatch", "opensearch", "support effort"], answer: "Observability reduces support effort by giving engineers earlier detection, searchable evidence and standardised recovery paths. CloudWatch, OpenSearch, SNS and Systems Manager help move the support model away from manual log hunting and reactive troubleshooting.", related: [["ADR-002", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]] },
-      { keywords: ["ai", "aiops", "operations", "rag", "bedrock", "knowledge", "assistant", "rca"], answer: "The AI Operations platform retrieves trusted context from logs, historic tickets, runbooks, architecture documentation, release notes, hot fixes and RCA outputs. Amazon Bedrock and a knowledge base pattern are used to suggest investigation steps, explain system behaviour, identify similar incidents and assist with RCA drafting. Engineers remain responsible for validation and operational decisions.", related: [["AI Operations", "phase-4-intelligent-operations.html"], ["ADR-005", "architecture-decision-records.html"]] },
-      { keywords: ["trade", "trade-off", "tradeoff", "consider", "risk"], answer: "The main trade-offs were managed services versus control, resilience versus cost, containerisation effort versus long-term operational simplicity, and AI assistance versus governance risk. The design accepts additional cost and learning curve in exchange for better availability, faster support and a more scalable operating model.", related: [["Decision Records", "architecture-decision-records.html"]] },
-      { keywords: ["mttr", "resolution", "faster", "incident response", "root cause"], answer: "MTTR is reduced by detecting issues earlier, centralising logs, surfacing similar incidents, recommending runbooks and helping engineers understand recent releases or hot fixes. The AI-assisted workflow also improves RCA quality, which strengthens future investigations.", related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]] },
-      { keywords: ["services", "aws services", "tools", "what aws"], answer: "The target architecture uses Route 53, VPC, public and private subnets, NAT gateways, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, AWS Backup, CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config, S3 and Amazon Bedrock Knowledge Bases.", related: [["Target Architecture", "target-architecture.html"], ["AWS Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build"]] },
-      { keywords: ["next", "build next", "roadmap", "future", "implementation"], answer: "The next step is to continue the AWS build evidence in GitHub: network foundation first, then ECS Fargate application services, RDS and messaging, observability, security controls and finally the AI Operations prototype using S3, Bedrock Knowledge Bases and OpenSearch.", related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/aws%20build"], ["AI Operations", "phase-4-intelligent-operations.html"]] }
+      {
+        keywords: ["business", "problem", "solve", "why project"],
+        answer: "This project addresses recurring operational instability in a legacy fulfilment platform. The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints. The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation.",
+        related: [["Current State", "current-state.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+
+      {
+        keywords: ["aws", "aws-first", "cloud first", "why aws"],
+        answer: "AWS-first was selected because managed services reduce operational overhead, improve scalability and provide stronger resilience patterns than the current manually managed environment. The design uses AWS services for networking, compute, data, observability, security, backup and AI operations while recognising trade-offs such as cost control, skills development and provider dependency.",
+        related: [["ADR-001", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+
+      {
+        keywords: ["fargate", "ecs", "ec2", "container"],
+        answer: "ECS Fargate removes the need to manage EC2 servers while providing container orchestration, automatic scaling and simplified deployments. For this project, reducing operational overhead was more important than having OS-level control. The trade-off is less host-level customisation and some refactoring effort.",
+        related: [["ADR-003", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"], ["Modernisation", "phase-3-modernise.html"]]
+      },
+
+      {
+        keywords: ["resilience", "availability", "multi-az", "failover", "dr", "disaster"],
+        answer: "The target design improves resilience by distributing services across Availability Zones, placing workloads in private subnets, using RDS Multi-AZ, introducing backup governance and separating reporting from core transactional workloads. This reduces single points of failure and lowers dependency on manual recovery.",
+        related: [["ADR-004", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+
+      {
+        keywords: ["observability", "monitoring", "logs", "cloudwatch", "opensearch"],
+        answer: "Observability reduces support effort by giving engineers earlier detection, searchable evidence and standardised recovery paths. CloudWatch, OpenSearch, SNS and Systems Manager help move the support model away from manual log hunting and reactive troubleshooting.",
+        related: [["ADR-002", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+
+      {
+        keywords: ["ai", "aiops", "operations", "rag", "bedrock", "knowledge", "assistant", "rca"],
+        answer: "The AI Operations platform retrieves trusted context from logs, historic tickets, runbooks, architecture documentation, release notes, hot fixes and RCA outputs. Amazon Bedrock and a knowledge base pattern are used to suggest investigation steps, explain system behaviour, identify similar incidents and assist with RCA drafting. Engineers remain responsible for validating recommendations before taking operational action.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["ADR-005", "architecture-decision-records.html"]]
+      },
+
+      {
+        keywords: ["trade", "trade-off", "tradeoff", "risk"],
+        answer: "The main trade-offs were managed services versus control, resilience versus cost, containerisation effort versus long-term operational simplicity and AI assistance versus governance risk. The design accepts additional cost and learning curve in exchange for better availability, faster support and a more scalable operating model.",
+        related: [["Decision Records", "architecture-decision-records.html"]]
+      },
+
+      {
+        keywords: ["mttr", "resolution", "incident response", "root cause"],
+        answer: "MTTR is reduced by detecting issues earlier, centralising logs, surfacing similar incidents, recommending runbooks and helping engineers understand recent releases or hot fixes. The AI-assisted workflow also improves RCA quality, strengthening future investigations.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+
+      {
+        keywords: ["services", "aws services", "tools", "what aws"],
+        answer: "The target architecture uses Route 53, VPC, Internet Gateway, NAT Gateway, public and private subnets, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, AWS Backup, CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config, S3 and Amazon Bedrock.",
+        related: [["Target Architecture", "target-architecture.html"], ["AWS Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      },
+
+      {
+        keywords: ["build", "build progress", "implementation", "what have you built"],
+        answer: "The project is progressing through a phased AWS implementation. The networking foundation has been completed, including the VPC, public and private subnets, Internet Gateway, NAT Gateway, route tables and security groups. I am now building the application platform using ECS Fargate and an Application Load Balancer before moving on to data services, observability, security and AI Operations.",
+        related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      },
+
+      {
+        keywords: ["foundation", "network", "vpc", "nat gateway", "internet gateway", "route table"],
+        answer: "The AWS foundation establishes the landing zone for the platform. It includes a custom VPC, segmented public and private subnets across two Availability Zones, an Internet Gateway, NAT Gateway, route tables, security groups and IAM foundations. This provides secure networking and a scalable base for the application platform.",
+        related: [["Foundation Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure"]]
+      },
+
+      {
+        keywords: ["application platform", "ecs build", "alb", "load balancer", "current stage"],
+        answer: "The current implementation stage focuses on replacing the legacy application servers with containerised ECS Fargate services behind an Application Load Balancer. This stage introduces container orchestration, service discovery, health checks and auto scaling.",
+        related: [["Application Platform", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/02-application-platform"]]
+      },
+
+      {
+        keywords: ["terraform", "iac", "infrastructure as code"],
+        answer: "The AWS environment is intended to be deployed using Infrastructure as Code so that it is repeatable, version controlled and suitable for future CI/CD automation. This improves consistency, reviewability and change management.",
+        related: [["AWS Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      },
+
+      {
+        keywords: ["completed", "finished"],
+        answer: "The completed work includes the business assessment, current-state analysis, target architecture, architecture decision records and the AWS networking foundation. The application platform is currently in progress.",
+        related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      },
+
+      {
+        keywords: ["next", "future", "roadmap", "what's next"],
+        answer: "After the application platform, the implementation will continue with RDS and messaging services, observability using CloudWatch and OpenSearch, security controls such as Secrets Manager and GuardDuty, and finally the AI Operations platform powered by Amazon Bedrock.",
+        related: [["Roadmap", "phase-4-intelligent-operations.html"]]
+      }
     ];
 
     function toggleArchitectChat() {
@@ -2068,6 +2148,7 @@
             or trade-offs in this portfolio and I'll explain the reasoning behind my approach.
           </p>
           <div class="architect-suggestions">
+            <button class="architect-suggestion" onclick="quickAsk('What have you built so far?')">Build progress</button>
             <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
             <button class="architect-suggestion" onclick="quickAsk('Why ECS Fargate?')">Why ECS Fargate?</button>
             <button class="architect-suggestion" onclick="quickAsk('How does this reduce MTTR?')">Reduce MTTR</button>
