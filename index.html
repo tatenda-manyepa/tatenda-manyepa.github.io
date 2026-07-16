@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Tatenda Manyepa | AI Transformation & Intelligent Automation Portfolio</title>
+  <title>Tatenda Manyepa | Enterprise AI Transformation Case Study</title>
 
   <style>
     * {
@@ -1338,10 +1338,10 @@
 
   <section class="hero">
     <h1>Tatenda Manyepa</h1>
-    <h2>AI Transformation &amp; Intelligent Automation Portfolio</h2>
+    <h2>Enterprise AI Transformation<br>Case Study</h2>
 
     <p>
-      Practical case study showing how business inefficiencies can be identified, prioritised and improved through AI-assisted workflows, intelligent automation and secure cloud architecture.
+      An end-to-end case study showing how operational inefficiencies can be analysed, prioritised and improved through AI-assisted workflows, intelligent automation and secure cloud architecture.
     </p>
 
     <div class="buttons">
@@ -2136,7 +2136,7 @@
       <div class="architect-chat-title">
         <div class="robot-avatar">🤖</div>
         <div>
-          <h3>Ask Tatenda</h3>
+          <h3>Ask the Architect</h3>
           <div class="architect-online">Online</div>
         </div>
       </div>
@@ -2152,13 +2152,13 @@
         <div class="architect-message bot">
           <p><strong>Hi, I'm Tatenda 👋</strong></p>
           <p>
-            Ask me about the business problem, AI opportunities, workflow design, AWS architecture, responsible AI controls or expected outcomes.
+            Ask me how I approached this transformation—from understanding the business problem and prioritising AI opportunities to designing the cloud architecture, managing trade-offs and defining measurable outcomes.
           </p>
           <div class="architect-suggestions">
-            <button class="architect-suggestion" onclick="quickAsk('What AI workflow are you building?')">AI prototype</button>
-            <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
-            <button class="architect-suggestion" onclick="quickAsk('Which AI use case comes first?')">First AI use case</button>
-            <button class="architect-suggestion" onclick="quickAsk('How will this improve efficiency?')">Business value</button>
+            <button class="architect-suggestion" onclick="quickAsk('What business problem does this solve?')">💼 Business Problem</button>
+            <button class="architect-suggestion" onclick="quickAsk('What AI opportunities did you identify?')">🤖 AI Opportunities</button>
+            <button class="architect-suggestion" onclick="quickAsk('What were the key architecture decisions?')">☁️ Architecture Decisions</button>
+            <button class="architect-suggestion" onclick="quickAsk('What outcomes should this achieve?')">📈 Expected Outcomes</button>
           </div>
         </div>
       </div>
@@ -2172,8 +2172,8 @@
     </div>
   </div>
 
-  <button class="architect-launch-label" onclick="toggleArchitectChat()" title="Ask Tatenda">Ask Tatenda</button>
-  <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask Tatenda">🤖</button>
+  <button class="architect-launch-label" onclick="toggleArchitectChat()" title="Ask the Architect">Ask the Architect</button>
+  <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask the Architect">🤖</button>
 
 
   <div class="modal-overlay" id="layerModal">
@@ -2184,10 +2184,10 @@
   </div>
 
   <footer>
-    <h2>AI Transformation &amp; Intelligent Automation Portfolio</h2>
+    <h2>Enterprise AI Transformation Case Study</h2>
 
     <p class="footer-summary">
-      A practical AI transformation case study demonstrating business analysis, workflow improvement, intelligent automation, secure cloud architecture and responsible AI adoption.
+      An end-to-end AI transformation case study demonstrating business analysis, workflow improvement, intelligent automation, secure cloud architecture and responsible AI adoption.
     </p>
 
     <div class="footer-divider"></div>
@@ -2205,7 +2205,7 @@
     </div>
 
     <p class="footer-credit">
-      Designed &amp; Developed by Tatenda Manyepa • Portfolio v1.0 • 2026
+      Designed &amp; Developed by Tatenda Manyepa • Case Study v1.0 • 2026
     </p>
   </footer>
 
@@ -2216,13 +2216,13 @@
     const architectAnswers = [
       {
         keywords: ["ai opportunity", "use case", "which ai", "comes first", "priority"],
-        answer: "The first priority is a knowledge and incident investigation assistant because it is achievable, easy to demonstrate and directly addresses time lost searching runbooks, previous incidents and technical documentation. The second use case is automated operational reporting.",
+        answer: "The first priority is a knowledge and incident investigation assistant because it addresses a clear operational bottleneck: time lost searching runbooks, previous incidents and technical documentation. It offers high business value, manageable delivery risk and a practical way to demonstrate responsible AI adoption. Automated operational reporting is the next use case.",
         related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]]
       },
 
       {
         keywords: ["efficiency", "business value", "outcome", "benefit", "save time"],
-        answer: "The solution is designed to reduce time spent searching for information, improve consistency during incident investigation, shorten reporting effort and preserve operational knowledge. Success would be measured through investigation time, response consistency, user adoption and time saved on recurring tasks.",
+        answer: "The expected outcomes are faster knowledge retrieval, more consistent incident investigation, reduced reporting effort and better retention of operational knowledge. Success would be measured through investigation time, time saved on recurring work, response consistency, user adoption and the quality of human-reviewed outputs.",
         related: [["Business Problem", "#"], ["AI Operations", "phase-4-intelligent-operations.html"]]
       },
 
@@ -2234,7 +2234,7 @@
 
       {
         keywords: ["business", "problem", "solve", "why project"],
-        answer: "This project addresses recurring operational instability in a legacy fulfilment platform. The current environment depends on manual recovery, limited observability, siloed knowledge and on-premises infrastructure constraints. The proposed architecture improves resilience, support visibility, deployment control and AI-assisted incident investigation.",
+        answer: "This case study addresses recurring operational instability, fragmented knowledge and slow manual investigation across a legacy fulfilment platform. The transformation is designed to improve resilience, reduce time spent searching for information, standardise investigation workflows and introduce governed AI assistance without removing human accountability.",
         related: [["Current State", "current-state.html"], ["Target Architecture", "target-architecture.html"]]
       },
 
@@ -2270,8 +2270,14 @@
 
       {
         keywords: ["trade", "trade-off", "tradeoff", "risk"],
-        answer: "The main trade-offs were managed services versus control, resilience versus cost, containerisation effort versus long-term operational simplicity and AI assistance versus governance risk. The design accepts additional cost and learning curve in exchange for better availability, faster support and a more scalable operating model.",
+        answer: "The main trade-offs were managed services versus control, resilience versus cost, implementation complexity versus long-term maintainability and AI assistance versus governance risk. The recommended approach accepts some additional cost and learning effort in exchange for stronger resilience, faster decision support and a more scalable operating model.",
         related: [["Decision Records", "architecture-decision-records.html"]]
+      },
+
+      {
+        keywords: ["architecture decisions", "key architecture", "design decisions", "why this architecture"],
+        answer: "The key decisions were to use AWS managed services to reduce operational overhead, ECS Fargate for containerised workloads, Multi-AZ patterns for resilience, centralised observability for earlier detection, and a governed Bedrock-based knowledge assistant with human validation. Each decision is linked to a specific business problem and documented with benefits and trade-offs.",
+        related: [["Decision Records", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
       },
 
       {
@@ -2333,13 +2339,13 @@
         <div class="architect-message bot">
           <p><strong>Hi, I'm Tatenda 👋</strong></p>
           <p>
-            Ask me about the business problem, AI opportunities, workflow design, AWS architecture, responsible AI controls or expected outcomes.
+            Ask me how I approached this transformation—from understanding the business problem and prioritising AI opportunities to designing the cloud architecture, managing trade-offs and defining measurable outcomes.
           </p>
           <div class="architect-suggestions">
-            <button class="architect-suggestion" onclick="quickAsk('What AI workflow are you building?')">AI prototype</button>
-            <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
-            <button class="architect-suggestion" onclick="quickAsk('Which AI use case comes first?')">First AI use case</button>
-            <button class="architect-suggestion" onclick="quickAsk('How will this improve efficiency?')">Business value</button>
+            <button class="architect-suggestion" onclick="quickAsk('What business problem does this solve?')">💼 Business Problem</button>
+            <button class="architect-suggestion" onclick="quickAsk('What AI opportunities did you identify?')">🤖 AI Opportunities</button>
+            <button class="architect-suggestion" onclick="quickAsk('What were the key architecture decisions?')">☁️ Architecture Decisions</button>
+            <button class="architect-suggestion" onclick="quickAsk('What outcomes should this achieve?')">📈 Expected Outcomes</button>
           </div>
         </div>
       </div>`;
