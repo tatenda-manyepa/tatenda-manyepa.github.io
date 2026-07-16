@@ -270,6 +270,21 @@
       margin-bottom: 18px;
     }
 
+    .business-value {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: #111820;
+      border: 1px solid #2e3947;
+      color: #d6d6d6;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .business-value strong {
+      color: #8ef0b9;
+    }
+
     .completed {
       background: #123f2a;
       color: #9ff0c2;
@@ -1666,156 +1681,67 @@
   </section>
 
   <section class="section">
-    <h2>6. Practical Implementation Evidence</h2>
+    <h2>6. Solution Delivery</h2>
 
     <p class="section-intro">
-      This section contains only the practical evidence needed to support the case study: the AWS foundation, a working AI knowledge assistant, one automated workflow and clear documentation of the architecture and trade-offs.
+      This section summarises the six delivery areas that support the case study.
+      The focus is on how cloud, AI and modern delivery practices work together to improve business workflows.
     </p>
 
-    <div class="grid">
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure" target="_blank">
+    <div class="grid portfolio-grid">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure" target="_blank" rel="noopener noreferrer">
         <div class="status completed">✅ Completed</div>
-        <h3>AWS Foundation & Core Services</h3>
-        <p>VPC, public/private subnets, route tables, Internet Gateway, NAT Gateway, security groups, IAM foundation and core AWS networking implementation.</p>
-        <span>View Build Evidence →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/02-application-platform" target="_blank">
-        <div class="status progress">🔄 In Progress</div>
-        <h3>Application Platform</h3>
-        <p>Application Load Balancer, ECS Fargate services, Amazon ECR, service discovery, auto scaling and deployment validation.</p>
+        <h3>Cloud Foundation</h3>
+        <p>Secure AWS landing zone including VPC networking, public and private subnets, routing, IAM, security groups, load balancing and the ECS platform foundation.</p>
+        <div class="business-value"><strong>Business Value:</strong> Provides the secure, resilient and scalable foundation required for AI-enabled business applications.</div>
         <span>View Build Evidence →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/06-ai-operations" target="_blank" rel="noopener noreferrer">
         <div class="status progress">🔄 Priority Build</div>
-        <h3>AI Knowledge Assistant Prototype</h3>
-        <p>A practical RAG demonstration using trusted operational documents to answer questions, retrieve relevant guidance and support faster decision-making.</p>
+        <h3>AI Knowledge Assistant</h3>
+        <p>Retrieval-Augmented Generation solution using Amazon Bedrock, OpenSearch and trusted operational documentation to support faster knowledge retrieval and guided investigation.</p>
+        <div class="business-value"><strong>Business Value:</strong> Reduces time spent searching for information and improves access to organisational knowledge.</div>
         <span>View AI Build Area →</span>
-      </a>
-
-      <a class="card decision" href="phase-4-intelligent-operations.html">
-        <div class="status planned">⏳ Next</div>
-        <h3>AI-Assisted Workflow</h3>
-        <p>One end-to-end workflow that receives operational context, generates a human-reviewed summary and produces a clear business or technical action.</p>
-        <span>View Workflow Plan →</span>
       </a>
 
       <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" target="_blank" rel="noopener noreferrer">
         <div class="status progress">🔄 In Progress</div>
-        <h3>Git &amp; Delivery Workflow</h3>
-        <p>Version-controlled architecture documents, build evidence, branching, pull requests, change traceability and a foundation for automated delivery.</p>
+        <h3>Modern Delivery Practices</h3>
+        <p>Version-controlled delivery using Git, Docker containerisation, Infrastructure as Code with Terraform and automated CI/CD release practices.</p>
+        <div class="business-value"><strong>Business Value:</strong> Improves deployment consistency, reduces change risk and supports repeatable cloud delivery.</div>
         <span>View Repository →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build" target="_blank" rel="noopener noreferrer">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging" target="_blank" rel="noopener noreferrer">
         <div class="status planned">⏳ Planned</div>
-        <h3>Infrastructure as Code</h3>
-        <p>Terraform configuration for repeatable AWS provisioning, environment consistency, peer review, controlled change and disaster recovery readiness.</p>
-        <span>View Implementation Area →</span>
+        <h3>Data Platform</h3>
+        <p>Operational data and messaging design using Amazon RDS for SQL Server, Amazon MQ, backup governance, reporting separation and dead-letter handling.</p>
+        <div class="business-value"><strong>Business Value:</strong> Protects operational data while improving availability, messaging resilience and recovery capability.</div>
+        <span>View Data Build Area →</span>
       </a>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/02-application-platform" target="_blank" rel="noopener noreferrer">
-        <div class="status progress">🔄 In Progress</div>
-        <h3>Docker Containerisation</h3>
-        <p>Container packaging, image versioning through Amazon ECR, consistent runtime configuration and deployment into ECS Fargate.</p>
-        <span>View Application Build →</span>
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/04-observability" target="_blank" rel="noopener noreferrer">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Security &amp; Observability</h3>
+        <p>CloudWatch, OpenSearch, CloudTrail, GuardDuty, Security Hub, Secrets Manager, KMS and SNS providing visibility, alerting and governance.</p>
+        <div class="business-value"><strong>Business Value:</strong> Enables proactive monitoring, stronger control and improved operational resilience.</div>
+        <span>View Control Build Area →</span>
       </a>
 
-      <a class="card decision" href="phase-3-modernise.html">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Kubernetes Fundamentals</h3>
-        <p>Architecture-level evaluation of orchestration, scaling, self-healing, rolling updates and the trade-offs between Amazon ECS and Amazon EKS.</p>
-        <span>Explore Modern Engineering →</span>
-      </a>
-
-      <a class="card decision" href="phase-3-modernise.html">
-        <div class="status planned">⏳ Planned</div>
-        <h3>CI/CD &amp; Release Automation</h3>
-        <p>Automated validation, controlled environment promotion, deployment health checks, rollback strategy and safer production change delivery.</p>
-        <span>Explore Delivery Strategy →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging" target="_blank">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Data & Messaging</h3>
-        <p>RDS SQL Server, Amazon MQ, backups, reporting replica, DLQ handling and operational validation.</p>
-        <span>View Build Evidence →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/04-observability" target="_blank">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Observability</h3>
-        <p>CloudWatch logs, alarms, dashboards, OpenSearch and SNS notification testing.</p>
-        <span>View Build Evidence →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/05-security-controls" target="_blank">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Security Controls</h3>
-        <p>Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub and AWS Config implementation evidence.</p>
-        <span>View Build Evidence →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/06-ai-operations" target="_blank">
-        <div class="status planned">⏳ Planned</div>
-        <h3>AI Operations</h3>
-        <p>S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch vector index and AI operations assistant prototype.</p>
-        <span>View Build Evidence →</span>
+      <a class="card decision" href="phase-4-intelligent-operations.html">
+        <div class="status planned">⏳ Next</div>
+        <h3>End-to-End AI Workflow</h3>
+        <p>Demonstrates how operational context moves through an AI-assisted process to produce a human-reviewed recommendation, summary or low-risk automated action.</p>
+        <div class="business-value"><strong>Business Value:</strong> Shows how AI can improve decision-making and workflow efficiency while maintaining human oversight.</div>
+        <span>View Workflow Plan →</span>
       </a>
     </div>
   </section>
 
-
-  <section class="section" id="modern-engineering">
-    <h2>7. Enabling Engineering Practices</h2>
-
-    <p class="section-intro">
-      These practices support reliable delivery but are not the primary purpose of the portfolio.
-      The focus remains business improvement through AI-assisted workflows and intelligent automation.
-    </p>
-
-    <div class="grid">
-      <div class="card solution">
-        <div class="status progress">🔄 In Progress</div>
-        <h3>Git</h3>
-        <p>Source control for architecture documents, implementation evidence and future Infrastructure as Code, with traceable changes and collaboration through branches and pull requests.</p>
-      </div>
-
-      <div class="card solution">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Terraform</h3>
-        <p>Repeatable AWS infrastructure provisioning, reviewed configuration, reduced manual drift and a stronger recovery and environment-rebuild capability.</p>
-      </div>
-
-      <div class="card solution">
-        <div class="status progress">🔄 In Progress</div>
-        <h3>Docker</h3>
-        <p>Consistent application packaging, image versioning, simplified deployment and a portable foundation for managed container platforms.</p>
-      </div>
-
-      <div class="card solution">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Kubernetes Basics</h3>
-        <p>Understanding orchestration, desired state, scaling, self-healing, service exposure and rolling deployment patterns, including when EKS is justified over ECS.</p>
-      </div>
-
-      <div class="card solution">
-        <div class="status planned">⏳ Planned</div>
-        <h3>CI/CD</h3>
-        <p>Automated testing, controlled promotion, deployment validation, release visibility and rollback patterns for reducing production change risk.</p>
-      </div>
-
-      <div class="card solution">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Platform Engineering</h3>
-        <p>Reusable standards, secure defaults, self-service delivery patterns and operational guardrails that improve consistency across engineering teams.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="section" id="architecture-decisions">
-    <h2>8. Key Architecture Decisions</h2>
+    <h2>7. Key Architecture Decisions</h2>
 
     <p class="section-intro">
       Cloud solution design is about making informed trade-offs. These decision records explain the key choices behind the target-state solution,
@@ -2165,7 +2091,7 @@
 
 
   <section class="section" id="skills-demonstrated">
-    <h2>9. Capabilities Demonstrated</h2>
+    <h2>8. Capabilities Demonstrated</h2>
 
     <p class="section-intro">
       The portfolio demonstrates business analysis, AI opportunity identification, solution design, responsible adoption and practical cloud delivery.
@@ -2194,8 +2120,8 @@
       </div>
 
       <div class="card solution">
-        <h3>Modern Delivery Awareness</h3>
-        <p>Containerisation, Infrastructure as Code, release automation, platform engineering and Kubernetes fundamentals applied at architecture level.</p>
+        <h3>Modern Delivery Practices</h3>
+        <p>Git, Docker, Terraform and CI/CD used as enabling practices for reliable, repeatable and controlled solution delivery.</p>
       </div>
 
       <div class="card decision">
@@ -2231,8 +2157,8 @@
           <div class="architect-suggestions">
             <button class="architect-suggestion" onclick="quickAsk('What AI workflow are you building?')">AI prototype</button>
             <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
-            <button class="architect-suggestion" onclick="quickAsk('Which AI use case comes first?')">Why ECS Fargate?</button>
-            <button class="architect-suggestion" onclick="quickAsk('How will this improve efficiency?')">Reduce MTTR</button>
+            <button class="architect-suggestion" onclick="quickAsk('Which AI use case comes first?')">First AI use case</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will this improve efficiency?')">Business value</button>
           </div>
         </div>
       </div>
@@ -2362,7 +2288,7 @@
 
       {
         keywords: ["build", "build progress", "implementation", "what have you built"],
-        answer: "The project is progressing through a phased AWS implementation. The networking foundation has been completed, including the VPC, public and private subnets, Internet Gateway, NAT Gateway, route tables and security groups. I am now building the application platform using ECS Fargate and an Application Load Balancer before moving on to data services, observability, security and AI Operations.",
+        answer: "The cloud foundation is complete, including the VPC, public and private subnets, routing, security groups and IAM foundations. The current priority is the AI Knowledge Assistant, followed by one end-to-end AI-assisted workflow. Supporting delivery practices such as Git, Docker, Terraform and CI/CD are introduced only where they strengthen the solution.",
         related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
       },
 
@@ -2386,13 +2312,13 @@
 
       {
         keywords: ["completed", "finished"],
-        answer: "The completed work includes the business assessment, current-state analysis, target architecture, architecture decision records and the AWS networking foundation. The application platform is currently in progress.",
+        answer: "The completed work includes the business assessment, current-state analysis, AI opportunity assessment, target architecture, architecture decision records and the AWS cloud foundation. The next priority is the AI Knowledge Assistant prototype.",
         related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
       },
 
       {
         keywords: ["next", "future", "roadmap", "what's next"],
-        answer: "After the application platform, the implementation will continue with RDS and messaging services, observability using CloudWatch and OpenSearch, security controls such as Secrets Manager and GuardDuty, and finally the AI Operations platform powered by Amazon Bedrock.",
+        answer: "The next steps are to complete the AI Knowledge Assistant, demonstrate one end-to-end AI-assisted workflow, then add the supporting data, observability and security capabilities needed for reliable adoption.",
         related: [["Roadmap", "phase-4-intelligent-operations.html"]]
       }
     ];
@@ -2412,8 +2338,8 @@
           <div class="architect-suggestions">
             <button class="architect-suggestion" onclick="quickAsk('What AI workflow are you building?')">AI prototype</button>
             <button class="architect-suggestion" onclick="quickAsk('Why AWS-first?')">Why AWS-first?</button>
-            <button class="architect-suggestion" onclick="quickAsk('Which AI use case comes first?')">Why ECS Fargate?</button>
-            <button class="architect-suggestion" onclick="quickAsk('How will this improve efficiency?')">Reduce MTTR</button>
+            <button class="architect-suggestion" onclick="quickAsk('Which AI use case comes first?')">First AI use case</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will this improve efficiency?')">Business value</button>
           </div>
         </div>
       </div>`;
@@ -2638,7 +2564,7 @@
         <h3>Modernisation Target</h3>
         <ul>
           <li>→ Containerised application services</li>
-          <li>→ Amazon ECS / EKS target platform</li>
+          <li>→ Amazon ECS Fargate target platform</li>
           <li>→ Automated scaling and health checks</li>
           <li>→ Improved deployment and rollback patterns</li>
         </ul>
