@@ -1,1 +1,2785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+  <title>Tatenda Manyepa | Enterprise AI Transformation Consulting Case Study</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f14;
+      color: #f5f5f5;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    .banner {
+      background: url('Baner.jpeg') center/cover no-repeat;
+      height: 260px;
+    }
+
+    .profile-wrapper {
+      text-align: center;
+      margin-top: -85px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    }
+
+    .hero {
+      text-align: center;
+      width: min(1180px, calc(100% - 32px));
+      max-width: 1180px;
+      margin: -45px auto 0;
+      padding: 95px 36px 56px;
+      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin: 0 0 20px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .hero h2 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.12;
+      margin: 0 0 22px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 19px);
+      color: #d6d6d6;
+      max-width: 940px;
+      margin: auto;
+    }
+
+    .hero-status {
+      display: flex;
+      justify-content: flex-start;
+      margin: 28px 0 35px;
+    }
+
+    .hero-status span {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid #3d7edb;
+      background: rgba(18,35,63,0.45);
+      color: #8fc2ff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 0 20px rgba(45,120,255,0.12);
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.38);
+    }
+
+    .section {
+      width: min(1120px, calc(100% - 32px));
+      max-width: 1120px;
+      margin: 50px auto;
+      padding: 42px;
+      background: linear-gradient(145deg, #171c22, #11161c);
+      border: 1px solid #2a2f36;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: clamp(30px, 4vw, 42px);
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+      color: #d4d4d4;
+      font-size: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #0d5f39;
+      color: #8ef0b9;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .project-title {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .project-description {
+      font-size: 19px;
+      color: #dddddd;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 1050px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    .portfolio-grid {
+      align-items: stretch;
+    }
+
+    .portfolio-grid .card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portfolio-grid .card p {
+      flex-grow: 1;
+    }
+
+    .portfolio-grid .card span {
+      margin-top: 22px;
+    }
+
+
+
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #1d232b;
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid #30363f;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: clamp(21px, 2vw, 25px);
+    }
+
+    .card span {
+      color: #4ea1ff;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .problem {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .solution {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .decision {
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .business-value {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: #111820;
+      border: 1px solid #2e3947;
+      color: #d6d6d6;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .business-value strong {
+      color: #8ef0b9;
+    }
+
+    .completed {
+      background: #123f2a;
+      color: #9ff0c2;
+    }
+
+    .progress {
+      background: #3b2f10;
+      color: #ffd36e;
+    }
+
+    .planned {
+      background: #283142;
+      color: #b7c8ff;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      max-width: 920px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: linear-gradient(145deg, #1d232b, #11161c);
+      border: 1px solid #4ea1ff;
+      border-radius: 22px;
+      padding: 42px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        transform: scale(0.96) translateY(15px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: transparent;
+      color: #ffffff;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .modal-card h2 {
+      text-align: left;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .modal-card h3 {
+      color: #4ea1ff;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .modal-card p,
+    .modal-card li {
+      color: #d6d6d6;
+      font-size: 17px;
+    }
+
+    .modal-card ul,
+    .modal-card ol {
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .modal-card ul {
+      list-style: none;
+    }
+
+    .modal-card ol {
+      list-style-position: inside;
+    }
+
+    .modal-card ul li {
+      margin-bottom: 6px;
+    }
+
+    .modal-tag {
+      display: inline-block;
+      background: #10263f;
+      color: #8ecbff;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+
+    .problem-table-wrapper {
+      overflow-x: auto;
+      margin-top: 30px;
+      border-radius: 14px;
+      border: 1px solid #30363f;
+    }
+
+    .problem-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 840px;
+      background: #1d232b;
+    }
+
+    .problem-table th,
+    .problem-table td {
+      padding: 18px;
+      border-bottom: 1px solid #30363f;
+      text-align: left;
+      color: #d6d6d6;
+      vertical-align: top;
+      font-size: 16px;
+    }
+
+    .problem-table th {
+      background: #10263f;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .problem-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .problem-table tr:hover {
+      background: #222a34;
+    }
+
+    .problem-table strong {
+      color: #ffffff;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .focus-pill {
+      background: #10263f;
+      color: #8ecbff;
+      border: 1px solid #254866;
+      padding: 12px 14px;
+      border-radius: 999px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .flip-card {
+      min-height: 400px;
+      perspective: 1200px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      transition: transform 0.65s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      min-height: 400px;
+      position: absolute;
+      inset: 0;
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-radius: 14px;
+      padding: 24px;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .flip-card-front::before,
+    .flip-card-back::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.72;
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      transition: transform 0.45s ease, opacity 0.45s ease;
+    }
+
+    .flip-card-front::after,
+    .flip-card-back::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.91) 0%, rgba(8, 13, 22, 0.72) 45%, rgba(8, 13, 22, 0.48) 100%),
+        radial-gradient(circle at top left, rgba(78, 161, 255, 0.18), transparent 42%);
+      z-index: -1;
+    }
+
+    .flip-card-front:hover::before,
+    .flip-card-back:hover::before {
+      transform: scale(1.06);
+      opacity: 0.88;
+    }
+
+    .flip-card:nth-child(1) .flip-card-front::before,
+    .flip-card:nth-child(1) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(255, 107, 107, 0.28), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg opacity='0.55' stroke='%236aa9ff' stroke-width='1' fill='none'%3E%3Cpath d='M60 130h220v95H60zM325 95h210v78H325zM590 115h230v110H590zM180 300h260v95H180zM515 300h260v95H515z'/%3E%3Cpath d='M280 177h45M535 134h55M440 348h75M170 225v75M705 225v75'/%3E%3C/g%3E%3Cg opacity='0.45' fill='%238ecbff'%3E%3Ccircle cx='120' cy='175' r='20'/%3E%3Ccircle cx='385' cy='135' r='18'/%3E%3Ccircle cx='655' cy='170' r='22'/%3E%3Ccircle cx='270' cy='345' r='18'/%3E%3Ccircle cx='640' cy='345' r='20'/%3E%3C/g%3E%3Cg opacity='0.24' fill='%23ffffff'%3E%3Crect x='95' y='155' width='150' height='8' rx='4'/%3E%3Crect x='95' y='180' width='120' height='8' rx='4'/%3E%3Crect x='355' y='125' width='145' height='8' rx='4'/%3E%3Crect x='620' y='150' width='155' height='8' rx='4'/%3E%3Crect x='215' y='335' width='170' height='8' rx='4'/%3E%3Crect x='550' y='335' width='170' height='8' rx='4'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card:nth-child(2) .flip-card-front::before,
+    .flip-card:nth-child(2) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(78, 161, 255, 0.3), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg stroke='%234ea1ff' stroke-width='1' opacity='0.28'%3E%3Cpath d='M0 80h900M0 160h900M0 240h900M0 320h900M0 400h900M90 0v520M180 0v520M270 0v520M360 0v520M450 0v520M540 0v520M630 0v520M720 0v520M810 0v520'/%3E%3C/g%3E%3Cg opacity='0.65' stroke='%238ecbff' stroke-width='2' fill='none'%3E%3Crect x='95' y='95' width='135' height='65' rx='8'/%3E%3Crect x='95' y='190' width='135' height='65' rx='8'/%3E%3Crect x='95' y='285' width='135' height='65' rx='8'/%3E%3Crect x='390' y='175' width='150' height='90' rx='12'/%3E%3Crect x='655' y='105' width='160' height='250' rx='12'/%3E%3Cpath d='M230 128h160M230 223h160M230 318h260M540 220h115'/%3E%3Cpath d='M685 300l40-50 38 28 35-85'/%3E%3C/g%3E%3Cg opacity='0.5' fill='%234ea1ff'%3E%3Ccircle cx='390' cy='128' r='5'/%3E%3Ccircle cx='390' cy='223' r='5'/%3E%3Ccircle cx='490' cy='318' r='5'/%3E%3Ccircle cx='540' cy='220' r='5'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card:nth-child(3) .flip-card-front::before,
+    .flip-card:nth-child(3) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(142, 240, 185, 0.28), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg opacity='0.22' stroke='%238ef0b9' stroke-width='1'%3E%3Cpath d='M0 60h900M0 120h900M0 180h900M0 240h900M0 300h900M0 360h900M0 420h900M75 0v520M150 0v520M225 0v520M300 0v520M375 0v520M450 0v520M525 0v520M600 0v520M675 0v520M750 0v520M825 0v520'/%3E%3C/g%3E%3Cg opacity='0.7' stroke='%238ecbff' stroke-width='2' fill='none'%3E%3Cpath d='M180 160c25-80 165-82 195 0 70 0 105 45 105 95H90c0-55 35-95 90-95z'/%3E%3Crect x='145' y='285' width='110' height='70' rx='10'/%3E%3Crect x='300' y='285' width='110' height='70' rx='10'/%3E%3Crect x='455' y='285' width='110' height='70' rx='10'/%3E%3Crect x='610' y='285' width='110' height='70' rx='10'/%3E%3Cpath d='M280 255v30M355 255v30M510 255v30M665 255v30M255 320h45M410 320h45M565 320h45'/%3E%3Crect x='150' y='390' width='570' height='65' rx='12'/%3E%3C/g%3E%3Cg opacity='0.55' fill='%238ef0b9'%3E%3Ccircle cx='200' cy='320' r='8'/%3E%3Ccircle cx='355' cy='320' r='8'/%3E%3Ccircle cx='510' cy='320' r='8'/%3E%3Ccircle cx='665' cy='320' r='8'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card:nth-child(4) .flip-card-front::before,
+    .flip-card:nth-child(4) .flip-card-back::before {
+      background-image:
+        linear-gradient(135deg, rgba(183, 200, 255, 0.28), rgba(10, 15, 22, 0.1)),
+        url("data:image/svg+xml,%3Csvg width='900' height='520' viewBox='0 0 900 520' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='900' height='520' fill='%230b1420'/%3E%3Cg opacity='0.58' stroke='%23b7c8ff' stroke-width='2' fill='none'%3E%3Crect x='70' y='80' width='220' height='130' rx='12'/%3E%3Crect x='330' y='80' width='220' height='130' rx='12'/%3E%3Crect x='590' y='80' width='220' height='130' rx='12'/%3E%3Crect x='70' y='250' width='350' height='160' rx='12'/%3E%3Crect x='465' y='250' width='345' height='160' rx='12'/%3E%3Cpath d='M100 170l40-30 35 20 40-55 45 35M360 170l35-50 35 35 45-60 45 85M620 170h165M620 140h130M620 110h95M110 365l45-45 35 25 55-70 75 85M505 360c45-80 120-80 165-10 22-35 70-45 105-10'/%3E%3C/g%3E%3Cg opacity='0.42' fill='%238ef0b9'%3E%3Ccircle cx='120' cy='305' r='16'/%3E%3Ccircle cx='390' cy='115' r='14'/%3E%3Ccircle cx='680' cy='320' r='18'/%3E%3C/g%3E%3Cg opacity='0.35' fill='%23ff6b6b'%3E%3Ccircle cx='760' cy='120' r='14'/%3E%3Ccircle cx='530' cy='315' r='12'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flip-card-front:hover,
+    .flip-card-back:hover {
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .flip-card-front h3,
+    .flip-card-back h3,
+    .flip-card-front p,
+    .flip-card-back p,
+    .flip-card-front span,
+    .flip-card-back li {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+    }
+
+    .flip-card-front {
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.38);
+    }
+
+    .flip-card-front.problem::after,
+    .flip-card-back.problem::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(80, 20, 28, 0.45) 100%),
+        radial-gradient(circle at top left, rgba(255, 107, 107, 0.20), transparent 42%);
+    }
+
+    .flip-card-front.solution::after,
+    .flip-card-back.solution::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(16, 64, 116, 0.45) 100%),
+        radial-gradient(circle at top left, rgba(78, 161, 255, 0.22), transparent 42%);
+    }
+
+    .flip-card-front.decision::after,
+    .flip-card-back.decision::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(21, 90, 58, 0.42) 100%),
+        radial-gradient(circle at top left, rgba(142, 240, 185, 0.20), transparent 42%);
+    }
+
+    .flip-card-front.ai-card::after,
+    .flip-card-back.ai-card::after {
+      background:
+        linear-gradient(90deg, rgba(8, 13, 22, 0.92) 0%, rgba(8, 13, 22, 0.70) 48%, rgba(70, 60, 125, 0.42) 100%),
+        radial-gradient(circle at top left, rgba(183, 200, 255, 0.22), transparent 42%);
+    }
+
+
+    .flip-card-front.problem,
+    .flip-card-back.problem {
+      border-left: 4px solid #ff6b6b;
+    }
+
+    .flip-card-front.solution,
+    .flip-card-back.solution {
+      border-left: 4px solid #4ea1ff;
+    }
+
+    .flip-card-front.decision,
+    .flip-card-back.decision {
+      border-left: 4px solid #8ef0b9;
+    }
+
+    .flip-card-front.ai-card,
+    .flip-card-back.ai-card {
+      border-left: 4px solid #b7c8ff;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card h3 {
+      margin-top: 0;
+      color: #ffffff;
+      font-size: 23px;
+    }
+
+    .flip-card p,
+    .flip-card li {
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .flip-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 12px 0;
+    }
+
+    .flip-card li {
+      margin-bottom: 7px;
+    }
+
+    .flip-card li::before {
+      content: "→ ";
+      color: #4ea1ff;
+      font-weight: bold;
+    }
+
+    .flip-card-back p {
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+
+    .flip-card-front .step-number {
+      box-shadow: 0 0 22px rgba(78, 161, 255, 0.22);
+    }
+
+    .flip-card-front span:last-child {
+      margin-top: 18px;
+    }
+
+    .step-number {
+      color: #8ecbff;
+      background: #10263f;
+      border: 1px solid #254866;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+
+
+    .adr-accordion {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .adr-item {
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-left: 4px solid #8ef0b9;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .adr-item:hover {
+      border-color: #4ea1ff;
+      background: #222a34;
+    }
+
+    .adr-header {
+      width: 100%;
+      background: transparent;
+      color: #ffffff;
+      border: none;
+      padding: 24px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: inherit;
+    }
+
+    .adr-header-content h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    .adr-header-content p {
+      margin: 0;
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .adr-toggle {
+      color: #4ea1ff;
+      font-size: 28px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .adr-item.active .adr-toggle {
+      transform: rotate(45deg);
+    }
+
+    .adr-content {
+      display: none;
+      padding: 0 24px 26px;
+      border-top: 1px solid #30363f;
+    }
+
+    .adr-item.active .adr-content {
+      display: block;
+    }
+
+    .adr-content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .adr-block {
+      background: #111820;
+      border: 1px solid #2e3947;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .adr-block h4 {
+      margin: 0 0 10px;
+      color: #8ecbff;
+      font-size: 18px;
+    }
+
+    .adr-block p,
+    .adr-block li {
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .adr-block ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .adr-block li {
+      margin-bottom: 7px;
+    }
+
+    .adr-block li::before {
+      content: "→ ";
+      color: #4ea1ff;
+      font-weight: bold;
+    }
+
+    .adr-tradeoff {
+      border-left: 4px solid #ffd36e;
+    }
+
+    .adr-decision {
+      border-left: 4px solid #8ef0b9;
+    }
+
+
+
+
+    .architect-launch-label {
+      position: fixed;
+      right: 116px;
+      bottom: 42px;
+      z-index: 1000;
+      background: linear-gradient(145deg, rgba(16,38,63,0.98), rgba(13,20,31,0.98));
+      color: #ffffff;
+      border: 1px solid #4ea1ff;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
+      box-shadow: 0 0 22px rgba(78,161,255,0.28), 0 12px 34px rgba(0,0,0,0.45);
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .architect-launch-label::after {
+      content: "";
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      background: rgba(13,20,31,0.98);
+      border-right: 1px solid #4ea1ff;
+      border-top: 1px solid #4ea1ff;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .architect-launch-label:hover {
+      transform: translateY(-3px);
+      border-color: #8ecbff;
+    }
+
+    .architect-chat-widget.active ~ .architect-launch-label {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+    }
+
+
+    .architect-chat-launcher {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 1000;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 2px solid #4ea1ff;
+      background: radial-gradient(circle at 30% 20%, #1e7bff, #07111f 68%);
+      box-shadow: 0 0 28px rgba(78,161,255,0.65), 0 18px 45px rgba(0,0,0,0.5);
+      color: #ffffff;
+      font-size: 34px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .architect-chat-launcher:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 0 36px rgba(78,161,255,0.85), 0 22px 55px rgba(0,0,0,0.6);
+    }
+
+    .architect-chat-widget {
+      position: fixed;
+      right: 28px;
+      bottom: 124px;
+      z-index: 1000;
+      width: min(430px, calc(100vw - 32px));
+      max-height: min(720px, calc(100vh - 150px));
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(13,20,31,0.98), rgba(7,11,18,0.98));
+      border: 1px solid #4ea1ff;
+      border-radius: 20px;
+      box-shadow: 0 0 34px rgba(78,161,255,0.35), 0 26px 80px rgba(0,0,0,0.72);
+    }
+
+    .architect-chat-widget.active {
+      display: flex;
+    }
+
+    .architect-chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #2e3947;
+      background: rgba(14,22,35,0.95);
+    }
+
+    .architect-chat-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .robot-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #111820;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 31px;
+      box-shadow: 0 0 18px rgba(78,161,255,0.25);
+      flex-shrink: 0;
+    }
+
+    .architect-chat-title h3 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .architect-online {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #8ef0b9;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .architect-online::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.7);
+    }
+
+    .architect-chat-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .architect-icon-button {
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      font-size: 22px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .architect-icon-button:hover { opacity: 1; }
+
+    .architect-chat-body {
+      padding: 18px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .architect-message-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .architect-message-row.user { justify-content: flex-start; }
+
+    .architect-message {
+      max-width: 100%;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 15px;
+      line-height: 1.55;
+      border: 1px solid #30363f;
+    }
+
+    .architect-message.bot {
+      background: #1d232b;
+      border-color: #303a48;
+    }
+
+    .architect-message.user {
+      max-width: 82%;
+      background: linear-gradient(135deg, #0b72f0, #0051c8);
+      border-color: rgba(255,255,255,0.12);
+      color: #ffffff;
+    }
+
+    .architect-message p {
+      margin: 0 0 10px;
+      color: #dfe7f3;
+    }
+
+    .architect-message p:last-child { margin-bottom: 0; }
+
+    .architect-message a {
+      color: #4ea1ff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .architect-related {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #30363f;
+      color: #b9c3d3;
+      font-size: 14px;
+    }
+
+    .architect-chat-input {
+      padding: 14px;
+      border-top: 1px solid #2e3947;
+      background: rgba(14,22,35,0.95);
+    }
+
+    .architect-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: #1d232b;
+      border: 1px solid #30363f;
+      border-radius: 999px;
+      padding: 8px 8px 8px 16px;
+    }
+
+    .architect-input-row input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .architect-input-row input::placeholder { color: #9ca3af; }
+
+    .architect-send {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #0a74ff, #0051c8);
+      color: #ffffff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .architect-chat-footnote {
+      text-align: center;
+      color: #9ca3af;
+      font-size: 12px;
+      margin: 10px 6px 0;
+      line-height: 1.45;
+    }
+
+    .architect-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .architect-suggestion {
+      border: 1px solid #254866;
+      background: #10263f;
+      color: #8ecbff;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    @media (max-width: 620px) {
+
+      .architect-launch-label {
+        right: 92px;
+        bottom: 29px;
+        font-size: 13px;
+        padding: 8px 13px;
+      }
+
+      .architect-chat-launcher {
+        right: 18px;
+        bottom: 18px;
+        width: 64px;
+        height: 64px;
+        font-size: 28px;
+      }
+
+      .architect-chat-widget {
+        right: 12px;
+        left: 12px;
+        bottom: 94px;
+        width: auto;
+        max-height: calc(100vh - 115px);
+      }
+
+      .architect-message { max-width: 100%; }
+      .architect-message.user { max-width: 88%; }
+    }
+
+
+    footer {
+      text-align: center;
+      margin-top: 70px;
+      padding: 46px 24px;
+      color: #b9c3d3;
+      border-top: 1px solid #2b2f35;
+      background: linear-gradient(180deg, rgba(13,20,31,0.96), rgba(7,11,18,0.98));
+    }
+
+    footer h2 {
+      margin: 0 0 14px;
+      color: #ffffff;
+      font-size: 26px;
+      letter-spacing: -0.4px;
+    }
+
+    .footer-summary {
+      max-width: 820px;
+      margin: 0 auto 22px;
+      color: #d6d6d6;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .footer-divider {
+      width: 120px;
+      height: 1px;
+      background: #2e3947;
+      margin: 22px auto;
+    }
+
+    .footer-tags {
+      color: #8ecbff;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .footer-links a {
+      color: #4ea1ff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-credit {
+      color: #9ca3af;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        width: calc(100% - 24px);
+        margin: -40px auto 0;
+        padding: 88px 22px 48px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+        line-height: 1.15;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        width: calc(100% - 24px);
+        margin: 32px auto;
+        padding: 26px;
+      }
+
+      .section h2 {
+        font-size: 30px;
+      }
+
+      .grid,
+      .two-grid,
+      .flip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flip-card,
+      .flip-card-inner {
+        min-height: 470px;
+      }
+
+
+      .adr-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .adr-header {
+        align-items: flex-start;
+      }
+
+      .adr-header-content h3 {
+        font-size: 21px;
+      }
+
+      .modal-card {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .hero-status {
+        justify-content: center;
+        margin: 24px 0 30px;
+      }
+
+      .hero-status span {
+        font-size: 14px;
+        padding: 10px 18px;
+      }
+
+
+      footer h2 {
+        font-size: 22px;
+      }
+
+      .footer-summary {
+        font-size: 15px;
+      }
+
+      .footer-links {
+        gap: 10px;
+      }
+
+      .banner {
+        height: 190px;
+      }
+
+      .profile-pic {
+        width: 130px;
+        height: 130px;
+      }
+
+      .profile-wrapper {
+        margin-top: -65px;
+      }
+
+      .hero {
+        padding: 78px 18px 42px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .buttons {
+        gap: 12px;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
+        padding: 12px 16px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .flip-card,
+      .flip-card-inner,
+      .flip-card-front,
+      .flip-card-back {
+        min-height: 480px;
+      }
+
+      .modal-card {
+        padding: 24px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="banner"></div>
+
+  <div class="profile-wrapper">
+    <img src="profile.jpeg" class="profile-pic" alt="Tatenda Manyepa">
+  </div>
+
+  <section class="hero">
+    <h1>Tatenda Manyepa</h1>
+    <h2>Enterprise AI Transformation<br>Consulting Case Study</h2>
+
+    <p>
+      A consulting-led case study showing how an operational problem can be assessed, prioritised and improved through AI-assisted workflows, intelligent automation and a secure, scalable technology solution.
+    </p>
+
+    <div class="buttons">
+
+    <a href="https://tatenda-enterprise-portfolio.s3.us-east-1.amazonaws.com/documents/CV/Tatenda+Manyepa+CV.pdf"
+       class="button"
+       target="_blank"
+       rel="noopener noreferrer">
+        📄 Technical CV
+    </a>
+
+    <a href="https://tatenda-enterprise-portfolio.s3.us-east-1.amazonaws.com/documents/cover-letter/Tatenda+Manyepa+Cover+Letter.pdf"
+       class="button"
+       target="_blank"
+       rel="noopener noreferrer">
+        📜 Cover Letter
+    </a>
+
+</div>
+    <div class="buttons" style="margin-top:20px;">
+      <a href="case-study.html" class="button">🏗️ Explore Case Study</a>
+      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button" target="_blank" rel="noopener noreferrer">💻 GitHub Repository</a>
+      <a href="https://linkedin.com/in/tatenda-manyepa" class="button" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>My AI Transformation Approach</h2>
+
+    <p class="section-intro">
+      I use a practical consulting approach that starts with the business problem, identifies high-value AI and automation opportunities,
+      designs a secure and scalable technology solution, and measures the business outcome. Click each card to see the method.
+    </p>
+
+    <div class="flip-grid">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front problem">
+            <span class="step-number">01</span>
+            <h3>Understand the Business &amp; Workflow</h3>
+            <p>“Start with the workflow, pain point and measurable outcome.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back problem">
+            <h3>Business Discovery</h3>
+            <ul>
+              <li>Map the current workflow</li>
+              <li>Identify inefficiency and delay</li>
+              <li>Define measurable outcomes</li>
+              <li>Understand users and stakeholders</li>
+              <li>Capture risk, constraints and priorities</li>
+            </ul>
+            <p><strong>Example:</strong> Downtime, slow investigations, manual recovery processes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front solution">
+            <span class="step-number">02</span>
+            <h3>Identify AI &amp; Automation Opportunities</h3>
+            <p>“Use AI where it creates clear operational value.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back solution">
+            <h3>Opportunity Assessment</h3>
+            <ul>
+              <li>Repetitive manual work</li>
+              <li>Knowledge bottlenecks</li>
+              <li>Slow decisions and hand-offs</li>
+              <li>Data and governance readiness</li>
+              <li>Automation feasibility</li>
+              <li>Business value and priority</li>
+            </ul>
+            <p><strong>Deliverables:</strong> AI Opportunity Matrix, prioritised use cases, risks and success measures.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front decision">
+            <span class="step-number">03</span>
+            <h3>Design the AI-Enabled Solution</h3>
+            <p>“Combine AI, automation and technology without unnecessary complexity.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back decision">
+            <h3>Solution Design</h3>
+            <ul>
+              <li>AI-assisted workflow design</li>
+              <li>Technology and integration architecture</li>
+              <li>Security and responsible AI</li>
+              <li>Human approval and controls</li>
+              <li>Scalability and support model</li>
+            </ul>
+            <p><strong>Deliverables:</strong> Target architecture, workflow design, implementation roadmap and decision records.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeypress="if(event.key === 'Enter'){this.classList.toggle('flipped')}">
+        <div class="flip-card-inner">
+          <div class="flip-card-front ai-card">
+            <span class="step-number">04</span>
+            <h3>Prototype, Measure &amp; Improve</h3>
+            <p>“A useful solution must prove value in the real workflow.”</p>
+            <span>Click to learn more →</span>
+          </div>
+
+          <div class="flip-card-back ai-card">
+            <h3>Adoption &amp; Value</h3>
+            <ul>
+              <li>Prototype and user testing</li>
+              <li>Adoption and change support</li>
+              <li>Performance measurement</li>
+              <li>Human feedback and governance</li>
+              <li>Continuous optimisation</li>
+            </ul>
+            <p><strong>Deliverables:</strong> Working demonstration, adoption plan, KPI dashboard and improvement backlog.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>1. Business &amp; Workflow Problem</h2>
+
+    <p class="section-intro">
+      Apex Operational Systems Ltd is experiencing recurring instability across a legacy fulfilment platform.
+      Outages affect robotic fulfilment, inventory allocation and order processing, increasing operational disruption,
+      customer delivery risk and pressure on support teams.
+      <br><br>
+      The current environment relies on manual investigation, fragmented knowledge, reactive incident handling and legacy infrastructure.
+      The target solution improves operational efficiency through AI-assisted knowledge retrieval, workflow automation, proactive visibility and secure cloud services.
+    </p>
+
+    <div class="grid">
+      <div class="card problem">
+        <h3>Operational Stability Issues</h3>
+        <p>Recurring high-severity outages disrupt robotic movement, stock allocation, and order picking processes across fulfilment operations.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Limited High Availability & DR</h3>
+        <p>Manual standby infrastructure and limited automated failover capability increase recovery times and create single points of failure.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Reactive Support Model</h3>
+        <p>Issues are typically identified after service degradation or failure, with limited proactive alerting and slow root cause analysis.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Siloed Teams & Knowledge Gaps</h3>
+        <p>Development, testing, and support operate independently, creating poor cross-team visibility and inconsistent troubleshooting processes.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>On-Premises Infrastructure Constraints</h3>
+        <p>Database timeouts, network instability, maintenance overhead, and limited horizontal scalability affect peak operational periods.</p>
+      </div>
+
+      <div class="card problem">
+        <h3>Deployment & Change Risk</h3>
+        <p>Hotfixes and changes require stronger CI/CD controls, validation, rollback planning, and post-release monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2. AI &amp; Automation Opportunity Assessment</h2>
+
+    <p class="section-intro">
+      Three use cases were prioritised because they address clear operational problems, can be introduced with human oversight,
+      and provide measurable value without attempting to automate high-risk decisions.
+    </p>
+
+    <div class="grid">
+      <div class="card decision">
+        <div class="status progress">Priority 1</div>
+        <h3>Knowledge Assistant</h3>
+        <p>Uses trusted runbooks, known issues and architecture documents to answer operational questions and reduce time spent searching for information.</p>
+        <div class="business-value"><strong>Why first:</strong> High value, manageable risk and a clear path to a practical prototype.</div>
+      </div>
+
+      <div class="card decision">
+        <div class="status progress">Priority 2</div>
+        <h3>Incident Investigation Assistant</h3>
+        <p>Summarises alerts, retrieves similar incidents and suggests investigation steps while keeping engineers responsible for operational decisions.</p>
+        <div class="business-value"><strong>Why next:</strong> Extends the knowledge assistant into a guided operational workflow.</div>
+      </div>
+
+      <div class="card decision">
+        <div class="status progress">Priority 3</div>
+        <h3>Automated Operational Reporting</h3>
+        <p>Turns incident and service data into weekly summaries, recurring-issue themes and management-ready recommendations.</p>
+        <div class="business-value"><strong>Why included:</strong> Demonstrates measurable time savings and improved management visibility.</div>
+      </div>
+    </div>
+
+    <div class="business-value" style="margin-top:24px;">
+      <strong>Future roadmap:</strong> Ticket classification, release-risk support and low-risk workflow automation remain potential later phases. They are not treated as immediate delivery commitments until the first three use cases prove value.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>3. Current-State Assessment</h2>
+
+    <p class="section-intro">
+      The current state models a representative legacy enterprise operational environment with clustered databases,
+      application servers, RabbitMQ messaging, reporting, application logging, manual failover processes, and reactive support workflows.
+    </p>
+
+    <div class="grid">
+      <div class="card solution" onclick="openLayer('application')">
+        <h3>Application Layer</h3>
+        <p>Legacy application services supporting fulfilment workflows, order processing and operational coordination.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card solution" onclick="openLayer('database')">
+        <h3>Database Layer</h3>
+        <p>SQL databases supporting inventory, orders, reporting and operational transactions.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card solution" onclick="openLayer('messaging')">
+        <h3>Messaging Layer</h3>
+        <p>RabbitMQ and integration services connecting fulfilment services and robotic systems.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card solution" onclick="openLayer('support')">
+        <h3>Operational Support</h3>
+        <p>Manual monitoring, incident investigation, escalation paths and recovery processes.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card solution" onclick="openLayer('infrastructure')">
+        <h3>Infrastructure Layer</h3>
+        <p>Physical servers, storage, networking, availability processes and disaster recovery infrastructure.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card solution" onclick="openLayer('release')">
+        <h3>Release & Change Management</h3>
+        <p>Manual patching, service restarts, hotfix handling, release risk and change validation processes.</p>
+        <span>Explore Details →</span>
+      </div>
+    </div>
+
+    <br>
+
+    <a class="button" href="current-state.html">
+      View Full Current-State Assessment →
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>4. Technology Solution Architecture</h2>
+
+    <p class="section-intro">
+      The target state shows how the proposed workflow, application, data, security and AI capabilities work together.
+      AWS is the selected implementation platform, but the design is explained through business needs, controls and trade-offs rather than a list of cloud services.
+    </p>
+
+    <div class="grid">
+      <div class="card decision" onclick="openLayer('targetNetwork')">
+        <h3>Platform Foundation</h3>
+        <p>Secure connectivity, workload separation, controlled access and resilient service entry points.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card decision" onclick="openLayer('targetApplication')">
+        <h3>Application &amp; Integration Platform</h3>
+        <p>Containerised application services and integrations replace manually managed legacy application servers.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card decision" onclick="openLayer('targetData')">
+        <h3>Data, Availability &amp; Recovery</h3>
+        <p>Managed operational data, reporting separation, backup governance and tested recovery patterns.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card decision" onclick="openLayer('targetObservability')">
+        <h3>Security &amp; Operational Visibility</h3>
+        <p>Monitoring, searchable evidence, alerting, access controls, secrets protection and auditability.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card decision" onclick="openLayer('targetAI')">
+        <h3>AI-Assisted Workflow</h3>
+        <p>Trusted knowledge retrieval, guided investigation and human-reviewed recommendations.</p>
+        <span>Explore Details →</span>
+      </div>
+
+      <div class="card decision" onclick="openLayer('targetGovernance')">
+        <h3>Governance, Cost &amp; Responsible Adoption</h3>
+        <p>Cost control, accountable ownership, responsible AI controls, policy enforcement and measurable adoption.</p>
+        <span>Explore Details →</span>
+      </div>
+    </div>
+
+    <br>
+
+    <a class="button" href="target-architecture.html">
+      View Technology Solution Architecture →
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>5. Delivery Roadmap</h2>
+
+    <p class="section-intro">
+      The project is delivered as a phased enterprise transformation roadmap. Each phase links to a detailed page
+      containing documentation, diagrams, risks, decisions, and delivery outputs.
+    </p>
+
+    <div class="two-grid">
+      <div class="card">
+        <div class="status completed">✅ Completed</div>
+        <h3>Phase 1: Discover &amp; Prioritise</h3>
+        <p>Business discovery, workflow mapping, current-state assessment, operational pain points, stakeholder needs and prioritised AI opportunities.</p>
+        <a href="current-state.html" class="button">Explore Phase →</a>
+      </div>
+
+      <div class="card">
+        <div class="status progress">🔄 In Progress</div>
+        <h3>Phase 2: Design &amp; Prototype</h3>
+        <p>Target solution design, knowledge assistant prototype, user testing, human validation and measurable success criteria.</p>
+        <a href="phase-2-migrate.html" class="button">Explore Phase →</a>
+      </div>
+
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 3: Integrate &amp; Automate</h3>
+        <p>Integrations, controlled automation and supporting engineering practices introduced only where they improve reliability, repeatability or delivery risk.</p>
+        <a href="phase-3-modernise.html" class="button">Explore Phase →</a>
+      </div>
+
+      <div class="card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Phase 4: Adopt, Measure &amp; Improve</h3>
+        <p>User adoption, KPI tracking, responsible AI controls, workflow optimisation and expansion of proven use cases.</p>
+        <a href="phase-4-intelligent-operations.html" class="button">Explore Phase →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>6. Solution Delivery</h2>
+
+    <p class="section-intro">
+      Delivery is organised into five practical pillars. The technical build provides evidence that the solution is feasible,
+      while the case study remains focused on workflow improvement, adoption, governance and measurable value.
+    </p>
+
+    <div class="grid portfolio-grid">
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure" target="_blank" rel="noopener noreferrer">
+        <div class="status completed">✅ Completed</div>
+        <h3>Technology Platform</h3>
+        <p>A secure AWS foundation supporting resilient application hosting, controlled connectivity and future AI-enabled services.</p>
+        <div class="business-value"><strong>Business Value:</strong> Provides a dependable foundation without making cloud infrastructure the main purpose of the project.</div>
+        <span>View Build Evidence →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/06-ai-operations" target="_blank" rel="noopener noreferrer">
+        <div class="status progress">🔄 Priority Build</div>
+        <h3>AI Knowledge Assistant</h3>
+        <p>A retrieval-augmented assistant using trusted operational content to support faster knowledge retrieval and guided investigation.</p>
+        <div class="business-value"><strong>Business Value:</strong> Reduces knowledge-search time and improves consistency while retaining human accountability.</div>
+        <span>View AI Build Area →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" target="_blank" rel="noopener noreferrer">
+        <div class="status progress">🔄 In Progress</div>
+        <h3>Engineering &amp; Data Enablement</h3>
+        <p>Version control, containerisation, repeatable infrastructure, controlled releases, operational data and resilient messaging used only where they support the solution.</p>
+        <div class="business-value"><strong>Business Value:</strong> Reduces delivery risk and makes the proposed solution more reliable, repeatable and supportable.</div>
+        <span>View Repository →</span>
+      </a>
+
+      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/04-observability" target="_blank" rel="noopener noreferrer">
+        <div class="status planned">⏳ Planned</div>
+        <h3>Security, Visibility &amp; Governance</h3>
+        <p>Access control, auditability, monitoring, alerting, responsible AI controls and cost ownership designed into the operating model.</p>
+        <div class="business-value"><strong>Business Value:</strong> Supports safe adoption, earlier issue detection and accountable operation of the solution.</div>
+        <span>View Control Build Area →</span>
+      </a>
+
+      <a class="card decision" href="phase-4-intelligent-operations.html">
+        <div class="status planned">⏳ Next</div>
+        <h3>End-to-End Business Workflow</h3>
+        <p>Demonstrates how operational context moves through an AI-assisted workflow to produce a human-reviewed recommendation, summary or low-risk action.</p>
+        <div class="business-value"><strong>Business Value:</strong> Proves how the design improves a real workflow rather than demonstrating technology in isolation.</div>
+        <span>View Workflow Plan →</span>
+      </a>
+    </div>
+  </section>
+
+
+  <section class="section" id="architecture-decisions">
+    <h2>7. Key Solution Decisions</h2>
+
+    <p class="section-intro">
+      Strong consulting requires clear decisions and honest trade-offs. The five records below explain the choices most relevant to the business problem,
+      the operating model and the first delivery stages.
+    </p>
+
+    <div class="adr-accordion">
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-001: AWS-First Strategy</h3>
+            <p>Why AWS managed services were selected as the primary modernisation direction.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>The current fulfilment platform relies on manually managed infrastructure, reactive recovery and significant maintenance overhead.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Remain on-premise</li>
+                <li>Hybrid cloud</li>
+                <li>AWS-first architecture</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Adopt an AWS-first architecture using managed services where practical, while maintaining secure integration with operational technology systems.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Reduced operational overhead</li>
+                <li>Improved scalability and resilience</li>
+                <li>Better automation and observability</li>
+                <li>Faster recovery patterns</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>AWS reduces infrastructure ownership but introduces ongoing cloud operating costs, AWS skills requirements and some provider dependency. This is mitigated through governance, cost controls, containerisation and clear architecture decision records.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-002: Observability by Design</h3>
+            <p>Why monitoring, logging and alerting are treated as core platform capabilities.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>Operational issues are often detected after business impact has already occurred, with investigations spread across logs, databases and support knowledge.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Basic monitoring only</li>
+                <li>Third-party monitoring platform</li>
+                <li>AWS-native observability stack</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Embed observability into the target architecture using CloudWatch, OpenSearch, SNS alerts, dashboards and Systems Manager runbooks.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Faster incident detection</li>
+                <li>Improved root cause analysis</li>
+                <li>Reduced MTTR</li>
+                <li>Centralised operational visibility</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>Centralised observability increases log volume, storage costs and alert management effort. To control this, the design requires retention policies, dashboard ownership, alert tuning and continuous operational review.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-003: Containerisation with ECS Fargate</h3>
+            <p>Why ECS Fargate was selected to replace legacy APP-1 / APP-2 servers.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>The current platform depends on traditional application servers that require patching, manual deployment, capacity planning and operational recovery.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Continue with traditional servers</li>
+                <li>Self-managed containers on EC2</li>
+                <li>ECS Fargate managed container platform</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Use ECS Fargate for containerised application services across multiple Availability Zones.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>No EC2 server management</li>
+                <li>Improved scaling and deployment consistency</li>
+                <li>Foundation for CI/CD and rollback</li>
+                <li>Reduced operational burden</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>Some legacy services may require refactoring before containerisation. Teams also need to learn container operations, task definitions, service scaling and deployment patterns. This is accepted because it reduces long-term server management risk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-004: Multi-AZ Resilience</h3>
+            <p>Why the target architecture uses multiple Availability Zones instead of single-AZ hosting.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>The current state contains single points of failure and relies heavily on manual failover and individual operational knowledge.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Single Availability Zone</li>
+                <li>Traditional active/passive server failover</li>
+                <li>Multi-AZ AWS architecture</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Deploy critical application, database and messaging components across multiple Availability Zones.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Reduced single points of failure</li>
+                <li>Improved availability</li>
+                <li>Better business continuity</li>
+                <li>Reduced manual recovery dependency</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>Multi-AZ design increases cost and requires resilience testing. Applications must be designed and validated for failover scenarios. This cost is justified because fulfilment downtime has direct operational and customer impact.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adr-item">
+        <button class="adr-header" onclick="toggleAdr(this)">
+          <div class="adr-header-content">
+            <h3>ADR-005: AI-Assisted Operations</h3>
+            <p>Why AI is used to support investigations, knowledge retrieval and operational consistency.</p>
+          </div>
+          <span class="adr-toggle">+</span>
+        </button>
+
+        <div class="adr-content">
+          <div class="adr-content-grid">
+            <div class="adr-block">
+              <h4>Business Challenge</h4>
+              <p>Support engineers spend significant time searching tickets, runbooks, documentation and logs during incidents. Knowledge is often siloed with experienced engineers.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Options Considered</h4>
+              <ul>
+                <li>Traditional documentation only</li>
+                <li>Centralised knowledge search</li>
+                <li>AI-assisted operations assistant</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-decision">
+              <h4>Decision</h4>
+              <p>Use an AI-Assisted Operations layer with S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch Vector Index and an AI-Assisted Operations Assistant.</p>
+            </div>
+
+            <div class="adr-block">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Faster troubleshooting</li>
+                <li>Improved knowledge retention</li>
+                <li>Consistent investigation guidance</li>
+                <li>Reduced dependency on individual experts</li>
+              </ul>
+            </div>
+
+            <div class="adr-block adr-tradeoff">
+              <h4>Trade-Offs</h4>
+              <p>AI guidance depends on the quality of the knowledge base and must be validated by engineers before operational action. The platform also requires governance, review cycles and maintenance of source documentation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="business-value" style="margin-top:24px;">
+        <strong>Supporting decisions:</strong> Infrastructure as Code, Git-based delivery, CI/CD, secrets management and the ECS-versus-Kubernetes evaluation remain documented in the repository. The homepage highlights only the five decisions most useful for a consulting interview.
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" id="skills-demonstrated">
+    <h2>8. Capabilities Demonstrated</h2>
+
+    <p class="section-intro">
+      The case study is designed for AI transformation, technology consulting, solutions consulting and associate solution architecture roles.
+      It demonstrates five capabilities that can be explained clearly in an interview.
+    </p>
+
+    <div class="grid">
+      <div class="card problem">
+        <h3>Business Discovery</h3>
+        <p>Understanding stakeholders, workflows, pain points, constraints, risks and measurable outcomes before proposing technology.</p>
+      </div>
+
+      <div class="card ai-card">
+        <h3>AI Opportunity &amp; Workflow Design</h3>
+        <p>Identifying realistic use cases, prioritising value and feasibility, and designing human-reviewed AI-assisted workflows.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Solution Architecture</h3>
+        <p>Connecting business requirements to application, data, integration, security, resilience and cloud platform decisions.</p>
+      </div>
+
+      <div class="card solution">
+        <h3>Delivery &amp; Governance</h3>
+        <p>Creating a phased roadmap, prototype approach, responsible AI controls, adoption plan and measurable success criteria.</p>
+      </div>
+
+      <div class="card decision">
+        <h3>Communication &amp; Business Value</h3>
+        <p>Explaining recommendations, alternatives, trade-offs and expected outcomes clearly to technical and non-technical stakeholders.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="architect-chat-widget" id="architectChatWidget" aria-live="polite">
+    <div class="architect-chat-header">
+      <div class="architect-chat-title">
+        <div class="robot-avatar">🤖</div>
+        <div>
+          <h3>Ask the Consultant</h3>
+          <div class="architect-online">Online</div>
+        </div>
+      </div>
+
+      <div class="architect-chat-actions">
+        <button class="architect-icon-button" onclick="resetArchitectChat()" title="Reset chat">↻</button>
+        <button class="architect-icon-button" onclick="toggleArchitectChat()" title="Close chat">×</button>
+      </div>
+    </div>
+
+    <div class="architect-chat-body" id="architectChatBody">
+      <div class="architect-message-row">
+        <div class="architect-message bot">
+          <p><strong>Hi, I'm Tatenda 👋</strong></p>
+          <p>
+            Ask me about any part of this case study—including the business problem, decision drivers, AI use cases, architecture, delivery roadmap, governance, implementation approach and expected outcomes.
+          </p>
+          <div class="architect-suggestions">
+            <button class="architect-suggestion" onclick="quickAsk('What business problem does this solve?')">💼 Business Problem</button>
+            <button class="architect-suggestion" onclick="quickAsk('Why were these AI use cases prioritised?')">🤖 AI Priorities</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will the solution work end to end?')">🔄 How It Works</button>
+            <button class="architect-suggestion" onclick="quickAsk('What drove the key solution decisions?')">🧭 Decision Drivers</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will success be measured?')">📈 Success Measures</button>
+            <button class="architect-suggestion" onclick="quickAsk('What would be built first?')">🚀 Delivery Plan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="architect-chat-input">
+      <div class="architect-input-row">
+        <input id="architectInput" type="text" placeholder="Ask about the case study..." onkeydown="if(event.key === 'Enter'){sendArchitectMessage()}">
+        <button class="architect-send" onclick="sendArchitectMessage()" title="Send">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="architect-launch-label" onclick="toggleArchitectChat()" title="Ask the Consultant">Ask the Consultant</button>
+  <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask the Consultant">🤖</button>
+
+
+  <div class="modal-overlay" id="layerModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeLayer()">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer>
+    <h2>Enterprise AI Transformation Consulting Case Study</h2>
+
+    <p class="footer-summary">
+      A consulting-led transformation case study demonstrating business discovery, AI opportunity assessment, solution design, responsible adoption and measurable operational value.
+    </p>
+
+    <div class="footer-divider"></div>
+
+    <p class="footer-tags">
+      AI Transformation • Technology Consulting • Business Analysis • Intelligent Automation • Workflow Design • Responsible AI • Solution Architecture
+    </p>
+
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/tatenda-manyepa">LinkedIn</a>
+      <span>•</span>
+      <a href="https://github.com/tatenda-manyepa">GitHub Profile</a>
+      <span>•</span>
+      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation">Project Repository</a>
+    </div>
+
+    <p class="footer-credit">
+      Designed &amp; Developed by Tatenda Manyepa • Case Study v1.0 • 2026
+    </p>
+  </footer>
+
+  <script>
+
+
+
+    const architectAnswers = [
+      {
+        keywords: ["business problem", "what problem", "why project", "solve", "current challenge", "pain point"],
+        answer: "Apex Operational Systems has recurring operational instability, slow incident investigation, fragmented knowledge, manual recovery and limited proactive visibility. These issues affect fulfilment continuity, customer delivery and support workload. The programme therefore starts with workflow and business impact rather than technology, then uses AI, automation and cloud only where they improve measurable outcomes.",
+        related: [["Current State", "current-state.html"], ["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["why these ai", "ai priorit", "use cases priorit", "opportunity assessment", "which ai", "comes first"],
+        answer: "The use cases were prioritised using business value, feasibility, risk, data readiness and the need for human oversight. The Knowledge Assistant comes first because trusted documentation already exists, the workflow is easy to test, and the benefit—less time searching for information—is measurable. Incident Investigation and Operational Reporting follow because they reuse the same knowledge and data foundation.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["knowledge assistant", "how does rag", "rag", "retrieval augmented", "bedrock knowledge", "how assistant works"],
+        answer: "Trusted runbooks, known issues, architecture documents and approved incident records are stored in a governed knowledge repository. The content is indexed for semantic retrieval. When a user asks a question, the solution retrieves the most relevant approved material and provides it to the language model as context. The response includes source references and remains a recommendation that must be validated by a human.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["incident investigation", "investigation assistant", "root cause", "rca", "mttr", "incident response"],
+        answer: "The Incident Investigation Assistant would combine alerts, recent changes, similar historic incidents, runbooks and relevant logs into a structured investigation summary. It can suggest checks and draft an RCA, but it does not restart services or make production decisions autonomously. The engineer remains accountable for validation and action.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Observability", "target-architecture.html"]]
+      },
+      {
+        keywords: ["operational reporting", "automated reporting", "weekly report", "management report"],
+        answer: "Operational Reporting uses structured incident and service data to produce weekly summaries, recurring issue themes, trend explanations and management-ready recommendations. A named owner reviews the output before distribution. This removes repetitive compilation work while preserving accountability for interpretation and communication.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["end to end", "how will it work", "how solution works", "workflow", "data flow"],
+        answer: "End to end, an operational event or user question enters the workflow; relevant approved knowledge and operational context are retrieved; the AI produces a grounded summary or recommendation; a human reviews it; and only approved low-risk follow-up actions—such as creating a task, sending a notification or preparing a report—are automated. Feedback and outcome data are then captured to improve the service.",
+        related: [["Target Architecture", "target-architecture.html"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["decision driver", "what drove", "key decision", "solution decisions", "architecture decisions", "why this design"],
+        answer: "The main decision drivers were operational resilience, faster knowledge access, lower support effort, security, explainability, implementation complexity, cost and adoption risk. Technology choices were made only after these drivers were understood. Managed services were favoured where they reduce operational burden, and human validation was retained where an incorrect action could affect fulfilment operations.",
+        related: [["Decision Records", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["why aws", "aws first", "cloud choice", "why cloud"],
+        answer: "AWS was selected as the implementation platform because it provides managed capabilities for networking, compute, data, observability, security, backup and generative AI. The decision supports resilience and faster delivery while reducing server-management effort. The trade-offs are cloud cost, skills requirements and provider dependency, which are addressed through governance, tagging, architecture records and portable application patterns where practical.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["why fargate", "ecs", "fargate", "why not kubernetes", "eks", "container"],
+        answer: "ECS Fargate was chosen before Kubernetes because the immediate requirement is reliable container hosting without cluster administration. It supports scaling, health checks and controlled deployments while keeping the operating model simpler. Kubernetes remains an option only if future workloads genuinely require its portability or ecosystem; adding it now would increase complexity without clear business value.",
+        related: [["Target Architecture", "target-architecture.html"], ["Modernisation", "phase-3-modernise.html"]]
+      },
+      {
+        keywords: ["resilience", "availability", "multi az", "failover", "disaster recovery", "dr", "backup"],
+        answer: "Resilience is improved through multiple Availability Zones, private application and data subnets, load-balanced services, RDS Multi-AZ, governed backups and tested recovery procedures. Reporting is separated from core transactions where practical. The goal is not merely to add cloud services, but to reduce single points of failure and dependence on manual recovery.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["observability", "monitoring", "logs", "cloudwatch", "opensearch", "alerting"],
+        answer: "Observability is treated as a core capability rather than an add-on. CloudWatch provides metrics, logs, alarms and dashboards; OpenSearch supports searchable operational evidence; SNS distributes alerts; and Systems Manager supports controlled runbooks. Together these capabilities enable earlier detection, faster investigation and measurable service improvement.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["security", "iam", "secrets", "kms", "least privilege", "access control"],
+        answer: "Security is designed around least privilege, private networking, encrypted data, centralised secrets, audit trails and controlled access to knowledge sources. IAM governs who can use each capability; KMS protects data at rest; Secrets Manager keeps credentials out of code; and CloudTrail and Config support auditability. AI access is also restricted so users retrieve only content they are authorised to see.",
+        related: [["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["responsible ai", "governance", "hallucination", "guardrail", "human oversight", "human approval"],
+        answer: "Responsible AI controls include approved source material, source citations, role-based access, prompt and output logging, quality testing, human review, feedback capture and clear escalation routes. The AI is positioned as decision support—not authority. High-impact operational actions remain human-controlled, while only low-risk administrative tasks are candidates for automation.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["data", "database", "rds", "sql server", "reporting replica", "data platform"],
+        answer: "The data design uses RDS for SQL Server Multi-AZ for resilient transactional data, with reporting separated where practical to protect operational performance. Backup policies, restore testing, encryption and access controls are included. The AI layer does not receive unrestricted database access; it consumes approved, minimised context through controlled integrations.",
+        related: [["Target Architecture", "target-architecture.html"], ["Data Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging"]]
+      },
+      {
+        keywords: ["messaging", "rabbitmq", "amazon mq", "queue", "event driven", "integration"],
+        answer: "Messaging is modernised carefully because fulfilment workflows depend on reliable asynchronous communication. Amazon MQ provides a lower-risk path for RabbitMQ-compatible workloads, while dead-letter handling, queue-depth monitoring and retry policies improve resilience. Event-driven automation is introduced only for well-defined, low-risk workflow steps.",
+        related: [["Target Architecture", "target-architecture.html"], ["Data Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging"]]
+      },
+      {
+        keywords: ["roadmap", "delivery phases", "implementation plan", "what first", "build first", "next step"],
+        answer: "The roadmap has four stages: Discover and Prioritise; Design and Prototype; Integrate and Automate; then Adopt, Measure and Improve. The first practical build is the Knowledge Assistant because it proves value with controlled risk. Once the prototype meets quality and adoption criteria, supporting integrations, observability and selected automation are added incrementally.",
+        related: [["Phase 2", "phase-2-migrate.html"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["prototype", "pilot", "proof of concept", "mvp", "minimum viable"],
+        answer: "The prototype should use a limited set of approved documents, a small user group and clearly defined questions. It should demonstrate retrieval quality, citations, response usefulness, access control and feedback capture. A pilot then tests the workflow with real users and agreed success thresholds before any broader rollout.",
+        related: [["Phase 2", "phase-2-migrate.html"]]
+      },
+      {
+        keywords: ["testing", "validate", "quality", "accuracy", "evaluation"],
+        answer: "Testing covers retrieval relevance, answer groundedness, citation accuracy, security boundaries, latency, failure handling and user usefulness. A representative question set is scored before release, and poor or uncertain answers must fail safely. Architecture testing also includes health checks, backup restoration, failover and rollback validation.",
+        related: [["Phase 2", "phase-2-migrate.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["success", "measure", "kpi", "metric", "business outcome", "benefit"],
+        answer: "Success is measured through time spent finding information, incident investigation time, reporting effort, response consistency, adoption, user satisfaction, citation accuracy and the proportion of outputs accepted after human review. Platform measures include availability, alert quality, recovery performance and cost. Baselines are captured before the pilot so improvement can be demonstrated credibly.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"], ["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["cost", "finops", "budget", "expensive", "cost control"],
+        answer: "Cost is controlled through phased delivery, usage limits, right-sized managed services, tagging, budgets, retention policies and cost-per-use-case tracking. The programme avoids building every capability at once. A use case progresses only when its expected value, adoption and operating cost justify the next investment.",
+        related: [["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["adoption", "change management", "training", "users", "stakeholder"],
+        answer: "Adoption is designed into the programme through stakeholder discovery, workflow co-design, a small pilot group, role-based training, clear ownership and visible feedback channels. The solution must fit existing work rather than create another disconnected tool. Adoption and usefulness are measured alongside technical performance.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"], ["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["stakeholders", "who involved", "roles", "ownership", "raci"],
+        answer: "Key stakeholders include operations, support engineering, development, testing, security, data owners, service management and business leadership. Business owners define outcomes and risk tolerance; technical teams validate feasibility and integration; security and data owners approve controls; and end users shape the workflow through testing and feedback.",
+        related: [["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["risk", "trade off", "trade-off", "limitation", "challenge"],
+        answer: "The main risks are poor source quality, incorrect AI responses, unauthorised information exposure, low adoption, integration complexity, cloud cost and excessive automation. The design mitigates these with controlled sources, access boundaries, human validation, phased rollout, measurable gates and a clear rule that high-impact operational actions remain human-owned.",
+        related: [["Decision Records", "architecture-decision-records.html"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["what have you built", "build progress", "completed", "implementation status", "finished"],
+        answer: "Completed work includes business discovery, the current-state assessment, prioritised AI opportunities, target architecture, solution decisions and the AWS foundation. The priority build is the Knowledge Assistant and one end-to-end human-reviewed workflow. Data, observability, security and delivery automation are expanded only as needed to support that working use case.",
+        related: [["Build Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      },
+      {
+        keywords: ["how technical", "technical depth", "what will you build", "build scope", "production ready"],
+        answer: "The portfolio is deliberately deepest around one end-to-end AI workflow. It demonstrates ingestion, retrieval, grounded generation, citations, access control, logging, testing and human review. Supporting cloud, Docker, Terraform and CI/CD evidence is built to demonstration level. Full enterprise migration, organisation-wide governance and complex Kubernetes operations remain designed rather than falsely presented as fully implemented.",
+        related: [["Build Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["terraform", "infrastructure as code", "iac", "git", "ci cd", "pipeline", "docker"],
+        answer: "Git, Docker, Terraform and CI/CD are enabling practices rather than the centre of the case study. Git provides traceability, Docker packages the prototype consistently, Terraform demonstrates repeatable infrastructure, and a simple pipeline validates and promotes changes. Their purpose is to reduce delivery risk and support controlled iteration.",
+        related: [["Modernisation", "phase-3-modernise.html"], ["Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation"]]
+      },
+      {
+        keywords: ["migration", "move from on prem", "modernisation", "cutover", "legacy"],
+        answer: "The migration would be incremental rather than a big-bang replacement. Dependencies are assessed first, low-risk services are containerised, data and messaging changes are introduced with compatibility and rollback plans, and workloads run through controlled validation before cutover. Operational technology integrations remain protected through secure hybrid connectivity where required.",
+        related: [["Current State", "current-state.html"], ["Modernisation", "phase-3-modernise.html"]]
+      },
+      {
+        keywords: ["support model", "operate", "who supports", "run model", "service ownership"],
+        answer: "The target operating model assigns clear product, technical and data ownership. Support teams receive dashboards, runbooks and escalation paths; knowledge content has named reviewers; AI quality and access are monitored; and incidents feed an improvement backlog. The aim is a maintainable service, not a prototype abandoned after demonstration.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["why not chatgpt", "why not generic ai", "why bedrock", "enterprise ai"],
+        answer: "A generic public chatbot would not provide the required access controls, trusted enterprise context, source governance, auditability or workflow integration. This design uses a governed retrieval pattern so responses are grounded in approved organisational knowledge and can be monitored, tested and integrated into operational processes.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["consulting approach", "how did you approach", "method", "your role", "what did you do"],
+        answer: "My approach is to understand the workflow and measurable problem first, assess where AI or automation creates genuine value, design the minimum secure solution needed, prototype it with users, and measure outcomes before scaling. I connect business needs to technical decisions and explain alternatives, risks and trade-offs to both technical and non-technical stakeholders.",
+        related: [["Case Study", "case-study.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["aws services", "which services", "technology stack", "tools used"],
+        answer: "The proposed stack includes VPC networking, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, S3, Amazon Bedrock, OpenSearch, CloudWatch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config and AWS Backup. Each service supports a defined requirement; the portfolio does not present service count as value on its own.",
+        related: [["Target Architecture", "target-architecture.html"], ["Build Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      }
+    ];
+
+    function toggleArchitectChat() {
+      document.getElementById("architectChatWidget").classList.toggle("active");
+    }
+
+    function resetArchitectChat() {
+      document.getElementById("architectChatBody").innerHTML = `
+      <div class="architect-message-row">
+        <div class="architect-message bot">
+          <p><strong>Hi, I'm Tatenda 👋</strong></p>
+          <p>
+            Ask me about any part of this case study—including the business problem, decision drivers, AI use cases, architecture, delivery roadmap, governance, implementation approach and expected outcomes.
+          </p>
+          <div class="architect-suggestions">
+            <button class="architect-suggestion" onclick="quickAsk('What business problem does this solve?')">💼 Business Problem</button>
+            <button class="architect-suggestion" onclick="quickAsk('Why were these AI use cases prioritised?')">🤖 AI Priorities</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will the solution work end to end?')">🔄 How It Works</button>
+            <button class="architect-suggestion" onclick="quickAsk('What drove the key solution decisions?')">🧭 Decision Drivers</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will success be measured?')">📈 Success Measures</button>
+            <button class="architect-suggestion" onclick="quickAsk('What would be built first?')">🚀 Delivery Plan</button>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function quickAsk(question) {
+      document.getElementById("architectInput").value = question;
+      sendArchitectMessage();
+    }
+
+    function findArchitectAnswer(question) {
+      const normalisedQuestion = question
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      let bestMatch = null;
+      let bestScore = 0;
+
+      architectAnswers.forEach(item => {
+        const score = item.keywords.reduce((total, keyword) => {
+          const normalisedKeyword = keyword.toLowerCase();
+          if (!normalisedQuestion.includes(normalisedKeyword)) return total;
+          return total + Math.max(1, normalisedKeyword.split(" ").length * 2);
+        }, 0);
+
+        if (score > bestScore) {
+          bestScore = score;
+          bestMatch = item;
+        }
+      });
+
+      return bestMatch || {
+        answer: "I can explain the business problem, AI opportunity assessment, current and target architecture, decision drivers, implementation roadmap, responsible AI controls, data and integration design, security, costs, adoption, testing and expected outcomes. Try asking a focused question such as: ‘How will the solution work end to end?’ or ‘Why was ECS Fargate chosen?’",
+        related: [["Explore the Case Study", "case-study.html"], ["Target Architecture", "target-architecture.html"]]
+      };
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>'"]/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;"
+      })[character]);
+    }
+
+    function appendArchitectMessage(type, content, related = []) {
+      const chatBody = document.getElementById("architectChatBody");
+      const row = document.createElement("div");
+      row.className = `architect-message-row ${type === "user" ? "user" : ""}`;
+
+      const bubble = document.createElement("div");
+      bubble.className = `architect-message ${type === "user" ? "user" : "bot"}`;
+      bubble.innerHTML = content;
+
+      if (type === "bot" && related && related.length) {
+        const relatedHtml = related.map(([label, href]) => `<a href="${href}">${label}</a>`).join(" • ");
+        bubble.innerHTML += `<div class="architect-related">🔗 Related: ${relatedHtml}</div>`;
+      }
+
+      row.appendChild(bubble);
+      chatBody.appendChild(row);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function sendArchitectMessage() {
+      const input = document.getElementById("architectInput");
+      const question = input.value.trim();
+      if (!question) return;
+
+      appendArchitectMessage("user", `<p>${escapeHtml(question)}</p>`);
+      input.value = "";
+
+      const response = findArchitectAnswer(question);
+      setTimeout(() => {
+        appendArchitectMessage("bot", `<p>${response.answer}</p>`, response.related);
+      }, 350);
+    }
+
+
+    const layerDetails = {
+      targetNetwork: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>AWS Network Foundation</h2>
+
+        <h3>Purpose</h3>
+        <p>Provides the secure AWS landing network for the modernised fulfilment platform, controlling how traffic enters and how services communicate across Availability Zones.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Route 53 for DNS and traffic entry</li>
+          <li>Application Load Balancer spanning public subnets</li>
+          <li>VPC with public, private application and private data subnets</li>
+          <li>NAT gateways for controlled outbound access</li>
+          <li>Security groups and network segmentation</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>This design separates public entry points from private workloads, improves availability across AZs and creates a controlled foundation for secure cloud operations.</p>
+      `,
+
+      targetApplication: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Application Platform</h2>
+
+        <h3>Purpose</h3>
+        <p>Modernises the legacy APP-1 / APP-2 application server pair into containerised ECS Fargate services across private application subnets.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Host Message Service</li>
+          <li>Order Fulfilment Service</li>
+          <li>Stock Allocation Service</li>
+          <li>Task Management Service</li>
+          <li>Workflow Service</li>
+          <li>Robot Integration Service</li>
+          <li>Reporting API</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>ECS Fargate reduces server management overhead, supports auto-scaling, improves resilience and creates a stronger foundation for CI/CD and controlled rollback.</p>
+      `,
+
+      targetData: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Data & Recovery</h2>
+
+        <h3>Purpose</h3>
+        <p>Improves database resilience, reporting separation, backup governance and recovery capability for operational fulfilment data.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Amazon RDS for SQL Server Multi-AZ</li>
+          <li>Primary and standby database architecture</li>
+          <li>Reporting replica for read-heavy workloads</li>
+          <li>AWS Backup for governed recovery</li>
+          <li>Backup and restore validation</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>The target design reduces manual failover risk, protects operational data and separates reporting demand from core transaction processing.</p>
+      `,
+
+      targetObservability: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Observability & Security</h2>
+
+        <h3>Purpose</h3>
+        <p>Moves the platform away from reactive support by introducing monitoring, logging, alerting, search, automation and security controls as core architecture capabilities.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>CloudWatch Logs, Alarms and Dashboards</li>
+          <li>OpenSearch Service for searchable operational logs</li>
+          <li>SNS notifications for support alerts</li>
+          <li>Systems Manager Runbooks and Patch Manager</li>
+          <li>Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub and AWS Config</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>Support teams gain earlier detection, faster investigation, standardised recovery and stronger governance across the AWS platform.</p>
+      `,
+
+      targetAI: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>AI-Assisted Operations Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Uses operational knowledge and searchable log context to help support teams investigate incidents faster and reduce repeated troubleshooting effort.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>S3 Knowledge Store for runbooks, SOPs, known issues and architecture docs</li>
+          <li>Amazon Bedrock Knowledge Base for retrieval-augmented support guidance</li>
+          <li>OpenSearch Vector Index for knowledge and operational context</li>
+          <li>AI-Assisted Operations Assistant for guided troubleshooting</li>
+          <li>Support feedback loop for continuous improvement</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>This layer turns support knowledge into reusable operational intelligence, helping reduce MTTR and improve consistency across investigations.</p>
+      `,
+
+      targetGovernance: `
+        <span class="modal-tag">Target-State Layer</span>
+        <h2>Governance, FinOps & Compliance</h2>
+
+        <h3>Purpose</h3>
+        <p>Ensures the cloud platform remains controlled, auditable, cost-aware and aligned to architecture decisions as it evolves.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>IAM governance and least privilege</li>
+          <li>Tagging and cost allocation strategy</li>
+          <li>CloudTrail and AWS Config for auditability</li>
+          <li>Security Hub and GuardDuty for posture visibility</li>
+          <li>Architecture Decision Records for design accountability</li>
+        </ul>
+
+        <h3>Architecture Value</h3>
+        <p>Governance makes the design operationally safe, explainable and maintainable rather than simply technically possible.</p>
+      `,
+
+      application: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Application Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Core business services responsible for order intake, fulfilment processing, stock allocation, workflow orchestration and robotic fulfilment coordination.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>External Customer / Host System</li>
+          <li>Order Fulfilment Platform</li>
+          <li>Host Message Processing</li>
+          <li>Task Management Logic</li>
+          <li>Stock Allocation Logic</li>
+          <li>Workflow Orchestration</li>
+          <li>Robot Control Integration</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Customer order requests are received from external systems.</li>
+          <li>The fulfilment platform validates and processes requests.</li>
+          <li>Tasks are generated and inventory is allocated.</li>
+          <li>Work instructions are published to the messaging layer.</li>
+          <li>Robotic systems execute fulfilment activities.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Allocation lock exceptions</li>
+          <li>🔴 Application service outages</li>
+          <li>🔴 Manual service recovery activities</li>
+          <li>🔴 Delayed application-to-application communication</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ Containerised application services</li>
+          <li>→ Amazon ECS Fargate target platform</li>
+          <li>→ Automated scaling and health checks</li>
+          <li>→ Improved deployment and rollback patterns</li>
+        </ul>
+      `,
+
+      database: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Database Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Stores operational data required for fulfilment processing, inventory allocation, order state, robot movements, reporting and support investigations.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>SQL Operational Database</li>
+          <li>Reporting Services</li>
+          <li>Orders, stock, tasks and movement data</li>
+          <li>Operational transactions and fulfilment state</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Application services read and write fulfilment data.</li>
+          <li>Stock allocation and task management depend on database state.</li>
+          <li>Reporting services query operational data.</li>
+          <li>Support teams investigate incidents using database records.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 SQL performance bottlenecks</li>
+          <li>🔴 Reporting failures</li>
+          <li>🔴 Drive capacity exhaustion</li>
+          <li>🔴 Locking issues affecting allocation workflows</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ Amazon RDS SQL Server / managed database platform</li>
+          <li>→ Multi-AZ resilience</li>
+          <li>→ Automated backups and recovery</li>
+          <li>→ Performance Insights and proactive database monitoring</li>
+        </ul>
+      `,
+
+      messaging: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Messaging Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Provides asynchronous communication between fulfilment services, downstream operational systems and robotic control components.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>RabbitMQ Messaging Service</li>
+          <li>Task and movement message queues</li>
+          <li>Application-to-application integration flows</li>
+          <li>Robot control message delivery</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>The fulfilment platform publishes operational events and robot task messages.</li>
+          <li>RabbitMQ routes messages between services.</li>
+          <li>Robot control systems consume movement instructions.</li>
+          <li>Delayed or stuck queues affect downstream fulfilment execution.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Queue backlogs</li>
+          <li>🔴 Delayed processing</li>
+          <li>🔴 Limited proactive queue visibility</li>
+          <li>🔴 Robotic fulfilment delays when messages are not processed</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ Amazon MQ / SQS / EventBridge evaluation</li>
+          <li>→ Dead-letter queues</li>
+          <li>→ Queue depth monitoring and alerting</li>
+          <li>→ More resilient event-driven communication</li>
+        </ul>
+      `,
+
+      support: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Operational Support</h2>
+
+        <h3>Purpose</h3>
+        <p>Supports incident response, troubleshooting, service recovery, ticket investigation and operational continuity when fulfilment systems degrade or fail.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Technical Support Team</li>
+          <li>Manual monitoring</li>
+          <li>Incident tickets and escalations</li>
+          <li>Log search and database investigation</li>
+          <li>Manual recovery processes</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Site users usually report degradation or failure.</li>
+          <li>Support teams investigate logs, database records and queue status.</li>
+          <li>Service restarts, recovery steps or escalations are performed manually.</li>
+          <li>Knowledge often depends on individual experience.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 No proactive monitoring</li>
+          <li>🔴 Slow root cause analysis</li>
+          <li>🔴 Fragmented operational visibility</li>
+          <li>🔴 High dependency on individual knowledge holders</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ CloudWatch dashboards and alarms</li>
+          <li>→ Centralised log analytics</li>
+          <li>→ Operational runbooks</li>
+          <li>→ AI-assisted incident investigation</li>
+        </ul>
+      `,
+
+      infrastructure: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Infrastructure Layer</h2>
+
+        <h3>Purpose</h3>
+        <p>Provides the underlying compute, storage, networking and availability foundation for the fulfilment platform and operational systems.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Physical / virtual servers</li>
+          <li>Local or managed storage</li>
+          <li>Network connectivity between systems</li>
+          <li>Manual high availability and failover processes</li>
+          <li>Backup and recovery dependencies</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Application and database services run on fixed infrastructure.</li>
+          <li>Storage and compute capacity must be manually managed.</li>
+          <li>Network issues can impact application and robotic communication.</li>
+          <li>Recovery activities depend on manual operational intervention.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Drive capacity exhaustion</li>
+          <li>🔴 Limited scalability</li>
+          <li>🔴 Single points of failure</li>
+          <li>🔴 Manual disaster recovery processes</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ AWS VPC and multi-AZ architecture</li>
+          <li>→ Auto scaling compute capacity</li>
+          <li>→ Managed storage and backup policies</li>
+          <li>→ Improved disaster recovery posture</li>
+        </ul>
+      `,
+
+      release: `
+        <span class="modal-tag">Current-State Layer</span>
+        <h2>Release & Change Management</h2>
+
+        <h3>Purpose</h3>
+        <p>Controls how patches, hotfixes, service restarts and production changes are handled across the operational platform.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+          <li>Manual patching process</li>
+          <li>Service restart coordination</li>
+          <li>Hotfix deployment handling</li>
+          <li>Manual validation and rollback steps</li>
+          <li>Change approval and release communication</li>
+        </ul>
+
+        <h3>Operational Flow</h3>
+        <ol>
+          <li>Changes are planned and coordinated manually.</li>
+          <li>Services may need restart or recovery after patching.</li>
+          <li>Validation relies on support checks and user confirmation.</li>
+          <li>Rollback processes are not fully automated or standardised.</li>
+        </ol>
+
+        <h3>Current Risks</h3>
+        <ul>
+          <li>🔴 Manual hotfixes</li>
+          <li>🔴 No clear CI/CD release pipeline</li>
+          <li>🔴 Increased deployment risk</li>
+          <li>🔴 Slower recovery after failed changes</li>
+        </ul>
+
+        <h3>Modernisation Target</h3>
+        <ul>
+          <li>→ CI/CD pipeline with controlled promotion</li>
+          <li>→ Automated testing and validation</li>
+          <li>→ Blue/green or rolling deployments</li>
+          <li>→ Defined rollback strategy</li>
+        </ul>
+      `
+    };
+
+
+    function toggleAdr(button) {
+      const item = button.closest(".adr-item");
+      item.classList.toggle("active");
+    }
+
+    function openLayer(layer) {
+      document.getElementById("modalContent").innerHTML = layerDetails[layer];
+      document.getElementById("layerModal").classList.add("active");
+    }
+
+    function closeLayer() {
+      document.getElementById("layerModal").classList.remove("active");
+    }
+
+    document.getElementById("layerModal").addEventListener("click", function(event) {
+      if (event.target === this) {
+        closeLayer();
+      }
+    });
+  </script>
+
+</body>
+</html>
