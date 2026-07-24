@@ -2049,7 +2049,7 @@
       <div class="architect-chat-title">
         <div class="robot-avatar">🤖</div>
         <div>
-          <h3>Ask the Architect</h3>
+          <h3>Ask the Consultant</h3>
           <div class="architect-online">Online</div>
         </div>
       </div>
@@ -2065,13 +2065,15 @@
         <div class="architect-message bot">
           <p><strong>Hi, I'm Tatenda 👋</strong></p>
           <p>
-            Ask me how I approached this transformation—from understanding the business problem and prioritising AI opportunities to designing the solution, managing trade-offs, supporting adoption and defining measurable outcomes.
+            Ask me about any part of this case study—including the business problem, decision drivers, AI use cases, architecture, delivery roadmap, governance, implementation approach and expected outcomes.
           </p>
           <div class="architect-suggestions">
             <button class="architect-suggestion" onclick="quickAsk('What business problem does this solve?')">💼 Business Problem</button>
-            <button class="architect-suggestion" onclick="quickAsk('What AI opportunities did you identify?')">🤖 AI Opportunities</button>
-            <button class="architect-suggestion" onclick="quickAsk('What were the key solution decisions?')">🧭 Solution Decisions</button>
-            <button class="architect-suggestion" onclick="quickAsk('What outcomes should this achieve?')">📈 Expected Outcomes</button>
+            <button class="architect-suggestion" onclick="quickAsk('Why were these AI use cases prioritised?')">🤖 AI Priorities</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will the solution work end to end?')">🔄 How It Works</button>
+            <button class="architect-suggestion" onclick="quickAsk('What drove the key solution decisions?')">🧭 Decision Drivers</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will success be measured?')">📈 Success Measures</button>
+            <button class="architect-suggestion" onclick="quickAsk('What would be built first?')">🚀 Delivery Plan</button>
           </div>
         </div>
       </div>
@@ -2079,14 +2081,14 @@
 
     <div class="architect-chat-input">
       <div class="architect-input-row">
-        <input id="architectInput" type="text" placeholder="Type your question..." onkeydown="if(event.key === 'Enter'){sendArchitectMessage()}">
+        <input id="architectInput" type="text" placeholder="Ask about the case study..." onkeydown="if(event.key === 'Enter'){sendArchitectMessage()}">
         <button class="architect-send" onclick="sendArchitectMessage()" title="Send">➤</button>
       </div>
     </div>
   </div>
 
-  <button class="architect-launch-label" onclick="toggleArchitectChat()" title="Ask the Architect">Ask the Architect</button>
-  <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask the Architect">🤖</button>
+  <button class="architect-launch-label" onclick="toggleArchitectChat()" title="Ask the Consultant">Ask the Consultant</button>
+  <button class="architect-chat-launcher" onclick="toggleArchitectChat()" title="Ask the Consultant">🤖</button>
 
 
   <div class="modal-overlay" id="layerModal">
@@ -2128,117 +2130,159 @@
 
     const architectAnswers = [
       {
-        keywords: ["ai opportunity", "use case", "which ai", "comes first", "priority"],
-        answer: "The first priority is a knowledge and incident investigation assistant because it addresses a clear operational bottleneck: time lost searching runbooks, previous incidents and technical documentation. It offers high business value, manageable delivery risk and a practical way to demonstrate responsible AI adoption. Automated operational reporting is the next use case.",
-        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]]
+        keywords: ["business problem", "what problem", "why project", "solve", "current challenge", "pain point"],
+        answer: "Apex Operational Systems has recurring operational instability, slow incident investigation, fragmented knowledge, manual recovery and limited proactive visibility. These issues affect fulfilment continuity, customer delivery and support workload. The programme therefore starts with workflow and business impact rather than technology, then uses AI, automation and cloud only where they improve measurable outcomes.",
+        related: [["Current State", "current-state.html"], ["Case Study", "case-study.html"]]
       },
-
       {
-        keywords: ["efficiency", "business value", "outcome", "benefit", "save time"],
-        answer: "The expected outcomes are faster knowledge retrieval, more consistent incident investigation, reduced reporting effort and better retention of operational knowledge. Success would be measured through investigation time, time saved on recurring work, response consistency, user adoption and the quality of human-reviewed outputs.",
-        related: [["Business Problem", "#"], ["AI Operations", "phase-4-intelligent-operations.html"]]
+        keywords: ["why these ai", "ai priorit", "use cases priorit", "opportunity assessment", "which ai", "comes first"],
+        answer: "The use cases were prioritised using business value, feasibility, risk, data readiness and the need for human oversight. The Knowledge Assistant comes first because trusted documentation already exists, the workflow is easy to test, and the benefit—less time searching for information—is measurable. Incident Investigation and Operational Reporting follow because they reuse the same knowledge and data foundation.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]]
       },
-
       {
-        keywords: ["responsible ai", "governance", "human approval", "hallucination", "guardrail"],
-        answer: "AI outputs are treated as recommendations, not automatic authority. The design uses trusted source material, access controls, source references, human validation and a clear boundary between low-risk automation and decisions that require an engineer or business owner.",
-        related: [["ADR-005", "architecture-decision-records.html"], ["Security", "target-architecture.html"]]
+        keywords: ["knowledge assistant", "how does rag", "rag", "retrieval augmented", "bedrock knowledge", "how assistant works"],
+        answer: "Trusted runbooks, known issues, architecture documents and approved incident records are stored in a governed knowledge repository. The content is indexed for semantic retrieval. When a user asks a question, the solution retrieves the most relevant approved material and provides it to the language model as context. The response includes source references and remains a recommendation that must be validated by a human.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Decision Records", "architecture-decision-records.html"]]
       },
-
       {
-        keywords: ["business", "problem", "solve", "why project"],
-        answer: "This case study addresses recurring operational instability, fragmented knowledge and slow manual investigation across a legacy fulfilment platform. The transformation is designed to improve resilience, reduce time spent searching for information, standardise investigation workflows and introduce governed AI assistance without removing human accountability.",
-        related: [["Current State", "current-state.html"], ["Target Architecture", "target-architecture.html"]]
+        keywords: ["incident investigation", "investigation assistant", "root cause", "rca", "mttr", "incident response"],
+        answer: "The Incident Investigation Assistant would combine alerts, recent changes, similar historic incidents, runbooks and relevant logs into a structured investigation summary. It can suggest checks and draft an RCA, but it does not restart services or make production decisions autonomously. The engineer remains accountable for validation and action.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Observability", "target-architecture.html"]]
       },
-
       {
-        keywords: ["aws", "aws-first", "cloud first", "why aws"],
-        answer: "AWS-first was selected because managed services reduce operational overhead, improve scalability and provide stronger resilience patterns than the current manually managed environment. The design uses AWS services for networking, compute, data, observability, security, backup and AI operations while recognising trade-offs such as cost control, skills development and provider dependency.",
-        related: [["ADR-001", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
+        keywords: ["operational reporting", "automated reporting", "weekly report", "management report"],
+        answer: "Operational Reporting uses structured incident and service data to produce weekly summaries, recurring issue themes, trend explanations and management-ready recommendations. A named owner reviews the output before distribution. This removes repetitive compilation work while preserving accountability for interpretation and communication.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"]]
       },
-
       {
-        keywords: ["fargate", "ecs", "ec2", "container"],
-        answer: "ECS Fargate removes the need to manage EC2 servers while providing container orchestration, automatic scaling and simplified deployments. For this project, reducing operational overhead was more important than having OS-level control. The trade-off is less host-level customisation and some refactoring effort.",
-        related: [["ADR-003", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"], ["Modernisation", "phase-3-modernise.html"]]
+        keywords: ["end to end", "how will it work", "how solution works", "workflow", "data flow"],
+        answer: "End to end, an operational event or user question enters the workflow; relevant approved knowledge and operational context are retrieved; the AI produces a grounded summary or recommendation; a human reviews it; and only approved low-risk follow-up actions—such as creating a task, sending a notification or preparing a report—are automated. Feedback and outcome data are then captured to improve the service.",
+        related: [["Target Architecture", "target-architecture.html"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
       },
-
       {
-        keywords: ["resilience", "availability", "multi-az", "failover", "dr", "disaster"],
-        answer: "The target design improves resilience by distributing services across Availability Zones, placing workloads in private subnets, using RDS Multi-AZ, introducing backup governance and separating reporting from core transactional workloads. This reduces single points of failure and lowers dependency on manual recovery.",
-        related: [["ADR-004", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
-      },
-
-      {
-        keywords: ["observability", "monitoring", "logs", "cloudwatch", "opensearch"],
-        answer: "Observability reduces support effort by giving engineers earlier detection, searchable evidence and standardised recovery paths. CloudWatch, OpenSearch, SNS and Systems Manager help move the support model away from manual log hunting and reactive troubleshooting.",
-        related: [["ADR-002", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
-      },
-
-      {
-        keywords: ["ai", "aiops", "operations", "rag", "bedrock", "knowledge", "assistant", "rca"],
-        answer: "The AI Operations platform retrieves trusted context from logs, historic tickets, runbooks, architecture documentation, release notes, hot fixes and RCA outputs. Amazon Bedrock and a knowledge base pattern are used to suggest investigation steps, explain system behaviour, identify similar incidents and assist with RCA drafting. Engineers remain responsible for validating recommendations before taking operational action.",
-        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["ADR-005", "architecture-decision-records.html"]]
-      },
-
-      {
-        keywords: ["trade", "trade-off", "tradeoff", "risk"],
-        answer: "The main trade-offs were managed services versus control, resilience versus cost, implementation complexity versus long-term maintainability and AI assistance versus governance risk. The recommended approach accepts some additional cost and learning effort in exchange for stronger resilience, faster decision support and a more scalable operating model.",
-        related: [["Decision Records", "architecture-decision-records.html"]]
-      },
-
-      {
-        keywords: ["architecture decisions", "key architecture", "design decisions", "why this architecture"],
-        answer: "The key decisions were to start with a governed knowledge assistant, use managed services to reduce operational overhead, design for resilience and visibility, and retain human validation for operational decisions. AWS, ECS Fargate and Bedrock are implementation choices supporting those wider business and operating-model decisions.",
+        keywords: ["decision driver", "what drove", "key decision", "solution decisions", "architecture decisions", "why this design"],
+        answer: "The main decision drivers were operational resilience, faster knowledge access, lower support effort, security, explainability, implementation complexity, cost and adoption risk. Technology choices were made only after these drivers were understood. Managed services were favoured where they reduce operational burden, and human validation was retained where an incorrect action could affect fulfilment operations.",
         related: [["Decision Records", "architecture-decision-records.html"], ["Target Architecture", "target-architecture.html"]]
       },
-
       {
-        keywords: ["mttr", "resolution", "incident response", "root cause"],
-        answer: "MTTR is reduced by detecting issues earlier, centralising logs, surfacing similar incidents, recommending runbooks and helping engineers understand recent releases or hot fixes. The AI-assisted workflow also improves RCA quality, strengthening future investigations.",
-        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Target Architecture", "target-architecture.html"]]
+        keywords: ["why aws", "aws first", "cloud choice", "why cloud"],
+        answer: "AWS was selected as the implementation platform because it provides managed capabilities for networking, compute, data, observability, security, backup and generative AI. The decision supports resilience and faster delivery while reducing server-management effort. The trade-offs are cloud cost, skills requirements and provider dependency, which are addressed through governance, tagging, architecture records and portable application patterns where practical.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
       },
-
       {
-        keywords: ["services", "aws services", "tools", "what aws"],
-        answer: "The target architecture uses Route 53, VPC, Internet Gateway, NAT Gateway, public and private subnets, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, AWS Backup, CloudWatch, OpenSearch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config, S3 and Amazon Bedrock.",
-        related: [["Target Architecture", "target-architecture.html"], ["AWS Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+        keywords: ["why fargate", "ecs", "fargate", "why not kubernetes", "eks", "container"],
+        answer: "ECS Fargate was chosen before Kubernetes because the immediate requirement is reliable container hosting without cluster administration. It supports scaling, health checks and controlled deployments while keeping the operating model simpler. Kubernetes remains an option only if future workloads genuinely require its portability or ecosystem; adding it now would increase complexity without clear business value.",
+        related: [["Target Architecture", "target-architecture.html"], ["Modernisation", "phase-3-modernise.html"]]
       },
-
       {
-        keywords: ["build", "build progress", "implementation", "what have you built"],
-        answer: "The cloud foundation is complete, including the VPC, public and private subnets, routing, security groups and IAM foundations. The current priority is the AI Knowledge Assistant, followed by one end-to-end AI-assisted workflow. Supporting delivery practices such as Git, Docker, Terraform and CI/CD are introduced only where they strengthen the solution.",
-        related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+        keywords: ["resilience", "availability", "multi az", "failover", "disaster recovery", "dr", "backup"],
+        answer: "Resilience is improved through multiple Availability Zones, private application and data subnets, load-balanced services, RDS Multi-AZ, governed backups and tested recovery procedures. Reporting is separated from core transactions where practical. The goal is not merely to add cloud services, but to reduce single points of failure and dependence on manual recovery.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
       },
-
       {
-        keywords: ["foundation", "network", "vpc", "nat gateway", "internet gateway", "route table"],
-        answer: "The AWS foundation establishes the landing zone for the platform. It includes a custom VPC, segmented public and private subnets across two Availability Zones, an Internet Gateway, NAT Gateway, route tables, security groups and IAM foundations. This provides secure networking and a scalable base for the application platform.",
-        related: [["Foundation Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure"]]
+        keywords: ["observability", "monitoring", "logs", "cloudwatch", "opensearch", "alerting"],
+        answer: "Observability is treated as a core capability rather than an add-on. CloudWatch provides metrics, logs, alarms and dashboards; OpenSearch supports searchable operational evidence; SNS distributes alerts; and Systems Manager supports controlled runbooks. Together these capabilities enable earlier detection, faster investigation and measurable service improvement.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
       },
-
       {
-        keywords: ["application platform", "ecs build", "alb", "load balancer", "current stage"],
-        answer: "The current implementation stage focuses on replacing the legacy application servers with containerised ECS Fargate services behind an Application Load Balancer. This stage introduces container orchestration, service discovery, health checks and auto scaling.",
-        related: [["Application Platform", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/02-application-platform"]]
+        keywords: ["security", "iam", "secrets", "kms", "least privilege", "access control"],
+        answer: "Security is designed around least privilege, private networking, encrypted data, centralised secrets, audit trails and controlled access to knowledge sources. IAM governs who can use each capability; KMS protects data at rest; Secrets Manager keeps credentials out of code; and CloudTrail and Config support auditability. AI access is also restricted so users retrieve only content they are authorised to see.",
+        related: [["Target Architecture", "target-architecture.html"]]
       },
-
       {
-        keywords: ["terraform", "iac", "infrastructure as code"],
-        answer: "The AWS environment is intended to be deployed using Infrastructure as Code so that it is repeatable, version controlled and suitable for future CI/CD automation. This improves consistency, reviewability and change management.",
-        related: [["AWS Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+        keywords: ["responsible ai", "governance", "hallucination", "guardrail", "human oversight", "human approval"],
+        answer: "Responsible AI controls include approved source material, source citations, role-based access, prompt and output logging, quality testing, human review, feedback capture and clear escalation routes. The AI is positioned as decision support—not authority. High-impact operational actions remain human-controlled, while only low-risk administrative tasks are candidates for automation.",
+        related: [["AI Operations", "phase-4-intelligent-operations.html"], ["Decision Records", "architecture-decision-records.html"]]
       },
-
       {
-        keywords: ["completed", "finished"],
-        answer: "The completed work includes the business assessment, current-state analysis, AI opportunity assessment, target architecture, architecture decision records and the AWS cloud foundation. The next priority is the AI Knowledge Assistant prototype.",
-        related: [["AWS Build Progress", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+        keywords: ["data", "database", "rds", "sql server", "reporting replica", "data platform"],
+        answer: "The data design uses RDS for SQL Server Multi-AZ for resilient transactional data, with reporting separated where practical to protect operational performance. Backup policies, restore testing, encryption and access controls are included. The AI layer does not receive unrestricted database access; it consumes approved, minimised context through controlled integrations.",
+        related: [["Target Architecture", "target-architecture.html"], ["Data Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging"]]
       },
-
       {
-        keywords: ["next", "future", "roadmap", "what's next"],
-        answer: "The next steps are to complete the AI Knowledge Assistant, demonstrate one end-to-end AI-assisted workflow, then add the supporting data, observability and security capabilities needed for reliable adoption.",
-        related: [["Roadmap", "phase-4-intelligent-operations.html"]]
+        keywords: ["messaging", "rabbitmq", "amazon mq", "queue", "event driven", "integration"],
+        answer: "Messaging is modernised carefully because fulfilment workflows depend on reliable asynchronous communication. Amazon MQ provides a lower-risk path for RabbitMQ-compatible workloads, while dead-letter handling, queue-depth monitoring and retry policies improve resilience. Event-driven automation is introduced only for well-defined, low-risk workflow steps.",
+        related: [["Target Architecture", "target-architecture.html"], ["Data Build", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging"]]
+      },
+      {
+        keywords: ["roadmap", "delivery phases", "implementation plan", "what first", "build first", "next step"],
+        answer: "The roadmap has four stages: Discover and Prioritise; Design and Prototype; Integrate and Automate; then Adopt, Measure and Improve. The first practical build is the Knowledge Assistant because it proves value with controlled risk. Once the prototype meets quality and adoption criteria, supporting integrations, observability and selected automation are added incrementally.",
+        related: [["Phase 2", "phase-2-migrate.html"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["prototype", "pilot", "proof of concept", "mvp", "minimum viable"],
+        answer: "The prototype should use a limited set of approved documents, a small user group and clearly defined questions. It should demonstrate retrieval quality, citations, response usefulness, access control and feedback capture. A pilot then tests the workflow with real users and agreed success thresholds before any broader rollout.",
+        related: [["Phase 2", "phase-2-migrate.html"]]
+      },
+      {
+        keywords: ["testing", "validate", "quality", "accuracy", "evaluation"],
+        answer: "Testing covers retrieval relevance, answer groundedness, citation accuracy, security boundaries, latency, failure handling and user usefulness. A representative question set is scored before release, and poor or uncertain answers must fail safely. Architecture testing also includes health checks, backup restoration, failover and rollback validation.",
+        related: [["Phase 2", "phase-2-migrate.html"], ["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["success", "measure", "kpi", "metric", "business outcome", "benefit"],
+        answer: "Success is measured through time spent finding information, incident investigation time, reporting effort, response consistency, adoption, user satisfaction, citation accuracy and the proportion of outputs accepted after human review. Platform measures include availability, alert quality, recovery performance and cost. Baselines are captured before the pilot so improvement can be demonstrated credibly.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"], ["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["cost", "finops", "budget", "expensive", "cost control"],
+        answer: "Cost is controlled through phased delivery, usage limits, right-sized managed services, tagging, budgets, retention policies and cost-per-use-case tracking. The programme avoids building every capability at once. A use case progresses only when its expected value, adoption and operating cost justify the next investment.",
+        related: [["Target Architecture", "target-architecture.html"]]
+      },
+      {
+        keywords: ["adoption", "change management", "training", "users", "stakeholder"],
+        answer: "Adoption is designed into the programme through stakeholder discovery, workflow co-design, a small pilot group, role-based training, clear ownership and visible feedback channels. The solution must fit existing work rather than create another disconnected tool. Adoption and usefulness are measured alongside technical performance.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"], ["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["stakeholders", "who involved", "roles", "ownership", "raci"],
+        answer: "Key stakeholders include operations, support engineering, development, testing, security, data owners, service management and business leadership. Business owners define outcomes and risk tolerance; technical teams validate feasibility and integration; security and data owners approve controls; and end users shape the workflow through testing and feedback.",
+        related: [["Case Study", "case-study.html"]]
+      },
+      {
+        keywords: ["risk", "trade off", "trade-off", "limitation", "challenge"],
+        answer: "The main risks are poor source quality, incorrect AI responses, unauthorised information exposure, low adoption, integration complexity, cloud cost and excessive automation. The design mitigates these with controlled sources, access boundaries, human validation, phased rollout, measurable gates and a clear rule that high-impact operational actions remain human-owned.",
+        related: [["Decision Records", "architecture-decision-records.html"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["what have you built", "build progress", "completed", "implementation status", "finished"],
+        answer: "Completed work includes business discovery, the current-state assessment, prioritised AI opportunities, target architecture, solution decisions and the AWS foundation. The priority build is the Knowledge Assistant and one end-to-end human-reviewed workflow. Data, observability, security and delivery automation are expanded only as needed to support that working use case.",
+        related: [["Build Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
+      },
+      {
+        keywords: ["how technical", "technical depth", "what will you build", "build scope", "production ready"],
+        answer: "The portfolio is deliberately deepest around one end-to-end AI workflow. It demonstrates ingestion, retrieval, grounded generation, citations, access control, logging, testing and human review. Supporting cloud, Docker, Terraform and CI/CD evidence is built to demonstration level. Full enterprise migration, organisation-wide governance and complex Kubernetes operations remain designed rather than falsely presented as fully implemented.",
+        related: [["Build Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"], ["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["terraform", "infrastructure as code", "iac", "git", "ci cd", "pipeline", "docker"],
+        answer: "Git, Docker, Terraform and CI/CD are enabling practices rather than the centre of the case study. Git provides traceability, Docker packages the prototype consistently, Terraform demonstrates repeatable infrastructure, and a simple pipeline validates and promotes changes. Their purpose is to reduce delivery risk and support controlled iteration.",
+        related: [["Modernisation", "phase-3-modernise.html"], ["Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation"]]
+      },
+      {
+        keywords: ["migration", "move from on prem", "modernisation", "cutover", "legacy"],
+        answer: "The migration would be incremental rather than a big-bang replacement. Dependencies are assessed first, low-risk services are containerised, data and messaging changes are introduced with compatibility and rollback plans, and workloads run through controlled validation before cutover. Operational technology integrations remain protected through secure hybrid connectivity where required.",
+        related: [["Current State", "current-state.html"], ["Modernisation", "phase-3-modernise.html"]]
+      },
+      {
+        keywords: ["support model", "operate", "who supports", "run model", "service ownership"],
+        answer: "The target operating model assigns clear product, technical and data ownership. Support teams receive dashboards, runbooks and escalation paths; knowledge content has named reviewers; AI quality and access are monitored; and incidents feed an improvement backlog. The aim is a maintainable service, not a prototype abandoned after demonstration.",
+        related: [["AI Workflow", "phase-4-intelligent-operations.html"]]
+      },
+      {
+        keywords: ["why not chatgpt", "why not generic ai", "why bedrock", "enterprise ai"],
+        answer: "A generic public chatbot would not provide the required access controls, trusted enterprise context, source governance, auditability or workflow integration. This design uses a governed retrieval pattern so responses are grounded in approved organisational knowledge and can be monitored, tested and integrated into operational processes.",
+        related: [["Target Architecture", "target-architecture.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["consulting approach", "how did you approach", "method", "your role", "what did you do"],
+        answer: "My approach is to understand the workflow and measurable problem first, assess where AI or automation creates genuine value, design the minimum secure solution needed, prototype it with users, and measure outcomes before scaling. I connect business needs to technical decisions and explain alternatives, risks and trade-offs to both technical and non-technical stakeholders.",
+        related: [["Case Study", "case-study.html"], ["Decision Records", "architecture-decision-records.html"]]
+      },
+      {
+        keywords: ["aws services", "which services", "technology stack", "tools used"],
+        answer: "The proposed stack includes VPC networking, Application Load Balancer, ECS Fargate, RDS for SQL Server Multi-AZ, Amazon MQ, S3, Amazon Bedrock, OpenSearch, CloudWatch, SNS, Systems Manager, Secrets Manager, KMS, CloudTrail, GuardDuty, Security Hub, AWS Config and AWS Backup. Each service supports a defined requirement; the portfolio does not present service count as value on its own.",
+        related: [["Target Architecture", "target-architecture.html"], ["Build Repository", "https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build"]]
       }
     ];
 
@@ -2252,13 +2296,15 @@
         <div class="architect-message bot">
           <p><strong>Hi, I'm Tatenda 👋</strong></p>
           <p>
-            Ask me how I approached this transformation—from understanding the business problem and prioritising AI opportunities to designing the solution, managing trade-offs, supporting adoption and defining measurable outcomes.
+            Ask me about any part of this case study—including the business problem, decision drivers, AI use cases, architecture, delivery roadmap, governance, implementation approach and expected outcomes.
           </p>
           <div class="architect-suggestions">
             <button class="architect-suggestion" onclick="quickAsk('What business problem does this solve?')">💼 Business Problem</button>
-            <button class="architect-suggestion" onclick="quickAsk('What AI opportunities did you identify?')">🤖 AI Opportunities</button>
-            <button class="architect-suggestion" onclick="quickAsk('What were the key solution decisions?')">🧭 Solution Decisions</button>
-            <button class="architect-suggestion" onclick="quickAsk('What outcomes should this achieve?')">📈 Expected Outcomes</button>
+            <button class="architect-suggestion" onclick="quickAsk('Why were these AI use cases prioritised?')">🤖 AI Priorities</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will the solution work end to end?')">🔄 How It Works</button>
+            <button class="architect-suggestion" onclick="quickAsk('What drove the key solution decisions?')">🧭 Decision Drivers</button>
+            <button class="architect-suggestion" onclick="quickAsk('How will success be measured?')">📈 Success Measures</button>
+            <button class="architect-suggestion" onclick="quickAsk('What would be built first?')">🚀 Delivery Plan</button>
           </div>
         </div>
       </div>`;
@@ -2270,12 +2316,22 @@
     }
 
     function findArchitectAnswer(question) {
-      const lowerQuestion = question.toLowerCase();
+      const normalisedQuestion = question
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
       let bestMatch = null;
       let bestScore = 0;
 
       architectAnswers.forEach(item => {
-        const score = item.keywords.reduce((total, keyword) => total + (lowerQuestion.includes(keyword.toLowerCase()) ? 1 : 0), 0);
+        const score = item.keywords.reduce((total, keyword) => {
+          const normalisedKeyword = keyword.toLowerCase();
+          if (!normalisedQuestion.includes(normalisedKeyword)) return total;
+          return total + Math.max(1, normalisedKeyword.split(" ").length * 2);
+        }, 0);
+
         if (score > bestScore) {
           bestScore = score;
           bestMatch = item;
@@ -2283,9 +2339,19 @@
       });
 
       return bestMatch || {
-        answer: "I can answer questions about the business problem, AI opportunities, workflow design, solution decisions, responsible AI, delivery priorities, adoption, expected outcomes and trade-offs. Try asking: “How does the AI Operations platform work?”",
-        related: [["Business Problem", "#"], ["AI Operations", "phase-4-intelligent-operations.html"]]
+        answer: "I can explain the business problem, AI opportunity assessment, current and target architecture, decision drivers, implementation roadmap, responsible AI controls, data and integration design, security, costs, adoption, testing and expected outcomes. Try asking a focused question such as: ‘How will the solution work end to end?’ or ‘Why was ECS Fargate chosen?’",
+        related: [["Explore the Case Study", "case-study.html"], ["Target Architecture", "target-architecture.html"]]
       };
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>'"]/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;"
+      })[character]);
     }
 
     function appendArchitectMessage(type, content, related = []) {
@@ -2312,7 +2378,7 @@
       const question = input.value.trim();
       if (!question) return;
 
-      appendArchitectMessage("user", `<p>${question}</p>`);
+      appendArchitectMessage("user", `<p>${escapeHtml(question)}</p>`);
       input.value = "";
 
       const response = findArchitectAnswer(question);
