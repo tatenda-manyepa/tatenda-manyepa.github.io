@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Tatenda Manyepa | Enterprise AI Transformation Consulting Case Study</title>
+  <title>Tatenda Manyepa | Enterprise AI Transformation Portfolio</title>
 
   <style>
     * {
@@ -300,6 +300,22 @@
       color: #b7c8ff;
     }
 
+
+    .portfolio-note {max-width:880px;margin:24px auto 0;padding:14px 18px;border-radius:12px;background:#111820;border:1px solid #2e3947;color:#cfd8e6;font-size:15px;line-height:1.6;}
+    .portfolio-note strong{color:#8ecbff;}
+    .delivery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:30px;}
+    .delivery-card{min-height:100%;display:flex;flex-direction:column;gap:14px;}
+    .delivery-card p{margin:0;}
+    .delivery-detail{background:#111820;border:1px solid #2e3947;border-radius:10px;padding:14px 16px;color:#d6d6d6;font-size:15px;line-height:1.55;}
+    .delivery-detail strong{color:#8ecbff;}
+    .delivery-card .button{margin-top:auto;width:fit-content;}
+    .professional-project-card{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;}
+    .project-module-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;margin:18px 0 0;padding:0;list-style:none;}
+    .project-module-list li{color:#d6d6d6;font-size:15px;}
+    .project-module-list li::before{content:"→ ";color:#4ea1ff;font-weight:bold;}
+    .project-summary-box{background:#111820;border:1px solid #2e3947;border-radius:14px;padding:20px;}
+    .project-summary-box h4{margin:0 0 10px;color:#8ecbff;font-size:18px;}
+    .project-summary-box p{margin:0;color:#d6d6d6;font-size:15px;}
     .modal-overlay {
       display: none;
       position: fixed;
@@ -1222,7 +1238,10 @@
 
       .grid,
       .two-grid,
-      .flip-grid {
+      .flip-grid,
+      .delivery-grid,
+      .professional-project-card,
+      .project-module-list {
         grid-template-columns: 1fr;
       }
 
@@ -1338,11 +1357,15 @@
 
   <section class="hero">
     <h1>Tatenda Manyepa</h1>
-    <h2>Enterprise AI Transformation<br>Consulting Case Study</h2>
+    <h2>Enterprise AI Transformation<br>Portfolio</h2>
 
     <p>
-      A consulting-led case study showing how an operational problem can be assessed, prioritised and improved through AI-assisted workflows, intelligent automation and a secure, scalable technology solution.
+      A professional portfolio demonstrating enterprise AI transformation, solution architecture, practical implementation and continuous professional development through consulting artefacts and hands-on architecture projects.
     </p>
+
+    <div class="portfolio-note">
+      <strong>Portfolio approach:</strong> Rather than presenting isolated technical exercises, this portfolio shows how business challenges progress through discovery, architecture, prototype delivery and measurable outcomes. Professional projects provide additional evidence of the structured methods applied throughout the flagship engagement.
+    </div>
 
     <div class="buttons">
 
@@ -1363,7 +1386,7 @@
 </div>
     <div class="buttons" style="margin-top:20px;">
       <a href="case-study.html" class="button">🏗️ Explore Case Study</a>
-      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button" target="_blank" rel="noopener noreferrer">💻 GitHub Repository</a>
+      <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" class="button" target="_blank" rel="noopener noreferrer">💻 View Implementation Evidence</a>
       <a href="https://linkedin.com/in/tatenda-manyepa" class="button" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
     </div>
   </section>
@@ -1659,387 +1682,133 @@
     </a>
   </section>
 
-  <section class="section">
-    <h2>5. Delivery Roadmap</h2>
-
+  <section class="section" id="delivery-roadmap">
+    <h2>5. Delivery Roadmap &amp; Prototype Evidence</h2>
     <p class="section-intro">
-      The project is delivered as a phased enterprise transformation roadmap. Each phase links to a detailed page
-      containing documentation, diagrams, risks, decisions, and delivery outputs.
+      Delivery is organised around the main workstreams in the target-state architecture. Each workstream connects the proposed design to focused build evidence, an architecture decision and the employable capability it demonstrates.
     </p>
 
-    <div class="two-grid">
-      <div class="card">
-        <div class="status completed">✅ Completed</div>
-        <h3>Phase 1: Discover &amp; Prioritise</h3>
-        <p>Business discovery, workflow mapping, current-state assessment, operational pain points, stakeholder needs and prioritised AI opportunities.</p>
-        <a href="current-state.html" class="button">Explore Phase →</a>
-      </div>
-
-      <div class="card">
-        <div class="status progress">🔄 In Progress</div>
-        <h3>Phase 2: Design &amp; Prototype</h3>
-        <p>Target solution design, knowledge assistant prototype, user testing, human validation and measurable success criteria.</p>
-        <a href="phase-2-migrate.html" class="button">Explore Phase →</a>
-      </div>
-
-      <div class="card">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Phase 3: Integrate &amp; Automate</h3>
-        <p>Integrations, controlled automation and supporting engineering practices introduced only where they improve reliability, repeatability or delivery risk.</p>
-        <a href="phase-3-modernise.html" class="button">Explore Phase →</a>
-      </div>
-
-      <div class="card">
-        <div class="status planned">⏳ Planned</div>
-        <h3>Phase 4: Adopt, Measure &amp; Improve</h3>
-        <p>User adoption, KPI tracking, responsible AI controls, workflow optimisation and expansion of proven use cases.</p>
-        <a href="phase-4-intelligent-operations.html" class="button">Explore Phase →</a>
-      </div>
+    <div class="business-value" style="margin-bottom:24px;">
+      <strong>Discovery completed:</strong> The business problem, stakeholders, current-state risks, priority AI use cases and measurable outcomes were defined before delivery planning began.
     </div>
-  </section>
 
-  <section class="section">
-    <h2>6. Solution Delivery</h2>
+    <div class="delivery-grid">
+      <div class="card delivery-card">
+        <div class="status progress">🔄 In Progress</div>
+        <h3>1. Platform Foundation &amp; Resilience</h3>
+        <p>Establish the secure AWS foundation required for resilient application hosting, managed data and controlled access across the target environment.</p>
+        <div class="delivery-detail"><strong>Prototype evidence:</strong> VPC and subnet design, ECS Fargate service, RDS pattern, IAM controls, Multi-AZ design and repeatable Terraform deployment.</div>
+        <div class="delivery-detail"><strong>Architecture decision:</strong> AWS managed services and Multi-AZ patterns reduce operational overhead and single points of failure, while ECS Fargate avoids unnecessary Kubernetes complexity.</div>
+        <div class="delivery-detail"><strong>Demonstrates:</strong> Solution architecture, cloud platform design, resilience, security and Infrastructure as Code.</div>
+        <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure" class="button" target="_blank" rel="noopener noreferrer">View Platform Evidence →</a>
+      </div>
 
-    <p class="section-intro">
-      Delivery is organised into five practical pillars. The technical build provides evidence that the solution is feasible,
-      while the case study remains focused on workflow improvement, adoption, governance and measurable value.
-    </p>
-
-    <div class="grid portfolio-grid">
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/01-foundation-infrastructure" target="_blank" rel="noopener noreferrer">
-        <div class="status completed">✅ Completed</div>
-        <h3>Technology Platform</h3>
-        <p>A secure AWS foundation supporting resilient application hosting, controlled connectivity and future AI-enabled services.</p>
-        <div class="business-value"><strong>Business Value:</strong> Provides a dependable foundation without making cloud infrastructure the main purpose of the project.</div>
-        <span>View Build Evidence →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/06-ai-operations" target="_blank" rel="noopener noreferrer">
+      <div class="card delivery-card">
         <div class="status progress">🔄 Priority Build</div>
-        <h3>AI Knowledge Assistant</h3>
-        <p>A retrieval-augmented assistant using trusted operational content to support faster knowledge retrieval and guided investigation.</p>
-        <div class="business-value"><strong>Business Value:</strong> Reduces knowledge-search time and improves consistency while retaining human accountability.</div>
-        <span>View AI Build Area →</span>
-      </a>
+        <h3>2. AI Knowledge Assistant</h3>
+        <p>Build the primary employability prototype: a retrieval-augmented assistant that answers operational questions using approved enterprise knowledge and source references.</p>
+        <div class="delivery-detail"><strong>Prototype evidence:</strong> Governed documents, ingestion, semantic retrieval, grounded responses, citations, a simple interface, feedback capture and human validation.</div>
+        <div class="delivery-detail"><strong>Architecture decision:</strong> AI is used as decision support rather than operational authority because accuracy, explainability and safe adoption matter more than full automation.</div>
+        <div class="delivery-detail"><strong>Demonstrates:</strong> Enterprise AI, RAG, responsible AI, workflow design, prototyping and user-focused delivery.</div>
+        <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/06-ai-operations" class="button" target="_blank" rel="noopener noreferrer">View AI Prototype →</a>
+      </div>
 
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" target="_blank" rel="noopener noreferrer">
-        <div class="status progress">🔄 In Progress</div>
-        <h3>Engineering &amp; Data Enablement</h3>
-        <p>Version control, containerisation, repeatable infrastructure, controlled releases, operational data and resilient messaging used only where they support the solution.</p>
-        <div class="business-value"><strong>Business Value:</strong> Reduces delivery risk and makes the proposed solution more reliable, repeatable and supportable.</div>
-        <span>View Repository →</span>
-      </a>
-
-      <a class="card decision" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/04-observability" target="_blank" rel="noopener noreferrer">
+      <div class="card delivery-card">
         <div class="status planned">⏳ Planned</div>
-        <h3>Security, Visibility &amp; Governance</h3>
-        <p>Access control, auditability, monitoring, alerting, responsible AI controls and cost ownership designed into the operating model.</p>
-        <div class="business-value"><strong>Business Value:</strong> Supports safe adoption, earlier issue detection and accountable operation of the solution.</div>
-        <span>View Control Build Area →</span>
-      </a>
+        <h3>3. Application, Data &amp; Integration</h3>
+        <p>Connect the prototype to representative operational data and demonstrate how containerised services, managed messaging and controlled integrations support the target workflow.</p>
+        <div class="delivery-detail"><strong>Prototype evidence:</strong> Dockerised service, sample incident data, API integration, Amazon MQ or event pattern, database access controls and failure-handling examples.</div>
+        <div class="delivery-detail"><strong>Architecture decision:</strong> Integration is introduced incrementally, using managed and compatible services to reduce migration risk while supporting future event-driven workflows.</div>
+        <div class="delivery-detail"><strong>Demonstrates:</strong> Application architecture, data design, integration patterns, containerisation and pragmatic modernisation.</div>
+        <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/03-data-and-messaging" class="button" target="_blank" rel="noopener noreferrer">View Integration Evidence →</a>
+      </div>
 
-      <a class="card decision" href="phase-4-intelligent-operations.html">
-        <div class="status planned">⏳ Next</div>
-        <h3>End-to-End Business Workflow</h3>
-        <p>Demonstrates how operational context moves through an AI-assisted workflow to produce a human-reviewed recommendation, summary or low-risk action.</p>
-        <div class="business-value"><strong>Business Value:</strong> Proves how the design improves a real workflow rather than demonstrating technology in isolation.</div>
-        <span>View Workflow Plan →</span>
-      </a>
+      <div class="card delivery-card">
+        <div class="status planned">⏳ Planned</div>
+        <h3>4. Security, Observability &amp; Governance</h3>
+        <p>Make the solution diagnosable, auditable and safe to operate by adding monitoring, access controls, logging, alerts and responsible AI governance.</p>
+        <div class="delivery-detail"><strong>Prototype evidence:</strong> CloudWatch logs and alarms, SNS notification, secrets handling, IAM boundaries, audit evidence, AI quality checks and cost ownership.</div>
+        <div class="delivery-detail"><strong>Architecture decision:</strong> Observability and governance are built into the platform rather than added after deployment because operational trust is part of the solution.</div>
+        <div class="delivery-detail"><strong>Demonstrates:</strong> Security by design, operational visibility, governance, cost awareness and accountable AI adoption.</div>
+        <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/build/04-observability" class="button" target="_blank" rel="noopener noreferrer">View Control Evidence →</a>
+      </div>
+
+      <div class="card delivery-card">
+        <div class="status planned">⏳ Final Demonstration</div>
+        <h3>5. End-to-End Workflow Validation</h3>
+        <p>Demonstrate how a user question or operational event moves through retrieval, AI-assisted analysis, human review and a controlled recommendation or report.</p>
+        <div class="delivery-detail"><strong>Prototype evidence:</strong> End-to-end walkthrough, representative test questions, groundedness and citation checks, feedback, time-saving measures and an improvement backlog.</div>
+        <div class="delivery-detail"><strong>Architecture decision:</strong> Wider rollout follows only when the prototype is useful, secure, affordable and accepted by the people who will use it.</div>
+        <div class="delivery-detail"><strong>Demonstrates:</strong> Consulting communication, testing, business-value measurement, stakeholder adoption and delivery governance.</div>
+        <a href="phase-4-intelligent-operations.html" class="button">View Validation Plan →</a>
+      </div>
+    </div>
+
+    <div class="business-value" style="margin-top:24px;">
+      <strong>Prototype scope:</strong> The portfolio goes deepest on one working AI-assisted knowledge and incident-support workflow. Broader migration and enterprise-scale controls remain clearly presented as target-state design rather than overstated as fully implemented.
     </div>
   </section>
 
-
-  <section class="section" id="architecture-decisions">
-    <h2>7. Key Solution Decisions</h2>
-
+  <section class="section" id="professional-projects">
+    <h2>6. Professional Development &amp; Implementation</h2>
     <p class="section-intro">
-      Strong consulting requires clear decisions and honest trade-offs. The five records below explain the choices most relevant to the business problem,
-      the operating model and the first delivery stages.
+      Alongside the flagship case study, this section presents recognised professional learning together with the practical evidence used to apply it. Each entry links to concise completion or implementation evidence.
     </p>
 
-    <div class="adr-accordion">
+    <div class="card decision professional-project-card">
+      <div>
+        <div class="status progress">🔄 Certificate In Progress</div>
+        <h3>IBM Systems and Solutions Architect Professional Certificate</h3>
+        <p>
+          The certificate develops systems and solutions architecture skills across requirements gathering, stakeholder management, process modelling, enterprise architecture, cloud-native design, system and database design, testing and deployment strategy.
+        </p>
 
-      <div class="adr-item">
-        <button class="adr-header" onclick="toggleAdr(this)">
-          <div class="adr-header-content">
-            <h3>ADR-001: AWS-First Strategy</h3>
-            <p>Why AWS managed services were selected as the primary modernisation direction.</p>
-          </div>
-          <span class="adr-toggle">+</span>
-        </button>
-
-        <div class="adr-content">
-          <div class="adr-content-grid">
-            <div class="adr-block">
-              <h4>Business Challenge</h4>
-              <p>The current fulfilment platform relies on manually managed infrastructure, reactive recovery and significant maintenance overhead.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Options Considered</h4>
-              <ul>
-                <li>Remain on-premise</li>
-                <li>Hybrid cloud</li>
-                <li>AWS-first architecture</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-decision">
-              <h4>Decision</h4>
-              <p>Adopt an AWS-first architecture using managed services where practical, while maintaining secure integration with operational technology systems.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Benefits</h4>
-              <ul>
-                <li>Reduced operational overhead</li>
-                <li>Improved scalability and resilience</li>
-                <li>Better automation and observability</li>
-                <li>Faster recovery patterns</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-tradeoff">
-              <h4>Trade-Offs</h4>
-              <p>AWS reduces infrastructure ownership but introduces ongoing cloud operating costs, AWS skills requirements and some provider dependency. This is mitigated through governance, cost controls, containerisation and clear architecture decision records.</p>
-            </div>
-          </div>
+        <div class="project-summary-box" style="margin:20px 0;">
+          <h4>Capstone evidence</h4>
+          <p>
+            The Systems and Solutions Architect Capstone Project brings the certificate knowledge together in one end-to-end enterprise architecture engagement. The completed capstone will demonstrate how the course methods were applied across requirements, architecture, cloud setup, system design, testing and delivery planning.
+          </p>
         </div>
+
+        <ul class="project-module-list">
+          <li>Project initiation and requirements gathering</li>
+          <li>Project planning and process modelling</li>
+          <li>Enterprise architecture and cloud setup</li>
+          <li>System and database design</li>
+          <li>System testing and deployment strategies</li>
+          <li>Final submission and evaluation</li>
+        </ul>
+
+        <a href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation/tree/main/professional-projects/ibm-systems-solutions-architect-capstone" class="button" target="_blank" rel="noopener noreferrer" style="margin-top:22px;">View Capstone Documentation →</a>
       </div>
 
-      <div class="adr-item">
-        <button class="adr-header" onclick="toggleAdr(this)">
-          <div class="adr-header-content">
-            <h3>ADR-002: Observability by Design</h3>
-            <p>Why monitoring, logging and alerting are treated as core platform capabilities.</p>
-          </div>
-          <span class="adr-toggle">+</span>
-        </button>
-
-        <div class="adr-content">
-          <div class="adr-content-grid">
-            <div class="adr-block">
-              <h4>Business Challenge</h4>
-              <p>Operational issues are often detected after business impact has already occurred, with investigations spread across logs, databases and support knowledge.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Options Considered</h4>
-              <ul>
-                <li>Basic monitoring only</li>
-                <li>Third-party monitoring platform</li>
-                <li>AWS-native observability stack</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-decision">
-              <h4>Decision</h4>
-              <p>Embed observability into the target architecture using CloudWatch, OpenSearch, SNS alerts, dashboards and Systems Manager runbooks.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Benefits</h4>
-              <ul>
-                <li>Faster incident detection</li>
-                <li>Improved root cause analysis</li>
-                <li>Reduced MTTR</li>
-                <li>Centralised operational visibility</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-tradeoff">
-              <h4>Trade-Offs</h4>
-              <p>Centralised observability increases log volume, storage costs and alert management effort. To control this, the design requires retention policies, dashboard ownership, alert tuning and continuous operational review.</p>
-            </div>
-          </div>
-        </div>
+      <div class="project-summary-box">
+        <h4>Completion evidence</h4>
+        <p>The awarded certificate will be added here on completion. The GitHub capstone documentation will provide the supporting evidence through requirements, diagrams, architecture decisions, implementation planning, testing and final outcomes.</p>
       </div>
-
-      <div class="adr-item">
-        <button class="adr-header" onclick="toggleAdr(this)">
-          <div class="adr-header-content">
-            <h3>ADR-003: Containerisation with ECS Fargate</h3>
-            <p>Why ECS Fargate was selected to replace legacy APP-1 / APP-2 servers.</p>
-          </div>
-          <span class="adr-toggle">+</span>
-        </button>
-
-        <div class="adr-content">
-          <div class="adr-content-grid">
-            <div class="adr-block">
-              <h4>Business Challenge</h4>
-              <p>The current platform depends on traditional application servers that require patching, manual deployment, capacity planning and operational recovery.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Options Considered</h4>
-              <ul>
-                <li>Continue with traditional servers</li>
-                <li>Self-managed containers on EC2</li>
-                <li>ECS Fargate managed container platform</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-decision">
-              <h4>Decision</h4>
-              <p>Use ECS Fargate for containerised application services across multiple Availability Zones.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Benefits</h4>
-              <ul>
-                <li>No EC2 server management</li>
-                <li>Improved scaling and deployment consistency</li>
-                <li>Foundation for CI/CD and rollback</li>
-                <li>Reduced operational burden</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-tradeoff">
-              <h4>Trade-Offs</h4>
-              <p>Some legacy services may require refactoring before containerisation. Teams also need to learn container operations, task definitions, service scaling and deployment patterns. This is accepted because it reduces long-term server management risk.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="adr-item">
-        <button class="adr-header" onclick="toggleAdr(this)">
-          <div class="adr-header-content">
-            <h3>ADR-004: Multi-AZ Resilience</h3>
-            <p>Why the target architecture uses multiple Availability Zones instead of single-AZ hosting.</p>
-          </div>
-          <span class="adr-toggle">+</span>
-        </button>
-
-        <div class="adr-content">
-          <div class="adr-content-grid">
-            <div class="adr-block">
-              <h4>Business Challenge</h4>
-              <p>The current state contains single points of failure and relies heavily on manual failover and individual operational knowledge.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Options Considered</h4>
-              <ul>
-                <li>Single Availability Zone</li>
-                <li>Traditional active/passive server failover</li>
-                <li>Multi-AZ AWS architecture</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-decision">
-              <h4>Decision</h4>
-              <p>Deploy critical application, database and messaging components across multiple Availability Zones.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Benefits</h4>
-              <ul>
-                <li>Reduced single points of failure</li>
-                <li>Improved availability</li>
-                <li>Better business continuity</li>
-                <li>Reduced manual recovery dependency</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-tradeoff">
-              <h4>Trade-Offs</h4>
-              <p>Multi-AZ design increases cost and requires resilience testing. Applications must be designed and validated for failover scenarios. This cost is justified because fulfilment downtime has direct operational and customer impact.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="adr-item">
-        <button class="adr-header" onclick="toggleAdr(this)">
-          <div class="adr-header-content">
-            <h3>ADR-005: AI-Assisted Operations</h3>
-            <p>Why AI is used to support investigations, knowledge retrieval and operational consistency.</p>
-          </div>
-          <span class="adr-toggle">+</span>
-        </button>
-
-        <div class="adr-content">
-          <div class="adr-content-grid">
-            <div class="adr-block">
-              <h4>Business Challenge</h4>
-              <p>Support engineers spend significant time searching tickets, runbooks, documentation and logs during incidents. Knowledge is often siloed with experienced engineers.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Options Considered</h4>
-              <ul>
-                <li>Traditional documentation only</li>
-                <li>Centralised knowledge search</li>
-                <li>AI-assisted operations assistant</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-decision">
-              <h4>Decision</h4>
-              <p>Use an AI-Assisted Operations layer with S3 Knowledge Store, Bedrock Knowledge Base, OpenSearch Vector Index and an AI-Assisted Operations Assistant.</p>
-            </div>
-
-            <div class="adr-block">
-              <h4>Benefits</h4>
-              <ul>
-                <li>Faster troubleshooting</li>
-                <li>Improved knowledge retention</li>
-                <li>Consistent investigation guidance</li>
-                <li>Reduced dependency on individual experts</li>
-              </ul>
-            </div>
-
-            <div class="adr-block adr-tradeoff">
-              <h4>Trade-Offs</h4>
-              <p>AI guidance depends on the quality of the knowledge base and must be validated by engineers before operational action. The platform also requires governance, review cycles and maintenance of source documentation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="business-value" style="margin-top:24px;">
-        <strong>Supporting decisions:</strong> Infrastructure as Code, Git-based delivery, CI/CD, secrets management and the ECS-versus-Kubernetes evaluation remain documented in the repository. The homepage highlights only the five decisions most useful for a consulting interview.
-      </div>
-
     </div>
-  </section>
 
+    <div class="card solution professional-project-card" style="margin-top:24px;">
+      <div>
+        <div class="status completed">✅ Course Completed</div>
+        <h3>AWS Cloud Solutions Architect Professional Certificate</h3>
+        <p>
+          Completed the four-course AWS professional certificate on Coursera, covering cloud architecture, core AWS services, security, monitoring, data solutions and the design of scalable, reliable and cost-aware workloads.
+        </p>
 
-  <section class="section" id="skills-demonstrated">
-    <h2>8. Capabilities Demonstrated</h2>
+        <div class="project-summary-box" style="margin:20px 0;">
+          <h4>Completion evidence</h4>
+          <p>
+            The course certificate confirms completion of structured AWS solutions architecture training. The knowledge gained is demonstrated throughout this portfolio through the target architecture, implementation decisions and prototype evidence.
+          </p>
+        </div>
 
-    <p class="section-intro">
-      The case study is designed for AI transformation, technology consulting, solutions consulting and associate solution architecture roles.
-      It demonstrates five capabilities that can be explained clearly in an interview.
-    </p>
-
-    <div class="grid">
-      <div class="card problem">
-        <h3>Business Discovery</h3>
-        <p>Understanding stakeholders, workflows, pain points, constraints, risks and measurable outcomes before proposing technology.</p>
+        <a href="documents/certificates/aws-cloud-solutions-architect-professional-certificate.pdf" class="button" target="_blank" rel="noopener noreferrer">View Course Certificate →</a>
       </div>
 
-      <div class="card ai-card">
-        <h3>AI Opportunity &amp; Workflow Design</h3>
-        <p>Identifying realistic use cases, prioritising value and feasibility, and designing human-reviewed AI-assisted workflows.</p>
-      </div>
-
-      <div class="card decision">
-        <h3>Solution Architecture</h3>
-        <p>Connecting business requirements to application, data, integration, security, resilience and cloud platform decisions.</p>
-      </div>
-
-      <div class="card solution">
-        <h3>Delivery &amp; Governance</h3>
-        <p>Creating a phased roadmap, prototype approach, responsible AI controls, adoption plan and measurable success criteria.</p>
-      </div>
-
-      <div class="card decision">
-        <h3>Communication &amp; Business Value</h3>
-        <p>Explaining recommendations, alternatives, trade-offs and expected outcomes clearly to technical and non-technical stakeholders.</p>
+      <div class="project-summary-box">
+        <h4>Current professional development</h4>
+        <p><strong>AWS Cloud Solutions Architect Professional Certificate completed.</strong> The knowledge gained is applied throughout the architecture, prototype and implementation evidence in this portfolio, while preparation continues towards the AWS Certified Solutions Architect – Associate certification.</p>
       </div>
     </div>
   </section>
@@ -2099,10 +1868,10 @@
   </div>
 
   <footer>
-    <h2>Enterprise AI Transformation Consulting Case Study</h2>
+    <h2>Enterprise AI Transformation Portfolio</h2>
 
     <p class="footer-summary">
-      A consulting-led transformation case study demonstrating business discovery, AI opportunity assessment, solution design, responsible adoption and measurable operational value.
+      A professional portfolio demonstrating enterprise AI transformation, business discovery, solution architecture, practical implementation and continuous professional development.
     </p>
 
     <div class="footer-divider"></div>
@@ -2120,7 +1889,7 @@
     </div>
 
     <p class="footer-credit">
-      Designed &amp; Developed by Tatenda Manyepa • Case Study v1.0 • 2026
+      Designed &amp; Developed by Tatenda Manyepa • Portfolio v1.0 • 2026
     </p>
   </footer>
 
