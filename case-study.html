@@ -393,6 +393,94 @@
         justify-self: start;
       }
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      position: relative;
+    }
+
+    .hero,
+    .section,
+    footer {
+      width: min(1120px, calc(100vw - 48px));
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero {
+      max-width: 1180px;
+      width: min(1180px, calc(100vw - 48px));
+    }
+
+    .driver-grid,
+    .response-grid,
+    .outcome-grid,
+    .scope-list,
+    .roadmap,
+    .buttons {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .driver-grid > *,
+    .response-grid > *,
+    .outcome-grid > *,
+    .scope-row > *,
+    .roadmap-row > * {
+      min-width: 0;
+    }
+
+    .scope-row,
+    .roadmap-row {
+      width: 100%;
+    }
+
+    .scope-row p,
+    .roadmap-row p,
+    .compact-card p,
+    .executive-summary p,
+    .section-intro {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .section,
+      footer {
+        width: calc(100vw - 24px);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+
+    .section {
+      margin-top: 50px !important;
+      margin-bottom: 50px !important;
+    }
+
+    .hero {
+      margin-top: 40px !important;
+      margin-bottom: 0 !important;
+    }
+
+    footer {
+      margin-top: 60px !important;
+      margin-bottom: 0 !important;
+    }
+
 </style>
 </head>
 
