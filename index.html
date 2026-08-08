@@ -1389,6 +1389,49 @@
       margin-right: auto;
     }
 
+
+    .flip-card-back .deliverables-tab {
+      margin-top: auto;
+      padding: 12px 14px;
+      border: 1px solid rgba(78, 161, 255, 0.12);
+      border-radius: 10px;
+      background: rgba(78, 161, 255, 0.035);
+      box-shadow: none;
+      line-height: 1.55;
+    }
+
+    .flip-card-back .deliverables-tab strong {
+      color: #4ea1ff;
+      font-weight: 800;
+    }
+
+
+    /* Deliverables panel — flat, subtle and integrated into each card */
+    .flip-card-back .deliverables-tab {
+      margin-top: auto;
+      padding: 12px 14px;
+      border: 1px solid rgba(78, 161, 255, 0.16);
+      border-radius: 10px;
+      background: rgba(78, 161, 255, 0.025);
+      box-shadow: none !important;
+      filter: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      line-height: 1.55;
+    }
+
+    .flip-card-back .deliverables-tab::before,
+    .flip-card-back .deliverables-tab::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .flip-card-back .deliverables-tab strong {
+      color: #4ea1ff;
+      font-weight: 800;
+      text-shadow: none;
+    }
+
   </style>
 </head>
 
@@ -1461,7 +1504,7 @@
               <li>Capture risks, constraints, assumptions and priorities</li>
               <li>Define success criteria and create an agreed documentation baseline</li>
             </ul>
-            <p><strong>Deliverables:</strong> Business Discovery, Current-State Assessment, Requirements Specification and Stakeholder Feedback Log.</p>
+            <p class="deliverables-tab"><strong>Deliverables:</strong> Business Discovery, Current-State Assessment, Requirements Specification and Stakeholder Feedback Log.</p>
           </div>
         </div>
       </div>
@@ -1485,7 +1528,7 @@
               <li>Evaluate alternatives, risks and trade-offs, then document why decisions were made</li>
               <li>Design for evolution so complexity is added only when new requirements justify it</li>
             </ul>
-            <p><strong>Deliverables:</strong> Target Architecture, Technology Selection, Architecture Decision Records and Updated Solution Documentation.</p>
+            <p class="deliverables-tab"><strong>Deliverables:</strong> Target Architecture, Technology Selection, Architecture Decision Records and Updated Solution Documentation.</p>
           </div>
         </div>
       </div>
@@ -1508,7 +1551,7 @@
               <li>Use AI only where it offers clear benefit to the workflow or decision process</li>
               <li>Gather stakeholder feedback, document findings and refine the design before scaling</li>
             </ul>
-            <p><strong>Deliverables:</strong> Working Proof of Concept, Validation Findings, Feedback Record and Updated Architecture.</p>
+            <p class="deliverables-tab"><strong>Deliverables:</strong> Working Proof of Concept, Validation Findings, Feedback Record and Updated Architecture.</p>
           </div>
         </div>
       </div>
@@ -1532,7 +1575,7 @@
               <li>Maintain documentation and feed customer/user feedback into continuous improvement</li>
               <li>Capture lessons learned and evolve the roadmap as requirements change</li>
             </ul>
-            <p><strong>Deliverables:</strong> Implementation Plan, Operational Documentation, Business Outcomes Report, Feedback Loop and Future Roadmap.</p>
+            <p class="deliverables-tab"><strong>Deliverables:</strong> Implementation Plan, Operational Documentation, Business Outcomes Report, Feedback Loop and Future Roadmap.</p>
           </div>
         </div>
       </div>
