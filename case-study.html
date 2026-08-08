@@ -2,217 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case Study | Enterprise Operational Systems Modernisation</title>
 
   <style>
-    body {
+    * { box-sizing: border-box; }
+
+    html, body {
       margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
       background: #0b0f14;
       color: #f5f5f5;
-      line-height: 1.7;
-      scroll-behavior: smooth;
+      line-height: 1.65;
     }
 
+    a { color: inherit; }
+
+    .page-shell {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px 72px;
+    }
+
+    .hero,
     .section {
-      max-width: 1120px;
-      margin: 60px auto;
-      padding: 50px;
-      background: linear-gradient(145deg, #171c22, #11161c);
+      width: 100%;
+      margin: 40px 0 0;
       border: 1px solid #2a2f36;
       border-radius: 18px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+      background: linear-gradient(145deg, #171c22, #11161c);
+      box-shadow: 0 0 25px rgba(0,0,0,.24);
     }
 
     .hero {
+      padding: 64px 48px;
       text-align: center;
-      max-width: 1180px;
-      margin: 40px auto 0;
-      padding: 70px 50px;
-      background: linear-gradient(180deg, rgba(10,15,22,0.98), rgba(5,10,18,0.98));
-      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(10,15,22,.98), rgba(5,10,18,.98));
       border-radius: 28px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
     }
 
-    h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-size: 25px;
-      margin-top: 0;
-    }
-
-    p {
-      color: #d6d6d6;
-      font-size: 18px;
-    }
-
-    .subtitle {
-      font-size: 22px;
-      color: #d4d4d4;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      background: linear-gradient(135deg, #0066d9, #0051b8);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-
-    .button:hover {
-      background: linear-gradient(135deg, #0a74ff, #0060d6);
-      transform: translateY(-3px);
+    .section {
+      padding: 42px;
     }
 
     .badge {
       display: inline-block;
+      margin-bottom: 22px;
+      padding: 8px 15px;
+      border-radius: 999px;
       background: #0d5f39;
       color: #8ef0b9;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 30px;
-    }
-
-    .two-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: #1d232b;
-      border-radius: 14px;
-      padding: 24px;
-      border: 1px solid #30363f;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #4ea1ff;
-    }
-
-    .problem {
-      border-left: 4px solid #ff6b6b;
-    }
-
-    .driver {
-      border-left: 4px solid #4ea1ff;
-    }
-
-    .success {
-      border-left: 4px solid #8ef0b9;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 18px;
+      font-weight: 800;
     }
 
-    .completed {
-      background: #123f2a;
-      color: #9ff0c2;
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 5vw, 54px);
+      line-height: 1.1;
+      letter-spacing: -1.2px;
     }
 
-    .progress {
-      background: #3b2f10;
-      color: #ffd36e;
-    }
-
-    .planned {
-      background: #283142;
-      color: #b7c8ff;
-    }
-
-    footer {
+    h2 {
+      margin: 0 0 16px;
       text-align: center;
-      padding: 40px;
-      color: #9ca3af;
-      border-top: 1px solid #2b2f35;
-      margin-top: 60px;
+      font-size: clamp(28px, 3.5vw, 40px);
+      letter-spacing: -.5px;
     }
 
-    footer a {
-      color: #4ea1ff;
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0;
+      color: #d6d6d6;
+      font-size: 16px;
+    }
+
+    .subtitle {
+      max-width: 920px;
+      margin: 0 auto;
+      color: #d4d4d4;
+      font-size: 19px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(135deg, #0066d9, #0051b8);
+      color: #fff;
       text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform .2s ease, background .2s ease;
     }
 
-    @media (max-width: 850px) {
-      .hero, .section {
-        margin: 30px 16px;
-        padding: 30px;
-      }
-
-      h1 {
-        font-size: 36px;
-      }
-
-      h2 {
-        font-size: 30px;
-      }
-
-      .grid,
-      .two-grid {
-        grid-template-columns: 1fr;
-      }
+    .button:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #0a74ff, #0060d6);
     }
-  
+
     .section-intro {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto 28px;
       text-align: center;
       color: #b9c2cd;
     }
 
     .executive-summary {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
     }
 
     .executive-summary p {
-      margin: 0;
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.8;
     }
 
@@ -220,47 +144,49 @@
     .response-grid,
     .outcome-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 28px;
+      width: 100%;
+      margin-top: 26px;
     }
 
-    .compact-card {
-      min-height: 150px;
+    .card {
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid #30363f;
+      border-radius: 13px;
+      background: #1d232b;
     }
 
-    .compact-card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .compact-card p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
+    .card p {
+      font-size: 14px;
+      line-height: 1.55;
       color: #c5ccd5;
     }
 
-    .response {
-      border-left: 4px solid #8a7dff;
-    }
+    .driver { border-left: 4px solid #4ea1ff; }
+    .response { border-left: 4px solid #8a7dff; }
+    .success { border-left: 4px solid #8ef0b9; }
 
-    .scope-list {
+    .scope-list,
+    .roadmap {
       display: grid;
       gap: 12px;
-      margin-top: 28px;
+      width: 100%;
+      margin-top: 26px;
     }
 
     .scope-row {
       display: grid;
-      grid-template-columns: 54px minmax(210px, .8fr) minmax(0, 1.7fr) auto;
+      grid-template-columns: 50px 220px minmax(0, 1fr) auto;
       gap: 18px;
       align-items: center;
-      padding: 18px 20px;
+      width: 100%;
+      min-width: 0;
+      padding: 17px 18px;
       border: 1px solid #30363f;
-      border-radius: 13px;
+      border-radius: 12px;
       background: #1a2028;
-      color: inherit;
       text-decoration: none;
       transition: transform .2s ease, border-color .2s ease;
     }
@@ -272,19 +198,19 @@
 
     .scope-number {
       color: #6fb4ff;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: .06em;
     }
 
     .scope-row strong {
       color: #fff;
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .scope-row p {
-      margin: 0;
+      min-width: 0;
       font-size: 14px;
-      line-height: 1.55;
+      line-height: 1.5;
       color: #bfc8d3;
     }
 
@@ -295,20 +221,16 @@
       white-space: nowrap;
     }
 
-    .roadmap {
-      display: grid;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
     .roadmap-row {
       display: grid;
-      grid-template-columns: 70px 145px minmax(220px, .8fr) minmax(0, 1.5fr);
-      gap: 18px;
+      grid-template-columns: 56px 120px 220px minmax(0, 1fr);
+      gap: 16px;
       align-items: center;
-      padding: 18px 20px;
+      width: 100%;
+      min-width: 0;
+      padding: 17px 18px;
       border: 1px solid #30363f;
-      border-radius: 13px;
+      border-radius: 12px;
       background: #1a2028;
     }
 
@@ -320,489 +242,218 @@
 
     .roadmap-row h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 17px;
     }
 
     .roadmap-row p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.55;
+      min-width: 0;
+      font-size: 13px;
+      line-height: 1.5;
       color: #bdc6d1;
     }
 
     .status {
-      margin: 0;
-      text-align: center;
+      display: inline-block;
+      justify-self: start;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
       white-space: nowrap;
     }
 
-    .designed {
-      background: #17364b;
-      color: #91d4ff;
-    }
-
-    .priority {
-      background: #3b2f10;
-      color: #ffd36e;
-    }
-
-    .validation {
-      background: #30284d;
-      color: #c9bfff;
-    }
+    .completed { background: #123f2a; color: #9ff0c2; }
+    .designed { background: #17364b; color: #91d4ff; }
+    .progress { background: #3b2f10; color: #ffd36e; }
+    .priority { background: #3b2f10; color: #ffd36e; }
+    .planned { background: #283142; color: #b7c8ff; }
+    .validation { background: #30284d; color: #c9bfff; }
 
     .principle {
-      margin-top: 24px;
-      padding: 18px 20px;
+      margin-top: 22px;
+      padding: 16px 18px;
       border: 1px solid rgba(78,161,255,.16);
-      border-radius: 12px;
+      border-radius: 11px;
       background: rgba(78,161,255,.035);
       color: #cbd4df;
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    .principle strong {
-      color: #6fb4ff;
-    }
+    .principle strong { color: #6fb4ff; }
 
     .portfolio-note {
-      margin-top: 20px;
-      color: #9da8b5;
-      font-size: 14px;
+      margin-top: 18px;
       text-align: center;
+      color: #9da8b5;
+      font-size: 13px;
     }
 
-    @media (max-width: 850px) {
+    footer {
+      width: 100%;
+      margin-top: 48px;
+      padding: 32px 24px 12px;
+      text-align: center;
+      color: #9ca3af;
+      border-top: 1px solid #2b2f35;
+    }
+
+    footer p { font-size: 14px; }
+    footer a { color: #4ea1ff; text-decoration: none; }
+
+    @media (max-width: 980px) {
       .driver-grid,
       .response-grid,
       .outcome-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .scope-row,
-      .roadmap-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
+      .scope-row {
+        grid-template-columns: 44px 190px minmax(0, 1fr);
       }
 
       .scope-link {
-        margin-top: 4px;
+        grid-column: 2 / -1;
       }
 
-      .status {
-        justify-self: start;
+      .roadmap-row {
+        grid-template-columns: 48px 110px minmax(0, 1fr);
       }
-    }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      position: relative;
-    }
-
-    .hero,
-    .section,
-    footer {
-      width: min(1120px, calc(100vw - 48px));
-      max-width: 1120px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero {
-      max-width: 1180px;
-      width: min(1180px, calc(100vw - 48px));
-    }
-
-    .driver-grid,
-    .response-grid,
-    .outcome-grid,
-    .scope-list,
-    .roadmap,
-    .buttons {
-      width: 100%;
-      min-width: 0;
-    }
-
-    .driver-grid > *,
-    .response-grid > *,
-    .outcome-grid > *,
-    .scope-row > *,
-    .roadmap-row > * {
-      min-width: 0;
-    }
-
-    .scope-row,
-    .roadmap-row {
-      width: 100%;
-    }
-
-    .scope-row p,
-    .roadmap-row p,
-    .compact-card p,
-    .executive-summary p,
-    .section-intro {
-      overflow-wrap: anywhere;
-      word-break: normal;
-    }
-
-    @media (max-width: 850px) {
-      .hero,
-      .section,
-      footer {
-        width: calc(100vw - 24px);
-        margin-left: auto;
-        margin-right: auto;
+      .roadmap-row p {
+        grid-column: 3;
       }
     }
 
-
-    .section {
-      margin-top: 50px !important;
-      margin-bottom: 50px !important;
-    }
-
-    .hero {
-      margin-top: 40px !important;
-      margin-bottom: 0 !important;
-    }
-
-    footer {
-      margin-top: 60px !important;
-      margin-bottom: 0 !important;
-    }
-
-
-    /* Final layout lock: use percentage widths inside a padded body.
-       Avoid 100vw calculations, which can behave awkwardly with browser zoom/scrollbars. */
-    html {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-      padding: 0 16px;
-      overflow-x: hidden;
-    }
-
-    .hero,
-    .section,
-    footer {
-      display: block;
-      width: 100% !important;
-      max-width: 1120px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      transform: none !important;
-      left: auto !important;
-      right: auto !important;
-    }
-
-    .hero {
-      max-width: 1180px !important;
-      margin-top: 40px !important;
-    }
-
-    .section {
-      margin-top: 50px !important;
-      margin-bottom: 50px !important;
-    }
-
-    footer {
-      margin-top: 60px !important;
-    }
-
-    .driver-grid,
-    .response-grid,
-    .outcome-grid,
-    .scope-list,
-    .roadmap,
-    .buttons {
-      max-width: 100%;
-      min-width: 0;
-    }
-
-    .scope-row,
-    .roadmap-row,
-    .card {
-      max-width: 100%;
-      min-width: 0;
-    }
-
-    @media (max-width: 850px) {
-      body {
-        padding: 0 12px;
-      }
+    @media (max-width: 700px) {
+      .page-shell { padding: 0 12px 48px; }
 
       .hero,
-      .section,
-      footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+      .section {
+        margin-top: 20px;
+        padding: 26px 20px;
+      }
+
+      .driver-grid,
+      .response-grid,
+      .outcome-grid,
+      .scope-row,
+      .roadmap-row {
+        grid-template-columns: 1fr;
+      }
+
+      .scope-link,
+      .roadmap-row p {
+        grid-column: auto;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
       }
     }
-
-</style>
+  </style>
 </head>
 
 <body>
-
-  <section class="hero">
-    <div class="badge">Enterprise Modernisation Case Study</div>
-    <h1>Enterprise Operational Systems Modernisation</h1>
-    <p class="subtitle">
-      AWS-first transformation strategy for a fictional enterprise fulfilment platform, translating operational risk into resilient architecture, focused delivery evidence and measurable business outcomes.
-    </p>
-    <div class="buttons">
-      <a href="index.html" class="button">← Back to Portfolio</a>
-      <a href="current-state.html" class="button">Current-State Architecture</a>
-      <a href="target-architecture.html" class="button">Target AWS Architecture</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Executive Summary</h2>
-    <div class="executive-summary">
-      <p>
-        <strong>Apex Operational Systems Ltd</strong> is a fictional UK enterprise operating a partially automated automotive-parts fulfilment platform spanning applications, databases, messaging, reporting and robotic fulfilment technologies. The platform supports critical inventory, order and fulfilment workflows but faces recurring outages, manual recovery, infrastructure constraints, limited observability and an immature disaster-recovery posture. This case study presents an <strong>AWS-first modernisation strategy</strong> designed to improve resilience, recovery, operational visibility and scalability while establishing a controlled foundation for AI-assisted operations.
+  <main class="page-shell">
+    <section class="hero">
+      <div class="badge">Enterprise Modernisation Case Study</div>
+      <h1>Enterprise Operational Systems Modernisation</h1>
+      <p class="subtitle">
+        AWS-first transformation strategy for a fictional enterprise fulfilment platform, translating operational risk into resilient architecture, focused delivery evidence and measurable business outcomes.
       </p>
-    </div>
-  </section>
+      <div class="buttons">
+        <a href="index.html" class="button">← Back to Portfolio</a>
+        <a href="current-state.html" class="button">Current-State Architecture</a>
+        <a href="target-architecture.html" class="button">Target AWS Architecture</a>
+      </div>
+    </section>
 
-  <section class="section">
-    <h2>Business &amp; Architecture Drivers</h2>
-    <p class="section-intro">
-      The design begins with the operational risks and business outcomes that the architecture must address.
-    </p>
-    <div class="driver-grid">
-      <div class="card driver compact-card">
-        <h3>Operational Resilience</h3>
-        <p>Reduce the business impact of component failures across critical inventory, order and fulfilment workflows.</p>
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <div class="executive-summary">
+        <p><strong>Apex Operational Systems Ltd</strong> is a fictional UK enterprise operating a partially automated automotive-parts fulfilment platform spanning applications, databases, messaging, reporting and robotic fulfilment technologies. The platform supports critical inventory, order and fulfilment workflows but faces recurring outages, manual recovery, infrastructure constraints, limited observability and an immature disaster-recovery posture. This case study presents an <strong>AWS-first modernisation strategy</strong> designed to improve resilience, recovery, operational visibility and scalability while establishing a controlled foundation for AI-assisted operations.</p>
       </div>
-      <div class="card driver compact-card">
-        <h3>Recovery &amp; Continuity</h3>
-        <p>Establish defined recovery objectives, validated backups, recovery procedures and tested failover capability.</p>
-      </div>
-      <div class="card driver compact-card">
-        <h3>Operational Visibility</h3>
-        <p>Move from reactive troubleshooting toward centralised telemetry, proactive alerting and faster root-cause investigation.</p>
-      </div>
-      <div class="card driver compact-card">
-        <h3>Operational Efficiency</h3>
-        <p>Reduce dependency on manual health checks, recovery procedures and repetitive incident investigation.</p>
-      </div>
-      <div class="card driver compact-card">
-        <h3>Scalability &amp; Change</h3>
-        <p>Support growth and peak demand while enabling safer, repeatable platform change and controlled evolution.</p>
-      </div>
-      <div class="card driver compact-card">
-        <h3>AI Readiness</h3>
-        <p>Establish trusted operational data and knowledge foundations for AI-assisted retrieval, investigation and decision support.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <h2>Architecture Response</h2>
-    <p class="section-intro">
-      The target state is shaped by business requirements, controls and trade-offs. AWS is the selected implementation platform; individual technologies are chosen because they address a defined need.
-    </p>
-    <div class="response-grid">
-      <div class="card response compact-card">
-        <h3>Resilient Platform Foundation</h3>
-        <p>Secure connectivity, workload separation, controlled access and resilient service entry points reduce avoidable failure risk.</p>
+    <section class="section">
+      <h2>Business &amp; Architecture Drivers</h2>
+      <p class="section-intro">The design begins with the operational risks and business outcomes that the architecture must address.</p>
+      <div class="driver-grid">
+        <div class="card driver"><h3>Operational Resilience</h3><p>Reduce the business impact of component failures across critical inventory, order and fulfilment workflows.</p></div>
+        <div class="card driver"><h3>Recovery &amp; Continuity</h3><p>Establish defined recovery objectives, validated backups, recovery procedures and tested failover capability.</p></div>
+        <div class="card driver"><h3>Operational Visibility</h3><p>Move from reactive troubleshooting toward centralised telemetry, proactive alerting and faster root-cause investigation.</p></div>
+        <div class="card driver"><h3>Operational Efficiency</h3><p>Reduce dependency on manual health checks, recovery procedures and repetitive incident investigation.</p></div>
+        <div class="card driver"><h3>Scalability &amp; Change</h3><p>Support growth and peak demand while enabling safer, repeatable platform change and controlled evolution.</p></div>
+        <div class="card driver"><h3>AI Readiness</h3><p>Establish trusted operational data and knowledge foundations for AI-assisted retrieval, investigation and decision support.</p></div>
       </div>
-      <div class="card response compact-card">
-        <h3>Application &amp; Integration Platform</h3>
-        <p>Containerised services and controlled integrations create a more repeatable and evolvable application operating model.</p>
-      </div>
-      <div class="card response compact-card">
-        <h3>Data, Availability &amp; Recovery</h3>
-        <p>Managed operational data, reporting separation, backup governance and tested recovery patterns strengthen continuity.</p>
-      </div>
-      <div class="card response compact-card">
-        <h3>Security &amp; Operational Visibility</h3>
-        <p>Monitoring, searchable evidence, alerting, access controls, secrets protection and auditability are built into the design.</p>
-      </div>
-      <div class="card response compact-card">
-        <h3>AI-Assisted Workflow</h3>
-        <p>Trusted knowledge retrieval, guided investigation and human-reviewed recommendations introduce AI where it provides clear operational value.</p>
-      </div>
-      <div class="card response compact-card">
-        <h3>Governance, Cost &amp; Responsible Adoption</h3>
-        <p>Cost control, accountable ownership, policy enforcement and responsible AI controls support sustainable adoption.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <h2>Explore the Architecture</h2>
-    <p class="section-intro">
-      Follow the evidence from current-state understanding through target design, implementation planning, modernisation and architectural decision-making.
-    </p>
-
-    <div class="scope-list">
-      <a class="scope-row" href="current-state.html">
-        <span class="scope-number">01</span>
-        <strong>Current-State Assessment</strong>
-        <p>Existing platform, dependencies, operational pain points, risks and maturity gaps.</p>
-        <span class="scope-link">Explore →</span>
-      </a>
-
-      <a class="scope-row" href="target-architecture.html">
-        <span class="scope-number">02</span>
-        <strong>Enterprise Solution Architecture</strong>
-        <p>Target workflows, platform, applications, data, security, observability, AI capabilities, governance and trade-offs.</p>
-        <span class="scope-link">Explore →</span>
-      </a>
-
-      <a class="scope-row" href="phase-2-migrate.html">
-        <span class="scope-number">03</span>
-        <strong>Platform Evidence</strong>
-        <p>AWS foundation, secure networking, resilient application hosting, managed data, IAM controls and repeatable infrastructure deployment.</p>
-        <span class="scope-link">Explore →</span>
-      </a>
-
-      <a class="scope-row" href="phase-3-modernise.html">
-        <span class="scope-number">04</span>
-        <strong>Integration &amp; Modernisation</strong>
-        <p>Containerised services, APIs, messaging, representative operational data, automation and controlled integration patterns.</p>
-        <span class="scope-link">Explore →</span>
-      </a>
-
-      <a class="scope-row" href="phase-4-intelligent-operations.html">
-        <span class="scope-number">05</span>
-        <strong>AI-Assisted Operations</strong>
-        <p>Governed knowledge retrieval, guided investigation, human-reviewed recommendations, feedback and operational intelligence.</p>
-        <span class="scope-link">Explore →</span>
-      </a>
-
-      <a class="scope-row" href="index.html#architecture-decisions">
-        <span class="scope-number">06</span>
-        <strong>Architecture Decisions</strong>
-        <p>Key technology choices, alternatives, trade-offs and the reasoning behind the proposed solution.</p>
-        <span class="scope-link">Explore →</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Expected Business Outcomes</h2>
-    <p class="section-intro">
-      Because this is a portfolio case study rather than a live customer deployment, these are the outcomes the programme is designed to achieve and validate.
-    </p>
-    <div class="outcome-grid">
-      <div class="card success compact-card">
-        <h3>Reduced Outage Impact</h3>
-        <p>Improved service continuity and reduced disruption to critical fulfilment workflows.</p>
+    <section class="section">
+      <h2>Architecture Response</h2>
+      <p class="section-intro">The target state is shaped by business requirements, controls and trade-offs. AWS is the selected implementation platform; individual technologies are chosen because they address a defined need.</p>
+      <div class="response-grid">
+        <div class="card response"><h3>Resilient Platform Foundation</h3><p>Secure connectivity, workload separation, controlled access and resilient service entry points reduce avoidable failure risk.</p></div>
+        <div class="card response"><h3>Application &amp; Integration Platform</h3><p>Containerised services and controlled integrations create a more repeatable and evolvable application operating model.</p></div>
+        <div class="card response"><h3>Data, Availability &amp; Recovery</h3><p>Managed operational data, reporting separation, backup governance and tested recovery patterns strengthen continuity.</p></div>
+        <div class="card response"><h3>Security &amp; Operational Visibility</h3><p>Monitoring, searchable evidence, alerting, access controls, secrets protection and auditability are built into the design.</p></div>
+        <div class="card response"><h3>AI-Assisted Workflow</h3><p>Trusted knowledge retrieval, guided investigation and human-reviewed recommendations introduce AI where it provides clear operational value.</p></div>
+        <div class="card response"><h3>Governance, Cost &amp; Responsible Adoption</h3><p>Cost control, accountable ownership, policy enforcement and responsible AI controls support sustainable adoption.</p></div>
       </div>
-      <div class="card success compact-card">
-        <h3>Faster Recovery</h3>
-        <p>Defined recovery procedures and validated backups supporting more predictable restoration.</p>
-      </div>
-      <div class="card success compact-card">
-        <h3>Proactive Operations</h3>
-        <p>Earlier detection of degradation through centralised monitoring, alerting and operational visibility.</p>
-      </div>
-      <div class="card success compact-card">
-        <h3>Scalable Platform</h3>
-        <p>Greater flexibility to respond to growth, peak demand and changing workload requirements.</p>
-      </div>
-      <div class="card success compact-card">
-        <h3>Reduced Manual Effort</h3>
-        <p>Less dependency on repetitive support activity and individual operational knowledge.</p>
-      </div>
-      <div class="card success compact-card">
-        <h3>AI-Ready Operations</h3>
-        <p>A governed foundation for trusted knowledge retrieval, guided investigation and future intelligent automation.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <h2>Programme Roadmap</h2>
-    <p class="section-intro">
-      Delivery moves from assessment and target-state design into focused implementation evidence, proof-of-concept validation and operational readiness.
-    </p>
+    <section class="section">
+      <h2>Explore the Architecture</h2>
+      <p class="section-intro">Follow the evidence from current-state understanding through target design, implementation planning, modernisation and architectural decision-making.</p>
 
-    <div class="roadmap">
-      <div class="roadmap-row">
-        <span class="roadmap-step">01</span>
-        <div class="status completed">Completed</div>
-        <h3>Assess</h3>
-        <p>Business discovery → stakeholder needs → current state → risks and constraints → requirements → measurable outcomes.</p>
+      <div class="scope-list">
+        <a class="scope-row" href="current-state.html"><span class="scope-number">01</span><strong>Current-State Assessment</strong><p>Existing platform, dependencies, operational pain points, risks and maturity gaps.</p><span class="scope-link">Explore →</span></a>
+        <a class="scope-row" href="target-architecture.html"><span class="scope-number">02</span><strong>Enterprise Solution Architecture</strong><p>Target workflows, platform, applications, data, security, observability, AI capabilities, governance and trade-offs.</p><span class="scope-link">Explore →</span></a>
+        <a class="scope-row" href="phase-2-migrate.html"><span class="scope-number">03</span><strong>Platform Evidence</strong><p>AWS foundation, secure networking, resilient application hosting, managed data, IAM controls and repeatable infrastructure deployment.</p><span class="scope-link">Explore →</span></a>
+        <a class="scope-row" href="phase-3-modernise.html"><span class="scope-number">04</span><strong>Integration &amp; Modernisation</strong><p>Containerised services, APIs, messaging, representative operational data, automation and controlled integration patterns.</p><span class="scope-link">Explore →</span></a>
+        <a class="scope-row" href="phase-4-intelligent-operations.html"><span class="scope-number">05</span><strong>AI-Assisted Operations</strong><p>Governed knowledge retrieval, guided investigation, human-reviewed recommendations, feedback and operational intelligence.</p><span class="scope-link">Explore →</span></a>
+        <a class="scope-row" href="index.html#architecture-decisions"><span class="scope-number">06</span><strong>Architecture Decisions</strong><p>Key technology choices, alternatives, trade-offs and the reasoning behind the proposed solution.</p><span class="scope-link">Explore →</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Expected Business Outcomes</h2>
+      <p class="section-intro">Because this is a portfolio case study rather than a live customer deployment, these are the outcomes the programme is designed to achieve and validate.</p>
+      <div class="outcome-grid">
+        <div class="card success"><h3>Reduced Outage Impact</h3><p>Improved service continuity and reduced disruption to critical fulfilment workflows.</p></div>
+        <div class="card success"><h3>Faster Recovery</h3><p>Defined recovery procedures and validated backups supporting more predictable restoration.</p></div>
+        <div class="card success"><h3>Proactive Operations</h3><p>Earlier detection of degradation through centralised monitoring, alerting and operational visibility.</p></div>
+        <div class="card success"><h3>Scalable Platform</h3><p>Greater flexibility to respond to growth, peak demand and changing workload requirements.</p></div>
+        <div class="card success"><h3>Reduced Manual Effort</h3><p>Less dependency on repetitive support activity and individual operational knowledge.</p></div>
+        <div class="card success"><h3>AI-Ready Operations</h3><p>A governed foundation for trusted knowledge retrieval, guided investigation and future intelligent automation.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Programme Roadmap</h2>
+      <p class="section-intro">Delivery moves from assessment and target-state design into focused implementation evidence, proof-of-concept validation and operational readiness.</p>
+
+      <div class="roadmap">
+        <div class="roadmap-row"><span class="roadmap-step">01</span><div class="status completed">Completed</div><h3>Assess</h3><p>Business discovery → stakeholder needs → current state → risks and constraints → requirements → measurable outcomes.</p></div>
+        <div class="roadmap-row"><span class="roadmap-step">02</span><div class="status designed">Designed</div><h3>Design Target Architecture</h3><p>Platform foundation → applications and integrations → data and recovery → security and observability → AI workflow → governance and cost.</p></div>
+        <div class="roadmap-row"><span class="roadmap-step">03</span><div class="status progress">In Progress</div><h3>Build Platform Evidence</h3><p>AWS foundation → secure networking → ECS Fargate → managed data → IAM controls → Multi-AZ resilience → repeatable Terraform deployment.</p></div>
+        <div class="roadmap-row"><span class="roadmap-step">04</span><div class="status priority">Priority</div><h3>Validate AI Proof of Concept</h3><p>Governed knowledge → ingestion → semantic retrieval → grounded responses → citations → human validation → feedback capture.</p></div>
+        <div class="roadmap-row"><span class="roadmap-step">05</span><div class="status planned">Planned</div><h3>Integration &amp; Operational Controls</h3><p>Containerised services → APIs and messaging → operational data → monitoring → logging → alerts → secrets → auditability → AI quality controls.</p></div>
+        <div class="roadmap-row"><span class="roadmap-step">06</span><div class="status validation">Validation</div><h3>End-to-End Validation</h3><p>Representative workflow → functional and non-functional testing → citation checks → stakeholder feedback → value measurement → operational readiness.</p></div>
       </div>
 
-      <div class="roadmap-row">
-        <span class="roadmap-step">02</span>
-        <div class="status designed">Designed</div>
-        <h3>Design Target Architecture</h3>
-        <p>Platform foundation → applications and integrations → data and recovery → security and observability → AI workflow → governance and cost.</p>
-      </div>
+      <div class="principle"><strong>Delivery principle:</strong> Start with the business problem, design the target state, validate the highest-value assumptions with focused evidence, and add implementation complexity only where requirements and demonstrated value justify it.</div>
+      <p class="portfolio-note"><strong>Portfolio context:</strong> This fictional enterprise programme demonstrates how a target solution would be assessed, designed, validated and prepared for migration. Planned enterprise capabilities are clearly distinguished from implemented portfolio evidence.</p>
+    </section>
 
-      <div class="roadmap-row">
-        <span class="roadmap-step">03</span>
-        <div class="status progress">In Progress</div>
-        <h3>Build Platform Evidence</h3>
-        <p>AWS foundation → secure networking → ECS Fargate → managed data → IAM controls → Multi-AZ resilience → repeatable Terraform deployment.</p>
-      </div>
-
-      <div class="roadmap-row">
-        <span class="roadmap-step">04</span>
-        <div class="status priority">Priority</div>
-        <h3>Validate AI Proof of Concept</h3>
-        <p>Governed knowledge → ingestion → semantic retrieval → grounded responses → citations → human validation → feedback capture.</p>
-      </div>
-
-      <div class="roadmap-row">
-        <span class="roadmap-step">05</span>
-        <div class="status planned">Planned</div>
-        <h3>Integration &amp; Operational Controls</h3>
-        <p>Containerised services → APIs and messaging → operational data → monitoring → logging → alerts → secrets → auditability → AI quality controls.</p>
-      </div>
-
-      <div class="roadmap-row">
-        <span class="roadmap-step">06</span>
-        <div class="status validation">Validation</div>
-        <h3>End-to-End Validation</h3>
-        <p>Representative workflow → functional and non-functional testing → citation checks → stakeholder feedback → value measurement → operational readiness.</p>
-      </div>
-    </div>
-
-    <div class="principle">
-      <strong>Delivery principle:</strong> Start with the business problem, design the target state, validate the highest-value assumptions with focused evidence, and add implementation complexity only where requirements and demonstrated value justify it.
-    </div>
-
-    <p class="portfolio-note">
-      <strong>Portfolio context:</strong> This fictional enterprise programme demonstrates how a target solution would be assessed, designed, validated and prepared for migration. Planned enterprise capabilities are clearly distinguished from implemented portfolio evidence.
-    </p>
-  </section>
-
-  <footer>
-    <p>
-      <a href="index.html">Back to Portfolio</a>
-      |
-      <a href="target-architecture.html">Target Architecture</a>
-      |
-      <a href="current-state.html">Current State</a>
-    </p>
-    <p>Enterprise Solution Architecture • AWS • Operational Modernisation • AI-Assisted Operations</p>
-  </footer>
-
+    <footer>
+      <p><a href="index.html">Back to Portfolio</a> | <a href="target-architecture.html">Target Architecture</a> | <a href="current-state.html">Current State</a></p>
+      <p>Enterprise Solution Architecture • AWS • Operational Modernisation • AI-Assisted Operations</p>
+    </footer>
+  </main>
 </body>
 </html>
