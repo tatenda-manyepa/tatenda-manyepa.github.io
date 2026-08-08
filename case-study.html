@@ -481,6 +481,82 @@
       margin-bottom: 0 !important;
     }
 
+
+    /* Final layout lock: use percentage widths inside a padded body.
+       Avoid 100vw calculations, which can behave awkwardly with browser zoom/scrollbars. */
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0 16px;
+      overflow-x: hidden;
+    }
+
+    .hero,
+    .section,
+    footer {
+      display: block;
+      width: 100% !important;
+      max-width: 1120px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      transform: none !important;
+      left: auto !important;
+      right: auto !important;
+    }
+
+    .hero {
+      max-width: 1180px !important;
+      margin-top: 40px !important;
+    }
+
+    .section {
+      margin-top: 50px !important;
+      margin-bottom: 50px !important;
+    }
+
+    footer {
+      margin-top: 60px !important;
+    }
+
+    .driver-grid,
+    .response-grid,
+    .outcome-grid,
+    .scope-list,
+    .roadmap,
+    .buttons {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .scope-row,
+    .roadmap-row,
+    .card {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    @media (max-width: 850px) {
+      body {
+        padding: 0 12px;
+      }
+
+      .hero,
+      .section,
+      footer {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+
 </style>
 </head>
 
