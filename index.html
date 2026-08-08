@@ -1432,7 +1432,173 @@
       text-shadow: none;
     }
 
-  </style>
+  
+    /* Executive case-study tabs */
+    #featured-case-study {
+      overflow: hidden;
+    }
+
+    .case-study-lead {
+      max-width: 900px;
+    }
+
+    .case-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 30px 0 0;
+      padding: 7px;
+      border: 1px solid #2a3440;
+      border-radius: 16px;
+      background: rgba(9, 15, 22, 0.72);
+    }
+
+    .case-tab {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      padding: 14px 10px;
+      background: transparent;
+      color: #aeb9c7;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    .case-tab:hover {
+      color: #fff;
+      background: rgba(255,255,255,.035);
+    }
+
+    .case-tab.active {
+      color: #fff;
+      border-color: rgba(255,255,255,.09);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+    }
+
+    .case-tab.problem-tab.active { background: rgba(125, 36, 52, .26); }
+    .case-tab.drivers-tab.active { background: rgba(35, 91, 139, .24); }
+    .case-tab.architecture-tab.active { background: rgba(24, 91, 77, .25); }
+    .case-tab.delivery-tab.active { background: rgba(70, 62, 132, .25); }
+    .case-tab.outcomes-tab.active { background: rgba(119, 86, 25, .22); }
+
+    .case-tab-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr);
+      gap: 28px;
+      align-items: stretch;
+      margin-top: 12px;
+      padding: 30px;
+      border: 1px solid #303a46;
+      border-radius: 16px;
+      background: #111820;
+      min-height: 255px;
+    }
+
+    .case-tab-panel[hidden] {
+      display: none !important;
+    }
+
+    .problem-panel { border-left: 3px solid #ff6874; background: linear-gradient(110deg, rgba(83,24,37,.22), #111820 46%); }
+    .drivers-panel { border-left: 3px solid #4ea1ff; background: linear-gradient(110deg, rgba(24,68,105,.22), #111820 46%); }
+    .architecture-panel { border-left: 3px solid #75e6b1; background: linear-gradient(110deg, rgba(22,78,65,.22), #111820 46%); }
+    .delivery-panel { border-left: 3px solid #a9a2ff; background: linear-gradient(110deg, rgba(59,51,111,.22), #111820 46%); }
+    .outcomes-panel { border-left: 3px solid #e5b94f; background: linear-gradient(110deg, rgba(103,75,20,.20), #111820 46%); }
+
+    .case-kicker {
+      display: block;
+      margin-bottom: 10px;
+      color: #7fc0ff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .case-panel-copy h3 {
+      margin: 0 0 14px;
+      max-width: 760px;
+      color: #fff;
+      font-size: clamp(21px, 2.1vw, 28px);
+      line-height: 1.25;
+    }
+
+    .case-panel-copy p {
+      margin: 0;
+      color: #c8d0da;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .case-focus {
+      align-self: stretch;
+      display: flex;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 13px;
+      background: rgba(5,10,16,.34);
+    }
+
+    .case-focus strong {
+      flex-basis: 100%;
+      margin-bottom: 5px;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .case-focus span {
+      padding: 7px 9px;
+      border: 1px solid rgba(126, 190, 255, .13);
+      border-radius: 8px;
+      background: rgba(78, 161, 255, .045);
+      color: #c9d5e3;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .case-study-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .case-secondary-link {
+      color: #9fcaff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .case-secondary-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 850px) {
+      .case-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .case-tab {
+        text-align: left;
+      }
+
+      .case-tab-panel {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+    }
+
+</style>
 </head>
 
 <body>
@@ -1587,23 +1753,94 @@
 </section>
 
   <section class="section" id="featured-case-study">
-    <div class="badge">Featured Enterprise Engagement</div>
-    <h2>Apex Operational Systems Ltd</h2>
-    <p class="section-intro">
-      An end-to-end enterprise AI transformation engagement demonstrating business discovery, requirements analysis, solution architecture, cloud design, AI proof of value, deployment planning and measurable outcomes.
+    <div class="badge">Featured Architecture Case Study</div>
+    <h2>Enterprise Operational Systems Modernisation</h2>
+    <p class="section-intro case-study-lead">
+      An AWS-first modernisation programme for a fictional enterprise fulfilment platform, showing how business and operational risks are translated into architecture decisions, phased delivery and measurable outcomes.
     </p>
 
-    <div class="grid engagement-summary-grid">
-      <div class="card problem"><h3>Business Problem</h3><p>Recurring outages, manual investigation, knowledge silos and slow recovery increase operational risk and support effort.</p></div>
-      <div class="card solution"><h3>Requirements</h3><p>Business needs are translated into functional, non-functional, security, resilience and adoption requirements.</p></div>
-      <div class="card solution"><h3>Solution Design</h3><p>A secure AWS target architecture improves resilience, observability, managed integration and operational support.</p></div>
-      <div class="card decision"><h3>Proof of Concept</h3><p>A focused proof of concept validates the proposed design, key integrations and the areas where AI can add practical value before wider implementation.</p></div>
-      <div class="card ai-card"><h3>Business Outcomes</h3><p>Success is evaluated through faster investigations, improved knowledge sharing, stronger resilience and reduced operational effort.</p></div>
+    <div class="case-tabs" role="tablist" aria-label="Case study overview">
+      <button class="case-tab active problem-tab" type="button" role="tab" aria-selected="true" data-case-tab="challenge">01&nbsp;&nbsp;Challenge</button>
+      <button class="case-tab drivers-tab" type="button" role="tab" aria-selected="false" data-case-tab="drivers">02&nbsp;&nbsp;Drivers</button>
+      <button class="case-tab architecture-tab" type="button" role="tab" aria-selected="false" data-case-tab="architecture">03&nbsp;&nbsp;Architecture</button>
+      <button class="case-tab delivery-tab" type="button" role="tab" aria-selected="false" data-case-tab="delivery">04&nbsp;&nbsp;Delivery</button>
+      <button class="case-tab outcomes-tab" type="button" role="tab" aria-selected="false" data-case-tab="outcomes">05&nbsp;&nbsp;Outcomes</button>
     </div>
 
-    <div class="buttons" style="margin-top:26px;">
-      <a href="case-study.html" class="button">Explore the Full Case Study →</a>
-      <a href="#evidence" class="button">View Evidence →</a>
+    <div class="case-tab-panel problem-panel active" data-case-panel="challenge" role="tabpanel">
+      <div class="case-panel-copy">
+        <span class="case-kicker">Business &amp; Operational Context</span>
+        <h3>Modernise a critical fulfilment platform without losing sight of operational continuity.</h3>
+        <p>
+          The current environment supports inventory, order processing, fulfilment execution, messaging, reporting and robotic operations, but recurring outages, manual recovery, capacity constraints and fragmented operational visibility increase business risk and support effort.
+        </p>
+      </div>
+      <div class="case-focus">
+        <strong>Primary concerns</strong>
+        <span>Service resilience</span><span>Manual failover</span><span>Database performance</span><span>Messaging reliability</span><span>Monitoring gaps</span><span>Disaster recovery</span>
+      </div>
+    </div>
+
+    <div class="case-tab-panel drivers-panel" data-case-panel="drivers" role="tabpanel" hidden>
+      <div class="case-panel-copy">
+        <span class="case-kicker">Transformation Drivers</span>
+        <h3>Connect every architecture decision to a clear business or operational requirement.</h3>
+        <p>
+          The programme is driven by the need to improve resilience and recovery, reduce repetitive operational effort, strengthen observability and governance, support future growth and establish a controlled foundation for AI-assisted operations.
+        </p>
+      </div>
+      <div class="case-focus">
+        <strong>Design priorities</strong>
+        <span>Resilience</span><span>Disaster recovery</span><span>Observability</span><span>Automation</span><span>Scalability</span><span>AI readiness</span>
+      </div>
+    </div>
+
+    <div class="case-tab-panel architecture-panel" data-case-panel="architecture" role="tabpanel" hidden>
+      <div class="case-panel-copy">
+        <span class="case-kicker">Target Solution</span>
+        <h3>Design an AWS-first target state around requirements, controls and architectural trade-offs.</h3>
+        <p>
+          The target architecture introduces resilient platform foundations, secure access, managed integration, centralised observability, stronger data and recovery controls, and an extensible operating model. AWS is the implementation platform; service choices are justified by the problem they solve rather than presented as a technology catalogue.
+        </p>
+      </div>
+      <div class="case-focus">
+        <strong>Architecture scope</strong>
+        <span>Platform foundation</span><span>Applications</span><span>Data</span><span>Integration</span><span>Security &amp; governance</span><span>Observability</span>
+      </div>
+    </div>
+
+    <div class="case-tab-panel delivery-panel" data-case-panel="delivery" role="tabpanel" hidden>
+      <div class="case-panel-copy">
+        <span class="case-kicker">Phased Modernisation</span>
+        <h3>Move from assessment to implementation through controlled, evidence-led stages.</h3>
+        <p>
+          Delivery begins with current-state assessment and target design, then progresses through AWS platform build and validation, application modernisation, automation and intelligent operations. Migration, testing, rollback, operational readiness and architecture decisions are documented throughout rather than deferred until deployment.
+        </p>
+      </div>
+      <div class="case-focus">
+        <strong>Programme path</strong>
+        <span>Assess</span><span>Build target platform</span><span>Validate</span><span>Modernise</span><span>Operationalise</span><span>Intelligent operations</span>
+      </div>
+    </div>
+
+    <div class="case-tab-panel outcomes-panel" data-case-panel="outcomes" role="tabpanel" hidden>
+      <div class="case-panel-copy">
+        <span class="case-kicker">Success Measures</span>
+        <h3>Judge the transformation by operational improvement, not by the amount of technology deployed.</h3>
+        <p>
+          Success is defined through reduced outage impact, faster and more reliable recovery, proactive operational visibility, scalable capacity, lower manual support effort and an AI-ready knowledge and investigation capability with appropriate human oversight.
+        </p>
+      </div>
+      <div class="case-focus">
+        <strong>Expected outcomes</strong>
+        <span>Reduced outage impact</span><span>Faster recovery</span><span>Proactive monitoring</span><span>Improved scalability</span><span>Reduced manual effort</span><span>AI-ready operations</span>
+      </div>
+    </div>
+
+    <div class="case-study-actions">
+      <a href="case-study.html" class="button">Explore Full Case Study →</a>
+      <a href="current-state.html" class="case-secondary-link">Current State</a>
+      <a href="target-architecture.html" class="case-secondary-link">Target Architecture</a>
     </div>
   </section>
 
@@ -2647,6 +2884,32 @@
         closeLayer();
       }
     });
+  </script>
+
+
+  <script>
+    (() => {
+      const tabs = document.querySelectorAll('[data-case-tab]');
+      const panels = document.querySelectorAll('[data-case-panel]');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.caseTab;
+
+          tabs.forEach(item => {
+            const selected = item === tab;
+            item.classList.toggle('active', selected);
+            item.setAttribute('aria-selected', selected ? 'true' : 'false');
+          });
+
+          panels.forEach(panel => {
+            const selected = panel.dataset.casePanel === target;
+            panel.classList.toggle('active', selected);
+            panel.hidden = !selected;
+          });
+        });
+      });
+    })();
   </script>
 
 </body>
