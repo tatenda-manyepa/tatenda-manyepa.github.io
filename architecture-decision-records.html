@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture Decision Records | Tatenda Manyepa</title>
+<style>
+:root{--bg:#0b1117;--panel:#151d26;--panel2:#101820;--line:#2d3a48;--text:#f5f7fa;--muted:#b8c4d1;--blue:#58a6ff;--green:#62e6b5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Arial,sans-serif}
+.wrap{width:min(1180px,92%);margin:auto}.hero{padding:70px 0 45px;text-align:center}.eyebrow{display:inline-block;padding:6px 12px;border-radius:999px;background:#263349;color:#c9d8ff;font-size:12px;font-weight:700}
+h1{font-size:clamp(34px,5vw,56px);margin:18px 0 10px}h2{font-size:28px}p{color:var(--muted)}.lead{max-width:820px;margin:auto;font-size:18px}
+.nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;background:#0869d8;color:white;text-decoration:none;padding:11px 16px;border-radius:7px;font-weight:700;font-size:14px}
+.summary{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:28px}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.summary-grid div{background:var(--panel2);border:1px solid var(--line);padding:16px;border-radius:9px}.summary-grid strong{display:block;color:var(--green);font-size:13px}
+.section-title{text-align:center;margin:55px 0 8px}.section-copy{text-align:center;max-width:760px;margin:0 auto 30px}
+.adrs{display:grid;gap:18px;margin-bottom:70px}details{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:11px;overflow:hidden}summary{cursor:pointer;padding:21px 24px;font-size:20px;font-weight:700;list-style:none}summary::-webkit-details-marker{display:none}summary span{color:var(--blue);font-size:13px;margin-right:12px}.content{padding:0 24px 24px;border-top:1px solid var(--line)}.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.box{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:16px}.box h3{font-size:13px;color:var(--blue);text-transform:uppercase;letter-spacing:.04em;margin:0 0 7px}.box p{margin:0;color:#d7dee7}.selected{border-color:#3c765f}.selected h3{color:var(--green)}
+footer{text-align:center;border-top:1px solid var(--line);padding:28px;color:#8290a0;font-size:13px}
+@media(max-width:760px){.summary-grid,.decision-grid{grid-template-columns:1fr}.hero{padding-top:45px}}
+</style></head>
+<body>
+<main class="wrap">
+<section class="hero">
+<span class="eyebrow">Architecture Decision Records</span>
+<h1>Decisions, Trade-offs & Rationale</h1>
+<p class="lead">Architecture is about making informed trade-offs. These records explain the key choices behind the target solution, the alternatives considered, why each approach was selected and what would cause the decision to be revisited.</p>
+<div class="nav"><a class="btn" href="index.html">← Back to Portfolio</a><a class="btn" href="case-study.html">View Case Study</a><a class="btn" href="target-architecture.html">Target Architecture</a></div>
+</section>
+
+<section class="summary">
+<h2>Decision Framework</h2>
+<p>Each decision starts with a requirement rather than a technology. Options are compared against operational resilience, maintainability, security, delivery complexity, cost and future change.</p>
+<div class="summary-grid"><div><strong>01 — NEED</strong>What problem must the architecture solve?</div><div><strong>02 — OPTIONS</strong>What realistic approaches were considered?</div><div><strong>03 — DECISION</strong>What was selected and why?</div><div><strong>04 — TRADE-OFF</strong>What is accepted and when should it be reconsidered?</div></div>
+</section>
+
+<h2 class="section-title">Detailed Decision Records</h2>
+<p class="section-copy">Open any record for the reasoning behind the decision. The aim is not to claim that one technology is universally best, but to show why it fits this particular solution.</p>
+
+<section class="adrs">
+
+<details open><summary><span>ADR-01</span>Container Hosting — Why ECS Fargate?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Reliable container hosting for application services without creating unnecessary infrastructure administration.</p></div>
+<div class="box"><h3>Options considered</h3><p>Amazon ECS on Fargate, Amazon EKS/Kubernetes, or containers hosted on EC2.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Use ECS Fargate for the target application services. It provides managed container execution while reducing host and cluster-management overhead.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>Less low-level control and greater AWS dependency than a Kubernetes-based platform.</p></div>
+<div class="box"><h3>Why it fits</h3><p>The requirement is resilient application hosting and operational simplicity, not Kubernetes administration. This keeps the platform proportionate to the business need.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>Kubernetes portability becomes a firm requirement, organisational Kubernetes capability matures, or workload economics make Fargate unsuitable.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-02</span>Operational Data — Why RDS Multi-AZ?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Reduce manual database failover and improve availability for operational application data.</p></div>
+<div class="box"><h3>Options considered</h3><p>Managed relational database with Multi-AZ resilience, self-managed database infrastructure, or retaining the existing database operating model.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Use Amazon RDS with Multi-AZ resilience for managed relational data and automated failover capability.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>Managed services reduce infrastructure control and can increase platform dependency.</p></div>
+<div class="box"><h3>Why it fits</h3><p>The current-state problem includes operational overhead and resilience concerns. Managed database capabilities reduce routine administration while improving recovery characteristics.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>Application requirements demand database features, performance characteristics or deployment control that the selected managed service cannot provide.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-03</span>Integration — Why Managed Messaging?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Support reliable service integration while reducing migration risk and preserving compatible messaging patterns during modernisation.</p></div>
+<div class="box"><h3>Options considered</h3><p>Managed compatible messaging such as Amazon MQ, a redesigned event architecture, or continued self-management of messaging infrastructure.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Introduce managed messaging incrementally, using Amazon MQ or an appropriate event pattern where compatibility and workflow requirements justify it.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>This does not immediately redesign every integration into a fully event-native architecture.</p></div>
+<div class="box"><h3>Why it fits</h3><p>Incremental integration lowers migration risk and allows legacy-compatible workflows to coexist with modernised services.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>Event volumes, coupling, integration requirements or future workflows justify moving individual integrations to a different event-driven pattern.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-04</span>Enterprise AI — Why Retrieval-Augmented Generation?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Answer operational questions using approved enterprise knowledge while preserving source grounding and reviewability.</p></div>
+<div class="box"><h3>Options considered</h3><p>Model-only generation, retrieval-augmented generation (RAG), conventional search, or manually maintained knowledge lookup.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Use retrieval-augmented generation so responses are grounded in governed knowledge sources and can include source references.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>RAG adds ingestion, retrieval, evaluation and governance complexity and still requires quality controls.</p></div>
+<div class="box"><h3>Why it fits</h3><p>Operational advice must be explainable and grounded. Retrieval gives the model relevant approved context rather than relying solely on model knowledge.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>The use case becomes deterministic enough for conventional search/workflows, or evaluation shows retrieval is not improving answer quality sufficiently.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-05</span>Foundation Models — Why Amazon Bedrock?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Provide managed foundation-model access without operating dedicated model-serving infrastructure.</p></div>
+<div class="box"><h3>Options considered</h3><p>Amazon Bedrock, externally hosted model APIs, or self-hosted/open model infrastructure.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Use Amazon Bedrock as the managed model-access layer for the prototype and target AI capability.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>Managed convenience introduces platform dependency and requires ongoing model, cost and service evaluation.</p></div>
+<div class="box"><h3>Why it fits</h3><p>The solution needs governed model access more than it needs ownership of model-serving infrastructure.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>Model requirements, economics, portability, latency or governance needs favour another hosting approach.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-06</span>Observability — Why CloudWatch?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Move from reactive troubleshooting toward central logs, metrics, alarms and operational visibility.</p></div>
+<div class="box"><h3>Options considered</h3><p>AWS-native observability, third-party observability tooling, or continuation of fragmented/manual monitoring.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Use Amazon CloudWatch as the baseline for AWS workload logs, metrics, dashboards and alarms, with notification integration where required.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>AWS-native monitoring increases platform coupling and may not replace every specialist observability requirement.</p></div>
+<div class="box"><h3>Why it fits</h3><p>Observability is required from the start so failures can be detected and investigated with searchable evidence rather than relying on manual discovery.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>Cross-platform observability, advanced analytics, scale or operational requirements justify a dedicated external observability platform.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-07</span>Infrastructure Delivery — Why Terraform?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Make infrastructure repeatable, reviewable and less dependent on manual configuration.</p></div>
+<div class="box"><h3>Options considered</h3><p>Terraform, AWS-native infrastructure-as-code tooling, or manual console configuration.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Use Terraform to define the representative AWS infrastructure as code and support repeatable deployment.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>Infrastructure as code introduces state management, versioning and delivery discipline that must itself be governed.</p></div>
+<div class="box"><h3>Why it fits</h3><p>Repeatability and reviewability reduce configuration drift and make architectural intent visible in deployable infrastructure definitions.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>Organisational standards mandate another IaC platform or the delivery environment creates stronger benefits for an alternative.</p></div>
+</div></div></details>
+
+<details><summary><span>ADR-08</span>AI Governance — Why Human Review?</summary><div class="content"><div class="decision-grid">
+<div class="box"><h3>Need</h3><p>Use AI to accelerate investigation without allowing uncertain model output to become operational authority.</p></div>
+<div class="box"><h3>Options considered</h3><p>Fully autonomous actions, AI recommendations with human approval, or no generative-AI assistance.</p></div>
+<div class="box selected"><h3>Decision</h3><p>Keep AI advisory. It retrieves evidence, assists analysis and produces recommendations, while people remain responsible for validation and operational action.</p></div>
+<div class="box"><h3>Trade-off accepted</h3><p>Human review limits the maximum automation achievable and may add time compared with autonomous execution.</p></div>
+<div class="box"><h3>Why it fits</h3><p>Accuracy, explainability and safe adoption matter more than full automation in high-impact operational workflows.</p></div>
+<div class="box"><h3>Reconsider if</h3><p>A narrowly defined action becomes sufficiently deterministic, low-risk and well-controlled to justify increased automation with appropriate safeguards.</p></div>
+</div></div></details>
+
+</section>
+</main>
+<footer>Architecture Decision Records · Enterprise Operational Modernisation Portfolio</footer>
+</body></html>
