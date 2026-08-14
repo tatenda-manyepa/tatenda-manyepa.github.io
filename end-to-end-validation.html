@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End-to-End Validation | Enterprise Operational Systems Modernisation</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden}
+body{font-family:"Segoe UI",sans-serif;background:#0b0f14;color:#f5f5f5;line-height:1.65}
+a{color:inherit}
+.page-shell{width:100%;max-width:1180px;margin:0 auto;padding:0 24px 72px}
+.hero,.section{width:100%;margin-top:36px;border:1px solid #2a2f36;border-radius:18px;background:linear-gradient(145deg,#171c22,#11161c);box-shadow:0 0 25px rgba(0,0,0,.24)}
+.hero{padding:58px 46px;text-align:center;background:linear-gradient(180deg,rgba(10,15,22,.98),rgba(5,10,18,.98));border-radius:28px}
+.section{padding:38px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;margin-bottom:20px;border-radius:999px;background:#30284d;color:#c9bfff;font-size:13px;font-weight:800}
+h1{margin:0 0 16px;font-size:clamp(36px,5vw,54px);line-height:1.1;letter-spacing:-1.1px}
+h2{margin:0 0 14px;font-size:clamp(26px,3vw,36px);line-height:1.2}
+h3{margin:0 0 8px;font-size:19px;line-height:1.3}
+p{margin:0;color:#d6d6d6;font-size:16px}
+.subtitle{max-width:880px;margin:0 auto;color:#cbd4df;font-size:18px}
+.intro{max-width:880px;margin:0 auto;text-align:center;color:#b9c2cd}
+.banner{margin-top:22px;padding:16px 18px;border:1px solid rgba(201,191,255,.24);border-radius:12px;background:rgba(201,191,255,.05);color:#d9dde4;font-size:14px}
+.banner strong{color:#c9bfff}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px}
+.button{display:inline-block;padding:12px 18px;border-radius:10px;background:linear-gradient(135deg,#0066d9,#0051b8);color:#fff;text-decoration:none;font-size:14px;font-weight:800;border:1px solid rgba(255,255,255,.08)}
+.button.secondary{background:#1a2028;border-color:#30363f}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.card{min-width:0;padding:20px;border:1px solid #30363f;border-radius:13px;background:#1d232b}
+.card p{font-size:14px;color:#c5ccd5}
+.card strong{color:#78baff}
+.solution-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.map-step{position:relative;padding:18px 14px;border:1px solid #30363f;border-radius:12px;background:#1a2028;text-align:center}
+.map-step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:#6fb4ff;font-size:18px;font-weight:900;z-index:2}
+.map-step span{display:inline-block;margin-bottom:8px;color:#6fb4ff;font-size:12px;font-weight:900;letter-spacing:.08em}
+.map-step h3{font-size:16px}.map-step p{font-size:13px}
+.matrix{width:100%;border-collapse:collapse;margin-top:26px;background:#111820;border-radius:14px;overflow:hidden}
+.matrix th,.matrix td{padding:16px;border:1px solid #30363f;text-align:left;vertical-align:top;font-size:14px;color:#d6d6d6}
+.matrix th{background:#1d232b;color:#fff}
+.pass{color:#8ef0b9;font-weight:800}.planned{color:#c9bfff;font-weight:800}
+.criteria-list{display:grid;gap:12px;margin-top:24px}
+.criteria{padding:16px 18px;border:1px solid #30363f;border-left:4px solid #8ef0b9;border-radius:11px;background:#1a2028}
+.criteria strong{display:block;margin-bottom:4px;color:#fff}
+.criteria p{font-size:14px;color:#c5ccd5}
+.decision{padding:22px;border:1px solid rgba(138,125,255,.25);border-radius:13px;background:rgba(138,125,255,.06)}
+.decision h3{color:#c9bfff}
+.next-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}
+.step-card{padding:18px;border:1px solid #30363f;border-radius:12px;background:#1a2028}
+.step-card .num{display:inline-block;margin-bottom:8px;color:#6fb4ff;font-weight:900}
+.gate{margin-top:24px;padding:20px;border:1px solid rgba(255,211,110,.25);border-left:4px solid #ffd36e;border-radius:12px;background:rgba(255,211,110,.045)}
+.gate strong{color:#ffd36e}
+footer{margin-top:46px;padding:30px 24px 12px;text-align:center;border-top:1px solid #2b2f35;color:#9ca3af}
+footer p{font-size:14px}footer a{color:#4ea1ff;text-decoration:none}
+@media(max-width:950px){.solution-map,.next-steps{grid-template-columns:repeat(2,1fr)}.map-step:nth-child(2)::after{display:none}}
+@media(max-width:760px){.grid,.solution-map,.next-steps{grid-template-columns:1fr}.map-step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}.matrix{display:block;overflow-x:auto}.page-shell{padding:0 12px 48px}.hero,.section{padding:26px 20px;margin-top:20px}.buttons{flex-direction:column}.button{width:100%;text-align:center}}
+</style>
+</head>
+
+<body>
+<main class="page-shell">
+
+<section class="hero">
+  <div class="badge">Validation Phase</div>
+  <h1>End-to-End Validation</h1>
+  <p class="subtitle">
+    A whole-solution validation plan for proving that the AWS foundation, application platform, data, integration, security, observability and AI-assisted workflow operate together as one controlled enterprise solution.
+  </p>
+
+  <div class="banner">
+    <strong>Phase status: Validation planned.</strong>
+    This page defines how the complete target solution will be tested before wider rollout. Evidence will be added as each implementation phase is completed.
+  </div>
+
+  <div class="buttons">
+    <a href="index.html" class="button secondary">← Back to Portfolio</a>
+    <a href="case-study.html" class="button">Back to Case Study</a>
+    <a href="target-architecture.html" class="button">Target Architecture</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What We Are Aiming to Prove</h2>
+  <p class="intro">
+    The objective is not simply to show that individual AWS services or prototypes work. The final validation should demonstrate that the complete solution supports a representative operational workflow, remains observable and secure, handles failure predictably, keeps humans accountable for high-impact decisions and produces measurable operational value.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Technical Feasibility</h3>
+      <p>The platform foundation, ECS-hosted services, managed data, messaging, integrations and AI components can work together without uncontrolled dependencies.</p>
+    </div>
+    <div class="card">
+      <h3>Operational Readiness</h3>
+      <p>Support teams can detect issues, investigate evidence, follow runbooks, understand failure states and recover safely.</p>
+    </div>
+    <div class="card">
+      <h3>Security &amp; Governance</h3>
+      <p>Access, secrets, auditability, encryption and AI controls operate as part of the solution rather than as separate afterthoughts.</p>
+    </div>
+    <div class="card">
+      <h3>Business Value</h3>
+      <p>The solution should reduce investigation effort, improve resilience and recovery, strengthen operational visibility and support safer AI adoption.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Whole-Solution Validation Journey</h2>
+  <p class="intro">
+    A representative scenario will be traced through every major architecture layer so the portfolio can show how the solution behaves as one system.
+  </p>
+
+  <div class="solution-map">
+    <div class="map-step"><span>01</span><h3>Secure Entry</h3><p>Traffic or a user request enters through the controlled AWS network and application boundary.</p></div>
+    <div class="map-step"><span>02</span><h3>Application</h3><p>An ECS Fargate service validates and processes the operational request or event.</p></div>
+    <div class="map-step"><span>03</span><h3>Data &amp; Messaging</h3><p>RDS and managed messaging provide controlled state, asynchronous communication and failure handling.</p></div>
+    <div class="map-step"><span>04</span><h3>Operational Evidence</h3><p>CloudWatch and searchable logs capture health, failures and relevant workflow evidence.</p></div>
+    <div class="map-step"><span>05</span><h3>AI Retrieval</h3><p>Approved knowledge and operational context are retrieved for the AI-assisted workflow.</p></div>
+    <div class="map-step"><span>06</span><h3>Grounded Guidance</h3><p>The assistant produces a cited recommendation or investigation summary from trusted sources.</p></div>
+    <div class="map-step"><span>07</span><h3>Human Review</h3><p>An engineer validates the evidence and remains accountable for any consequential operational action.</p></div>
+    <div class="map-step"><span>08</span><h3>Outcome &amp; Learning</h3><p>The action, result, feedback and supporting evidence are captured for improvement and future validation.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Validation Coverage</h2>
+  <p class="intro">Each major architecture capability has a specific question that the final evidence must answer.</p>
+
+  <table class="matrix">
+    <thead>
+      <tr>
+        <th>Area</th>
+        <th>What We Validate</th>
+        <th>Representative Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AWS Foundation</strong></td>
+        <td>Network separation, controlled entry, workload placement and repeatable infrastructure.</td>
+        <td>VPC/subnet layout, routing, security groups, Terraform output and deployment evidence.</td>
+      </tr>
+      <tr>
+        <td><strong>Application Platform</strong></td>
+        <td>Containerised services run reliably across the intended target environment.</td>
+        <td>ECS Fargate service health, task deployment, load-balancer checks and rollback evidence.</td>
+      </tr>
+      <tr>
+        <td><strong>Data &amp; Recovery</strong></td>
+        <td>Operational data is available, protected and recoverable without relying on manual failover assumptions.</td>
+        <td>RDS connectivity, Multi-AZ configuration, backup policy, restore test and recovery notes.</td>
+      </tr>
+      <tr>
+        <td><strong>Integration &amp; Messaging</strong></td>
+        <td>Requests and events move between services predictably, including when dependencies fail.</td>
+        <td>API test, Amazon MQ/event flow, retry or DLQ behaviour and failure-handling walkthrough.</td>
+      </tr>
+      <tr>
+        <td><strong>Observability</strong></td>
+        <td>Teams can detect, understand and investigate abnormal conditions.</td>
+        <td>CloudWatch logs, metrics, alarms, dashboard evidence and SNS notification.</td>
+      </tr>
+      <tr>
+        <td><strong>Security &amp; Audit</strong></td>
+        <td>Users and services have controlled access and important actions remain traceable.</td>
+        <td>IAM boundaries, secrets handling, encryption configuration and audit evidence.</td>
+      </tr>
+      <tr>
+        <td><strong>AI Knowledge Assistant</strong></td>
+        <td>Responses are relevant, grounded in approved knowledge and safe for decision support.</td>
+        <td>Representative questions, retrieved sources, citations, grounded responses and feedback.</td>
+      </tr>
+      <tr>
+        <td><strong>Human Accountability</strong></td>
+        <td>High-impact operational actions remain reviewed and controlled by people.</td>
+        <td>Approval step, decision record, escalation path and human-validation evidence.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <h2>Representative Validation Scenarios</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Scenario 1 — Normal Operational Flow</h3>
+      <p><strong>Question:</strong> Can a representative request move through the platform, data and integration layers successfully while producing the expected telemetry?</p>
+    </div>
+    <div class="card">
+      <h3>Scenario 2 — Messaging Failure</h3>
+      <p><strong>Question:</strong> If a message or consumer fails, is the failure detected, retained and diagnosable without silently losing the workflow?</p>
+    </div>
+    <div class="card">
+      <h3>Scenario 3 — Service or Dependency Failure</h3>
+      <p><strong>Question:</strong> Does the platform expose useful evidence, preserve service continuity where designed and support controlled recovery or rollback?</p>
+    </div>
+    <div class="card">
+      <h3>Scenario 4 — AI Investigation</h3>
+      <p><strong>Question:</strong> Can an engineer ask a representative operational question and receive a useful, cited and human-reviewable answer?</p>
+    </div>
+    <div class="card">
+      <h3>Scenario 5 — Access Control</h3>
+      <p><strong>Question:</strong> Can authorised users and services access what they need while inappropriate access is prevented and recorded?</p>
+    </div>
+    <div class="card">
+      <h3>Scenario 6 — Recovery Readiness</h3>
+      <p><strong>Question:</strong> Are backups, rollback conditions and recovery procedures documented and capable of being validated before production cutover?</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Functional &amp; Non-Functional Validation</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Functional</h3>
+      <p>Workflow completion, API behaviour, data access, message processing, retrieval, citation display, feedback capture and human-review steps.</p>
+    </div>
+    <div class="card">
+      <h3>Resilience</h3>
+      <p>Service failure behaviour, Multi-AZ design assumptions, retry/DLQ behaviour, backup and restore readiness, and rollback paths.</p>
+    </div>
+    <div class="card">
+      <h3>Security</h3>
+      <p>Least privilege, secrets protection, encryption, traceable access and separation between advisory AI and operational authority.</p>
+    </div>
+    <div class="card">
+      <h3>Observability</h3>
+      <p>Logs, metrics, alarms, notifications and supporting context are sufficient to begin investigation without relying solely on manual discovery.</p>
+    </div>
+    <div class="card">
+      <h3>AI Quality</h3>
+      <p>Groundedness, source relevance, citation accuracy, unsafe or unsupported responses, and user feedback on usefulness.</p>
+    </div>
+    <div class="card">
+      <h3>Operational Fit</h3>
+      <p>Support process, runbooks, ownership, escalation routes and expected workload are understandable to the people who would operate the solution.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Architecture Decision</h2>
+  <div class="decision">
+    <h3>Wider rollout follows evidence, not assumption</h3>
+    <p>
+      The programme does not treat a successful technical demonstration as sufficient for enterprise rollout. Expansion follows only when the solution is useful, secure, supportable and proportionate in cost and complexity. Validation therefore combines technical testing, operational evidence, stakeholder feedback and business-value measurement before further investment is justified.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Success Criteria</h2>
+  <div class="criteria-list">
+    <div class="criteria"><strong>End-to-end workflow completes</strong><p>The representative journey crosses the intended platform, integration, data and AI layers without hidden manual dependencies.</p></div>
+    <div class="criteria"><strong>Failures are visible and recoverable</strong><p>Representative service, messaging or dependency failures produce usable evidence and follow defined recovery or rollback paths.</p></div>
+    <div class="criteria"><strong>Security controls hold</strong><p>Access is appropriately restricted, secrets are protected and important actions are auditable.</p></div>
+    <div class="criteria"><strong>AI responses are grounded</strong><p>Representative questions return relevant source material, traceable citations and guidance suitable for human review.</p></div>
+    <div class="criteria"><strong>Operational users can support it</strong><p>Monitoring, runbooks, ownership and escalation routes provide a credible operating model rather than a demonstration-only prototype.</p></div>
+    <div class="criteria"><strong>Value can be measured</strong><p>Validation captures measures such as investigation time, retrieval usefulness, failure detection and reduction in repetitive manual effort.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Planned Validation Evidence</h2>
+  <p class="intro">As implementation progresses, this page becomes the final evidence pack rather than remaining only a plan.</p>
+  <div class="next-steps">
+    <div class="step-card"><span class="num">01</span><h3>Test Script</h3><p>Representative scenarios, expected results, preconditions and pass/fail criteria.</p></div>
+    <div class="step-card"><span class="num">02</span><h3>Technical Evidence</h3><p>Screenshots, logs, deployment output, monitoring evidence and failure-handling results.</p></div>
+    <div class="step-card"><span class="num">03</span><h3>User Validation</h3><p>Representative questions, feedback, usefulness ratings and improvement actions.</p></div>
+    <div class="step-card"><span class="num">04</span><h3>Outcome Review</h3><p>Business-value measures, unresolved risks, improvement backlog and rollout recommendation.</p></div>
+  </div>
+
+  <div class="gate">
+    <strong>Rollout gate:</strong>
+    move beyond proof of concept only when the solution demonstrates acceptable technical behaviour, security, operational supportability, AI quality, cost awareness and stakeholder acceptance.
+  </div>
+</section>
+
+<section class="section">
+  <h2>What This Demonstrates</h2>
+  <div class="grid">
+    <div class="card"><h3>Solution Assurance</h3><p>Validating that architecture components operate together rather than assessing each technology in isolation.</p></div>
+    <div class="card"><h3>Testing &amp; Risk Management</h3><p>Using representative scenarios, failure cases and explicit success criteria to reduce implementation risk.</p></div>
+    <div class="card"><h3>Consulting Communication</h3><p>Translating technical evidence into clear readiness, risk and rollout decisions for technical and non-technical stakeholders.</p></div>
+    <div class="card"><h3>Business-Value Measurement</h3><p>Connecting technical success to operational improvement, user acceptance and evidence for future investment.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <a href="index.html">Portfolio</a> |
+    <a href="case-study.html">Case Study</a> |
+    <a href="target-architecture.html">Target Architecture</a> |
+    <a href="phase-4-intelligent-operations.html">AI-Assisted Operations</a>
+  </p>
+  <p>End-to-End Validation • Solution Assurance • Operational Readiness • Responsible AI • Business Outcomes</p>
+</footer>
+
+</main>
+</body>
+</html>
