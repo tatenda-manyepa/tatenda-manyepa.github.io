@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Controls | Enterprise Operational Systems Modernisation</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100%;overflow-x:hidden}
+body{font-family:"Segoe UI",sans-serif;background:#0b0f14;color:#f5f5f5;line-height:1.65}
+a{color:inherit}
+.page-shell{width:100%;max-width:1180px;margin:0 auto;padding:0 24px 72px}
+.hero,.section{width:100%;margin-top:36px;border:1px solid #2a2f36;border-radius:18px;background:linear-gradient(145deg,#171c22,#11161c);box-shadow:0 0 25px rgba(0,0,0,.24)}
+.hero{padding:58px 46px;text-align:center;background:linear-gradient(180deg,rgba(10,15,22,.98),rgba(5,10,18,.98));border-radius:28px}
+.section{padding:38px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;margin-bottom:20px;border-radius:999px;background:#283142;color:#b7c8ff;font-size:13px;font-weight:800}
+h1{margin:0 0 16px;font-size:clamp(36px,5vw,54px);line-height:1.1;letter-spacing:-1.1px}
+h2{margin:0 0 14px;font-size:clamp(26px,3vw,36px);line-height:1.2}
+h3{margin:0 0 8px;font-size:19px;line-height:1.3}
+p{margin:0;color:#d6d6d6;font-size:16px}
+.subtitle{max-width:860px;margin:0 auto;color:#cbd4df;font-size:18px}
+.intro{max-width:880px;margin:0 auto;text-align:center;color:#b9c2cd}
+.banner{margin-top:22px;padding:16px 18px;border:1px solid rgba(183,200,255,.22);border-radius:12px;background:rgba(183,200,255,.05);color:#d9dde4;font-size:14px}
+.banner strong{color:#b7c8ff}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px}
+.button{display:inline-block;padding:12px 18px;border-radius:10px;background:linear-gradient(135deg,#0066d9,#0051b8);color:#fff;text-decoration:none;font-size:14px;font-weight:800;border:1px solid rgba(255,255,255,.08)}
+.button.secondary{background:#1a2028;border-color:#30363f}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.card{min-width:0;padding:20px;border:1px solid #30363f;border-radius:13px;background:#1d232b}
+.card p{font-size:14px;color:#c5ccd5}
+.card strong{color:#78baff}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:26px}
+.flow-step{position:relative;padding:18px 14px;border:1px solid #30363f;border-radius:12px;background:#1a2028;text-align:center}
+.flow-step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:#6fb4ff;font-size:18px;font-weight:900;z-index:2}
+.flow-step span{display:inline-block;margin-bottom:8px;color:#6fb4ff;font-size:12px;font-weight:900;letter-spacing:.08em}
+.flow-step h3{font-size:16px}.flow-step p{font-size:13px}
+.decision{padding:22px;border:1px solid rgba(138,125,255,.25);border-radius:13px;background:rgba(138,125,255,.06)}
+.decision h3{color:#c9bfff}
+.criteria-list{display:grid;gap:12px;margin-top:24px}
+.criteria{padding:16px 18px;border:1px solid #30363f;border-left:4px solid #8ef0b9;border-radius:11px;background:#1a2028}
+.criteria strong{display:block;margin-bottom:4px;color:#fff}
+.criteria p{font-size:14px;color:#c5ccd5}
+.next-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.step-card{padding:18px;border:1px solid #30363f;border-radius:12px;background:#1a2028}
+.step-card .num{display:inline-block;margin-bottom:8px;color:#6fb4ff;font-weight:900}
+footer{margin-top:46px;padding:30px 24px 12px;text-align:center;border-top:1px solid #2b2f35;color:#9ca3af}
+footer p{font-size:14px}footer a{color:#4ea1ff;text-decoration:none}
+@media(max-width:900px){.grid,.next-steps,.flow{grid-template-columns:1fr}.flow-step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}}
+@media(max-width:700px){.page-shell{padding:0 12px 48px}.hero,.section{padding:26px 20px;margin-top:20px}.buttons{flex-direction:column}.button{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<main class="page-shell">
+
+<section class="hero">
+  <div class="badge">⏳ Planned Phase</div>
+  <h1>Operational Controls</h1>
+  <p class="subtitle">Planned evidence showing how monitoring, security controls, auditability, cost ownership and responsible AI governance make the target solution diagnosable, accountable and safe to operate.</p>
+  <div class="banner"><strong>Phase status: Planned.</strong> This page describes the operational controls that will be implemented and validated as the wider solution moves from architecture into working evidence.</div>
+  <div class="buttons">
+    <a href="index.html" class="button secondary">← Back to Portfolio</a>
+    <a href="case-study.html" class="button">Back to Case Study</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Why This Phase Exists</h2>
+  <p class="intro">The current-state assessment identified reactive troubleshooting, limited operational visibility and dependence on manual intervention. The target solution therefore needs more than functional components: teams must be able to see what is happening, understand failures, control access and demonstrate who or what performed important actions.</p>
+  <div class="grid">
+    <div class="card"><h3>Business Problem</h3><p>Operational failures can take too long to diagnose when evidence is fragmented and support teams depend on manual investigation.</p></div>
+    <div class="card"><h3>Target Outcome</h3><p>Build operational visibility and governance into the platform so incidents, security events, AI behaviour and cost can be monitored and reviewed.</p></div>
+    <div class="card"><h3>Control Principle</h3><p>Controls are designed with the solution rather than added after deployment, reducing operational and governance gaps.</p></div>
+    <div class="card"><h3>Human Accountability</h3><p>Automation and AI assist people rather than silently becoming operational authorities; important actions remain traceable and reviewable.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Proposed Operational Control Loop</h2>
+  <p class="intro">The planned evidence follows a simple control loop from system activity through telemetry and detection to human-reviewed response and retained evidence.</p>
+  <div class="flow">
+    <div class="flow-step"><span>01</span><h3>System Activity</h3><p>Applications, integrations and AI-assisted workflows perform controlled actions.</p></div>
+    <div class="flow-step"><span>02</span><h3>Capture Evidence</h3><p>Logs, metrics and relevant audit events are collected centrally.</p></div>
+    <div class="flow-step"><span>03</span><h3>Detect</h3><p>CloudWatch alarms and defined thresholds identify abnormal conditions.</p></div>
+    <div class="flow-step"><span>04</span><h3>Notify &amp; Review</h3><p>Relevant teams receive alerts and review the supporting evidence.</p></div>
+    <div class="flow-step"><span>05</span><h3>Respond &amp; Improve</h3><p>Actions are taken, recorded and used to improve controls and operating knowledge.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Planned Control Evidence</h2>
+  <p class="intro">The prototype will focus on controls that directly address the operational risks identified in the current state.</p>
+  <div class="grid">
+    <div class="card"><h3>Monitoring &amp; Logging</h3><p><strong>Evidence:</strong> Amazon CloudWatch logs, metrics and alarms showing application health, integration failures and operational events.</p></div>
+    <div class="card"><h3>Alerting</h3><p><strong>Evidence:</strong> Amazon SNS notifications triggered by meaningful operational thresholds rather than relying solely on manual observation.</p></div>
+    <div class="card"><h3>IAM Boundaries</h3><p><strong>Evidence:</strong> Least-privilege roles and permissions demonstrating controlled access between people, services and data.</p></div>
+    <div class="card"><h3>Secrets Handling</h3><p><strong>Evidence:</strong> Sensitive configuration and credentials are separated from application code and accessed through controlled mechanisms.</p></div>
+    <div class="card"><h3>Audit Evidence</h3><p><strong>Evidence:</strong> Traceable records for important administrative, service and AI-assisted actions so decisions can be reviewed.</p></div>
+    <div class="card"><h3>Cost Ownership</h3><p><strong>Evidence:</strong> Basic tagging, service ownership and cost visibility so the architecture can be assessed against operational value as well as technical capability.</p></div>
+    <div class="card"><h3>AI Quality Checks</h3><p><strong>Evidence:</strong> Source grounding, citations, feedback and human validation for the AI Knowledge Assistant rather than unrestricted automated action.</p></div>
+    <div class="card"><h3>Recovery Evidence</h3><p><strong>Evidence:</strong> Defined failure and recovery scenarios demonstrating that resilience controls can be tested rather than assumed.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Architecture Decision</h2>
+  <div class="decision">
+    <h3>Observability and governance are part of the architecture</h3>
+    <p>Monitoring, access control, auditability and governance are introduced alongside the platform rather than after deployment. Operational trust is treated as a design requirement because a technically functional solution is not sufficient if teams cannot diagnose failures, explain actions, manage access or safely govern AI-assisted workflows.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Responsible AI Controls</h2>
+  <p class="intro">The AI Knowledge Assistant is designed as decision support, so the controls prioritise grounding, transparency and human accountability over autonomous operational action.</p>
+  <div class="grid">
+    <div class="card"><h3>Approved Knowledge</h3><p>Responses are grounded in governed enterprise sources rather than unrestricted operational information.</p></div>
+    <div class="card"><h3>Source References</h3><p>Where appropriate, responses expose supporting sources so users can verify the information used.</p></div>
+    <div class="card"><h3>Human Review</h3><p>Recommendations support investigation and decision-making; people remain responsible for consequential operational actions.</p></div>
+    <div class="card"><h3>Feedback &amp; Quality</h3><p>User feedback and representative test questions provide evidence for improving accuracy and identifying unsafe or weak responses.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Success Criteria</h2>
+  <div class="criteria-list">
+    <div class="criteria"><strong>Diagnosable</strong><p>Failures generate sufficient telemetry for support teams to understand where and why a workflow failed.</p></div>
+    <div class="criteria"><strong>Auditable</strong><p>Important actions and changes leave evidence that can be reviewed after the event.</p></div>
+    <div class="criteria"><strong>Least Privilege</strong><p>Users and services receive only the access required for their responsibilities.</p></div>
+    <div class="criteria"><strong>Actionable Alerting</strong><p>Alerts identify meaningful conditions and provide enough context to begin investigation.</p></div>
+    <div class="criteria"><strong>Responsible AI</strong><p>AI outputs are grounded, reviewable and used as decision support rather than uncontrolled operational authority.</p></div>
+    <div class="criteria"><strong>Cost Awareness</strong><p>Platform components have identifiable ownership and sufficient cost visibility to support architectural trade-offs.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Planned Delivery Path</h2>
+  <div class="next-steps">
+    <div class="step-card"><span class="num">01</span><h3>Define Control Requirements</h3><p>Map current-state risks to monitoring, security, audit, recovery and AI governance requirements.</p></div>
+    <div class="step-card"><span class="num">02</span><h3>Implement Evidence</h3><p>Add telemetry, alarms, IAM boundaries, secrets handling and audit evidence to the representative solution.</p></div>
+    <div class="step-card"><span class="num">03</span><h3>Validate Operations</h3><p>Trigger representative failures and AI quality scenarios to confirm that teams can detect, understand and respond safely.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What This Demonstrates</h2>
+  <div class="grid">
+    <div class="card"><h3>Security by Design</h3><p>Security boundaries and access decisions are considered as architectural requirements, not implementation afterthoughts.</p></div>
+    <div class="card"><h3>Operational Visibility</h3><p>Designing systems so teams can understand service health, failures and dependencies through usable evidence.</p></div>
+    <div class="card"><h3>Governance</h3><p>Connecting technology choices to accountability, auditability, operational ownership and controlled change.</p></div>
+    <div class="card"><h3>Responsible AI Adoption</h3><p>Applying human oversight, grounding and quality controls to AI capabilities before expanding automation.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p><a href="index.html">Portfolio</a> | <a href="case-study.html">Case Study</a> | <a href="ai-knowledge-assistant.html">AI Knowledge Assistant</a></p>
+  <p>Observability • Security • Governance • Responsible AI • Operational Resilience</p>
+</footer>
+
+</main>
+</body>
+</html>
