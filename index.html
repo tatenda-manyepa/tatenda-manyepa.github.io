@@ -15,10 +15,16 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;line-height:1.65}
 a{color:inherit}
 .wrap{width:min(1180px,calc(100% - 34px));margin:auto}
-.topbar{position:absolute;top:22px;left:50%;transform:translateX(-50%);z-index:20;width:min(1180px,calc(100% - 34px));display:flex;justify-content:flex-end;align-items:center;padding:0;border:0}
-.nav{display:flex;gap:4px;flex-wrap:wrap;padding:5px;border:1px solid rgba(255,255,255,.20);border-radius:12px;background:rgba(7,15,26,.72);backdrop-filter:blur(10px);box-shadow:0 8px 30px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.05)}
-.nav a{text-decoration:none;color:#c5d1df;font-size:14px;padding:8px 12px;border-radius:8px;transition:.2s ease}
-.nav a:hover{color:#fff;background:#14253a;box-shadow:inset 0 0 0 1px #2d5278}
+.consulting-workflow{margin:30px auto 4px;max-width:1030px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;perspective:1400px;position:relative}
+.consulting-workflow:before{content:"";position:absolute;left:5%;right:5%;top:50%;height:2px;background:linear-gradient(90deg,rgba(77,163,255,.08),rgba(77,163,255,.62),rgba(77,163,255,.08));transform:translateY(-50%);z-index:0}
+.workflow-step{position:relative;z-index:1;text-decoration:none;min-height:92px;padding:14px 12px;border:1px solid #31577d;border-radius:13px;background:linear-gradient(155deg,#16283b 0%,#0f1b28 64%,#0b141d 100%);box-shadow:0 13px 24px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.08),inset 0 -8px 18px rgba(0,0,0,.18);transform:rotateX(5deg) translateZ(0);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left}
+.workflow-step:after{content:"";position:absolute;inset:1px;border-radius:11px;background:linear-gradient(120deg,rgba(255,255,255,.06),transparent 45%);pointer-events:none}
+.workflow-step:hover,.workflow-step:focus-visible{transform:translateY(-6px) rotateX(0deg) scale(1.02);border-color:#4da3ff;box-shadow:0 18px 34px rgba(0,0,0,.38),0 0 0 1px rgba(77,163,255,.18),0 0 26px rgba(77,163,255,.10);outline:none}
+.workflow-step .step-no{font-size:10px;font-weight:900;letter-spacing:1.4px;color:#79bfff;text-transform:uppercase;margin-bottom:4px}
+.workflow-step .step-title{font-size:14px;font-weight:850;color:#f5f7fb;line-height:1.18}
+.workflow-step .step-sub{font-size:10.5px;color:#9fb0c3;margin-top:5px;line-height:1.25}
+@media(max-width:980px){.consulting-workflow{grid-template-columns:repeat(3,1fr)}.consulting-workflow:before{display:none}}
+@media(max-width:650px){.consulting-workflow{grid-template-columns:1fr 1fr}.workflow-step{min-height:84px}}
 .hero{padding:42px 0 26px;text-align:center}
 .brand-hero{position:relative;margin-top:0;border:1px solid #25303b;border-radius:18px;overflow:hidden;background:#0d141b}
 .brand-banner{height:300px;background:linear-gradient(90deg,rgba(7,17,31,.08),rgba(67,70,170,.10)),url('Baner.jpeg') center center / cover no-repeat;position:relative}
@@ -30,7 +36,7 @@ a{color:inherit}
 .brand-content h3{font-size:28px;line-height:1.2;margin:0 auto 18px;max-width:860px}
 .brand-content p{max-width:900px;margin:0 auto;color:var(--muted);font-size:17px}
 .method-strip{display:inline-block;margin-top:22px;padding:10px 18px;border:1px solid #344050;border-radius:12px;background:#121922;font-weight:800;color:#d8e1ec}
-@media(max-width:650px){.topbar{top:14px}.brand-banner{height:220px}.brand-profile{top:155px;width:120px;height:120px}.brand-content{padding-top:74px}.brand-content h2{font-size:34px}.brand-content h3{font-size:23px}}
+@media(max-width:650px){.brand-banner{height:220px}.brand-profile{top:155px;width:120px;height:120px}.brand-content{padding-top:74px}.brand-content h2{font-size:34px}.brand-content h3{font-size:23px}}
 
 .kicker,.badge,.status{display:inline-block;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:800}
 .kicker{background:#10253e;color:#8ecbff;border:1px solid #264864}
@@ -135,22 +141,11 @@ a{color:inherit}
 .chat-body{padding:16px;color:#cbd4df;font-size:14px}
 .chat-close{float:right;background:none;border:0;color:#fff;font-size:18px;cursor:pointer}
 @media(max-width:900px){.grid,.flip-grid,.courses,.poc-grid{grid-template-columns:1fr}.arch-grid,.metrics,.tech-strip{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:650px){.section{padding:24px}.arch-grid,.metrics,.tech-strip{grid-template-columns:1fr}.nav{display:none}.hero{padding-top:46px}}
+@media(max-width:650px){.section{padding:24px}.arch-grid,.metrics,.tech-strip{grid-template-columns:1fr}.hero{padding-top:22px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="topbar">
-  <nav class="nav" aria-label="Portfolio navigation">
-    <a href="#discovery">Discovery</a>
-    <a href="#assessment">Assessment</a>
-    <a href="#design">Design</a>
-    <a href="#enterprise-architecture">Platform & Infrastructure</a>
-    <a href="#poc">PoV</a>
-    <a href="#development">Development</a>
-  </nav>
-</header>
-
 <section class="hero">
   <div class="brand-hero">
     <div class="brand-banner"></div>
@@ -162,9 +157,16 @@ a{color:inherit}
       <h2>Tatenda Manyepa</h2>
       <h3>Turning Operational Problems Into Practical AI &amp; Automation Solutions</h3>
       <p>Operational challenges are assessed to identify where AI, automation or platform improvement can create measurable value, with the strongest opportunities translated into practical, governed solutions.</p>
-      <div class="method-strip">Discover → Assess → Prioritise → Design → Prove → Govern → Measure → Scale</div>
+      <nav class="consulting-workflow" aria-label="Consulting engagement workflow">
+        <a class="workflow-step" href="#discovery"><span class="step-no">01</span><span class="step-title">Discovery</span><span class="step-sub">Business context and operational needs</span></a>
+        <a class="workflow-step" href="#assessment"><span class="step-no">02</span><span class="step-title">Assessment</span><span class="step-sub">Intervention suitability and priorities</span></a>
+        <a class="workflow-step" href="#design"><span class="step-no">03</span><span class="step-title">Solution Design</span><span class="step-sub">Capabilities, controls and technology</span></a>
+        <a class="workflow-step" href="#enterprise-architecture"><span class="step-no">04</span><span class="step-title">Platform &amp; Infrastructure</span><span class="step-sub">Resilience, observability and security</span></a>
+        <a class="workflow-step" href="#poc"><span class="step-no">05</span><span class="step-title">Proof of Value</span><span class="step-sub">Focused prototypes and validation</span></a>
+        <a class="workflow-step" href="#development"><span class="step-no">06</span><span class="step-title">Development</span><span class="step-sub">Capability growth and delivery evidence</span></a>
+      </nav>
       <div class="actions">
-        <a class="btn" href="#discovery">View Consulting Engagement →</a>
+        <a class="btn" href="https://github.com/tatenda-manyepa/enterprise-operational-modernisation" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn" href="https://linkedin.com/in/tatenda-manyepa" target="_blank">LinkedIn</a>
       </div>
     </div>
