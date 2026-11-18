@@ -69,7 +69,7 @@
 <section aria-labelledby="cloud"><p class="kicker">05 / CLOUD DESIGN</p><h2 id="cloud">Prototype now, production-ready design</h2>
 <p>The prototype keeps costs and moving parts low. The production design shows how it would run safely inside a customer’s AWS account.</p><div class="arch" aria-label="Production architecture. Select a component to see what it does.">
 <div class="zone"><span>Site equipment</span><b>Read-only boundary</b></div>
-<button class="node" type="button" aria-pressed="false" data-info="Robots, chargers, conveyors and the warehouse control system keep running exactly as before. Nothing in the copilot can send them a command."><small>Source</small><strong>Robots, WMS, WCS</strong></button>
+<button class="node" type="button" aria-pressed="false" data-info="Robots, chargers, conveyors and the warehouse control system keep running exactly as before. Nothing in the copilot can send them a command."><small>Source</small><strong>Robots and warehouse systems</strong></button>
 <button class="node" type="button" aria-pressed="false" data-info="Logs and telemetry are copied one way into Amazon S3. The copy is read-only, so the copilot can look at evidence but never change it."><small>Amazon S3</small><strong>Evidence store</strong></button>
 <button class="node" type="button" aria-pressed="false" data-info="Bedrock Knowledge Bases index the evidence so the copilot can find the records that matter for an incident, filtered to the time it was reported."><small>Bedrock KB</small><strong>Evidence search</strong></button>
 <div class="arch-flow">↓ one-way data flow ↓</div>
