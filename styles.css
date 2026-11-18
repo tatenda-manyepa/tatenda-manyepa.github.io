@@ -282,3 +282,4 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);color:var(--muted
 .bring dd{margin:0;font-size:.93rem}
 .bring small{display:block;margin-top:.2rem;font:500 .7rem var(--mono);color:var(--teal);letter-spacing:.03em}
 .creds .pending small{color:var(--amber)}
+.bring .where{color:var(--teal);font-weight:550;white-space:nowrap}
