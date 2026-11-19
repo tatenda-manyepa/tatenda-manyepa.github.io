@@ -283,3 +283,10 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);color:var(--muted
 .bring small{display:block;margin-top:.2rem;font:500 .7rem var(--mono);color:var(--teal);letter-spacing:.03em}
 .creds .pending small{color:var(--amber)}
 .bring .where{color:var(--teal);font-weight:550;white-space:nowrap}
+.shot{margin:1.2rem 0}
+.shot img{display:block;width:100%;height:auto;border:1px solid var(--line-2);border-radius:10px}
+.shot figcaption{margin-top:.5rem;font-size:.86rem;color:var(--muted)}
+.shot-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.shot-pair .shot{margin:0}
+.checklist a{color:var(--amber)}
+@media(max-width:680px){.shot-pair{grid-template-columns:1fr}}
