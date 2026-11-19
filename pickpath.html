@@ -23,7 +23,7 @@
 <h1>PickPath Copilot</h1>
 <p class="intro">Can AI help an engineer find the cause of a robot incident faster, without ever touching the robots?</p>
 <p class="case-note">Independent project built on invented data. No Inteq customer, system, data or fault code is used.</p>
-<div class="actions" style="margin-top:1.2rem"><a class="button" href="#prototype">See it working <span aria-hidden="true">↓</span></a><a class="button-ghost" href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">View the code on GitHub <span aria-hidden="true">↗</span></a></div>
+<div class="actions" style="margin-top:1.2rem"><a class="button" href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Try it live <span aria-hidden="true">↗</span></a><a class="button-ghost" href="#prototype">See how it works <span aria-hidden="true">↓</span></a><a class="button-ghost" href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">View the code on GitHub <span aria-hidden="true">↗</span></a></div>
 <dl class="case-meta">
 <div><dt>My role</dt><dd>Discovery, solution design, build</dd></div>
 <div><dt>Stack</dt><dd>Python · Streamlit · Amazon Bedrock · IAM</dd></div>
@@ -71,6 +71,7 @@
 </div>
 <h3 style="margin-top:1.6rem">How I catch AI mistakes</h3>
 <p>The app checks every answer before showing it. If the AI mentions an evidence ID or ticket number that was not in what it was given, the engineer sees a warning. I added the ticket check after spotting the mislabel above in testing.</p>
+<p><strong>Try it yourself:</strong> the <a href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener" style="color:var(--amber)">live demo</a> replays Claude’s real answers for the five example incidents. To run your own incident live, ask me for the access code. Live runs are capped daily to control cost.</p>
 <h3 style="margin-top:1.6rem">Accuracy check</h3>
 <p>I ran all five planted incidents through the copilot. It found the right root cause in <strong>5 of 5</strong>, including the three where the best fix is not AI: a rule for message rejects, an alert for a lost charge request and a maintenance fix for a recurring jam.</p>
 <figure class="shot"><a href="assets/pickpath-accuracy.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-accuracy.webp" width="1576" height="260" alt="Terminal output showing all five test incidents marked cause OK and a final score of 5 of 5" loading="lazy"></a><figcaption>Automated accuracy check: <code>python eval/run_eval.py</code></figcaption></figure>
@@ -121,6 +122,7 @@
 <li class="done"><b>19 Nov</b> GitHub repository and cloud dev environment, keys kept in encrypted secrets</li>
 <li class="done"><b>19 Nov</b> Streamlit prototype with cited answers, citation checks and engineer approval</li>
 <li class="done"><b>19 Nov</b> Accuracy check: 5 of 5 root causes</li>
+<li class="done"><b>19 Nov</b> Public demo live: example incidents for everyone, live AI with an access code and daily cap</li>
 <li class="doing"><b>Next</b> 3-minute demo video</li>
 <li class="todo"><b>Planned</b> Test on 10+ unseen incidents</li>
 </ul>
@@ -133,6 +135,7 @@
 </ul>
 <h3>Links</h3>
 <ul class="checklist">
+<li><a href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Live demo ↗</a> (examples open to all; live AI with access code on request)</li>
 <li><a href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">Code and dataset on GitHub ↗</a></li>
 <li><a href="https://github.com/tatenda-manyepa/pickpath-copilot/blob/main/eval/results.md" target="_blank" rel="noopener">Accuracy results ↗</a></li>
 <li>Demo video: coming soon</li>
