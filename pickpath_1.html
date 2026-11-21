@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PickPath Copilot: an AI incident assistant for a fictional automated warehouse, designed on AWS by Tatenda Manyepa.">
+<title>PickPath Copilot case study | Tatenda Manyepa</title>
+<meta property="og:type" content="website"><meta property="og:url" content="https://tatenda-manyepa.github.io/pickpath.html"><meta property="og:title" content="PickPath Copilot: AI incident investigation for automated warehouses"><meta property="og:description" content="A read-only AI copilot on Amazon Bedrock that explains the likely cause of a warehouse incident with cited evidence. Passed 7 of 7 tests, including two incidents it had never seen. Case study and live demo."><meta property="og:image" content="https://tatenda-manyepa.github.io/assets/og-pickpath.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="627"><meta name="twitter:card" content="summary_large_image"><meta name="author" content="Tatenda Manyepa">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav class="wrap" aria-label="Main navigation">
+<a class="brand" href="index.html"><b aria-hidden="true">TM</b><span>Tatenda Manyepa</span></a>
+<div class="navlinks"><a href="index.html#work">Work</a><a href="index.html#approach">Approach</a><a href="index.html#experience">Experience</a><a href="index.html#contact">Contact</a><a class="status-pill" href="index.html#contact">Open to UK and remote roles</a></div>
+</nav></header>
+<main id="main">
+<section class="casehero"><div class="wrap">
+<a class="back" href="index.html#work">← Back to the portfolio</a>
+<p class="kicker">Case study · Solution design · Warehouse automation</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap"><span class="badge teal">Prototype working · 7 of 7 tests passed</span><span class="badge teal">Amazon Bedrock</span></div>
+<h1>PickPath Copilot</h1>
+<p class="intro">Can AI help an engineer find the cause of a robot incident faster, without ever touching the robots?</p>
+<p class="case-note">Independent project built on invented data. No Inteq customer, system, data or fault code is used.</p>
+<div class="actions" style="margin-top:1.2rem"><a class="button" href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Try it live <span aria-hidden="true">↗</span></a><a class="button-ghost" href="#demo">Watch the 3-min demo <span aria-hidden="true">↓</span></a><a class="button-ghost" href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">View the code on GitHub <span aria-hidden="true">↗</span></a></div>
+<dl class="case-meta">
+<div><dt>My role</dt><dd>Discovery, solution design, build</dd></div>
+<div><dt>Stack</dt><dd>Python · Streamlit · Amazon Bedrock · IAM</dd></div>
+<div><dt>Customer</dt><dd>Northgate Fulfilment (fictional)</dd></div>
+<div><dt>Status</dt><dd>Working prototype · demo video below</dd></div>
+</dl>
+</div></section>
+<div class="wrap section casebody"><div>
+
+<section aria-labelledby="problem"><p class="kicker">01 / THE PROBLEM</p><h2 id="problem">Incidents cross layers. Investigations cross tools.</h2>
+<p><strong>Northgate Fulfilment</strong> (fictional) runs a 24/7 e-commerce distribution centre near the M1. Its warehouse management system releases about 2,000 order lines an hour. A warehouse control system turns them into jobs for 40 autonomous mobile robots, which bring totes from automated storage to six pick stations.</p>
+<p>When something fails, the symptom and the cause sit in different places. Pick station 3 goes idle, but the cause is a charger fault in another part of the building. Engineers spend most of each incident searching telemetry, logs, past tickets and runbooks in separate tools.</p>
+<div class="stats-grid"><div class="stat"><b>25</b><span>significant incidents a month</span></div><div class="stat"><b>70 min</b><span>average to resolve, about 40 of them spent investigating</span></div><div class="stat"><b>£8,000</b><span>of shipped value lost per hour of full stoppage</span></div><div class="stat"><b>3</b><span>missed carrier cut-offs a month</span></div></div>
+<p class="muted">All figures are stated assumptions for the fictional site.</p></section>
+
+<section aria-labelledby="judgement"><p class="kicker">02 / DISCOVERY AND JUDGEMENT</p><h2 id="judgement">AI for two incident types, not five</h2>
+<p>Before designing anything, I sorted the site’s common incidents by what would fix them best. AI earns its place only where the cause is spread across several sources and changes from one incident to the next.</p>
+<table class="case-table"><thead><tr><th scope="col">Incident type</th><th scope="col">Best fix</th><th scope="col">Why</th></tr></thead><tbody>
+<tr><td>Robot fault blocks an aisle</td><td class="ai">AI copilot</td><td>Cause spans telemetry, maps and tickets</td></tr>
+<tr><td>Robots queue at a failed charger</td><td class="ai">AI copilot</td><td>The symptom (an idle station) is far from the cause</td></tr>
+<tr><td>Warehouse system messages rejected</td><td>Automated check and alert</td><td>Same signature every time; a rule is cheaper</td></tr>
+<tr><td>Robot battery below threshold</td><td>Better alerting</td><td>One metric, one threshold</td></tr>
+<tr><td>Recurring conveyor jam at one merge</td><td>Maintenance fix</td><td>Known cause; it needs an engineering fix, not AI</td></tr>
+</tbody></table></section>
+
+<section aria-labelledby="solution"><p class="kicker">03 / THE SOLUTION</p><h2 id="solution">One question, answered with evidence</h2>
+<p>The copilot answers one question well: <em>what is most likely causing this incident, and what does the evidence say?</em></p>
+<ol class="method">
+<li><h3>Open the incident</h3><p>The engineer picks one of the shift’s open tickets, enters a ticket number, or describes what they see in plain English.</p></li>
+<li><h3>Gather the evidence</h3><p>The copilot searches robot telemetry, control system logs, past tickets and runbooks, using only records from before the incident was reported.</p></li>
+<li><h3>Explain the likely cause</h3><p>It returns the likely cause, the evidence behind it with sources, a similar past incident and the runbook step to try.</p></li>
+<li><h3>Engineer decides</h3><p>The human-in-the-loop step. The engineer checks the answer against what they see, then approves, rejects, or escalates to a senior engineer if unsure. Every decision is logged, so wrong answers become new test cases and knowledge-base fixes.</p></li>
+</ol>
+<p><strong>Deliberately out of scope:</strong> sending any command to robots, conveyors or control systems; replacing monitoring and alerting; production deployment.</p>
+<blockquote class="case-quote"><span class="c-amber">engineer › </span>“Pick station 3 has been idle for 12 minutes. Operators are waiting for totes.”</blockquote>
+<p>In the demo, the copilot has to connect a charger fault, a second charger already in planned maintenance, five robots queuing at low battery and two more blocked behind them. It also has to ignore two decoys: a past ticket with the same symptom but a different cause, and an unrelated error logged at the same time.</p>
+<p class="muted">Built with Python and Streamlit on Amazon Bedrock (Claude Sonnet 4.6, EU inference profile).</p></section>
+
+<section aria-labelledby="prototype"><p class="kicker">04 / THE PROTOTYPE</p><h2 id="prototype">It found the cause, and ignored the decoys</h2>
+<figure class="shot" id="demo" style="scroll-margin-top:6rem"><video controls preload="metadata" playsinline poster="assets/pickpath-demo-poster.webp" width="1600" height="950" style="display:block;width:100%;height:auto;border:1px solid var(--line-2);border-radius:10px;background:#000"><source src="assets/pickpath-demo.mp4" type="video/mp4">Your browser cannot play this video.</video><figcaption>3-minute walkthrough: a real incident, the human-in-the-loop step, and what it does when it has nothing to go on.</figcaption></figure>
+<p>Given only the engineer’s one-line report and the records up to 14:21, PickPath read 33 records, cited 8, and named the cause in 16 seconds: charger C2 had failed while C4 was in planned maintenance, so every robot serving station 3 was queued or blocked.</p>
+<figure class="shot"><a href="assets/pickpath-result.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-result.webp" width="1345" height="940" alt="PickPath Copilot showing the likely cause, the reasoning with evidence IDs, and the runbook step to try first" loading="lazy"></a><figcaption>The answer: likely cause, reasoning with evidence IDs, the runbook step to try first and the matching past incident.</figcaption></figure>
+<div class="shot-pair">
+<figure class="shot"><a href="assets/pickpath-evidence.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-evidence.webp" width="765" height="735" alt="List of eight cited evidence records, each expandable to the raw log or telemetry line" loading="lazy"></a><figcaption>Every claim links to a real record the engineer can open.</figcaption></figure>
+<figure class="shot"><a href="assets/pickpath-ruled-out.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-ruled-out.webp" width="765" height="437" alt="Ruled-out section explaining why a look-alike scanner ticket and an unrelated reject do not fit" loading="lazy"></a><figcaption>It rejected the look-alike scanner ticket and the unrelated PS5 reject. It also mislabelled one ticket (INC-0130 should be INC-0128), which led to the check below.</figcaption></figure>
+</div>
+<h3 style="margin-top:1.6rem">How I catch AI mistakes</h3>
+<p>The app checks every answer before showing it. If the AI mentions an evidence ID or ticket number that was not in what it was given, the engineer sees a warning. I added the ticket check after spotting the mislabel above in testing.</p>
+<p><strong>Try it yourself:</strong> the <a href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener" style="color:var(--amber)">live demo</a> replays Claude’s real answers for the seven open tickets.</p>
+<h3 style="margin-top:1.6rem">Accuracy check</h3>
+<p>First, the five planted incidents with a known cause. It found the right root cause in <strong>5 of 5</strong>, including the three where the best fix is not AI: a rule for message rejects, an alert for a lost charge request and a maintenance fix for a recurring jam.</p>
+<h3 style="margin-top:1.6rem">How it handles the unknown</h3>
+<p>A copilot that only solves problems it has seen before is not much use on a live site. So I added two incidents it had never seen: a <strong>new software bug</strong> with no fault code, past ticket or runbook, and a report with <strong>nothing in the data to go on</strong>. To pass, it has to find what it can, say that no past incident matches and invent nothing.</p>
+<p>It passed both. On the new bug, it traced the slowdown to the control system giving tasks to robots that were still busy, linked it to a software change made at 19:30, said no past ticket matched and gave <strong>medium</strong> confidence, not high. On the second, it said there was not enough evidence and listed what to check, instead of guessing.</p>
+<figure class="shot"><a href="assets/pickpath-accuracy.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-accuracy.webp" width="1542" height="350" alt="Terminal output showing all seven test incidents marked PASS: correct root cause 5 of 5, honest on unknowns 2 of 2, passed 7 of 7" loading="lazy"></a><figcaption>Automated accuracy check: <code>python eval/run_eval.py</code></figcaption></figure>
+<p class="muted">Honest limit: seven incidents I wrote alongside the data is still a small test. In a customer pilot, I’d test it on ten or more incidents written by the site’s own engineers.</p></section>
+
+<section aria-labelledby="value"><p class="kicker">05 / BUSINESS CASE</p><h2 id="value">Pays back within a quarter, even at half the benefit</h2>
+<p>If the copilot cuts investigation time from 40 to 15 minutes, the site avoids about £23,000 a month in downtime, engineer time and late-delivery penalties. Assuming only half of that is realised, and after £1,000 a month in running costs, a £25,000 pilot pays back in about 2.4 months.</p>
+<div class="stats-grid"><div class="stat"><b>~10 hrs</b><span>of lost throughput recovered a month (25 incidents × 25 minutes)</span></div><div class="stat"><b>~2.4 months</b><span>payback on a £25k pilot at 50% realised benefit</span></div></div>
+<p class="muted">Every figure is an assumption I would test with the customer during discovery.</p></section>
+
+<section aria-labelledby="cloud"><p class="kicker">06 / CLOUD DESIGN</p><h2 id="cloud">Prototype now, production-ready design</h2>
+<p>The prototype keeps costs and moving parts low. The production design shows how it would run safely inside a customer’s AWS account.</p>
+<div class="arch-pair">
+<div class="arch-label built"><span class="arch-pill">A · Built and live</span><h3>Prototype architecture</h3><p>What runs today: a Streamlit app calling Claude on Amazon Bedrock, with evidence checks and an engineer in the loop. <a href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Try it ↗</a></p></div>
+<figure class="shot arch-fig built"><a href="assets/pickpath-prototype-architecture.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-prototype-architecture.webp" width="1800" height="1400" alt="Prototype architecture, built and live: a Streamlit app gathers time-filtered evidence, replays saved answers for example tickets or calls Claude on Amazon Bedrock for new incidents, checks citations, and logs the engineer’s decision" loading="lazy"></a><figcaption>Click to enlarge</figcaption></figure>
+<div class="arch-bridge"><span>From prototype to production ↓</span></div>
+<div class="arch-label design"><span class="arch-pill">B · Design, not yet built</span><h3>Target production architecture on AWS</h3><p>How I would take it into a customer’s AWS account: managed evidence search, guardrails, company sign-in, audit and cost controls, behind a read-only boundary.</p></div>
+<figure class="shot arch-fig design"><a href="assets/pickpath-production-architecture.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-production-architecture.webp" width="1800" height="1416" alt="Target production architecture, design not yet built: one-way export from site systems to S3, Bedrock Knowledge Bases, Bedrock with Guardrails, an app on ECS Fargate behind IAM Identity Center, DynamoDB decision log, and IAM, CloudTrail, CloudWatch and Budgets" loading="lazy"></a><figcaption>Click to enlarge</figcaption></figure>
+</div><div class="arch" aria-label="Production architecture. Select a component to see what it does.">
+<div class="zone"><span>Site equipment</span><b>Read-only boundary</b></div>
+<button class="node" type="button" aria-pressed="false" data-info="Robots, chargers, conveyors and the warehouse control system keep running exactly as before. Nothing in the copilot can send them a command."><small>Source</small><strong>Robots and warehouse systems</strong></button>
+<button class="node" type="button" aria-pressed="false" data-info="Logs and telemetry are copied one way into Amazon S3. The copy is read-only, so the copilot can look at evidence but never change it."><small>Amazon S3</small><strong>Evidence store</strong></button>
+<button class="node" type="button" aria-pressed="false" data-info="Bedrock Knowledge Bases index the evidence so the copilot can find the records that matter for an incident, filtered to the time it was reported."><small>Bedrock KB</small><strong>Evidence search</strong></button>
+<div class="arch-flow">↓ one-way data flow ↓</div>
+<button class="node ai" type="button" aria-pressed="false" data-info="Claude on Amazon Bedrock reads the evidence and explains the likely cause with citations. Guardrails block answers without evidence. Data stays in the company’s AWS account."><small>Amazon Bedrock</small><strong>AI model</strong></button>
+<button class="node" type="button" aria-pressed="false" data-info="A Streamlit app on Amazon ECS Fargate, behind company sign-in. Each component has its own least-privilege IAM role, and CloudWatch tracks usage and cost."><small>ECS Fargate</small><strong>Copilot app</strong></button>
+<button class="node human" type="button" aria-pressed="false" data-info="The engineer reads the evidence, approves, rejects or escalates the recommendation and takes any action through existing tools. Every decision is logged."><small>Human</small><strong>Engineer decides</strong></button>
+<div class="arch-info" aria-live="polite">Select a component to see what it does.</div>
+</div>
+<table class="case-table"><thead><tr><th scope="col">Layer</th><th scope="col">Prototype</th><th scope="col">Production design</th></tr></thead><tbody>
+<tr><td>Data</td><td>Fictional dataset files</td><td>Logs and telemetry copied one way into Amazon S3</td></tr>
+<tr><td>Evidence search</td><td>Python filters records by time and relevance</td><td>Amazon Bedrock Knowledge Bases over S3</td></tr>
+<tr><td>AI model</td><td>Claude Sonnet 4.6 on Amazon Bedrock, EU inference profile</td><td>Same model, with Bedrock Guardrails</td></tr>
+<tr><td>App</td><td>Streamlit in a cloud dev environment</td><td>Container on Amazon ECS Fargate behind company sign-in</td></tr>
+<tr><td>Access</td><td>IAM user that can only call the model</td><td>Separate least-privilege IAM role for each component</td></tr>
+<tr><td>Cost and monitoring</td><td>£10 monthly budget alarm</td><td>CloudWatch usage alarms, dashboards and a monthly budget cap</td></tr>
+</tbody></table>
+<p>The design follows AWS Well-Architected priorities: <strong>security</strong> through read-only access and least privilege, <strong>cost</strong> through pay-per-use AI and budget alarms, and <strong>reliability</strong> through a simple rollback, because switching the copilot off leaves the existing process unchanged.</p></section>
+
+<section aria-labelledby="governance"><p class="kicker">07 / RISKS AND GOVERNANCE</p><h2 id="governance">The copilot advises. An engineer decides.</h2>
+<table class="case-table"><thead><tr><th scope="col">Risk</th><th scope="col">Control</th></tr></thead><tbody>
+<tr><td>AI suggests the wrong cause</td><td>Every answer cites its evidence; no evidence, no recommendation; engineer approval required</td></tr>
+<tr><td>Unsafe action on physical equipment</td><td>Strictly read-only, with no write access to robots, conveyors or control systems</td></tr>
+<tr><td>Sensitive operational data exposed</td><td>Least-privilege access; data stays in the company’s cloud account</td></tr>
+<tr><td>Accuracy drifts as the site changes</td><td>Monthly test against known incidents; new tickets added to the knowledge base</td></tr>
+<tr><td>Nobody owns it after launch</td><td>Named owner in operations; rollback means switching it off, with the existing process unchanged</td></tr>
+</tbody></table>
+<p><strong>Before production:</strong> a formal accuracy evaluation, access control and audit, a security review, and a one-site pilot with success criteria agreed up front.</p></section>
+
+<section aria-labelledby="learned"><p class="kicker">08 / WHAT I LEARNED</p><h2 id="learned">Every mistake became a safeguard</h2>
+<table class="case-table"><thead><tr><th scope="col">What went wrong</th><th scope="col">What I changed</th></tr></thead><tbody>
+<tr><td>The AI was confidently wrong once: it found the right past incident but gave it the wrong number (INC-0130 instead of INC-0128)</td><td>Added an automatic check that flags any ticket number or evidence ID that was not in what the AI was given</td></tr>
+<tr><td>A long answer was cut off halfway, so the app could not read it</td><td>Raised the response limit and told the model to keep answers tight: at most 8 evidence items and 3 checks</td></tr>
+<tr><td>Passing five incidents I wrote myself proved too little about surprises</td><td>Added a new-bug test and a no-data test that it passes only by admitting what it does not know</td></tr>
+</tbody></table>
+<p><strong>In a pilot:</strong> test on ten or more incidents written by the site’s engineers, and pull tickets straight from the service desk instead of typing them in.</p></section>
+
+</div>
+<aside class="panel evidence" aria-labelledby="progress"><p class="kicker">09 / BUILD LOG</p><h2 id="progress">Progress</h2>
+<p class="mono" style="margin:0 0 .8rem;color:var(--dim)">Rapid prototype · Nov 2026</p>
+<ul class="checklist">
+<li class="done"><b>Data</b> Fictional dataset: telemetry, logs, 20 past tickets, 5 runbooks, 7 test incidents</li>
+<li class="done"><b>Cloud</b> Amazon Bedrock access, budget alarm and a model-only IAM user, keys kept in encrypted secrets</li>
+<li class="done"><b>Build</b> Streamlit prototype with cited answers, citation checks and engineer approval</li>
+<li class="done"><b>Test</b> Accuracy check: 7 of 7, including 2 incidents it had never seen</li>
+<li class="done"><b>Share</b> Public demo: seven open tickets anyone can try</li>
+<li class="done"><b>Demo</b> 3-minute walkthrough video</li>
+<li class="todo"><b>Pilot</b> Test on 10+ incidents from the site’s engineers and pull tickets from the service desk</li>
+</ul>
+<h3>Decisions so far</h3>
+<ul class="checklist">
+<li>Evidence is filtered to the time the incident was reported, so the copilot cannot read the answer</li>
+<li>The app’s cloud user can only call the AI model and nothing else</li>
+<li>Every answer is checked for evidence or tickets that were not provided</li>
+<li>Data stays in Europe, using an EU inference profile</li>
+</ul>
+<h3>Links</h3>
+<ul class="checklist">
+<li><a href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Live demo ↗</a></li>
+<li><a href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">Code and dataset on GitHub ↗</a></li>
+<li><a href="https://github.com/tatenda-manyepa/pickpath-copilot/blob/main/eval/results.md" target="_blank" rel="noopener">Accuracy results ↗</a></li>
+<li><a href="#demo">Demo video (3 min) ↓</a></li>
+</ul></aside>
+</div></main>
+<footer><div class="wrap foot"><p>Tatenda Manyepa · Solutions Engineering · Cloud · AI</p><p>© 2026</p></div></footer>
+<script src="navigation.js" defer></script>
+</body>
+</html>
