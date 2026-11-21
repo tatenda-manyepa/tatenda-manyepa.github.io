@@ -24,12 +24,12 @@
 <h1>PickPath Copilot</h1>
 <p class="intro">Can AI help an engineer find the cause of a robot incident faster, without ever touching the robots?</p>
 <p class="case-note">Independent project built on invented data. No Inteq customer, system, data or fault code is used.</p>
-<div class="actions" style="margin-top:1.2rem"><a class="button" href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Try it live <span aria-hidden="true">↗</span></a><a class="button-ghost" href="#prototype">See how it works <span aria-hidden="true">↓</span></a><a class="button-ghost" href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">View the code on GitHub <span aria-hidden="true">↗</span></a></div>
+<div class="actions" style="margin-top:1.2rem"><a class="button" href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Try it live <span aria-hidden="true">↗</span></a><a class="button-ghost" href="#demo">Watch the 3-min demo <span aria-hidden="true">↓</span></a><a class="button-ghost" href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">View the code on GitHub <span aria-hidden="true">↗</span></a></div>
 <dl class="case-meta">
 <div><dt>My role</dt><dd>Discovery, solution design, build</dd></div>
 <div><dt>Stack</dt><dd>Python · Streamlit · Amazon Bedrock · IAM</dd></div>
 <div><dt>Customer</dt><dd>Northgate Fulfilment (fictional)</dd></div>
-<div><dt>Status</dt><dd>Working prototype · demo video coming</dd></div>
+<div><dt>Status</dt><dd>Working prototype · demo video below</dd></div>
 </dl>
 </div></section>
 <div class="wrap section casebody"><div>
@@ -64,6 +64,7 @@
 <p class="muted">Built with Python and Streamlit on Amazon Bedrock (Claude Sonnet 4.6, EU inference profile).</p></section>
 
 <section aria-labelledby="prototype"><p class="kicker">04 / THE PROTOTYPE</p><h2 id="prototype">It found the cause, and ignored the decoys</h2>
+<figure class="shot" id="demo" style="scroll-margin-top:6rem"><video controls preload="metadata" playsinline poster="assets/pickpath-demo-poster.webp" width="1600" height="950" style="display:block;width:100%;height:auto;border:1px solid var(--line-2);border-radius:10px;background:#000"><source src="assets/pickpath-demo.mp4" type="video/mp4">Your browser cannot play this video.</video><figcaption>3-minute walkthrough: a real incident, the human-in-the-loop step, and what it does when it has nothing to go on.</figcaption></figure>
 <p>Given only the engineer’s one-line report and the records up to 14:21, PickPath read 33 records, cited 8, and named the cause in 16 seconds: charger C2 had failed while C4 was in planned maintenance, so every robot serving station 3 was queued or blocked.</p>
 <figure class="shot"><a href="assets/pickpath-result.webp" target="_blank" rel="noopener" title="Open full size"><img src="assets/pickpath-result.webp" width="1345" height="940" alt="PickPath Copilot showing the likely cause, the reasoning with evidence IDs, and the runbook step to try first" loading="lazy"></a><figcaption>The answer: likely cause, reasoning with evidence IDs, the runbook step to try first and the matching past incident.</figcaption></figure>
 <div class="shot-pair">
@@ -142,8 +143,9 @@
 <li class="done"><b>Build</b> Streamlit prototype with cited answers, citation checks and engineer approval</li>
 <li class="done"><b>Test</b> Accuracy check: 7 of 7, including 2 incidents it had never seen</li>
 <li class="done"><b>Share</b> Public demo: seven open tickets anyone can try</li>
-<li class="doing"><b>Next</b> 3-minute demo video</li>
-<li class="todo"><b>Planned</b> Test on 10+ unseen incidents</li>
+<li class="done"><b>Demo</b> 3-minute walkthrough video</li>
+<li class="doing"><b>Next</b> Test on 10+ incidents written by someone else</li>
+<li class="todo"><b>Planned</b> Pull tickets straight from the service desk</li>
 </ul>
 <h3>Decisions so far</h3>
 <ul class="checklist">
@@ -157,7 +159,7 @@
 <li><a href="https://pickpath-copilot.streamlit.app" target="_blank" rel="noopener">Live demo ↗</a></li>
 <li><a href="https://github.com/tatenda-manyepa/pickpath-copilot" target="_blank" rel="noopener">Code and dataset on GitHub ↗</a></li>
 <li><a href="https://github.com/tatenda-manyepa/pickpath-copilot/blob/main/eval/results.md" target="_blank" rel="noopener">Accuracy results ↗</a></li>
-<li>Demo video: coming soon</li>
+<li><a href="#demo">Demo video (3 min) ↓</a></li>
 </ul></aside>
 </div></main>
 <footer><div class="wrap foot"><p>Tatenda Manyepa · Solutions Engineering · Cloud · AI</p><p>© 2026</p></div></footer>
