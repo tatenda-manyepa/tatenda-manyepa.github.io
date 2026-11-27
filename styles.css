@@ -301,3 +301,5 @@ footer{border-top:1px solid var(--line);background:var(--bg-2);color:var(--muted
 .arch-fig{margin-top:0}.arch-fig img{border:2px solid var(--lc)}
 .arch-bridge{text-align:center;margin:1.4rem 0 .4rem}
 .arch-bridge span{display:inline-block;padding:.35rem .9rem;border:1px dashed var(--line-2);border-radius:99px;color:var(--muted);font:500 .8rem var(--mono)}
+
+@media (max-width:640px){.navlinks .status-pill{display:none}}

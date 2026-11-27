@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="JobDesk: how Tatenda Manyepa took an AI booking assistant for trades businesses from customer problem to requirements, testing and launch plan.">
+<title>JobDesk delivery case study | Tatenda Manyepa</title>
+<meta property="og:type" content="website"><meta property="og:url" content="https://tatenda-manyepa.github.io/jobdesk.html"><meta property="og:title" content="JobDesk: from customer problem to launch plan"><meta property="og:description" content="Discovery, requirements, user stories, testing and success measures for an AI booking assistant for trades businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.flow{list-style:none;padding:0;margin:1rem 0;display:flex;flex-wrap:wrap;gap:.5rem;align-items:stretch}
+.flow li{flex:1 1 120px;padding:.75rem .85rem;border:1px solid var(--line);border-radius:10px;background:var(--bg-2);font-size:.9rem;color:var(--muted);position:relative}
+.flow li b{display:block;color:var(--text);font-size:.92rem;margin-bottom:.15rem}
+.flow.before li:last-child{border-color:#ff7a6b77}
+.flow.after li:last-child{border-color:#4fd1a577}
+.flow-label{font:500 .75rem var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:1.2rem 0 .2rem}
+.moscow{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin:1rem 0}
+.moscow div{padding:1rem;border:1px solid var(--line);border-radius:10px;background:var(--bg-2)}
+.moscow h3{margin:0 0 .4rem;font-size:1rem}
+.moscow ul{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.9rem}
+.moscow li{margin-bottom:.3rem}
+.case-table td:first-child{white-space:nowrap;color:var(--amber);font:500 .8rem var(--mono)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav class="wrap" aria-label="Main navigation">
+<a class="brand" href="index.html"><b aria-hidden="true">TM</b><span>Tatenda Manyepa</span></a>
+<div class="navlinks"><a href="index.html#work">Work</a><a href="index.html#approach">Approach</a><a href="index.html#experience">Experience</a><a href="index.html#contact">Contact</a><a class="status-pill" href="index.html#contact">Open to UK and remote roles</a></div>
+</nav></header>
+<main id="main">
+<section class="casehero"><div class="wrap">
+<a class="back" href="index.html#work">← Back to the portfolio</a>
+<p class="kicker">Delivery case study · Discovery · Requirements · Launch</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap"><span class="badge teal">Launching · founding customers</span><span class="badge">AI with owner-set limits</span></div>
+<h1>JobDesk</h1>
+<p class="intro">How do you stop a one-person trades business losing jobs while they’re busy doing one?</p>
+<p class="case-note">Delivered for KAI-TEQ, the small technology consultancy where I work part-time as an AI Solutions Consultant. This page shows how I took it from a customer problem to a product ready for its first customers. Results will be added as they come in.</p>
+<dl class="case-meta">
+<div><dt>My role</dt><dd>Discovery, requirements, solution design, pricing, build, testing</dd></div>
+<div><dt>Customers</dt><dd>Plumbers, electricians, cleaners and other trades</dd></div>
+<div><dt>Channel</dt><dd>WhatsApp and missed-call text-back</dd></div>
+<div><dt>Live page</dt><dd><a href="https://tatenda-manyepa.github.io/kaiteq-preview/#top">See JobDesk ↗</a></dd></div>
+</dl>
+</div></section>
+<div class="wrap section casebody"><div>
+
+<section aria-labelledby="problem"><p class="kicker">01 / THE PROBLEM</p><h2 id="problem">Every missed call is a job someone else gets</h2>
+<p>Trades owners can’t answer the phone up a ladder or under a sink. Customers rarely leave voicemails; they ring the next number. Messages pile up, and quotes, invoices and chasing payments all happen in the evening.</p>
+<ul class="checklist">
+<li class="done"><b>Lost work</b> Unanswered calls during the working day go to competitors</li>
+<li class="done"><b>Lost evenings</b> Back-and-forth about times, prices and addresses</li>
+<li class="done"><b>Root cause</b> The owner is the only person who can reply, and they’re busy working</li>
+</ul>
+</section>
+
+<section aria-labelledby="discovery"><p class="kicker">02 / DISCOVERY</p><h2 id="discovery">Start with how their day really works</h2>
+<p>Before designing anything, I spoke to trades business owners about how enquiries arrive and where they get lost. The questions I asked:</p>
+<ul class="checklist">
+<li>How do new customers contact you, and what happens when you can’t answer?</li>
+<li>What details do you need before you can book a job?</li>
+<li>Which jobs would you happily let something book for you, and which must you see first?</li>
+<li>What would make you stop trusting an assistant replying in your name?</li>
+<li>What is one job worth to you, and how many do you think you lose a week?</li>
+</ul>
+<p><b>What I learned:</b> they didn’t want a chatbot. They wanted their phone to keep working while they couldn’t, <b>without losing control</b> of their diary, prices or the areas they cover.</p>
+</section>
+
+<section aria-labelledby="process"><p class="kicker">03 / PROCESS MAP</p><h2 id="process">Before and after</h2>
+<p class="flow-label c-red">Before</p>
+<ol class="flow before">
+<li><b>Customer calls</b>Owner is on a job</li>
+<li><b>Call missed</b>No voicemail left</li>
+<li><b>Customer waits</b>Then rings the next trade</li>
+<li><b>Owner rings back at 7pm</b>Job already booked elsewhere</li>
+</ol>
+<p class="flow-label c-teal">After</p>
+<ol class="flow after">
+<li><b>Customer messages or calls</b>Missed call gets an instant text</li>
+<li><b>JobDesk replies in seconds</b>In the business’s name</li>
+<li><b>Collects the details</b>What, where, when</li>
+<li><b>Offers real diary slots</b>Within the owner’s rules</li>
+<li><b>Owner approves in one tap</b>Job card and reminder sent</li>
+</ol>
+</section>
+
+<section aria-labelledby="reqs"><p class="kicker">04 / REQUIREMENTS</p><h2 id="reqs">What it must do first, and what can wait</h2>
+<div class="moscow">
+<div><h3 class="c-teal">Must have</h3><ul><li>Reply to WhatsApp and missed calls straight away</li><li>Collect the job, postcode and preferred time</li><li>Offer only real slots from the owner’s diary</li><li>Book only within set hours, areas and prices</li><li>Owner approval before confirming (until they choose auto-confirm)</li></ul></div>
+<div><h3 class="c-amber">Should have</h3><ul><li>Reminder the day before the job</li><li>Hand over to the owner when a question is out of scope</li><li>Simple diary view on phone, tablet or laptop</li></ul></div>
+<div><h3>Could have (later plans)</h3><ul><li>Quotes drafted from customer photos</li><li>Deposits and payment chasing</li><li>Review requests and social posts</li><li>A weekly summary of jobs and money owed</li></ul></div>
+<div><h3 class="c-red">Won’t do</h3><ul><li>Book outside the owner’s rules</li><li>Make up prices or promise times not in the diary</li><li>Reply as a person; it always speaks for the business</li></ul></div>
+</div>
+</section>
+
+<section aria-labelledby="stories"><p class="kicker">05 / USER STORIES</p><h2 id="stories">Written so they can be tested</h2>
+<table class="case-table"><thead><tr><th scope="col">ID</th><th scope="col">User story</th><th scope="col">Acceptance criteria</th></tr></thead><tbody>
+<tr><td>JD-01</td><td>As a trades owner, I want missed calls to get an instant text so the customer doesn’t ring someone else.</td><td>Given a missed call in working hours, when the call ends, then the caller gets a text in the business’s name within 1 minute.</td></tr>
+<tr><td>JD-02</td><td>As a customer, I want to book by WhatsApp without waiting for a call back.</td><td>Given a new enquiry, when the customer gives the job, postcode and preferred day, then they’re offered at least two real free slots.</td></tr>
+<tr><td>JD-03</td><td>As a trades owner, I want JobDesk to book only within my rules so I stay in control.</td><td>Given a postcode outside the owner’s area, when the customer asks to book, then no slot is offered and the owner is notified.</td></tr>
+<tr><td>JD-04</td><td>As a trades owner, I want to approve bookings until I trust it.</td><td>Given approval mode is on, when a customer picks a slot, then the owner gets a job card and the booking confirms only after one tap.</td></tr>
+<tr><td>JD-05</td><td>As a customer, I want a reminder so I don’t miss the visit.</td><td>Given a confirmed job, when it is the day before, then the customer receives a reminder with the time and job summary.</td></tr>
+</tbody></table>
+</section>
+
+<section aria-labelledby="value"><p class="kicker">06 / BUSINESS CASE</p><h2 id="value">Worth it if it saves one job a month</h2>
+<p>I built an interactive calculator into the live page so each owner can test the value with their own numbers. With a modest example:</p>
+<table class="case-table"><tbody>
+<tr><td>Input</td><td>5 missed enquiries a week, £150 average job, 40% would have booked</td></tr>
+<tr><td>Work at risk</td><td>About £1,299 a month</td></tr>
+<tr><td>Price</td><td>£49 a month, so one saved job more than covers it</td></tr>
+</tbody></table>
+<p class="muted">Modelled example, not a measured result. Real figures will come from the founding customers.</p>
+</section>
+
+<section aria-labelledby="testing"><p class="kicker">07 / TESTING AND LAUNCH</p><h2 id="testing">Test cases for the awkward moments, then a small launch</h2>
+<ul class="checklist">
+<li><b>Out of hours</b> A 10pm message gets a reply and next-day slots, not a promise for tonight</li>
+<li><b>Out of area</b> No booking offered; the owner decides</li>
+<li><b>Double booking</b> A slot taken by another customer is never offered</li>
+<li><b>Changed mind</b> The customer can move or cancel, and the diary updates</li>
+<li><b>Out of scope</b> Questions about price exceptions or emergencies are handed to the owner</li>
+</ul>
+<p><b>Launch plan:</b> start with a small group of founding customers in approval mode, review every conversation with them weekly, then switch on auto-confirm only when each owner is comfortable.</p>
+<p><b>How success will be measured:</b> time to first reply, share of enquiries that become bookings, owner overrides (a trust signal), and evening admin time saved.</p>
+</section>
+
+<section aria-labelledby="learned"><p class="kicker">08 / WHAT I LEARNED</p><h2 id="learned">Trust decides adoption</h2>
+<p>The hardest requirement wasn’t technical. It was making owners comfortable letting something reply in their name. Approval mode, clear rules and a simple handover are what make the AI usable, which is the same lesson I apply in every AI project.</p>
+<p>Interested in something similar? <a href="index.html#contact">Get in touch →</a></p>
+</section>
+
+</div>
+<aside class="panel evidence" aria-labelledby="glance"><p class="kicker">AT A GLANCE</p><h2 id="glance">How I delivered it</h2>
+<ul class="checklist">
+<li class="done"><b>Discover</b> Owner conversations about where jobs get lost</li>
+<li class="done"><b>Define</b> Prioritised requirements and testable user stories</li>
+<li class="done"><b>Design</b> AI inside owner-set limits, with approval mode</li>
+<li class="done"><b>Prove value</b> ROI calculator and £49/month pricing</li>
+<li class="done"><b>Launch</b> Founding customers, measured weekly</li>
+</ul>
+<h3>Related</h3>
+<ul class="checklist">
+<li><a href="https://tatenda-manyepa.github.io/kaiteq-preview/#top">JobDesk live page ↗</a></li>
+<li><a href="kaiteq.html">KAI-TEQ Operations Platform →</a></li>
+<li><a href="pickpath.html">PickPath Copilot →</a></li>
+</ul></aside>
+</div></main>
+<footer><div class="wrap foot"><p>Tatenda Manyepa · Implementation · Analysis · AI</p><p>© 2026</p></div></footer>
+<script src="navigation.js" defer></script>
+</body>
+</html>
